@@ -13,17 +13,27 @@ const ContactInfo: FC = () => {
             </div>
             <div>
               <p className="text-sm font-medium mb-1">Email</p>
-              <a href="mailto:hello@example.com" className="text-ghibli-blue dark:text-ghibli-lightBlue hover:underline">hello@example.com</a>
+              <a href="mailto:borowiec.k@gmail.com" className="text-ghibli-blue dark:text-ghibli-lightBlue hover:underline">borowiec.k@gmail.com</a>
             </div>
           </div>
           
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10 rounded-full bg-ghibli-lightPink dark:bg-ghibli-pink/30 flex items-center justify-center flex-shrink-0">
-              <i className="fas fa-map-marker-alt text-ghibli-pink dark:text-ghibli-lightPink"></i>
+              <i className="fas fa-phone text-ghibli-pink dark:text-ghibli-lightPink"></i>
+            </div>
+            <div>
+              <p className="text-sm font-medium mb-1">Phone</p>
+              <p>+48 570 223 108</p>
+            </div>
+          </div>
+          
+          <div className="flex items-start space-x-4">
+            <div className="w-10 h-10 rounded-full bg-ghibli-lightBlue dark:bg-ghibli-blue/30 flex items-center justify-center flex-shrink-0">
+              <i className="fas fa-map-marker-alt text-ghibli-blue dark:text-ghibli-lightBlue"></i>
             </div>
             <div>
               <p className="text-sm font-medium mb-1">Location</p>
-              <p>San Francisco, California</p>
+              <p>Poland</p>
             </div>
           </div>
           
@@ -44,7 +54,7 @@ const ContactInfo: FC = () => {
         
         <div className="flex space-x-4">
           <a
-            href="https://github.com"
+            href="https://github.com/konutech"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center hover:bg-ghibli-lightBlue dark:hover:bg-ghibli-blue/30 transition-colors duration-300"
@@ -53,7 +63,7 @@ const ContactInfo: FC = () => {
             <i className="fab fa-github text-xl"></i>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/32167"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center hover:bg-ghibli-lightBlue dark:hover:bg-ghibli-blue/30 transition-colors duration-300"
@@ -62,22 +72,13 @@ const ContactInfo: FC = () => {
             <i className="fab fa-linkedin text-xl"></i>
           </a>
           <a
-            href="https://twitter.com"
+            href="https://credly.com/users/konrad-borowiec/badges"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center hover:bg-ghibli-lightBlue dark:hover:bg-ghibli-blue/30 transition-colors duration-300"
-            aria-label="Twitter"
+            aria-label="Credly"
           >
-            <i className="fab fa-twitter text-xl"></i>
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-md flex items-center justify-center hover:bg-ghibli-lightBlue dark:hover:bg-ghibli-blue/30 transition-colors duration-300"
-            aria-label="Instagram"
-          >
-            <i className="fab fa-instagram text-xl"></i>
+            <i className="fas fa-certificate text-xl"></i>
           </a>
         </div>
       </div>

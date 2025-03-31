@@ -18,10 +18,10 @@ const Hero = () => {
           >
             <p className="text-ghibli-purple dark:text-ghibli-lightPink font-nunito font-bold mb-4">Hello, I'm</p>
             <h1 className="font-nunito font-extrabold text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-ghibli-blue via-ghibli-purple to-ghibli-pink bg-clip-text text-transparent">
-              Dev Portfolio
+              Konrad Borowiec
             </h1>
             <p className="text-lg mb-8 max-w-lg mx-auto md:mx-0">
-              A passionate full-stack developer crafting beautiful, functional web experiences with a touch of magic ✨
+              A Data Engineer & Analyst specializing in data processing, analytics, and machine learning solutions ✨
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a 
@@ -42,16 +42,17 @@ const Hero = () => {
           <motion.div 
             className="md:w-1/2 flex justify-center"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            animate={{ y: [0, -10, 0] }}
+            animate={{ 
+              opacity: 1,
+              y: [0, -10, 0]
+            }}
             transition={{
+              opacity: { duration: 0.8, delay: 0.2 },
               y: {
                 duration: 6,
                 repeat: Infinity,
                 ease: "easeInOut"
-              },
-              opacity: { duration: 0.8 }
+              }
             }}
           >
             <div className="relative">
@@ -72,14 +73,14 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <div className="flex space-x-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-ghibli-pink transition-colors duration-300" aria-label="GitHub">
+            <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-ghibli-pink transition-colors duration-300" aria-label="GitHub">
               <i className="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-ghibli-pink transition-colors duration-300" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-ghibli-pink transition-colors duration-300" aria-label="LinkedIn">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-ghibli-pink transition-colors duration-300" aria-label="Twitter">
-              <i className="fab fa-twitter"></i>
+            <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-ghibli-pink transition-colors duration-300" aria-label="Credly">
+              <i className="fas fa-certificate"></i>
             </a>
           </div>
         </motion.div>

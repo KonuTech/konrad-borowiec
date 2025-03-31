@@ -9,22 +9,40 @@ type TimelineItem = {
 
 const timelineItems: TimelineItem[] = [
   {
-    title: "Senior Frontend Developer",
-    organization: "InnovateX Solutions",
-    period: "2020 - Present",
-    description: "Led development of multiple client projects using React and TypeScript. Mentored junior developers and implemented best practices for code quality and performance."
+    title: "Data Analytics & Engineering",
+    organization: "Public Sector",
+    period: "08.2024 - 02.2025",
+    description: "Worked with Oracle SQL/PL/SQL for national data reporting. Developed a PoC application to visualize routes between controlled entities and controllers using Python and SQL."
   },
   {
-    title: "Web Developer",
-    organization: "Digital Creators Agency",
-    period: "2018 - 2020",
-    description: "Developed responsive web applications and e-commerce solutions. Worked in an agile environment with a focus on high-quality user experiences."
+    title: "B2B Consultant",
+    organization: "B2B.NET S.A. (BNP Paribas Bank Polska S.A.)",
+    period: "07.2023 - 03.2024",
+    description: "Developed ELT data pipelines for Open Banking, processing JSON data into Hive tables using MongoDB, HDFS, HiveSQL, Python, and Airflow."
   },
   {
-    title: "BSc Computer Science",
-    organization: "University of Technology",
-    period: "2014 - 2018",
-    description: "Graduated with honors. Specialized in web technologies and interactive systems. Completed capstone project on generative art with JavaScript."
+    title: "Big Data Developer",
+    organization: "Crestt Sp z o.o. (Bank Pekao, Nationale-Nederlanden)",
+    period: "02.2021 - 06.2022",
+    description: "Built batch data processing solutions using Airflow, Python, PySpark, and Hive. Developed churn classifiers and HR dashboards using SAS Viya."
+  },
+  {
+    title: "Business Intelligence Analyst",
+    organization: "PZU S.A.",
+    period: "10.2020 - 01.2021",
+    description: "Tested output tables created by SAS Developers and maintained documentation for the Property Insurances department."
+  },
+  {
+    title: "MSc Finance and Accounting",
+    organization: "Warsaw School of Economics",
+    period: "02.2012 - 11.2014",
+    description: "Specialized in International financial markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account."
+  },
+  {
+    title: "Big Data Engineering",
+    organization: "Polish-Japanese Academy of Information Technology",
+    period: "03.2018 - 02.2019",
+    description: "Postgraduate studies in Large Data Sets Engineering. Developed a movie recommender system using Python for the end project."
   }
 ];
 

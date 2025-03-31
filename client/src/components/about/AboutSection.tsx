@@ -22,10 +22,10 @@ const AboutSection = () => {
           >
             <h3 className="font-nunito font-bold text-2xl mb-6 text-ghibli-purple dark:text-ghibli-lightPink">My Journey</h3>
             <p className="mb-4 leading-relaxed">
-              I'm a creative full-stack developer with a passion for building beautiful, functional web applications that delight users. With a background in both design and development, I bring a unique perspective to every project.
+              I'm a Data Engineer and Analyst with a strong background in financial services and telecommunications sectors. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.
             </p>
             <p className="mb-6 leading-relaxed">
-              My journey began with a love for problem-solving and visual storytelling, which naturally led me to web development. I enjoy the balance of technical challenges and creative expression that this field offers.
+              My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, scalable solutions.
             </p>
             
             <h3 className="font-nunito font-bold text-2xl mb-6 text-ghibli-purple dark:text-ghibli-lightPink">Tech Stack</h3>

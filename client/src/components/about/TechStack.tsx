@@ -6,14 +6,14 @@ type TechItem = {
 };
 
 const techStack: TechItem[] = [
-  { name: "React", icon: "fab fa-react" },
-  { name: "Node.js", icon: "fab fa-node-js" },
-  { name: "TypeScript", icon: "fab fa-js" },
-  { name: "Tailwind CSS", icon: "fab fa-css3-alt" },
-  { name: "MongoDB", icon: "fas fa-database" },
-  { name: "Express", icon: "fas fa-server" },
-  { name: "Git", icon: "fas fa-code-branch" },
-  { name: "Responsive", icon: "fas fa-mobile-alt" }
+  { name: "SQL", icon: "fas fa-database" },
+  { name: "Python", icon: "fab fa-python" },
+  { name: "Docker", icon: "fab fa-docker" },
+  { name: "Oracle", icon: "fas fa-database" },
+  { name: "PySpark", icon: "fab fa-python" },
+  { name: "Airflow", icon: "fas fa-wind" },
+  { name: "Hadoop", icon: "fas fa-server" },
+  { name: "SAS", icon: "fas fa-chart-line" }
 ];
 
 const TechStack: FC = () => {

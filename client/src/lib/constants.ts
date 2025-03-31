@@ -1,10 +1,10 @@
-export const GITHUB_URL = "https://github.com";
-export const LINKEDIN_URL = "https://linkedin.com";
-export const TWITTER_URL = "https://twitter.com";
-export const INSTAGRAM_URL = "https://instagram.com";
+export const GITHUB_URL = "https://github.com/konutech";
+export const LINKEDIN_URL = "https://linkedin.com/in/32167";
+export const CREDLY_URL = "https://credly.com/users/konrad-borowiec/badges";
 
-export const EMAIL_ADDRESS = "hello@example.com";
-export const LOCATION = "San Francisco, California";
+export const EMAIL_ADDRESS = "borowiec.k@gmail.com";
+export const PHONE_NUMBER = "+48 570 223 108";
+export const LOCATION = "Poland";
 export const WORKING_HOURS = "Mon - Fri: 9:00 AM - 6:00 PM";
 
 // Book genres and their color mappings

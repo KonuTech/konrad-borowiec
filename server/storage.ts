@@ -60,32 +60,42 @@ export class MemStorage implements IStorage {
     // Sample projects
     const sampleProjects: InsertProject[] = [
       {
-        title: "E-commerce Dashboard",
-        description: "A comprehensive dashboard for managing online stores, featuring real-time analytics, inventory management, and order processing.",
-        imageUrl: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        liveUrl: "https://example.com/ecommerce",
-        githubUrl: "https://github.com/example/ecommerce",
-        technologies: ["React", "TypeScript", "Node.js", "MongoDB"],
+        title: "Open Banking Data Pipeline",
+        description: "Developed ELT data pipelines for the Open Banking area at BNP Paribas, flattening and normalizing JSON data into Hive tables for analytics.",
+        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        liveUrl: "https://github.com/konutech",
+        githubUrl: "https://github.com/konutech",
+        technologies: ["MongoDB", "HDFS", "HiveSQL", "Python", "Airflow"],
         featured: true,
         userId: null
       },
       {
-        title: "Financial Planning App",
-        description: "A personal finance application that helps users track expenses, set savings goals, and visualize spending patterns with interactive charts.",
-        imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80",
-        liveUrl: "https://example.com/finance",
-        githubUrl: "https://github.com/example/finance",
-        technologies: ["React", "Redux", "Express", "D3.js"],
+        title: "Churn Prediction Model",
+        description: "Developed and operationalized a customer churn prediction classifier for an insurance company, improving retention strategies and minimizing customer attrition.",
+        imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        liveUrl: "https://github.com/konutech",
+        githubUrl: "https://github.com/konutech",
+        technologies: ["Python", "scikit-learn", "pandas", "SAS Viya"],
+        featured: true,
+        userId: null
+      },
+      {
+        title: "Optimal Route Calculation",
+        description: "Developed a PoC application to calculate and visualize the closest routes between controlled entities and controllers in the public sector, solving a graph problem at scale.",
+        imageUrl: "https://images.unsplash.com/photo-1557599443-2071a2df9c19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        liveUrl: "https://github.com/konutech",
+        githubUrl: "https://github.com/konutech",
+        technologies: ["Python", "SQL", "Pandas", "NetworkX", "Matplotlib"],
         featured: false,
         userId: null
       },
       {
-        title: "Travel Journey App",
-        description: "A mobile-first application for travelers to document their journeys, share photos, and create interactive maps of their adventures.",
-        imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        liveUrl: "https://example.com/travel",
-        githubUrl: "https://github.com/example/travel",
-        technologies: ["React Native", "Firebase", "MapBox", "Expo"],
+        title: "HR Analytics Dashboard",
+        description: "Designed and developed an HR demo dashboard using SAS Viya, providing insights into employee performance, retention, and departmental metrics.",
+        imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        liveUrl: "https://github.com/konutech",
+        githubUrl: "https://github.com/konutech",
+        technologies: ["SAS Viya", "SAS Visual Analytics", "SQL", "Data Visualization"],
         featured: false,
         userId: null
       }
@@ -94,30 +104,30 @@ export class MemStorage implements IStorage {
     // Sample books
     const sampleBooks: InsertBook[] = [
       {
-        title: "Atomic Habits",
-        author: "James Clear",
-        coverUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        genre: "Self-Improvement",
+        title: "Python for Data Analysis",
+        author: "Wes McKinney",
+        coverUrl: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+        genre: "Programming",
         rating: 5,
-        review: "A comprehensive guide on how to build good habits and break bad ones. The book focuses on small, incremental changes that lead to remarkable results over time.",
+        review: "An essential guide for data processing with Python, focusing on pandas, NumPy, and data visualization tools. Extremely practical for anyone working with data.",
         userId: null
       },
       {
-        title: "Dune",
-        author: "Frank Herbert",
-        coverUrl: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
-        genre: "Sci-Fi",
-        rating: 5,
-        review: "A masterpiece of science fiction that tells the story of Paul Atreides, whose family accepts stewardship of the desert planet Arrakis, the only source of the most valuable substance in the universe.",
-        userId: null
-      },
-      {
-        title: "Eloquent JavaScript",
-        author: "Marijn Haverbeke",
-        coverUrl: "https://images.unsplash.com/photo-1587387119725-9d6bac0f22fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        title: "Learning Spark",
+        author: "Matei Zaharia et al.",
+        coverUrl: "https://images.unsplash.com/photo-1589149098258-3b71a54060f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=739&q=80",
         genre: "Programming",
         rating: 4,
-        review: "A modern introduction to programming, teaching essential concepts of JavaScript along with the principles of programming and software design.",
+        review: "A comprehensive introduction to Apache Spark for big data processing. Great resource for understanding distributed data processing and building scalable data pipelines.",
+        userId: null
+      },
+      {
+        title: "The Data Warehouse Toolkit",
+        author: "Ralph Kimball",
+        coverUrl: "https://images.unsplash.com/photo-1456428746267-a1756408f782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        genre: "Programming",
+        rating: 5,
+        review: "The classic guide to dimensional modeling. Foundational knowledge for anyone working with data warehouses and business intelligence systems.",
         userId: null
       },
       {
@@ -126,7 +136,16 @@ export class MemStorage implements IStorage {
         coverUrl: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
         genre: "History",
         rating: 5,
-        review: "A brief history of humankind that explores how Homo sapiens came to dominate the Earth through our ability to create and believe in shared myths and stories.",
+        review: "A fascinating exploration of human history, from the emergence of Homo sapiens to the present day. Provides valuable context for understanding human behavior and society.",
+        userId: null
+      },
+      {
+        title: "Deep Learning with Python",
+        author: "François Chollet",
+        coverUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        genre: "Programming",
+        rating: 5,
+        review: "Written by the creator of Keras, this book provides a practical introduction to deep learning with Python. Excellent balance of theory and application.",
         userId: null
       }
     ];
