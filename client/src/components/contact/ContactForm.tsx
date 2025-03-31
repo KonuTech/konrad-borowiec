@@ -62,7 +62,7 @@ const ContactForm = () => {
           type="text" 
           id="name" 
           {...register('name')}
-          className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-ghibli-purple dark:focus:ring-ghibli-lightPink transition-colors duration-300"
+          className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-portfolio-primary dark:focus:ring-portfolio-lighter transition-colors duration-300"
           placeholder="John Doe"
         />
         {errors.name && (
@@ -76,7 +76,7 @@ const ContactForm = () => {
           type="email" 
           id="email"
           {...register('email')}
-          className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-ghibli-purple dark:focus:ring-ghibli-lightPink transition-colors duration-300"
+          className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-portfolio-primary dark:focus:ring-portfolio-lighter transition-colors duration-300"
           placeholder="john@example.com"
         />
         {errors.email && (
@@ -90,7 +90,7 @@ const ContactForm = () => {
           id="message"
           {...register('message')}
           rows={5}
-          className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-ghibli-purple dark:focus:ring-ghibli-lightPink transition-colors duration-300"
+          className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-portfolio-primary dark:focus:ring-portfolio-lighter transition-colors duration-300"
           placeholder="I'd like to discuss a project..."
         ></textarea>
         {errors.message && (
@@ -101,7 +101,7 @@ const ContactForm = () => {
       <button 
         type="submit"
         disabled={contactMutation.isPending}
-        className="w-full py-3 bg-gradient-to-r from-ghibli-blue to-ghibli-purple text-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold disabled:opacity-70 disabled:transform-none"
+        className="w-full py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold disabled:opacity-70 disabled:transform-none"
       >
         {contactMutation.isPending ? (
           <span className="flex items-center justify-center">

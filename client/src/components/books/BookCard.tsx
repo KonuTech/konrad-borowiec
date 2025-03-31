@@ -8,29 +8,6 @@ interface BookCardProps {
 const BookCard: FC<BookCardProps> = ({ book }) => {
   const isToRead = book.status === 'to-read';
   
-  // Generate star ratings
-  const renderRating = (rating: number | null | undefined) => {
-    if (!rating) return null;
-    
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<i key={`full-${i}`} className="fas fa-star text-yellow-400"></i>);
-    }
-    
-    if (hasHalfStar) {
-      stars.push(<i key="half" className="fas fa-star-half-alt text-yellow-400"></i>);
-    }
-    
-    for (let i = 0; i < 5 - fullStars - (hasHalfStar ? 1 : 0); i++) {
-      stars.push(<i key={`empty-${i}`} className="far fa-star text-yellow-400"></i>);
-    }
-    
-    return stars;
-  };
-
   const getGenreColors = (genre: string | null | undefined) => {
     if (!genre) return "bg-portfolio-lightest text-portfolio-text";
     
@@ -69,10 +46,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
               <p className="text-sm text-gray-200">{book.author}</p>
             </div>
           </div>
-          <div className="p-4 flex items-center justify-between">
-            <div className="flex">
-              {!isToRead ? renderRating(book.rating) : <span className="text-xs italic text-portfolio-muted">Not yet rated</span>}
-            </div>
+          <div className="p-4 flex items-center justify-end">
             {book.genre && (
               <span className={`text-xs ${getGenreColors(book.genre)} px-2 py-1 rounded-full`}>
                 {book.genre}
@@ -98,12 +72,6 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
               <p className="text-sm text-portfolio-text dark:text-portfolio-lighter mb-4 flex-grow">
                 {book.review || "I enjoyed this book and found it valuable for my professional development."}
               </p>
-              {book.review && (
-                <div>
-                  <p className="text-sm font-medium text-portfolio-primary dark:text-portfolio-lighter mb-1">My Rating:</p>
-                  <div className="flex">{renderRating(book.rating)}</div>
-                </div>
-              )}
             </>
           )}
         </div>

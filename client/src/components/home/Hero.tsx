@@ -24,7 +24,7 @@ const Hero = () => {
               Konrad Borowiec
             </h1>
             <p className="text-lg mb-8 max-w-lg mx-auto md:mx-0 text-portfolio-text dark:text-portfolio-lighter">
-              A Data Engineer & Analyst specializing in data processing, analytics, and machine learning solutions ✨
+              Data isn't just numbers—it's the key to smarter decisions. As your expert in data engineering, analytics, and machine learning, I craft pipelines and unlock deep insights from raw data. Let's transform your data into a catalyst for innovation!
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a 
@@ -77,13 +77,13 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <div className="flex space-x-6">
-            <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer" className="text-2xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300" aria-label="GitHub">
+            <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer" className="text-4xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300" aria-label="GitHub">
               <i className="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer" className="text-2xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer" className="text-4xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300" aria-label="LinkedIn">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer" className="text-2xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300" aria-label="Credly">
+            <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer" className="text-4xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300" aria-label="Credly">
               <i className="fas fa-certificate"></i>
             </a>
           </div>

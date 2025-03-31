@@ -11,7 +11,7 @@ const Footer = () => {
             <Link href="/" className="text-xl font-nunito font-bold text-portfolio-dark dark:text-portfolio-lighter">
               <span className="text-2xl">👨‍💻</span> Konrad Borowiec
             </Link>
-            <p className="text-sm mt-2 text-portfolio-muted">Data Engineer & Technology Enthusiast</p>
+            <p className="text-sm mt-2 text-portfolio-muted">Data Analysis & Data Engineering</p>
           </div>
           
           <div className="text-center md:text-right">

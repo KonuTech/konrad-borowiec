@@ -465,6 +465,17 @@ export class MemStorage implements IStorage {
       const motorcycleImages: string[] = [];
       const motorcycleImagesDir = path.join(process.cwd(), 'public', 'images', 'motorcycles');
       
+      // Remove specific image if it exists
+      const imageToRemove = path.join(motorcycleImagesDir, 'coastal-cliff-flowers.jpg');
+      if (fs.existsSync(imageToRemove)) {
+        try {
+          fs.unlinkSync(imageToRemove);
+          console.log('Removed image: coastal-cliff-flowers.jpg');
+        } catch (err) {
+          console.error('Error removing image:', err);
+        }
+      }
+      
       // List of images to process
       const imagesToProcess = [
         { path: 'attached_assets/IMG-570721fa7df047b4f0df66466fee8748-V.jpg', filename: 'motorcycle-mountain-road.jpg' },
@@ -478,7 +489,19 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG-da6c7cede400c5b2ec479bb45a8909f8-V.jpg', filename: 'highland-lake-view.jpg' },
         { path: 'attached_assets/IMG-58b18ba2cb9319afa1d0bab50987b4b8-V.jpg', filename: 'highland-valley.jpg' },
         { path: 'attached_assets/IMG-96efb09bbb67f6e15100d37888cd2b45-V.jpg', filename: 'highland-plain.jpg' },
-        { path: 'attached_assets/IMG_20240511_113014.jpg', filename: 'coastal-cliff-flowers.jpg' }
+        // New images from the latest upload
+        { path: 'attached_assets/IMG_20220708_163911.jpg', filename: 'mountain-cliff-road.jpg' },
+        { path: 'attached_assets/IMG_20240505_155448.jpg', filename: 'coastal-road-view.jpg' },
+        { path: 'attached_assets/IMG_20240502_103331.jpg', filename: 'ferry-motorcycles.jpg' },
+        { path: 'attached_assets/IMG_20220707_140811.jpg', filename: 'alpine-mountain-view.jpg' },
+        { path: 'attached_assets/IMG_20220707_131955.jpg', filename: 'mountain-restaurant.jpg' },
+        { path: 'attached_assets/IMG_20220713_202507.jpg', filename: 'sunset-coastal-ride.jpg' },
+        { path: 'attached_assets/IMG_20240429_091530.jpg', filename: 'venice-canal.jpg' },
+        { path: 'attached_assets/IMG_20220713_185946.jpg', filename: 'blue-motorcycle-mountains.jpg' },
+        { path: 'attached_assets/IMG_20220708_111440.jpg', filename: 'alpine-valley-view.jpg' },
+        { path: 'attached_assets/IMG-6434312588d418a02ffc2beaa625ad22-V.jpg', filename: 'camping-with-motorcycle.jpg' },
+        { path: 'attached_assets/IMG_20240503_094308.jpg', filename: 'ferry-motorcycle-deck.jpg' },
+        { path: 'attached_assets/IMG-e6a667848be5413d552f5a837334ae43-V.jpg', filename: 'motorcycle-by-lake.jpg' }
       ];
       
       for (const image of imagesToProcess) {

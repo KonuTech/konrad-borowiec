@@ -2,11 +2,11 @@ import { FC, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 
-// Real motorcycle images
+// Real motorcycle images - just a starter set, we'll load all dynamically
 const realMotorcycleImages = [
   "/images/motorcycles/motorcycle-mountain-road.jpg",
   "/images/motorcycles/motorcycle-camping.jpg",
-  "/images/motorcycles/mountain-fjord-view.jpg",
+  "/images/motorcycles/mountain-fjord-view.jpg", 
   "/images/motorcycles/beach-sunset.jpg",
   "/images/motorcycles/mountain-valley-river.jpg",
   "/images/motorcycles/castle-lake-view.jpg",
@@ -15,7 +15,18 @@ const realMotorcycleImages = [
   "/images/motorcycles/highland-lake-view.jpg",
   "/images/motorcycles/highland-valley.jpg",
   "/images/motorcycles/highland-plain.jpg",
-  "/images/motorcycles/coastal-cliff-flowers.jpg",
+  "/images/motorcycles/mountain-cliff-road.jpg",
+  "/images/motorcycles/coastal-road-view.jpg",
+  "/images/motorcycles/ferry-motorcycles.jpg",
+  "/images/motorcycles/alpine-mountain-view.jpg",
+  "/images/motorcycles/mountain-restaurant.jpg",
+  "/images/motorcycles/sunset-coastal-ride.jpg",
+  "/images/motorcycles/venice-canal.jpg",
+  "/images/motorcycles/blue-motorcycle-mountains.jpg",
+  "/images/motorcycles/alpine-valley-view.jpg",
+  "/images/motorcycles/camping-with-motorcycle.jpg",
+  "/images/motorcycles/ferry-motorcycle-deck.jpg",
+  "/images/motorcycles/motorcycle-by-lake.jpg",
 ];
 
 // Fallback motorcycle images
@@ -133,6 +144,7 @@ const InterestsSection: FC = () => {
                   src={motorcycleImages[activeMotorcycleIndex]} 
                   alt="Motorcycle road trip" 
                   className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
                 />
               </div>
               
@@ -147,6 +159,7 @@ const InterestsSection: FC = () => {
                       src={image} 
                       alt={`Motorcycle thumbnail ${index + 1}`} 
                       className="aspect-square object-cover w-full h-full"
+                      loading="lazy"
                     />
                   </button>
                 ))}
@@ -161,6 +174,7 @@ const InterestsSection: FC = () => {
                   src={cyclingImages[activeCyclingIndex]} 
                   alt="Cycling adventure" 
                   className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
                 />
               </div>
               
@@ -175,6 +189,7 @@ const InterestsSection: FC = () => {
                       src={image} 
                       alt={`Cycling thumbnail ${index + 1}`} 
                       className="aspect-square object-cover w-full h-full"
+                      loading="lazy"
                     />
                   </button>
                 ))}
