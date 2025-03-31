@@ -12,6 +12,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
         src={project.imageUrl || ''} 
         alt={project.title} 
         className="w-full h-48 object-cover"
+        loading="lazy"
       />
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex items-start justify-between mb-3">

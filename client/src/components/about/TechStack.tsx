@@ -13,7 +13,8 @@ const techStack: TechItem[] = [
   { name: "PySpark", icon: "fab fa-python" },
   { name: "Airflow", icon: "fas fa-wind" },
   { name: "Hadoop", icon: "fas fa-server" },
-  { name: "SAS", icon: "fas fa-chart-line" }
+  { name: "SAS", icon: "fas fa-chart-line" },
+  { name: "Linux", icon: "fab fa-linux" }
 ];
 
 const TechStack: FC = () => {

@@ -33,17 +33,7 @@ const ContactInfo: FC = () => {
             </div>
             <div>
               <p className="text-sm font-medium mb-1 text-portfolio-text dark:text-portfolio-lighter/80">Location</p>
-              <p className="text-portfolio-text dark:text-portfolio-lighter">Poland</p>
-            </div>
-          </div>
-          
-          <div className="flex items-start space-x-4">
-            <div className="w-10 h-10 rounded-full bg-portfolio-lighter/30 dark:bg-portfolio-primary/30 flex items-center justify-center flex-shrink-0">
-              <i className="fas fa-clock text-portfolio-primary dark:text-portfolio-lighter"></i>
-            </div>
-            <div>
-              <p className="text-sm font-medium mb-1 text-portfolio-text dark:text-portfolio-lighter/80">Working Hours</p>
-              <p className="text-portfolio-text dark:text-portfolio-lighter">Mon - Fri: 9:00 AM - 6:00 PM</p>
+              <p className="text-portfolio-text dark:text-portfolio-lighter">Warsaw, Poland</p>
             </div>
           </div>
         </div>

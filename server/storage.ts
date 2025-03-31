@@ -36,6 +36,7 @@ export interface IStorage {
   // Utility methods for image processing
   generateProjectImages(): Promise<void>;
   processMotorcycleImages(): Promise<string[]>;
+  processCyclingImages(): Promise<string[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -545,6 +546,47 @@ export class MemStorage implements IStorage {
       return motorcycleImages;
     } catch (error) {
       console.error('Error processing motorcycle images:', error);
+      return [];
+    }
+  }
+  
+  async processCyclingImages(): Promise<string[]> {
+    try {
+      // Create directories if they don't exist
+      await ensureImageDirectories();
+      
+      const cyclingImages: string[] = [];
+      const cyclingImagesDir = path.join(process.cwd(), 'public', 'images', 'cycling');
+      
+      // Process the specific cycling image we want to use
+      const imagePath = 'attached_assets/IMG_20220713_171341.jpg';
+      const filename = 'IMG_20220713_171341.jpg';
+      const outputPath = path.join(cyclingImagesDir, filename);
+      
+      // Skip if image already exists
+      if (fs.existsSync(outputPath)) {
+        cyclingImages.push(`/images/cycling/${filename}`);
+        return cyclingImages;
+      }
+      
+      try {
+        // Process and save the image
+        await processAttachedAsset(
+          imagePath, 
+          cyclingImagesDir, 
+          filename, 
+          { width: 800, quality: 80 }
+        );
+        
+        cyclingImages.push(`/images/cycling/${filename}`);
+        console.log(`Processed cycling image: ${filename}`);
+      } catch (error) {
+        console.error(`Error processing cycling image ${imagePath}:`, error);
+      }
+      
+      return cyclingImages;
+    } catch (error) {
+      console.error('Error processing cycling images:', error);
       return [];
     }
   }

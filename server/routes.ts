@@ -14,7 +14,8 @@ function ensurePublicDirectories() {
     path.join(process.cwd(), 'public'),
     path.join(process.cwd(), 'public', 'images'),
     path.join(process.cwd(), 'public', 'images', 'projects'),
-    path.join(process.cwd(), 'public', 'images', 'motorcycles')
+    path.join(process.cwd(), 'public', 'images', 'motorcycles'),
+    path.join(process.cwd(), 'public', 'images', 'cycling')
   ];
   
   for (const dir of dirs) {
@@ -145,6 +146,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contactData = insertContactSchema.parse(req.body);
       const newContact = await storage.createContact(contactData);
+      
+      // Log the contact submission - this would normally send an email
+      console.log('Contact form submission:', {
+        name: contactData.name,
+        email: contactData.email,
+        message: contactData.message,
+        date: new Date().toISOString()
+      });
+      
       res.status(201).json({ 
         success: true, 
         message: "Your message has been sent successfully!" 
@@ -185,6 +195,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error processing motorcycle images:", error);
       res.status(500).json({ message: "Failed to process motorcycle images" });
+    }
+  });
+
+  // Process cycling images
+  app.post(`${apiRouter}/process-cycling-images`, async (req: Request, res: Response) => {
+    try {
+      const images = await storage.processCyclingImages();
+      res.status(200).json({
+        success: true, 
+        message: "Cycling images processed successfully!",
+        images
+      });
+    } catch (error) {
+      console.error("Error processing cycling images:", error);
+      res.status(500).json({ message: "Failed to process cycling images" });
     }
   });
 

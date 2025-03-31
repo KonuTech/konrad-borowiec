@@ -30,27 +30,33 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
       <div className="book-card-inner relative w-full h-full">
         {/* Card Front */}
         <div className="book-card-front absolute w-full h-full bg-white dark:bg-portfolio-darker rounded-xl overflow-hidden shadow-md flex flex-col">
-          <div className="relative h-56 overflow-hidden">
+          {/* Book Cover Image with To Read Badge */}
+          <div className="relative h-44 overflow-hidden">
             <img 
               src={book.coverUrl || ''} 
               alt={book.title} 
               className="w-full h-full object-cover"
+              loading="lazy"
             />
             {isToRead && (
               <div className="absolute top-0 right-0 bg-portfolio-primary text-white text-xs px-2 py-1 m-2 rounded-full">
                 To Read
               </div>
             )}
-            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
-              <h3 className="font-nunito font-bold text-lg text-white">{book.title}</h3>
-              <p className="text-sm text-gray-200">{book.author}</p>
-            </div>
           </div>
-          <div className="p-4 flex items-center justify-end">
+          
+          {/* Book Information Below Image */}
+          <div className="p-4 flex flex-col flex-grow">
+            <div className="flex-grow">
+              <h3 className="font-nunito font-bold text-sm text-portfolio-dark dark:text-white line-clamp-2">{book.title}</h3>
+              <p className="text-xs text-portfolio-text dark:text-gray-300 line-clamp-1 mt-1">{book.author}</p>
+            </div>
             {book.genre && (
-              <span className={`text-xs ${getGenreColors(book.genre)} px-2 py-1 rounded-full`}>
-                {book.genre}
-              </span>
+              <div className="flex justify-start mt-2">
+                <span className={`text-xs ${getGenreColors(book.genre)} px-2 py-1 rounded-full`}>
+                  {book.genre}
+                </span>
+              </div>
             )}
           </div>
         </div>
