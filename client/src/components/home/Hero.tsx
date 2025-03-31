@@ -24,7 +24,9 @@ const Hero = () => {
               Konrad Borowiec
             </h1>
             <p className="text-lg mb-8 max-w-lg mx-auto md:mx-0 text-portfolio-text dark:text-portfolio-lighter">
-              Data isn't just numbers—it's the key to smarter decisions. As your expert in data engineering, analytics, and machine learning, I craft pipelines and unlock deep insights from raw data. Let's transform your data into a catalyst for innovation!
+              Data isn't just numbers—it's the key to smarter decisions.<br />
+              As your expert in data engineering, analytics, and machine learning, I craft pipelines and unlock deep insights from raw data.<br />
+              Let's transform your data into a catalyst for innovation!
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a 

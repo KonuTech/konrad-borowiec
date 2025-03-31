@@ -42,7 +42,8 @@ export async function ensureImageDirectories() {
 export async function processAndSaveImage(imageUrl: string, outputPath: string, options: { 
   width?: number, 
   height?: number,
-  quality?: number 
+  quality?: number,
+  optimizationLevel?: 'low' | 'medium' | 'high'
 } = {}): Promise<string> {
   try {
     // Create directories if they don't exist
@@ -52,6 +53,7 @@ export async function processAndSaveImage(imageUrl: string, outputPath: string, 
     const width = options.width || 800;
     const height = options.height;
     const quality = options.quality || 80;
+    const optimizationLevel = options.optimizationLevel || 'medium';
     
     // Fetch the image
     const response = await fetch(imageUrl);
@@ -64,18 +66,60 @@ export async function processAndSaveImage(imageUrl: string, outputPath: string, 
     // Process the image with sharp
     let sharpInstance = sharp(Buffer.from(imageBuffer));
     
-    // Resize if width or height is provided
-    if (width || height) {
+    // Get image metadata to make smart decisions about resizing
+    const metadata = await sharpInstance.metadata();
+    const originalWidth = metadata.width || 0;
+    
+    // Only resize if the original is larger than target width to avoid upscaling
+    if ((width && originalWidth > width) || height) {
       sharpInstance = sharpInstance.resize({
         width,
         height,
         fit: 'cover',
-        position: 'center'
+        position: 'center',
+        withoutEnlargement: true // Prevent upscaling small images
       });
     }
     
-    // Set quality
-    sharpInstance = sharpInstance.jpeg({ quality });
+    // Apply optimization based on level
+    let outputQuality = quality;
+    switch(optimizationLevel) {
+      case 'high':
+        // High compression, smaller file size
+        outputQuality = Math.min(quality, 60);
+        // Add more aggressive sharpening
+        sharpInstance = sharpInstance.sharpen({
+          sigma: 1.2,
+          m1: 0.5,
+          m2: 0.5
+        });
+        break;
+      case 'medium':
+        // Balanced compression
+        outputQuality = Math.min(quality, 75);
+        // Add moderate sharpening
+        sharpInstance = sharpInstance.sharpen();
+        break;
+      case 'low':
+        // Light compression, higher quality
+        outputQuality = quality;
+        break;
+    }
+    
+    // Choose output format based on extension
+    if (outputPath.toLowerCase().endsWith('.png')) {
+      sharpInstance = sharpInstance.png({ 
+        compressionLevel: 9, // Maximum compression
+        palette: true // Use palette-based quantization for smaller file sizes
+      });
+    } else {
+      // Use mozjpeg-style optimization for JPEGs
+      sharpInstance = sharpInstance.jpeg({ 
+        quality: outputQuality,
+        mozjpeg: true, // Use mozjpeg for better compression
+        trellisQuantisation: true // Improve compression further
+      });
+    }
     
     // Save the processed image
     await sharpInstance.toFile(outputPath);
@@ -92,7 +136,8 @@ export async function processAndSaveImage(imageUrl: string, outputPath: string, 
 export async function processAttachedAsset(filePath: string, outputDir: string, filename: string, options: {
   width?: number,
   height?: number,
-  quality?: number
+  quality?: number,
+  optimizationLevel?: 'low' | 'medium' | 'high'
 } = {}): Promise<string> {
   try {
     // Create directories if they don't exist
@@ -102,6 +147,7 @@ export async function processAttachedAsset(filePath: string, outputDir: string, 
     const width = options.width || 800;
     const height = options.height;
     const quality = options.quality || 80;
+    const optimizationLevel = options.optimizationLevel || 'medium';
     
     // Ensure output directory exists
     if (!fs.existsSync(outputDir)) {
@@ -116,18 +162,60 @@ export async function processAttachedAsset(filePath: string, outputDir: string, 
     // Process the image with sharp
     let sharpInstance = sharp(imageBuffer);
     
-    // Resize if width or height is provided
-    if (width || height) {
+    // Get image metadata to make smart decisions about resizing
+    const metadata = await sharpInstance.metadata();
+    const originalWidth = metadata.width || 0;
+    
+    // Only resize if the original is larger than target width to avoid upscaling
+    if ((width && originalWidth > width) || height) {
       sharpInstance = sharpInstance.resize({
         width,
         height,
         fit: 'cover',
-        position: 'center'
+        position: 'center',
+        withoutEnlargement: true // Prevent upscaling small images
       });
     }
     
-    // Set quality
-    sharpInstance = sharpInstance.jpeg({ quality });
+    // Apply optimization based on level
+    let outputQuality = quality;
+    switch(optimizationLevel) {
+      case 'high':
+        // High compression, smaller file size
+        outputQuality = Math.min(quality, 60);
+        // Add more aggressive sharpening
+        sharpInstance = sharpInstance.sharpen({
+          sigma: 1.2,
+          m1: 0.5,
+          m2: 0.5
+        });
+        break;
+      case 'medium':
+        // Balanced compression
+        outputQuality = Math.min(quality, 75);
+        // Add moderate sharpening
+        sharpInstance = sharpInstance.sharpen();
+        break;
+      case 'low':
+        // Light compression, higher quality
+        outputQuality = quality;
+        break;
+    }
+    
+    // Choose output format based on extension
+    if (filename.toLowerCase().endsWith('.png')) {
+      sharpInstance = sharpInstance.png({ 
+        compressionLevel: 9, // Maximum compression
+        palette: true // Use palette-based quantization for smaller file sizes
+      });
+    } else {
+      // Use mozjpeg-style optimization for JPEGs
+      sharpInstance = sharpInstance.jpeg({ 
+        quality: outputQuality,
+        mozjpeg: true, // Use mozjpeg for better compression
+        trellisQuantisation: true // Improve compression further
+      });
+    }
     
     // Save the processed image
     await sharpInstance.toFile(outputPath);

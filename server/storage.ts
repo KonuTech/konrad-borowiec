@@ -431,8 +431,12 @@ export class MemStorage implements IStorage {
           // Generate an image using OpenAI
           const imageUrl = await generateProjectImage(readmeContent, project.title);
           
-          // Process and save the image
-          const localPath = await processAndSaveImage(imageUrl, outputPath, { width: 800, quality: 80 });
+          // Process and save the image with enhanced optimization
+          const localPath = await processAndSaveImage(imageUrl, outputPath, { 
+            width: 800, 
+            quality: 85, 
+            optimizationLevel: 'medium' 
+          });
           
           // Update the project with the new image URL
           await this.updateProject(project.id, {
@@ -457,14 +461,20 @@ export class MemStorage implements IStorage {
       const motorcycleImages: string[] = [];
       const motorcycleImagesDir = path.join(process.cwd(), 'public', 'images', 'motorcycles');
       
-      // Remove specific image if it exists
-      const imageToRemove = path.join(motorcycleImagesDir, 'coastal-cliff-flowers.jpg');
-      if (fs.existsSync(imageToRemove)) {
-        try {
-          fs.unlinkSync(imageToRemove);
-          console.log('Removed image: coastal-cliff-flowers.jpg');
-        } catch (err) {
-          console.error('Error removing image:', err);
+      // Remove problematic auto-generated images
+      const imagesToRemove = [
+        path.join(motorcycleImagesDir, 'coastal-cliff-flowers.jpg'),
+        path.join(motorcycleImagesDir, 'auto-.jpg')
+      ];
+      
+      for (const imageToRemove of imagesToRemove) {
+        if (fs.existsSync(imageToRemove)) {
+          try {
+            fs.unlinkSync(imageToRemove);
+            console.log(`Removed problematic image: ${path.basename(imageToRemove)}`);
+          } catch (err) {
+            console.error(`Error removing image ${path.basename(imageToRemove)}:`, err);
+          }
         }
       }
       
@@ -517,6 +527,49 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG_20220715_182856.jpg', filename: 'motorcycle-country-road.jpg' }
       ];
       
+      // Scan the attached_assets directory for all available motorcycle images
+      // This allows automatic discovery of new motorcycle images
+      const attachedAssetsDir = path.join(process.cwd(), 'attached_assets');
+      if (fs.existsSync(attachedAssetsDir)) {
+        try {
+          const files = fs.readdirSync(attachedAssetsDir);
+          
+          // Pattern to match motorcycle images (IMG_*.jpg that aren't already in our list)
+          // and aren't cycling images (we process those separately)
+          for (const file of files) {
+            if (file.match(/^IMG_.*\.jpg$/) && !file.match(/cycling/i)) {
+              // Check if this file is already in our list
+              const alreadyIncluded = imagesToProcess.some(img => img.path === `attached_assets/${file}`);
+              
+              if (!alreadyIncluded) {
+                // Create a more descriptive filename based on the original filename
+                // We need to handle the case where the filename is just IMG_date_time.jpg
+                const originalName = file.replace(/^IMG_\d+_\d+/, '');
+                let descriptiveFilename;
+                
+                if (originalName === '.jpg') {
+                  // Generate a descriptive name based on pattern
+                  // Use a counter to make it unique
+                  const uniqueId = Math.floor(Math.random() * 10000);
+                  descriptiveFilename = `auto-motorcycle-travel-${uniqueId}.jpg`;
+                } else {
+                  descriptiveFilename = `auto${originalName.replace(/_/g, '-').toLowerCase()}`;
+                }
+                
+                // Add to our processing list
+                imagesToProcess.push({
+                  path: `attached_assets/${file}`,
+                  filename: descriptiveFilename
+                });
+                console.log(`Discovered new motorcycle image: ${file}`);
+              }
+            }
+          }
+        } catch (error) {
+          console.error('Error scanning attached_assets directory:', error);
+        }
+      }
+      
       // Process images if they don't exist yet
       for (const image of imagesToProcess) {
         try {
@@ -528,12 +581,16 @@ export class MemStorage implements IStorage {
             continue;
           }
           
-          // Process the image (resize and optimize)
+          // Process the image with enhanced optimization
           await processAttachedAsset(
             image.path, 
             motorcycleImagesDir, 
             image.filename, 
-            { width: 800, quality: 80 }
+            { 
+              width: 800, 
+              quality: 80,
+              optimizationLevel: 'high' // Use high optimization for motorcycle gallery
+            }
           );
           
           console.log(`Processed motorcycle image: ${image.filename}`);
@@ -580,12 +637,16 @@ export class MemStorage implements IStorage {
       }
       
       try {
-        // Process and save the image
+        // Process and save the image with enhanced optimization
         await processAttachedAsset(
           imagePath, 
           cyclingImagesDir, 
           filename, 
-          { width: 800, quality: 80 }
+          { 
+            width: 800, 
+            quality: 80,
+            optimizationLevel: 'high' // Use high optimization for cycling gallery
+          }
         );
         
         cyclingImages.push(`/images/cycling/${filename}`);

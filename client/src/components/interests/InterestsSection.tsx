@@ -236,6 +236,16 @@ const InterestsSection: FC = () => {
             </div>
           </motion.div>
         </div>
+        
+        {/* Back to Top Button */}
+        <div className="flex justify-center mt-16">
+          <a 
+            href="#home" 
+            className="bg-portfolio-primary hover:bg-portfolio-primary/80 text-white px-6 py-3 rounded-full font-nunito font-medium flex items-center transition-all duration-300 shadow-md hover:shadow-lg"
+          >
+            <i className="fas fa-arrow-up mr-2"></i> Back to Top
+          </a>
+        </div>
       </div>
     </section>
   );
