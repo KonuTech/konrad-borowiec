@@ -238,12 +238,12 @@ const InterestsSection: FC = () => {
         </div>
         
         {/* Back to Top Button */}
-        <div className="flex justify-center mt-16">
+        <div className="text-center mt-16">
           <a 
-            href="#home" 
-            className="bg-portfolio-primary hover:bg-portfolio-primary/80 text-white px-6 py-3 rounded-full font-nunito font-medium flex items-center transition-all duration-300 shadow-md hover:shadow-lg"
+            href="#home"
+            className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"
           >
-            <i className="fas fa-arrow-up mr-2"></i> Back to Top
+            Back to Top <i className="fas fa-arrow-up ml-2"></i>
           </a>
         </div>
       </div>

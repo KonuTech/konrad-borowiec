@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
+import { ThemeContext } from '@/context/ThemeContext';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -6,6 +7,8 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+  
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     onClose();
   };
@@ -58,7 +61,26 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             Interests
           </a>
         </li>
-
+        
+        {/* Dark Mode Toggle for Mobile */}
+        <li className="mt-4 border-t border-portfolio-lightest dark:border-portfolio-dark pt-4">
+          <button
+            className="w-full flex items-center justify-between py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark rounded-lg transition-colors duration-300"
+            onClick={(e) => {
+              e.preventDefault();
+              toggleDarkMode();
+            }}
+          >
+            <span>{darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</span>
+            <span className="ml-2">
+              {darkMode ? (
+                <i className="fas fa-sun text-yellow-500"></i>
+              ) : (
+                <i className="fas fa-moon text-portfolio-primary"></i>
+              )}
+            </span>
+          </button>
+        </li>
       </ul>
     </div>
   );

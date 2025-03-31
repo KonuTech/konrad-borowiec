@@ -542,24 +542,13 @@ export class MemStorage implements IStorage {
               const alreadyIncluded = imagesToProcess.some(img => img.path === `attached_assets/${file}`);
               
               if (!alreadyIncluded) {
-                // Create a more descriptive filename based on the original filename
-                // We need to handle the case where the filename is just IMG_date_time.jpg
-                const originalName = file.replace(/^IMG_\d+_\d+/, '');
-                let descriptiveFilename;
-                
-                if (originalName === '.jpg') {
-                  // Generate a descriptive name based on pattern
-                  // Use a counter to make it unique
-                  const uniqueId = Math.floor(Math.random() * 10000);
-                  descriptiveFilename = `auto-motorcycle-travel-${uniqueId}.jpg`;
-                } else {
-                  descriptiveFilename = `auto${originalName.replace(/_/g, '-').toLowerCase()}`;
-                }
+                // Keep the original filename
+                const filename = file;
                 
                 // Add to our processing list
                 imagesToProcess.push({
                   path: `attached_assets/${file}`,
-                  filename: descriptiveFilename
+                  filename: filename
                 });
                 console.log(`Discovered new motorcycle image: ${file}`);
               }
