@@ -70,7 +70,7 @@ export class MemStorage implements IStorage {
       {
         title: "Data Engineering Zoomcamp Capstone",
         description: "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB.",
-        imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
+        imageUrl: "/images/projects/Data-Engineering-Zoomcamp-Capstone.png",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01",
         technologies: ["Airflow", "Kafka", "PySpark", "PostgreSQL", "Streamlit", "Docker"],
@@ -80,7 +80,7 @@ export class MemStorage implements IStorage {
       {
         title: "LLM Zoomcamp Capstone",
         description: "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database.",
-        imageUrl: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        imageUrl: "/images/projects/LLM-Zoomcamp-Capstone.png",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/llm-zoomcamp-capstone-01",
         technologies: ["Flask", "Elasticsearch", "PostgreSQL", "Grafana", "Docker", "Python"],
@@ -90,7 +90,7 @@ export class MemStorage implements IStorage {
       {
         title: "MLOps Zoomcamp Project",
         description: "End-to-end MLOps on GCP - An implementation of MLOps best practices for machine learning workflows on Google Cloud Platform.",
-        imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        imageUrl: "/images/projects/MLOps-Zoomcamp-Project.jfif",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/mlops-zoomcamp-project",
         technologies: ["PySpark", "Scikit-learn", "XGBoost", "Prefect", "MLflow", "FastAPI", "Evidently AI"],
@@ -100,7 +100,7 @@ export class MemStorage implements IStorage {
       {
         title: "Machine Learning Zoomcamp Capstone 01",
         description: "Dockerized Flask service for scoring if a customer will default on payments, implementing various machine learning algorithms.",
-        imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80",
+        imageUrl: "/images/projects/Machine-Learning-Zoomcamp-Capstone-01.jfif",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01",
         technologies: ["Pandas", "Scikit-learn", "XGBoost", "Flask", "Docker"],
@@ -110,7 +110,7 @@ export class MemStorage implements IStorage {
       {
         title: "Machine Learning Zoomcamp Capstone 02",
         description: "Image classifier using transfer learning with TensorFlow and deployment with Docker and Kubernetes.",
-        imageUrl: "https://images.unsplash.com/photo-1617791160588-241658c0f566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1264&q=80",
+        imageUrl: "/images/projects/Machine-Learning-Zoomcamp-Capstone-02.png",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02",
         technologies: ["TensorFlow", "Transfer Learning", "Docker", "Kubernetes", "Kind Cluster"],
@@ -120,7 +120,7 @@ export class MemStorage implements IStorage {
       {
         title: "Delta Table Streaming Databricks",
         description: "Implementation of streaming data processing with Delta tables in Databricks, demonstrating efficient data pipeline patterns.",
-        imageUrl: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
+        imageUrl: "/images/projects/Delta-Table-Streaming-Databricks.jfif",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/delta-table-streaming-databricks",
         technologies: ["Databricks", "PySpark", "Delta Tables", "Streaming", "JSON"],
@@ -135,7 +135,7 @@ export class MemStorage implements IStorage {
       {
         title: "Data Engineering with Databricks Cookbook",
         author: "Pulkit Chadha",
-        coverUrl: "https://m.media-amazon.com/images/I/61Qzv+YQADL._SL1360_.jpg",
+        coverUrl: "/images/projects/Data-Engineering-with-Databricks-Cookbook.jfif",
         genre: "Programming",
         rating: 5,
         review: "Excellent practical guide for implementing data engineering solutions with Databricks. Provides clear examples and best practices.",
@@ -145,7 +145,7 @@ export class MemStorage implements IStorage {
       {
         title: "Fundamentals of Data Engineering",
         author: "Joe Reis & Matt Housley",
-        coverUrl: "https://m.media-amazon.com/images/I/71Vl+yM7GVL._SL1500_.jpg",
+        coverUrl: "/images/projects/Fundamentals-of-Data-Engineering.jfif",
         genre: "Programming",
         rating: 5,
         review: "Comprehensive overview of data engineering principles and practices. Essential reading for anyone in the field.",
@@ -155,7 +155,7 @@ export class MemStorage implements IStorage {
       {
         title: "Data Engineering with dbt",
         author: "Roberto Zagni",
-        coverUrl: "https://m.media-amazon.com/images/I/61IPcsjqbML._SL1360_.jpg",
+        coverUrl: "/images/projects/Data-Engineering-with-dbt.jfif",
         genre: "Programming",
         rating: 4,
         review: "A thorough guide to implementing data transformation workflows using dbt. Very practical for modern data stack implementation.",
@@ -480,7 +480,7 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG-da6c7cede400c5b2ec479bb45a8909f8-V.jpg', filename: 'highland-lake-view.jpg' },
         { path: 'attached_assets/IMG-58b18ba2cb9319afa1d0bab50987b4b8-V.jpg', filename: 'highland-valley.jpg' },
         { path: 'attached_assets/IMG-96efb09bbb67f6e15100d37888cd2b45-V.jpg', filename: 'highland-plain.jpg' },
-        // New images from the latest upload
+        // Previously added photos
         { path: 'attached_assets/IMG_20220708_163911.jpg', filename: 'mountain-cliff-road.jpg' },
         { path: 'attached_assets/IMG_20240505_155448.jpg', filename: 'coastal-road-view.jpg' },
         { path: 'attached_assets/IMG_20240502_103331.jpg', filename: 'ferry-motorcycles.jpg' },
@@ -493,7 +493,7 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG-6434312588d418a02ffc2beaa625ad22-V.jpg', filename: 'camping-with-motorcycle.jpg' },
         { path: 'attached_assets/IMG_20240503_094308.jpg', filename: 'ferry-motorcycle-deck.jpg' },
         { path: 'attached_assets/IMG-e6a667848be5413d552f5a837334ae43-V.jpg', filename: 'motorcycle-by-lake.jpg' },
-        // Additional motorcycle photos
+        // Additional motorcycle photos from previous request
         { path: 'attached_assets/IMG_20220708_105145.jpg', filename: 'col-de-iseran-sign.jpg' },
         { path: 'attached_assets/IMG_20220707_144004.jpg', filename: 'blue-motorcycle-mountain-pass.jpg' },
         { path: 'attached_assets/IMG_20220716_192956.jpg', filename: 'coastal-mountain-view.jpg' },
@@ -505,7 +505,15 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG_20240506_102443.jpg', filename: 'alto-de-velefique-sign.jpg' },
         { path: 'attached_assets/IMG_20240511_110111.jpg', filename: 'cabo-da-roca-sign.jpg' },
         { path: 'attached_assets/IMG_20240506_123347.jpg', filename: 'desert-mountain-road.jpg' },
-        { path: 'attached_assets/IMG_20240508_122308.jpg', filename: 'canyon-walkway-bridge.jpg' }
+        { path: 'attached_assets/IMG_20240508_122308.jpg', filename: 'canyon-walkway-bridge.jpg' },
+        // Newest motorcycle photos
+        { path: 'attached_assets/IMG_20220708_111416.jpg', filename: 'motorcycles-mountain-road-signs.jpg' },
+        { path: 'attached_assets/IMG_20220711_142702.jpg', filename: 'golden-fields-landscape.jpg' },
+        { path: 'attached_assets/IMG_20220712_073610.jpg', filename: 'motorcycle-ferry-port.jpg' },
+        { path: 'attached_assets/IMG_20220711_210735.jpg', filename: 'ocean-sunset-waves.jpg' },
+        { path: 'attached_assets/IMG_20240504_090511.jpg', filename: 'valencia-city-of-arts.jpg' },
+        { path: 'attached_assets/IMG_20220713_171341.jpg', filename: 'mountain-coastal-view.jpg' },
+        { path: 'attached_assets/IMG_20220715_182856.jpg', filename: 'motorcycle-country-road.jpg' }
       ];
       
       for (const image of imagesToProcess) {
