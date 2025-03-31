@@ -16,7 +16,7 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-sm text-portfolio-text dark:text-portfolio-lighter">&copy; {currentYear} Konu-Tec Konrad Borowiec. All rights reserved.</p>
-            <p className="text-xs mt-2 text-portfolio-muted">Professional data engineering solutions</p>
+            <p className="text-xs mt-2 text-portfolio-muted">Professional data solutions</p>
           </div>
         </div>
       </div>
