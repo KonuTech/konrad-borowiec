@@ -6,6 +6,7 @@ import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 import express from "express";
 import path from "path";
+// Only need basic directory functions for static image serving
 import { ensureImageDirectories } from "./imageUtils";
 
 // Reuse optimized directory structure from imageUtils
@@ -153,49 +154,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Generate project images
-  app.post(`${apiRouter}/generate-project-images`, async (req: Request, res: Response) => {
-    try {
-      await storage.generateProjectImages();
-      res.status(200).json({ 
-        success: true, 
-        message: "Project images generated successfully!" 
-      });
-    } catch (error) {
-      console.error("Error generating project images:", error);
-      res.status(500).json({ message: "Failed to generate project images" });
-    }
-  });
-
-  // Process motorcycle images
-  app.post(`${apiRouter}/process-motorcycle-images`, async (req: Request, res: Response) => {
-    try {
-      const images = await storage.processMotorcycleImages();
-      res.status(200).json({
-        success: true, 
-        message: "Motorcycle images processed successfully!",
-        images
-      });
-    } catch (error) {
-      console.error("Error processing motorcycle images:", error);
-      res.status(500).json({ message: "Failed to process motorcycle images" });
-    }
-  });
-
-  // Process cycling images
-  app.post(`${apiRouter}/process-cycling-images`, async (req: Request, res: Response) => {
-    try {
-      const images = await storage.processCyclingImages();
-      res.status(200).json({
-        success: true, 
-        message: "Cycling images processed successfully!",
-        images
-      });
-    } catch (error) {
-      console.error("Error processing cycling images:", error);
-      res.status(500).json({ message: "Failed to process cycling images" });
-    }
-  });
+  // Image endpoints are no longer needed as images are now provided as static files
 
   const httpServer = createServer(app);
   return httpServer;

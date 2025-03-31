@@ -50,38 +50,10 @@ const InterestsSection: FC = () => {
   const [motorcycleImages, setMotorcycleImages] = useState<string[]>(fallbackMotorcycleImages);
   const [activeGallery, setActiveGallery] = useState<'motorcycle' | 'cycling'>('motorcycle');
   
-  // Check if real motorcycle images exist and use them
+  // Use the real images directly from the static files
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      // Image exists, use real images
-      setMotorcycleImages(realMotorcycleImages);
-    };
-    img.onerror = () => {
-      // Image doesn't exist, keep fallback images
-      console.log("Using fallback motorcycle images");
-    };
-    // Check if the first real image exists
-    img.src = realMotorcycleImages[0];
-    
-    // Initialize motorcycle image processing on first load
-    fetch('/api/process-motorcycle-images', {
-      method: 'POST',
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success && data.images && data.images.length > 0) {
-          setMotorcycleImages(data.images);
-        }
-      })
-      .catch(error => console.error('Error processing motorcycle images:', error));
-      
-    // Process cycling image
-    fetch('/api/process-cycling-images', {
-      method: 'POST',
-    })
-      .then(response => response.json())
-      .catch(error => console.error('Error processing cycling images:', error));
+    // Just set the motorcycle images directly
+    setMotorcycleImages(realMotorcycleImages);
   }, []);
   
   return (
