@@ -6,7 +6,7 @@ const DarkModeToggle = () => {
 
   return (
     <button
-      className="rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+      className="rounded-full p-2 bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter hover:bg-portfolio-lighter dark:hover:bg-portfolio-darker transition-colors duration-300"
       aria-label="Toggle dark mode"
       onClick={toggleDarkMode}
     >

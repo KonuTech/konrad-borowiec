@@ -29,38 +29,38 @@ const BooksSection = () => {
   const booksToDisplay = showToRead ? sortedToReadBooks : sortedReadBooks;
 
   return (
-    <section id="books" className="py-20 bg-gray-50 dark:bg-gray-900/50">
+    <section id="books" className="py-20 bg-portfolio-lightest dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My <span className="bg-gradient-to-r from-ghibli-blue to-ghibli-purple bg-clip-text text-transparent">Book Collection</span>
+          My <span className="gradient-text">Book Collection</span>
         </SectionTitle>
         
         {isLoading ? (
           <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-ghibli-purple"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-portfolio-primary"></div>
           </div>
         ) : error ? (
           <div className="text-center text-red-500">Failed to load books</div>
         ) : (
           <>
             <div className="flex justify-center mb-8">
-              <div className="inline-flex rounded-md bg-white dark:bg-gray-800 p-1 shadow-md">
+              <div className="inline-flex rounded-md bg-white dark:bg-portfolio-dark p-1 shadow-md">
                 <button
                   onClick={() => setShowToRead(false)}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                     !showToRead 
-                      ? 'bg-ghibli-purple text-white' 
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'bg-portfolio-primary text-white' 
+                      : 'text-portfolio-text dark:text-portfolio-lighter hover:bg-portfolio-lightest dark:hover:bg-portfolio-darker'
                   }`}
                 >
-                  Books Read or Reading
+                  Books Read or Currently Reading
                 </button>
                 <button
                   onClick={() => setShowToRead(true)}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                     showToRead 
-                      ? 'bg-ghibli-pink text-white' 
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'bg-portfolio-primary text-white' 
+                      : 'text-portfolio-text dark:text-portfolio-lighter hover:bg-portfolio-lightest dark:hover:bg-portfolio-darker'
                   }`}
                 >
                   Books To Read
@@ -85,7 +85,7 @@ const BooksSection = () => {
             <div className="text-center mt-12">
               <a 
                 href="#top"
-                className="inline-flex items-center font-nunito font-bold text-ghibli-purple dark:text-ghibli-lightPink hover:text-ghibli-pink dark:hover:text-ghibli-pink transition-colors duration-300"
+                className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"
               >
                 Back to Top <i className="fas fa-arrow-up ml-2"></i>
               </a>

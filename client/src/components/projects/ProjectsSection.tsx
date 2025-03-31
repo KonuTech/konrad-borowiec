@@ -10,15 +10,15 @@ const ProjectsSection = () => {
   });
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 bg-white dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My <span className="bg-gradient-to-r from-ghibli-blue to-ghibli-purple bg-clip-text text-transparent">Projects</span>
+          My <span className="gradient-text">Projects</span>
         </SectionTitle>
         
         {isLoading ? (
           <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-ghibli-purple"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-portfolio-primary"></div>
           </div>
         ) : error ? (
           <div className="text-center text-red-500">Failed to load projects</div>
@@ -40,10 +40,10 @@ const ProjectsSection = () => {
             
             <div className="text-center mt-12">
               <a 
-                href="#"
-                className="inline-flex items-center font-nunito font-bold text-ghibli-purple dark:text-ghibli-lightPink hover:text-ghibli-pink dark:hover:text-ghibli-pink transition-colors duration-300"
+                href="#top"
+                className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"
               >
-                View All Projects <i className="fas fa-arrow-right ml-2"></i>
+                Back to Top <i className="fas fa-arrow-up ml-2"></i>
               </a>
             </div>
           </>

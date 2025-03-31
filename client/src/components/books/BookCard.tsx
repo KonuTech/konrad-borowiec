@@ -32,19 +32,19 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
   };
 
   const getGenreColors = (genre: string | null | undefined) => {
-    if (!genre) return "bg-gray-200 text-gray-800";
+    if (!genre) return "bg-portfolio-lightest text-portfolio-text";
     
     switch (genre.toLowerCase()) {
       case "self-improvement":
-        return "bg-ghibli-lightPink text-ghibli-pink";
+        return "bg-portfolio-lighter text-portfolio-primary";
       case "sci-fi":
-        return "bg-ghibli-lightBlue text-ghibli-blue";
+        return "bg-portfolio-lightest text-portfolio-primary";
       case "programming":
-        return "bg-ghibli-purple/20 text-ghibli-purple";
+        return "bg-portfolio-primary/20 text-portfolio-primary";
       case "history":
-        return "bg-ghibli-peach/50 text-amber-700";
+        return "bg-portfolio-accent/20 text-portfolio-dark";
       default:
-        return "bg-gray-200 text-gray-800";
+        return "bg-portfolio-lightest text-portfolio-text";
     }
   };
 
@@ -52,7 +52,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
     <div className="book-card h-80">
       <div className="book-card-inner relative w-full h-full">
         {/* Card Front */}
-        <div className="book-card-front absolute w-full h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md flex flex-col">
+        <div className="book-card-front absolute w-full h-full bg-white dark:bg-portfolio-darker rounded-xl overflow-hidden shadow-md flex flex-col">
           <div className="relative h-56 overflow-hidden">
             <img 
               src={book.coverUrl || ''} 
@@ -60,7 +60,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
               className="w-full h-full object-cover"
             />
             {isToRead && (
-              <div className="absolute top-0 right-0 bg-ghibli-pink text-white text-xs px-2 py-1 m-2 rounded-full">
+              <div className="absolute top-0 right-0 bg-portfolio-primary text-white text-xs px-2 py-1 m-2 rounded-full">
                 To Read
               </div>
             )}
@@ -71,7 +71,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
           </div>
           <div className="p-4 flex items-center justify-between">
             <div className="flex">
-              {!isToRead ? renderRating(book.rating) : <span className="text-xs italic text-gray-400">Not yet rated</span>}
+              {!isToRead ? renderRating(book.rating) : <span className="text-xs italic text-portfolio-muted">Not yet rated</span>}
             </div>
             {book.genre && (
               <span className={`text-xs ${getGenreColors(book.genre)} px-2 py-1 rounded-full`}>
@@ -82,12 +82,12 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
         </div>
         
         {/* Card Back */}
-        <div className="book-card-back absolute w-full h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md p-6 flex flex-col">
-          <h3 className="font-nunito font-bold text-lg mb-2">{book.title}</h3>
+        <div className="book-card-back absolute w-full h-full bg-white dark:bg-portfolio-darker rounded-xl overflow-hidden shadow-md p-6 flex flex-col">
+          <h3 className="font-nunito font-bold text-lg mb-2 text-portfolio-dark dark:text-portfolio-lighter">{book.title}</h3>
           {isToRead ? (
-            <div className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow flex flex-col items-center justify-center">
-              <div className="w-12 h-12 rounded-full bg-ghibli-lightPink flex items-center justify-center mb-3">
-                <i className="fas fa-book-reader text-ghibli-pink text-lg"></i>
+            <div className="text-sm text-portfolio-text dark:text-portfolio-lighter mb-4 flex-grow flex flex-col items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-portfolio-lightest flex items-center justify-center mb-3">
+                <i className="fas fa-book-reader text-portfolio-primary text-lg"></i>
               </div>
               <p className="text-center">
                 This book is on my reading list! I'm looking forward to exploring it soon.
@@ -95,12 +95,12 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
             </div>
           ) : (
             <>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+              <p className="text-sm text-portfolio-text dark:text-portfolio-lighter mb-4 flex-grow">
                 {book.review || "I enjoyed this book and found it valuable for my professional development."}
               </p>
               {book.review && (
                 <div>
-                  <p className="text-sm font-medium text-ghibli-purple dark:text-ghibli-lightPink mb-1">My Rating:</p>
+                  <p className="text-sm font-medium text-portfolio-primary dark:text-portfolio-lighter mb-1">My Rating:</p>
                   <div className="flex">{renderRating(book.rating)}</div>
                 </div>
               )}

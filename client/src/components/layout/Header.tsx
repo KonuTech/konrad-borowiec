@@ -23,25 +23,25 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 bg-ghibli-light/80 dark:bg-ghibli-dark/80 backdrop-blur-md py-4 shadow-sm transition-colors duration-300`}
+      className={`fixed w-full top-0 z-50 bg-white/95 dark:bg-portfolio-darker/95 backdrop-blur-md py-4 shadow-sm transition-colors duration-300 ${
+        isScrolled ? 'shadow-md' : ''
+      }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <Link href="/">
-            <a className="text-xl font-nunito font-bold bg-gradient-to-r from-ghibli-blue to-ghibli-purple bg-clip-text text-transparent">
-              <span className="text-2xl">✨</span> Dev Portfolio
-            </a>
+          <Link href="/" className="text-xl font-nunito font-bold text-portfolio-dark dark:text-portfolio-lighter">
+            <span className="text-2xl">👨‍💻</span> Konrad Borowiec
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
-          <ul className="flex space-x-8 font-nunito font-semibold text-sm">
+          <ul className="flex space-x-8 font-nunito font-semibold text-sm text-portfolio-text dark:text-portfolio-lighter">
             <li>
               <a
                 href="#home"
-                className="hover:text-ghibli-pink transition-colors duration-300"
+                className="hover:text-portfolio-primary transition-colors duration-300"
               >
                 Home
               </a>
@@ -49,7 +49,7 @@ const Header = () => {
             <li>
               <a
                 href="#about"
-                className="hover:text-ghibli-pink transition-colors duration-300"
+                className="hover:text-portfolio-primary transition-colors duration-300"
               >
                 About
               </a>
@@ -57,7 +57,7 @@ const Header = () => {
             <li>
               <a
                 href="#projects"
-                className="hover:text-ghibli-pink transition-colors duration-300"
+                className="hover:text-portfolio-primary transition-colors duration-300"
               >
                 Projects
               </a>
@@ -65,15 +65,23 @@ const Header = () => {
             <li>
               <a
                 href="#books"
-                className="hover:text-ghibli-pink transition-colors duration-300"
+                className="hover:text-portfolio-primary transition-colors duration-300"
               >
                 Books
               </a>
             </li>
             <li>
               <a
+                href="#interests"
+                className="hover:text-portfolio-primary transition-colors duration-300"
+              >
+                Interests
+              </a>
+            </li>
+            <li>
+              <a
                 href="#contact"
-                className="hover:text-ghibli-pink transition-colors duration-300"
+                className="hover:text-portfolio-primary transition-colors duration-300"
               >
                 Contact
               </a>
@@ -87,7 +95,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            className="md:hidden rounded-full p-2 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark transition-colors duration-300 text-portfolio-text dark:text-portfolio-lighter"
             aria-label="Menu"
             onClick={toggleMobileMenu}
           >

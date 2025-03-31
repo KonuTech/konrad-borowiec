@@ -44,6 +44,18 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        portfolio: {
+          primary: "#4A90E2",
+          light: "#5DA9E9",
+          lighter: "#A1CDF1",
+          lightest: "#E6F2FF",
+          dark: "#2D5D90",
+          darker: "#1A3A58",
+          accent: "#3F72AF",
+          background: "#F5F9FF",
+          text: "#333F4D",
+          muted: "#64748B"
+        },
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
