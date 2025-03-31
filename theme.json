@@ -1,16 +1,20 @@
 {
-  "variant": "professional",
-  "primary": "hsl(222.2 47.4% 11.2%)",
+  "variant": "vibrant",
+  "primary": "#7bc5eb",
   "appearance": "light",
-  "radius": 0.5,
+  "radius": 1.0,
   "colors": {
     "ghibli": {
-      "blue": "#a2d2ff",
-      "lightBlue": "#bde0fe",
-      "pink": "#ffafcc",
-      "lightPink": "#ffc8dd",
+      "blue": "#7bc5eb",
+      "lightBlue": "#b3e0f2",
+      "pink": "#fb6f92",
+      "lightPink": "#ffc2d1",
       "purple": "#cdb4db",
       "peach": "#ffd6a5",
+      "green": "#98d8aa",
+      "lightGreen": "#c6ebc9",
+      "yellow": "#fdfd96",
+      "orange": "#ffb347",
       "dark": "#2d3748",
       "light": "#fbfbff"
     }
