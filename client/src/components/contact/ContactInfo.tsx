@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 const ContactInfo: FC = () => {
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div id="contact-info" className="flex flex-col justify-between h-full">
       <div>
         
         <div className="space-y-6">

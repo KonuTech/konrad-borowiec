@@ -36,7 +36,7 @@ const Hero = () => {
                 View My Work
               </a>
               <a 
-                href="#contact" 
+                href="#contact-info" 
                 className="px-6 py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold"
               >
                 Contact Me

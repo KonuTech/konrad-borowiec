@@ -61,6 +61,15 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             Interests
           </a>
         </li>
+        <li>
+          <a
+            href="#contact-info"
+            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            onClick={handleLinkClick}
+          >
+            Contact Me
+          </a>
+        </li>
         
         {/* Dark Mode Toggle for Mobile */}
         <li className="mt-4 border-t border-portfolio-lightest dark:border-portfolio-dark pt-4">

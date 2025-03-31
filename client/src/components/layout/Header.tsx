@@ -78,6 +78,14 @@ const Header = () => {
                 Interests
               </a>
             </li>
+            <li>
+              <a
+                href="#contact-info"
+                className="hover:text-portfolio-primary transition-colors duration-300"
+              >
+                Contact Me
+              </a>
+            </li>
 
           </ul>
         </nav>
