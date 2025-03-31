@@ -4,6 +4,10 @@ import {
   projects, type Project, type InsertProject,
   contacts, type Contact, type InsertContact
 } from "@shared/schema";
+import { getReadmeFromGitHub, generateProjectImage } from "./openai";
+import { processAndSaveImage, processAttachedAsset, ensureImageDirectories } from "./imageUtils";
+import path from "path";
+import fs from "fs";
 
 export interface IStorage {
   // User methods
@@ -28,6 +32,10 @@ export interface IStorage {
   // Contact methods
   createContact(contact: InsertContact): Promise<Contact>;
   getContacts(): Promise<Contact[]>;
+  
+  // Utility methods for image processing
+  generateProjectImages(): Promise<void>;
+  processMotorcycleImages(): Promise<string[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -403,6 +411,107 @@ export class MemStorage implements IStorage {
 
   async getContacts(): Promise<Contact[]> {
     return Array.from(this.contacts.values());
+  }
+  
+  // Image processing methods
+  async generateProjectImages(): Promise<void> {
+    try {
+      // Create directories if they don't exist
+      await ensureImageDirectories();
+      
+      // Get all projects
+      const projects = await this.getProjects();
+      
+      for (const project of projects) {
+        if (!project.githubUrl) continue;
+        
+        // Generate a filename for the project image
+        const filename = `${project.title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+        const outputPath = path.join(process.cwd(), 'public', 'images', 'projects', filename);
+        
+        // Check if image already exists
+        if (fs.existsSync(outputPath)) continue;
+        
+        try {
+          // Get README content from GitHub
+          const readmeContent = await getReadmeFromGitHub(project.githubUrl);
+          
+          // Generate an image using OpenAI
+          const imageUrl = await generateProjectImage(readmeContent, project.title);
+          
+          // Process and save the image
+          const localPath = await processAndSaveImage(imageUrl, outputPath, { width: 800, quality: 80 });
+          
+          // Update the project with the new image URL
+          await this.updateProject(project.id, {
+            imageUrl: `/images/projects/${filename}`
+          });
+          
+          console.log(`Generated image for project: ${project.title}`);
+        } catch (error) {
+          console.error(`Error generating image for project ${project.title}:`, error);
+        }
+      }
+    } catch (error) {
+      console.error('Error generating project images:', error);
+    }
+  }
+  
+  async processMotorcycleImages(): Promise<string[]> {
+    try {
+      // Create directories if they don't exist
+      await ensureImageDirectories();
+      
+      const motorcycleImages: string[] = [];
+      const motorcycleImagesDir = path.join(process.cwd(), 'public', 'images', 'motorcycles');
+      
+      // List of images to process
+      const imagesToProcess = [
+        { path: 'attached_assets/IMG-570721fa7df047b4f0df66466fee8748-V.jpg', filename: 'motorcycle-mountain-road.jpg' },
+        { path: 'attached_assets/IMG-6b55f60ce602d46a3842fd0e58f770d0-V.jpg', filename: 'motorcycle-camping.jpg' },
+        { path: 'attached_assets/IMG-a35578be50de37328eef647cfb3109eb-V.jpg', filename: 'mountain-fjord-view.jpg' },
+        { path: 'attached_assets/IMG-130f1d41030b51238c944acf3c325879-V.jpg', filename: 'beach-sunset.jpg' },
+        { path: 'attached_assets/IMG-23b0a9c0ecf622c381aca22631f78879-V.jpg', filename: 'mountain-valley-river.jpg' },
+        { path: 'attached_assets/IMG-1b27076fdf9a09515e29c0798b19e001-V.jpg', filename: 'castle-lake-view.jpg' },
+        { path: 'attached_assets/IMG-1750ba11ef604ba4734c21d9f74f7f45-V.jpg', filename: 'cruise-ship-fjord.jpg' },
+        { path: 'attached_assets/IMG-b7a2c39f6950786f4b1011b8059d436e-V.jpg', filename: 'mountain-fjord-overlook.jpg' },
+        { path: 'attached_assets/IMG-da6c7cede400c5b2ec479bb45a8909f8-V.jpg', filename: 'highland-lake-view.jpg' },
+        { path: 'attached_assets/IMG-58b18ba2cb9319afa1d0bab50987b4b8-V.jpg', filename: 'highland-valley.jpg' },
+        { path: 'attached_assets/IMG-96efb09bbb67f6e15100d37888cd2b45-V.jpg', filename: 'highland-plain.jpg' },
+        { path: 'attached_assets/IMG_20240511_113014.jpg', filename: 'coastal-cliff-flowers.jpg' }
+      ];
+      
+      for (const image of imagesToProcess) {
+        try {
+          // Process and save the image
+          const outputPath = path.join(motorcycleImagesDir, image.filename);
+          
+          // Skip if image already exists
+          if (fs.existsSync(outputPath)) {
+            motorcycleImages.push(`/images/motorcycles/${image.filename}`);
+            continue;
+          }
+          
+          // Process the image (resize and optimize)
+          await processAttachedAsset(
+            image.path, 
+            motorcycleImagesDir, 
+            image.filename, 
+            { width: 800, quality: 80 }
+          );
+          
+          motorcycleImages.push(`/images/motorcycles/${image.filename}`);
+          console.log(`Processed motorcycle image: ${image.filename}`);
+        } catch (error) {
+          console.error(`Error processing image ${image.path}:`, error);
+        }
+      }
+      
+      return motorcycleImages;
+    } catch (error) {
+      console.error('Error processing motorcycle images:', error);
+      return [];
+    }
   }
 }
 

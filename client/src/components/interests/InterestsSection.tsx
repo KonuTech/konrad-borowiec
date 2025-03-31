@@ -1,9 +1,25 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 
-// Sample motorcycle images
-const motorcycleImages = [
+// Real motorcycle images
+const realMotorcycleImages = [
+  "/images/motorcycles/motorcycle-mountain-road.jpg",
+  "/images/motorcycles/motorcycle-camping.jpg",
+  "/images/motorcycles/mountain-fjord-view.jpg",
+  "/images/motorcycles/beach-sunset.jpg",
+  "/images/motorcycles/mountain-valley-river.jpg",
+  "/images/motorcycles/castle-lake-view.jpg",
+  "/images/motorcycles/cruise-ship-fjord.jpg",
+  "/images/motorcycles/mountain-fjord-overlook.jpg",
+  "/images/motorcycles/highland-lake-view.jpg",
+  "/images/motorcycles/highland-valley.jpg",
+  "/images/motorcycles/highland-plain.jpg",
+  "/images/motorcycles/coastal-cliff-flowers.jpg",
+];
+
+// Fallback motorcycle images
+const fallbackMotorcycleImages = [
   "https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   "https://images.unsplash.com/photo-1525160354320-d8e92641c563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
   "https://images.unsplash.com/photo-1571646750134-88aa82a0154c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
@@ -25,7 +41,35 @@ const cyclingImages = [
 const InterestsSection: FC = () => {
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
   const [activeCyclingIndex, setActiveCyclingIndex] = useState(0);
-
+  const [motorcycleImages, setMotorcycleImages] = useState<string[]>(fallbackMotorcycleImages);
+  
+  // Check if real motorcycle images exist and use them
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      // Image exists, use real images
+      setMotorcycleImages(realMotorcycleImages);
+    };
+    img.onerror = () => {
+      // Image doesn't exist, keep fallback images
+      console.log("Using fallback motorcycle images");
+    };
+    // Check if the first real image exists
+    img.src = realMotorcycleImages[0];
+    
+    // Initialize motorcycle image processing on first load
+    fetch('/api/process-motorcycle-images', {
+      method: 'POST',
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success && data.images && data.images.length > 0) {
+          setMotorcycleImages(data.images);
+        }
+      })
+      .catch(error => console.error('Error processing motorcycle images:', error));
+  }, []);
+  
   return (
     <section id="interests" className="py-20 bg-portfolio-lightest dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
@@ -48,7 +92,7 @@ const InterestsSection: FC = () => {
                 From winding mountain roads to coastal highways, each journey brings new perspectives and unforgettable experiences.
               </p>
               <p className="text-portfolio-text dark:text-portfolio-lighter/90">
-                I plan to add photos from my personal road trip adventures soon. In the meantime, enjoy this gallery of motorcycle journey inspiration!
+                Browse through my photo gallery from recent motorcycle journeys across beautiful landscapes, mountain roads, and coastal routes!
               </p>
             </div>
             
