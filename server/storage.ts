@@ -492,7 +492,20 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG_20220708_111440.jpg', filename: 'alpine-valley-view.jpg' },
         { path: 'attached_assets/IMG-6434312588d418a02ffc2beaa625ad22-V.jpg', filename: 'camping-with-motorcycle.jpg' },
         { path: 'attached_assets/IMG_20240503_094308.jpg', filename: 'ferry-motorcycle-deck.jpg' },
-        { path: 'attached_assets/IMG-e6a667848be5413d552f5a837334ae43-V.jpg', filename: 'motorcycle-by-lake.jpg' }
+        { path: 'attached_assets/IMG-e6a667848be5413d552f5a837334ae43-V.jpg', filename: 'motorcycle-by-lake.jpg' },
+        // Additional motorcycle photos
+        { path: 'attached_assets/IMG_20220708_105145.jpg', filename: 'col-de-iseran-sign.jpg' },
+        { path: 'attached_assets/IMG_20220707_144004.jpg', filename: 'blue-motorcycle-mountain-pass.jpg' },
+        { path: 'attached_assets/IMG_20220716_192956.jpg', filename: 'coastal-mountain-view.jpg' },
+        { path: 'attached_assets/IMG_20220715_111003.jpg', filename: 'blue-motorcycles-parked.jpg' },
+        { path: 'attached_assets/IMG_20240427_152749.jpg', filename: 'motorcycle-by-river.jpg' },
+        { path: 'attached_assets/IMG_20240515_182324.jpg', filename: 'mountain-valley-clouds.jpg' },
+        { path: 'attached_assets/IMG_20240515_172646.jpg', filename: 'collada-de-toses-sign.jpg' },
+        { path: 'attached_assets/IMG_20240428_145935.jpg', filename: 'castle-mountain-cliff.jpg' },
+        { path: 'attached_assets/IMG_20240506_102443.jpg', filename: 'alto-de-velefique-sign.jpg' },
+        { path: 'attached_assets/IMG_20240511_110111.jpg', filename: 'cabo-da-roca-sign.jpg' },
+        { path: 'attached_assets/IMG_20240506_123347.jpg', filename: 'desert-mountain-road.jpg' },
+        { path: 'attached_assets/IMG_20240508_122308.jpg', filename: 'canyon-walkway-bridge.jpg' }
       ];
       
       for (const image of imagesToProcess) {
