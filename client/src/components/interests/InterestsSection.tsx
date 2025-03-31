@@ -53,6 +53,7 @@ const InterestsSection: FC = () => {
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
   const [activeCyclingIndex, setActiveCyclingIndex] = useState(0);
   const [motorcycleImages, setMotorcycleImages] = useState<string[]>(fallbackMotorcycleImages);
+  const [activeGallery, setActiveGallery] = useState<'motorcycle' | 'cycling'>('motorcycle');
   
   // Check if real motorcycle images exist and use them
   useEffect(() => {
@@ -136,64 +137,88 @@ const InterestsSection: FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            {/* Motorcycle Gallery */}
+            {/* Combined Gallery with Tabs */}
             <div className="bg-white dark:bg-portfolio-dark p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h4 className="font-nunito font-semibold text-lg mb-3 text-portfolio-primary dark:text-portfolio-lighter">Motorcycle Gallery</h4>
-              <div className="overflow-hidden rounded-lg aspect-w-16 aspect-h-9" style={{ aspectRatio: '16/9' }}>
-                <img 
-                  src={motorcycleImages[activeMotorcycleIndex]} 
-                  alt="Motorcycle road trip" 
-                  className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                />
+              <div className="flex border-b border-portfolio-lightest dark:border-portfolio-dark mb-4">
+                <button 
+                  className={`py-2 px-4 font-nunito font-medium transition-all ${
+                    activeGallery === 'motorcycle' 
+                      ? 'text-portfolio-primary border-b-2 border-portfolio-primary' 
+                      : 'text-portfolio-muted hover:text-portfolio-primary'
+                  }`}
+                  onClick={() => setActiveGallery('motorcycle')}
+                >
+                  Motorcycle Gallery
+                </button>
+                <button 
+                  className={`py-2 px-4 font-nunito font-medium transition-all ${
+                    activeGallery === 'cycling' 
+                      ? 'text-portfolio-primary border-b-2 border-portfolio-primary' 
+                      : 'text-portfolio-muted hover:text-portfolio-primary'
+                  }`}
+                  onClick={() => setActiveGallery('cycling')}
+                >
+                  Cycling Gallery
+                </button>
               </div>
               
-              <div className="mt-4 grid grid-cols-6 gap-2">
-                {motorcycleImages.map((image, index) => (
-                  <button 
-                    key={index}
-                    onClick={() => setActiveMotorcycleIndex(index)}
-                    className={`overflow-hidden rounded-md transition-all ${activeMotorcycleIndex === index ? 'ring-2 ring-portfolio-primary' : 'opacity-70 hover:opacity-100'}`}
-                  >
+              {activeGallery === 'motorcycle' ? (
+                <>
+                  <div className="overflow-hidden rounded-lg aspect-w-16 aspect-h-9" style={{ aspectRatio: '16/9' }}>
                     <img 
-                      src={image} 
-                      alt={`Motorcycle thumbnail ${index + 1}`} 
-                      className="aspect-square object-cover w-full h-full"
+                      src={motorcycleImages[activeMotorcycleIndex]} 
+                      alt="Motorcycle road trip" 
+                      className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
                       loading="lazy"
                     />
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            {/* Cycling Gallery */}
-            <div className="bg-white dark:bg-portfolio-dark p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h4 className="font-nunito font-semibold text-lg mb-3 text-portfolio-primary dark:text-portfolio-lighter">Cycling Gallery</h4>
-              <div className="overflow-hidden rounded-lg aspect-w-16 aspect-h-9" style={{ aspectRatio: '16/9' }}>
-                <img 
-                  src={cyclingImages[activeCyclingIndex]} 
-                  alt="Cycling adventure" 
-                  className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              
-              <div className="mt-4 grid grid-cols-6 gap-2">
-                {cyclingImages.map((image, index) => (
-                  <button 
-                    key={index}
-                    onClick={() => setActiveCyclingIndex(index)}
-                    className={`overflow-hidden rounded-md transition-all ${activeCyclingIndex === index ? 'ring-2 ring-portfolio-primary' : 'opacity-70 hover:opacity-100'}`}
-                  >
+                  </div>
+                  
+                  <div className="mt-4 grid grid-cols-6 gap-2">
+                    {motorcycleImages.map((image, index) => (
+                      <button 
+                        key={index}
+                        onClick={() => setActiveMotorcycleIndex(index)}
+                        className={`overflow-hidden rounded-md transition-all ${activeMotorcycleIndex === index ? 'ring-2 ring-portfolio-primary' : 'opacity-70 hover:opacity-100'}`}
+                      >
+                        <img 
+                          src={image} 
+                          alt={`Motorcycle thumbnail ${index + 1}`} 
+                          className="aspect-square object-cover w-full h-full"
+                          loading="lazy"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="overflow-hidden rounded-lg aspect-w-16 aspect-h-9" style={{ aspectRatio: '16/9' }}>
                     <img 
-                      src={image} 
-                      alt={`Cycling thumbnail ${index + 1}`} 
-                      className="aspect-square object-cover w-full h-full"
+                      src={cyclingImages[activeCyclingIndex]} 
+                      alt="Cycling adventure" 
+                      className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
                       loading="lazy"
                     />
-                  </button>
-                ))}
-              </div>
+                  </div>
+                  
+                  <div className="mt-4 grid grid-cols-6 gap-2">
+                    {cyclingImages.map((image, index) => (
+                      <button 
+                        key={index}
+                        onClick={() => setActiveCyclingIndex(index)}
+                        className={`overflow-hidden rounded-md transition-all ${activeCyclingIndex === index ? 'ring-2 ring-portfolio-primary' : 'opacity-70 hover:opacity-100'}`}
+                      >
+                        <img 
+                          src={image} 
+                          alt={`Cycling thumbnail ${index + 1}`} 
+                          className="aspect-square object-cover w-full h-full"
+                          loading="lazy"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         </div>

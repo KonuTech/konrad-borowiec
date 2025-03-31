@@ -162,16 +162,7 @@ export class MemStorage implements IStorage {
         userId: null,
         status: "read"
       },
-      {
-        title: "Sapiens",
-        author: "Yuval Noah Harari",
-        coverUrl: "https://m.media-amazon.com/images/I/713jIoMO3UL._SL1500_.jpg",
-        genre: "History",
-        rating: 5,
-        review: "A fascinating exploration of human history, from the emergence of Homo sapiens to the present day. Provides valuable context for understanding human behavior and society.",
-        userId: null,
-        status: "read"
-      },
+
       
       // Books to read
       {
