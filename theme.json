@@ -1,0 +1,18 @@
+{
+  "variant": "professional",
+  "primary": "hsl(222.2 47.4% 11.2%)",
+  "appearance": "light",
+  "radius": 0.5,
+  "colors": {
+    "ghibli": {
+      "blue": "#a2d2ff",
+      "lightBlue": "#bde0fe",
+      "pink": "#ffafcc",
+      "lightPink": "#ffc8dd",
+      "purple": "#cdb4db",
+      "peach": "#ffd6a5",
+      "dark": "#2d3748",
+      "light": "#fbfbff"
+    }
+  }
+}

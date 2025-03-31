@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Ghibli Inspired Portfolio</title>
+  <meta name="description" content="A personal portfolio showcasing web development projects with a Studio Ghibli inspired design">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph Tags for social media sharing -->
+  <meta property="og:title" content="Dev Portfolio - Studio Ghibli Inspired">
+  <meta property="og:description" content="A personal portfolio showcasing web development projects with a Studio Ghibli inspired design">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfolio.example.com">
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Font family classes */
+    .font-nunito {
+      font-family: 'Nunito', sans-serif;
+    }
+    
+    .font-lato {
+      font-family: 'Lato', sans-serif;
+    }
+    
+    /* Ghibli card hover effect */
+    .ghibli-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ghibli-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Book card flip effect */
+    .book-card {
+      perspective: 1000px;
+    }
+    .book-card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .book-card:hover .book-card-inner {
+      transform: rotateY(180deg);
+    }
+    .book-card-front, .book-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .book-card-back {
+      transform: rotateY(180deg);
+    }
+    
+    /* Cloud background */
+    .cloud-bg {
+      background-image: url('https://images.unsplash.com/photo-1533736405784-196c5c4852f1?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    .cloud-mask {
+      background: linear-gradient(rgba(0,0,0,0), rgba(251,251,255,1));
+    }
+    .dark .cloud-mask {
+      background: linear-gradient(rgba(0,0,0,0), rgba(45,55,72,1));
+    }
+    
+    /* Timeline styles */
+    .timeline-dot:before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: -999px;
+      bottom: 0;
+      width: 2px;
+      background-color: #cdb4db;
+      z-index: -1;
+    }
+    .timeline-dot:first-child:before {
+      top: 50%;
+    }
+    .timeline-dot:last-child:before {
+      bottom: 50%;
+    }
+    
+    /* Animation classes */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes spin-slow {
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 10s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
