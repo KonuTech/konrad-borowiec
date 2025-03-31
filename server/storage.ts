@@ -406,33 +406,55 @@ export class MemStorage implements IStorage {
   }
   
   // Image processing methods
+  // Cache to track project images that have been processed
+  private projectImageCache = new Map<number, boolean>();
+  
   async generateProjectImages(): Promise<void> {
     try {
-      // Create directories if they don't exist
       await ensureImageDirectories();
-      
-      // Get all projects
       const projects = await this.getProjects();
+      const projectsDir = path.join(process.cwd(), 'public', 'images', 'projects');
       
-      for (const project of projects) {
-        if (!project.githubUrl) continue;
+      // Filter projects that need image generation
+      const projectsToProcess = projects.filter(project => {
+        // Skip projects without GitHub URLs
+        if (!project.githubUrl) return false;
         
-        // Generate a filename for the project image
+        // Skip projects we've already checked in this session
+        if (this.projectImageCache.has(project.id)) return false;
+        
+        // Generate expected filename
         const filename = `${project.title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
-        const outputPath = path.join(process.cwd(), 'public', 'images', 'projects', filename);
+        const outputPath = path.join(projectsDir, filename);
         
-        // Check if image already exists
-        if (fs.existsSync(outputPath)) continue;
+        // If image exists, mark as processed and skip
+        if (fs.existsSync(outputPath)) {
+          this.projectImageCache.set(project.id, true);
+          return false;
+        }
+        
+        return true;
+      });
+      
+      // If no projects need processing, return early
+      if (projectsToProcess.length === 0) return;
+      
+      // Process projects one at a time (because OpenAI API calls can be expensive)
+      for (const project of projectsToProcess) {
+        // Generate filename for the project image
+        const filename = `${project.title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+        const outputPath = path.join(projectsDir, filename);
         
         try {
-          // Get README content from GitHub
-          const readmeContent = await getReadmeFromGitHub(project.githubUrl);
+          // Get README content from GitHub - handle null case
+          if (!project.githubUrl) continue; // Safety check
+          const readmeContent = await getReadmeFromGitHub(project.githubUrl as string);
           
           // Generate an image using OpenAI
-          const imageUrl = await generateProjectImage(readmeContent, project.title);
+          const imageUrl = await generateProjectImage(readmeContent || '', project.title);
           
           // Process and save the image with enhanced optimization
-          const localPath = await processAndSaveImage(imageUrl, outputPath, { 
+          await processAndSaveImage(imageUrl, outputPath, { 
             width: 800, 
             quality: 85, 
             optimizationLevel: 'medium' 
@@ -443,9 +465,14 @@ export class MemStorage implements IStorage {
             imageUrl: `/images/projects/${filename}`
           });
           
+          // Mark as processed in our cache
+          this.projectImageCache.set(project.id, true);
+          
           console.log(`Generated image for project: ${project.title}`);
         } catch (error) {
           console.error(`Error generating image for project ${project.title}:`, error);
+          // Mark as attempted but failed so we don't retry endlessly
+          this.projectImageCache.set(project.id, false);
         }
       }
     } catch (error) {
@@ -453,105 +480,145 @@ export class MemStorage implements IStorage {
     }
   }
   
+  // Cache to avoid repetitive file system checks
+  private processedImages = new Set<string>();
+  private readonly imageConfig = {
+    width: 800,
+    quality: 80,
+    optimizationLevel: 'high' as const
+  };
+
   async processMotorcycleImages(): Promise<string[]> {
     try {
-      // Create directories if they don't exist
       await ensureImageDirectories();
-      
       const motorcycleImages: string[] = [];
       const motorcycleImagesDir = path.join(process.cwd(), 'public', 'images', 'motorcycles');
       
-      // Remove problematic auto-generated images
-      const imagesToRemove = [
-        path.join(motorcycleImagesDir, 'coastal-cliff-flowers.jpg'),
-        path.join(motorcycleImagesDir, 'auto-.jpg')
-      ];
-      
-      for (const imageToRemove of imagesToRemove) {
-        if (fs.existsSync(imageToRemove)) {
-          try {
-            fs.unlinkSync(imageToRemove);
-            console.log(`Removed problematic image: ${path.basename(imageToRemove)}`);
-          } catch (err) {
-            console.error(`Error removing image ${path.basename(imageToRemove)}:`, err);
+      // Remove problematic auto-generated images - only once at startup
+      if (!this.processedImages.has('cleanup_done')) {
+        const imagesToRemove = [
+          path.join(motorcycleImagesDir, 'coastal-cliff-flowers.jpg'),
+          path.join(motorcycleImagesDir, 'auto-.jpg')
+        ];
+        
+        for (const imageToRemove of imagesToRemove) {
+          if (fs.existsSync(imageToRemove)) {
+            try {
+              fs.unlinkSync(imageToRemove);
+            } catch (err) {
+              console.error(`Error removing image ${path.basename(imageToRemove)}:`, err);
+            }
           }
+        }
+        this.processedImages.add('cleanup_done');
+      }
+      
+      // Static image list - pre-defined motorcycle images with proper names
+      const staticImageMap = new Map([
+        ['IMG-570721fa7df047b4f0df66466fee8748-V.jpg', 'motorcycle-mountain-road.jpg'],
+        ['IMG-6b55f60ce602d46a3842fd0e58f770d0-V.jpg', 'motorcycle-camping.jpg'],
+        ['IMG-a35578be50de37328eef647cfb3109eb-V.jpg', 'mountain-fjord-view.jpg'],
+        ['IMG-130f1d41030b51238c944acf3c325879-V.jpg', 'beach-sunset.jpg'],
+        ['IMG-23b0a9c0ecf622c381aca22631f78879-V.jpg', 'mountain-valley-river.jpg'],
+        ['IMG-1b27076fdf9a09515e29c0798b19e001-V.jpg', 'castle-lake-view.jpg'],
+        ['IMG-1750ba11ef604ba4734c21d9f74f7f45-V.jpg', 'cruise-ship-fjord.jpg'],
+        ['IMG-b7a2c39f6950786f4b1011b8059d436e-V.jpg', 'mountain-fjord-overlook.jpg'],
+        ['IMG-da6c7cede400c5b2ec479bb45a8909f8-V.jpg', 'highland-lake-view.jpg'],
+        ['IMG-58b18ba2cb9319afa1d0bab50987b4b8-V.jpg', 'highland-valley.jpg'],
+        ['IMG-96efb09bbb67f6e15100d37888cd2b45-V.jpg', 'highland-plain.jpg'],
+        ['IMG_20220708_163911.jpg', 'mountain-cliff-road.jpg'],
+        ['IMG_20240505_155448.jpg', 'coastal-road-view.jpg'],
+        ['IMG_20240502_103331.jpg', 'ferry-motorcycles.jpg'],
+        ['IMG_20220707_140811.jpg', 'alpine-mountain-view.jpg'],
+        ['IMG_20220707_131955.jpg', 'mountain-restaurant.jpg'],
+        ['IMG_20220713_202507.jpg', 'sunset-coastal-ride.jpg'],
+        ['IMG_20240429_091530.jpg', 'venice-canal.jpg'],
+        ['IMG_20220713_185946.jpg', 'blue-motorcycle-mountains.jpg'],
+        ['IMG_20220708_111440.jpg', 'alpine-valley-view.jpg'],
+        ['IMG-6434312588d418a02ffc2beaa625ad22-V.jpg', 'camping-with-motorcycle.jpg'],
+        ['IMG_20240503_094308.jpg', 'ferry-motorcycle-deck.jpg'],
+        ['IMG-e6a667848be5413d552f5a837334ae43-V.jpg', 'motorcycle-by-lake.jpg'],
+        ['IMG_20220708_105145.jpg', 'col-de-iseran-sign.jpg'],
+        ['IMG_20220707_144004.jpg', 'blue-motorcycle-mountain-pass.jpg'],
+        ['IMG_20220716_192956.jpg', 'coastal-mountain-view.jpg'],
+        ['IMG_20220715_111003.jpg', 'blue-motorcycles-parked.jpg'],
+        ['IMG_20240427_152749.jpg', 'motorcycle-by-river.jpg'],
+        ['IMG_20240515_182324.jpg', 'mountain-valley-clouds.jpg'],
+        ['IMG_20240515_172646.jpg', 'collada-de-toses-sign.jpg'],
+        ['IMG_20240428_145935.jpg', 'castle-mountain-cliff.jpg'],
+        ['IMG_20240506_102443.jpg', 'alto-de-velefique-sign.jpg'],
+        ['IMG_20240511_110111.jpg', 'cabo-da-roca-sign.jpg'],
+        ['IMG_20240506_123347.jpg', 'desert-mountain-road.jpg'],
+        ['IMG_20240508_122308.jpg', 'canyon-walkway-bridge.jpg'],
+        ['IMG_20220708_111416.jpg', 'motorcycles-mountain-road-signs.jpg'],
+        ['IMG_20220711_142702.jpg', 'golden-fields-landscape.jpg'],
+        ['IMG_20220712_073610.jpg', 'motorcycle-ferry-port.jpg'],
+        ['IMG_20220711_210735.jpg', 'ocean-sunset-waves.jpg'],
+        ['IMG_20240504_090511.jpg', 'valencia-city-of-arts.jpg'],
+        ['IMG_20220713_171341.jpg', 'mountain-coastal-view.jpg'],
+        ['IMG_20220715_182856.jpg', 'motorcycle-country-road.jpg']
+      ]);
+      
+      // Build a processing queue (files that need processing)
+      const processingQueue = [];
+      
+      // Process static named images first - convert to array to avoid TS iteration issue
+      for (const [sourceFile, targetName] of Array.from(staticImageMap.entries())) {
+        const sourcePath = `attached_assets/${sourceFile}`;
+        const outputPath = path.join(motorcycleImagesDir, targetName);
+        
+        // Cache check to avoid redundant file system operations
+        const cacheKey = `motor:${targetName}`;
+        
+        // Skip if already processed or exists in file system
+        if (this.processedImages.has(cacheKey) || fs.existsSync(outputPath)) {
+          if (!this.processedImages.has(cacheKey)) {
+            this.processedImages.add(cacheKey);
+          }
+          continue;
+        }
+        
+        // Add to processing queue if file exists
+        if (fs.existsSync(sourcePath)) {
+          processingQueue.push({
+            sourcePath,
+            outputDir: motorcycleImagesDir,
+            targetName,
+            cacheKey
+          });
         }
       }
       
-      // List of images to process
-      const imagesToProcess = [
-        { path: 'attached_assets/IMG-570721fa7df047b4f0df66466fee8748-V.jpg', filename: 'motorcycle-mountain-road.jpg' },
-        { path: 'attached_assets/IMG-6b55f60ce602d46a3842fd0e58f770d0-V.jpg', filename: 'motorcycle-camping.jpg' },
-        { path: 'attached_assets/IMG-a35578be50de37328eef647cfb3109eb-V.jpg', filename: 'mountain-fjord-view.jpg' },
-        { path: 'attached_assets/IMG-130f1d41030b51238c944acf3c325879-V.jpg', filename: 'beach-sunset.jpg' },
-        { path: 'attached_assets/IMG-23b0a9c0ecf622c381aca22631f78879-V.jpg', filename: 'mountain-valley-river.jpg' },
-        { path: 'attached_assets/IMG-1b27076fdf9a09515e29c0798b19e001-V.jpg', filename: 'castle-lake-view.jpg' },
-        { path: 'attached_assets/IMG-1750ba11ef604ba4734c21d9f74f7f45-V.jpg', filename: 'cruise-ship-fjord.jpg' },
-        { path: 'attached_assets/IMG-b7a2c39f6950786f4b1011b8059d436e-V.jpg', filename: 'mountain-fjord-overlook.jpg' },
-        { path: 'attached_assets/IMG-da6c7cede400c5b2ec479bb45a8909f8-V.jpg', filename: 'highland-lake-view.jpg' },
-        { path: 'attached_assets/IMG-58b18ba2cb9319afa1d0bab50987b4b8-V.jpg', filename: 'highland-valley.jpg' },
-        { path: 'attached_assets/IMG-96efb09bbb67f6e15100d37888cd2b45-V.jpg', filename: 'highland-plain.jpg' },
-        // Previously added photos
-        { path: 'attached_assets/IMG_20220708_163911.jpg', filename: 'mountain-cliff-road.jpg' },
-        { path: 'attached_assets/IMG_20240505_155448.jpg', filename: 'coastal-road-view.jpg' },
-        { path: 'attached_assets/IMG_20240502_103331.jpg', filename: 'ferry-motorcycles.jpg' },
-        { path: 'attached_assets/IMG_20220707_140811.jpg', filename: 'alpine-mountain-view.jpg' },
-        { path: 'attached_assets/IMG_20220707_131955.jpg', filename: 'mountain-restaurant.jpg' },
-        { path: 'attached_assets/IMG_20220713_202507.jpg', filename: 'sunset-coastal-ride.jpg' },
-        { path: 'attached_assets/IMG_20240429_091530.jpg', filename: 'venice-canal.jpg' },
-        { path: 'attached_assets/IMG_20220713_185946.jpg', filename: 'blue-motorcycle-mountains.jpg' },
-        { path: 'attached_assets/IMG_20220708_111440.jpg', filename: 'alpine-valley-view.jpg' },
-        { path: 'attached_assets/IMG-6434312588d418a02ffc2beaa625ad22-V.jpg', filename: 'camping-with-motorcycle.jpg' },
-        { path: 'attached_assets/IMG_20240503_094308.jpg', filename: 'ferry-motorcycle-deck.jpg' },
-        { path: 'attached_assets/IMG-e6a667848be5413d552f5a837334ae43-V.jpg', filename: 'motorcycle-by-lake.jpg' },
-        // Additional motorcycle photos from previous request
-        { path: 'attached_assets/IMG_20220708_105145.jpg', filename: 'col-de-iseran-sign.jpg' },
-        { path: 'attached_assets/IMG_20220707_144004.jpg', filename: 'blue-motorcycle-mountain-pass.jpg' },
-        { path: 'attached_assets/IMG_20220716_192956.jpg', filename: 'coastal-mountain-view.jpg' },
-        { path: 'attached_assets/IMG_20220715_111003.jpg', filename: 'blue-motorcycles-parked.jpg' },
-        { path: 'attached_assets/IMG_20240427_152749.jpg', filename: 'motorcycle-by-river.jpg' },
-        { path: 'attached_assets/IMG_20240515_182324.jpg', filename: 'mountain-valley-clouds.jpg' },
-        { path: 'attached_assets/IMG_20240515_172646.jpg', filename: 'collada-de-toses-sign.jpg' },
-        { path: 'attached_assets/IMG_20240428_145935.jpg', filename: 'castle-mountain-cliff.jpg' },
-        { path: 'attached_assets/IMG_20240506_102443.jpg', filename: 'alto-de-velefique-sign.jpg' },
-        { path: 'attached_assets/IMG_20240511_110111.jpg', filename: 'cabo-da-roca-sign.jpg' },
-        { path: 'attached_assets/IMG_20240506_123347.jpg', filename: 'desert-mountain-road.jpg' },
-        { path: 'attached_assets/IMG_20240508_122308.jpg', filename: 'canyon-walkway-bridge.jpg' },
-        // Newest motorcycle photos
-        { path: 'attached_assets/IMG_20220708_111416.jpg', filename: 'motorcycles-mountain-road-signs.jpg' },
-        { path: 'attached_assets/IMG_20220711_142702.jpg', filename: 'golden-fields-landscape.jpg' },
-        { path: 'attached_assets/IMG_20220712_073610.jpg', filename: 'motorcycle-ferry-port.jpg' },
-        { path: 'attached_assets/IMG_20220711_210735.jpg', filename: 'ocean-sunset-waves.jpg' },
-        { path: 'attached_assets/IMG_20240504_090511.jpg', filename: 'valencia-city-of-arts.jpg' },
-        { path: 'attached_assets/IMG_20220713_171341.jpg', filename: 'mountain-coastal-view.jpg' },
-        { path: 'attached_assets/IMG_20220715_182856.jpg', filename: 'motorcycle-country-road.jpg' }
-      ];
-      
-      // Scan the attached_assets directory for all available motorcycle images
-      // This allows automatic discovery of new motorcycle images
+      // Dynamically discover other motorcycle images
       const attachedAssetsDir = path.join(process.cwd(), 'attached_assets');
       if (fs.existsSync(attachedAssetsDir)) {
         try {
           const files = fs.readdirSync(attachedAssetsDir);
           
-          // Pattern to match motorcycle images (IMG_*.jpg that aren't already in our list)
-          // and aren't cycling images (we process those separately)
+          // Process only IMG_*.jpg files that aren't already known or cycling-related
           for (const file of files) {
-            if (file.match(/^IMG_.*\.jpg$/) && !file.match(/cycling/i)) {
-              // Check if this file is already in our list
-              const alreadyIncluded = imagesToProcess.some(img => img.path === `attached_assets/${file}`);
+            if (file.match(/^IMG_.*\.jpg$/) && !file.match(/cycling/i) && !staticImageMap.has(file)) {
+              const sourcePath = path.join(attachedAssetsDir, file);
+              const outputPath = path.join(motorcycleImagesDir, file);
+              const cacheKey = `motor:${file}`;
               
-              if (!alreadyIncluded) {
-                // Keep the original filename
-                const filename = file;
-                
-                // Add to our processing list
-                imagesToProcess.push({
-                  path: `attached_assets/${file}`,
-                  filename: filename
-                });
-                console.log(`Discovered new motorcycle image: ${file}`);
+              // Skip if already processed or exists in file system
+              if (this.processedImages.has(cacheKey) || fs.existsSync(outputPath)) {
+                if (!this.processedImages.has(cacheKey)) {
+                  this.processedImages.add(cacheKey);
+                }
+                continue;
               }
+              
+              // Only log new discoveries (not ones we've seen before)
+              console.log(`Discovered new motorcycle image: ${file}`);
+              
+              processingQueue.push({
+                sourcePath,
+                outputDir: motorcycleImagesDir,
+                targetName: file,
+                cacheKey
+              });
             }
           }
         } catch (error) {
@@ -559,42 +626,37 @@ export class MemStorage implements IStorage {
         }
       }
       
-      // Process images if they don't exist yet
-      for (const image of imagesToProcess) {
-        try {
-          // Process and save the image
-          const outputPath = path.join(motorcycleImagesDir, image.filename);
-          
-          // Skip if image already exists
-          if (fs.existsSync(outputPath)) {
-            continue;
+      // Process images in batch (up to 5 at once for better performance)
+      const batchSize = 5;
+      for (let i = 0; i < processingQueue.length; i += batchSize) {
+        const batch = processingQueue.slice(i, i + batchSize);
+        await Promise.all(batch.map(async (item) => {
+          try {
+            await processAttachedAsset(
+              item.sourcePath,
+              item.outputDir,
+              item.targetName,
+              this.imageConfig
+            );
+            
+            // Mark as processed in cache
+            this.processedImages.add(item.cacheKey);
+            console.log(`Processed motorcycle image: ${item.targetName}`);
+          } catch (error) {
+            console.error(`Error processing image ${item.sourcePath}:`, error);
           }
-          
-          // Process the image with enhanced optimization
-          await processAttachedAsset(
-            image.path, 
-            motorcycleImagesDir, 
-            image.filename, 
-            { 
-              width: 800, 
-              quality: 80,
-              optimizationLevel: 'high' // Use high optimization for motorcycle gallery
-            }
-          );
-          
-          console.log(`Processed motorcycle image: ${image.filename}`);
-        } catch (error) {
-          console.error(`Error processing image ${image.path}:`, error);
-        }
+        }));
       }
       
-      // Scan the directory for all available images
-      const files = fs.readdirSync(motorcycleImagesDir);
-      
-      // Add all image files to the list
-      for (const file of files) {
-        if (file.endsWith('.jpg') || file.endsWith('.jpeg') || file.endsWith('.png')) {
-          motorcycleImages.push(`/images/motorcycles/${file}`);
+      // Efficiently gather all processed images
+      if (fs.existsSync(motorcycleImagesDir)) {
+        const files = fs.readdirSync(motorcycleImagesDir);
+        
+        // Filter for image files
+        for (const file of files) {
+          if (/\.(jpg|jpeg|png)$/i.test(file)) {
+            motorcycleImages.push(`/images/motorcycles/${file}`);
+          }
         }
       }
       
@@ -608,40 +670,41 @@ export class MemStorage implements IStorage {
   
   async processCyclingImages(): Promise<string[]> {
     try {
-      // Create directories if they don't exist
       await ensureImageDirectories();
       
       const cyclingImages: string[] = [];
       const cyclingImagesDir = path.join(process.cwd(), 'public', 'images', 'cycling');
       
-      // Process the specific cycling image we want to use
-      const imagePath = 'attached_assets/IMG_20220713_171341.jpg';
+      // Process the specific cycling image
       const filename = 'IMG_20220713_171341.jpg';
       const outputPath = path.join(cyclingImagesDir, filename);
+      const cacheKey = `cycling:${filename}`;
       
-      // Skip if image already exists
-      if (fs.existsSync(outputPath)) {
+      // Skip if already processed (use in-memory cache to avoid file check)
+      if (this.processedImages.has(cacheKey) || fs.existsSync(outputPath)) {
+        if (!this.processedImages.has(cacheKey)) {
+          this.processedImages.add(cacheKey);
+        }
+        
         cyclingImages.push(`/images/cycling/${filename}`);
         return cyclingImages;
       }
       
       try {
-        // Process and save the image with enhanced optimization
+        // Process the image
         await processAttachedAsset(
-          imagePath, 
-          cyclingImagesDir, 
-          filename, 
-          { 
-            width: 800, 
-            quality: 80,
-            optimizationLevel: 'high' // Use high optimization for cycling gallery
-          }
+          `attached_assets/${filename}`,
+          cyclingImagesDir,
+          filename,
+          this.imageConfig
         );
         
+        // Mark as processed in cache
+        this.processedImages.add(cacheKey);
         cyclingImages.push(`/images/cycling/${filename}`);
         console.log(`Processed cycling image: ${filename}`);
       } catch (error) {
-        console.error(`Error processing cycling image ${imagePath}:`, error);
+        console.error(`Error processing cycling image ${filename}:`, error);
       }
       
       return cyclingImages;

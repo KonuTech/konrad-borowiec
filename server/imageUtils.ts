@@ -4,56 +4,130 @@ import path from 'path';
 import { promisify } from 'util';
 import fetch from 'node-fetch';
 
-const writeFileAsync = promisify(fs.writeFile);
 const readFileAsync = promisify(fs.readFile);
 const mkdirAsync = promisify(fs.mkdir);
 
-// Ensure the public image directories exist
-export async function ensureImageDirectories() {
-  const projectImagesDir = path.join(process.cwd(), 'public', 'images', 'projects');
-  const motorcycleImagesDir = path.join(process.cwd(), 'public', 'images', 'motorcycles');
+// Directory cache to avoid redundant fs checks
+const dirCache = new Set<string>();
+
+// Ensure a directory exists with caching for better performance
+async function ensureDirectoryExists(dir: string) {
+  if (dirCache.has(dir)) return;
   
   try {
-    // Create base public directory if it doesn't exist
-    if (!fs.existsSync(path.join(process.cwd(), 'public'))) {
-      await mkdirAsync(path.join(process.cwd(), 'public'));
+    if (!fs.existsSync(dir)) {
+      await mkdirAsync(dir, { recursive: true });
     }
-    
-    // Create images directory if it doesn't exist
-    if (!fs.existsSync(path.join(process.cwd(), 'public', 'images'))) {
-      await mkdirAsync(path.join(process.cwd(), 'public', 'images'));
-    }
-    
-    // Create project images directory if it doesn't exist
-    if (!fs.existsSync(projectImagesDir)) {
-      await mkdirAsync(projectImagesDir);
-    }
-    
-    // Create motorcycle images directory if it doesn't exist
-    if (!fs.existsSync(motorcycleImagesDir)) {
-      await mkdirAsync(motorcycleImagesDir);
-    }
+    dirCache.add(dir);
+  } catch (error) {
+    console.error(`Error creating directory ${dir}:`, error);
+    throw error;
+  }
+}
+
+// Ensure the public image directories exist - only creates what's needed
+export async function ensureImageDirectories() {
+  const publicDir = path.join(process.cwd(), 'public');
+  const imagesDir = path.join(publicDir, 'images');
+  const projectImagesDir = path.join(imagesDir, 'projects');
+  const motorcycleImagesDir = path.join(imagesDir, 'motorcycles');
+  
+  try {
+    // Use recursive flag to create all directories in a single call if needed
+    await ensureDirectoryExists(publicDir);
+    await ensureDirectoryExists(imagesDir);
+    await ensureDirectoryExists(projectImagesDir);
+    await ensureDirectoryExists(motorcycleImagesDir);
   } catch (error) {
     console.error('Error creating image directories:', error);
   }
 }
 
+// Common image processing function to avoid code duplication
+async function processImage(
+  sharpInstance: sharp.Sharp, 
+  outputPath: string,
+  options: {
+    width?: number,
+    height?: number,
+    quality?: number,
+    optimizationLevel?: 'low' | 'medium' | 'high'
+  }
+): Promise<string> {
+  // Set default options
+  const width = options.width || 800;
+  const height = options.height;
+  const quality = options.quality || 80;
+  const optimizationLevel = options.optimizationLevel || 'medium';
+  
+  // Get image metadata to make smart decisions about resizing
+  const metadata = await sharpInstance.metadata();
+  const originalWidth = metadata.width || 0;
+  
+  // Only resize if the original is larger than target width to avoid upscaling
+  if ((width && originalWidth > width) || height) {
+    sharpInstance = sharpInstance.resize({
+      width,
+      height,
+      fit: 'cover',
+      position: 'center',
+      withoutEnlargement: true // Prevent upscaling small images
+    });
+  }
+  
+  // Apply optimization based on level - calculate once
+  const outputQuality = optimizationLevel === 'high' 
+    ? Math.min(quality, 60) 
+    : (optimizationLevel === 'medium' ? Math.min(quality, 75) : quality);
+  
+  // Apply sharpening based on optimization level
+  if (optimizationLevel === 'high') {
+    sharpInstance = sharpInstance.sharpen({
+      sigma: 1.2,
+      m1: 0.5,
+      m2: 0.5
+    });
+  } else if (optimizationLevel === 'medium') {
+    sharpInstance = sharpInstance.sharpen();
+  }
+  
+  // Choose output format based on extension
+  const isPng = outputPath.toLowerCase().endsWith('.png');
+  
+  if (isPng) {
+    sharpInstance = sharpInstance.png({ 
+      compressionLevel: 9,
+      palette: true
+    });
+  } else {
+    sharpInstance = sharpInstance.jpeg({ 
+      quality: outputQuality,
+      mozjpeg: true,
+      trellisQuantisation: true
+    });
+  }
+  
+  // Save the processed image
+  await sharpInstance.toFile(outputPath);
+  
+  // Return the relative path from public directory
+  return outputPath.replace(path.join(process.cwd(), 'public'), '');
+}
+
 // Process and save an image from a URL
-export async function processAndSaveImage(imageUrl: string, outputPath: string, options: { 
-  width?: number, 
-  height?: number,
-  quality?: number,
-  optimizationLevel?: 'low' | 'medium' | 'high'
-} = {}): Promise<string> {
+export async function processAndSaveImage(
+  imageUrl: string, 
+  outputPath: string, 
+  options: { 
+    width?: number, 
+    height?: number,
+    quality?: number,
+    optimizationLevel?: 'low' | 'medium' | 'high'
+  } = {}
+): Promise<string> {
   try {
-    // Create directories if they don't exist
-    await ensureImageDirectories();
-    
-    // Set default options
-    const width = options.width || 800;
-    const height = options.height;
-    const quality = options.quality || 80;
-    const optimizationLevel = options.optimizationLevel || 'medium';
+    // Create parent directory if it doesn't exist
+    await ensureDirectoryExists(path.dirname(outputPath));
     
     // Fetch the image
     const response = await fetch(imageUrl);
@@ -62,70 +136,10 @@ export async function processAndSaveImage(imageUrl: string, outputPath: string, 
     }
     
     const imageBuffer = await response.arrayBuffer();
+    const sharpInstance = sharp(Buffer.from(imageBuffer));
     
-    // Process the image with sharp
-    let sharpInstance = sharp(Buffer.from(imageBuffer));
-    
-    // Get image metadata to make smart decisions about resizing
-    const metadata = await sharpInstance.metadata();
-    const originalWidth = metadata.width || 0;
-    
-    // Only resize if the original is larger than target width to avoid upscaling
-    if ((width && originalWidth > width) || height) {
-      sharpInstance = sharpInstance.resize({
-        width,
-        height,
-        fit: 'cover',
-        position: 'center',
-        withoutEnlargement: true // Prevent upscaling small images
-      });
-    }
-    
-    // Apply optimization based on level
-    let outputQuality = quality;
-    switch(optimizationLevel) {
-      case 'high':
-        // High compression, smaller file size
-        outputQuality = Math.min(quality, 60);
-        // Add more aggressive sharpening
-        sharpInstance = sharpInstance.sharpen({
-          sigma: 1.2,
-          m1: 0.5,
-          m2: 0.5
-        });
-        break;
-      case 'medium':
-        // Balanced compression
-        outputQuality = Math.min(quality, 75);
-        // Add moderate sharpening
-        sharpInstance = sharpInstance.sharpen();
-        break;
-      case 'low':
-        // Light compression, higher quality
-        outputQuality = quality;
-        break;
-    }
-    
-    // Choose output format based on extension
-    if (outputPath.toLowerCase().endsWith('.png')) {
-      sharpInstance = sharpInstance.png({ 
-        compressionLevel: 9, // Maximum compression
-        palette: true // Use palette-based quantization for smaller file sizes
-      });
-    } else {
-      // Use mozjpeg-style optimization for JPEGs
-      sharpInstance = sharpInstance.jpeg({ 
-        quality: outputQuality,
-        mozjpeg: true, // Use mozjpeg for better compression
-        trellisQuantisation: true // Improve compression further
-      });
-    }
-    
-    // Save the processed image
-    await sharpInstance.toFile(outputPath);
-    
-    // Return the relative path from public directory
-    return outputPath.replace(path.join(process.cwd(), 'public'), '');
+    // Use the common image processing function
+    return processImage(sharpInstance, outputPath, options);
   } catch (error) {
     console.error('Error processing image:', error);
     throw error;
@@ -133,95 +147,29 @@ export async function processAndSaveImage(imageUrl: string, outputPath: string, 
 }
 
 // Process a local attached asset
-export async function processAttachedAsset(filePath: string, outputDir: string, filename: string, options: {
-  width?: number,
-  height?: number,
-  quality?: number,
-  optimizationLevel?: 'low' | 'medium' | 'high'
-} = {}): Promise<string> {
+export async function processAttachedAsset(
+  filePath: string, 
+  outputDir: string, 
+  filename: string, 
+  options: {
+    width?: number,
+    height?: number,
+    quality?: number,
+    optimizationLevel?: 'low' | 'medium' | 'high'
+  } = {}
+): Promise<string> {
   try {
-    // Create directories if they don't exist
-    await ensureImageDirectories();
-    
-    // Set default options
-    const width = options.width || 800;
-    const height = options.height;
-    const quality = options.quality || 80;
-    const optimizationLevel = options.optimizationLevel || 'medium';
-    
     // Ensure output directory exists
-    if (!fs.existsSync(outputDir)) {
-      await mkdirAsync(outputDir, { recursive: true });
-    }
+    await ensureDirectoryExists(outputDir);
     
     const outputPath = path.join(outputDir, filename);
     
-    // Read the file
+    // Read the file - only once
     const imageBuffer = await readFileAsync(filePath);
+    const sharpInstance = sharp(imageBuffer);
     
-    // Process the image with sharp
-    let sharpInstance = sharp(imageBuffer);
-    
-    // Get image metadata to make smart decisions about resizing
-    const metadata = await sharpInstance.metadata();
-    const originalWidth = metadata.width || 0;
-    
-    // Only resize if the original is larger than target width to avoid upscaling
-    if ((width && originalWidth > width) || height) {
-      sharpInstance = sharpInstance.resize({
-        width,
-        height,
-        fit: 'cover',
-        position: 'center',
-        withoutEnlargement: true // Prevent upscaling small images
-      });
-    }
-    
-    // Apply optimization based on level
-    let outputQuality = quality;
-    switch(optimizationLevel) {
-      case 'high':
-        // High compression, smaller file size
-        outputQuality = Math.min(quality, 60);
-        // Add more aggressive sharpening
-        sharpInstance = sharpInstance.sharpen({
-          sigma: 1.2,
-          m1: 0.5,
-          m2: 0.5
-        });
-        break;
-      case 'medium':
-        // Balanced compression
-        outputQuality = Math.min(quality, 75);
-        // Add moderate sharpening
-        sharpInstance = sharpInstance.sharpen();
-        break;
-      case 'low':
-        // Light compression, higher quality
-        outputQuality = quality;
-        break;
-    }
-    
-    // Choose output format based on extension
-    if (filename.toLowerCase().endsWith('.png')) {
-      sharpInstance = sharpInstance.png({ 
-        compressionLevel: 9, // Maximum compression
-        palette: true // Use palette-based quantization for smaller file sizes
-      });
-    } else {
-      // Use mozjpeg-style optimization for JPEGs
-      sharpInstance = sharpInstance.jpeg({ 
-        quality: outputQuality,
-        mozjpeg: true, // Use mozjpeg for better compression
-        trellisQuantisation: true // Improve compression further
-      });
-    }
-    
-    // Save the processed image
-    await sharpInstance.toFile(outputPath);
-    
-    // Return the relative path from public directory
-    return outputPath.replace(path.join(process.cwd(), 'public'), '');
+    // Use the common image processing function
+    return processImage(sharpInstance, outputPath, options);
   } catch (error) {
     console.error('Error processing attached asset:', error);
     throw error;

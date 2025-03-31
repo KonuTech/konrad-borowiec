@@ -6,28 +6,12 @@ import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 import express from "express";
 import path from "path";
-import fs from "fs";
+import { ensureImageDirectories } from "./imageUtils";
 
-// Ensure public directories exist
-function ensurePublicDirectories() {
-  const dirs = [
-    path.join(process.cwd(), 'public'),
-    path.join(process.cwd(), 'public', 'images'),
-    path.join(process.cwd(), 'public', 'images', 'projects'),
-    path.join(process.cwd(), 'public', 'images', 'motorcycles'),
-    path.join(process.cwd(), 'public', 'images', 'cycling')
-  ];
-  
-  for (const dir of dirs) {
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-  }
-}
-
+// Reuse optimized directory structure from imageUtils
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Ensure public directories exist
-  ensurePublicDirectories();
+  // Ensure public directories exist - this is now optimized with caching
+  await ensureImageDirectories();
   
   // Serve static files from public directory
   app.use('/images', express.static(path.join(process.cwd(), 'public', 'images')));
