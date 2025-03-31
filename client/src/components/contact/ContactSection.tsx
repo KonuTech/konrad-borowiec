@@ -5,10 +5,10 @@ import ContactInfo from './ContactInfo';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 bg-white dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          Get In <span className="bg-gradient-to-r from-ghibli-blue to-ghibli-purple bg-clip-text text-transparent">Touch</span>
+          Get In <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">Touch</span>
         </SectionTitle>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -19,8 +19,8 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md">
-              <h3 className="font-nunito font-bold text-2xl mb-6 text-ghibli-purple dark:text-ghibli-lightPink">Send Me a Message</h3>
+            <div className="bg-portfolio-lightest dark:bg-portfolio-darker rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Send Me a Message</h3>
               <ContactForm />
             </div>
           </motion.div>

@@ -14,28 +14,70 @@ const timelineItems: TimelineItem[] = [
     title: "Data Analytics & Engineering",
     organization: "Public Sector",
     period: "08.2024 - 02.2025",
-    description: "Worked with Oracle SQL/PL/SQL for national data reporting. Developed a PoC application to visualize routes between controlled entities and controllers using Python and SQL.",
+    description: "Depending on the scale of analysis, reporting of national data using either Oracle SQL or Oracle PL/SQL. Development of a PoC application to calculate and visualize the closest routes between a controlled entity and ten closest controllers (public sector employees). A graph problem on a big data scale. Used Python and SQL.",
     type: 'work'
   },
   {
     title: "B2B Consultant",
     organization: "B2B.NET S.A. (BNP Paribas Bank Polska S.A.)",
     period: "07.2023 - 03.2024",
-    description: "Developed ELT data pipelines for Open Banking, processing JSON data into Hive tables using MongoDB, HDFS, HiveSQL, Python, and Airflow.",
+    description: "Development of ELT data pipelines for the Open Banking area. Including flattening, deduplication, and normalization of JSON data source into Hive tables. Processing both semi-structured and structured data. Technologies used: MongoDB, HDFS, HiveSQL, Python, Airflow, and GitLab for CICD. Ad-hoc analysis of customers activity within Open Banking area.",
     type: 'work'
   },
   {
     title: "Big Data Developer",
     organization: "Crestt Sp z o.o. (Bank Pekao, Nationale-Nederlanden)",
     period: "02.2021 - 06.2022",
-    description: "Built batch data processing solutions using Airflow, Python, PySpark, and Hive. Developed churn classifiers and HR dashboards using SAS Viya.",
+    description: "Development of batch data processing solutions for one of the largest banks in Poland. The ELT processes for Data Lake were designed using Airflow, Python, PySpark, and Hive within the on-premise Cloudera Data Platform. Development and operationalization of churn related classifier for insurance company. Added functionalities for scoring and monitoring of new data. Development and operationalization of classifiers for VR training company. Design and development of HR demo dashboard with a use SAS Viya.",
     type: 'work'
   },
   {
     title: "Business Intelligence Analyst",
     organization: "PZU S.A.",
     period: "10.2020 - 01.2021",
-    description: "Tested output tables created by SAS Developers and maintained documentation for the Property Insurances department.",
+    description: "Tester of output tables created by SAS Developers. Maintenance of documentation in the Area of Property Insurances.",
+    type: 'work'
+  },
+  {
+    title: "SAS Analyst",
+    organization: "ITFS Sp. z o. o. (PZU)",
+    period: "05.2020 - 09.2020",
+    description: "Co-responsible for migrating SAS Visual Analytics reports to the SAS Viya environment for Poland's largest insurance company. Tasks included importing dashboards to Viya, repairing XML schemas, redesigning dashboard layouts for improved UX, creating global Themes, developing XML/HTML forms, and processing JSON files using Python.",
+    type: 'work'
+  },
+  {
+    title: "Junior Data Scientist",
+    organization: "Crestt Sp z o. o. (Polkomtel, TVP)",
+    period: "03.2019 - 04.2020",
+    description: "As a consultant at a major Polish telecom, participated in projects to upgrade data mart recalculation processes. Developed production-ready SAS scripts focusing on 4GL and SQL for data processing. Handled data collection and segmentation using Python. Contributed to dashboard development using Shiny and Tableau.",
+    type: 'work'
+  },
+  {
+    title: "Data/Business Intelligence Analyst",
+    organization: "NatWest Markets plc / The Royal Bank of Scotland Group",
+    period: "11.2016 - 03.2019",
+    description: "Consolidated and simplified financial regulatory reporting using SAS 4GL and SQL. Developed reports using SAP BO, SAS EG, and SAS VA. Utilized Stored Processes for user self-service. Recognized as a top dashboard developer and ranked in top ten in an internal competition designing optimal binary classifiers with customer data.",
+    type: 'work'
+  },
+  {
+    title: "Data Analyst",
+    organization: "Bank Pocztowy S.A.",
+    period: "11.2015 - 11.2016",
+    description: "Automated reporting using SAS Guide and SAS VA. Developed dashboards for evaluating bank branch performance, facilitating statistical and visual analysis of issued loans.",
+    type: 'work'
+  },
+  {
+    title: "Junior Reporting Specialist",
+    organization: "ASB Poland Sp. z o. o.",
+    period: "07.2015 - 09.2015",
+    description: "Processed financial data, actualized financial statements, and supported data migration between databases.",
+    type: 'work'
+  },
+  {
+    title: "Intern, Credit Portfolio Analysis",
+    organization: "Bank BPH S.A., GE Capital",
+    period: "03.2014 - 02.2015",
+    description: "Supported the development of a predictive model used for estimation of LGD parameter in the Valuation Standards and Reporting Team.",
     type: 'work'
   },
   {
@@ -46,10 +88,31 @@ const timelineItems: TimelineItem[] = [
     type: 'education'
   },
   {
+    title: "Statistical Analysis and Data Mining",
+    organization: "Warsaw School of Economics",
+    period: "10.2013 - 06.2015",
+    description: "Postgraduate studies. Assessment of Reject Inference methods implemented in SAS Enterprise Miner with a use of credit scorecard models built on randomly generated consumer finance portfolio data.",
+    type: 'education'
+  },
+  {
     title: "MSc Finance and Accounting",
     organization: "Warsaw School of Economics",
     period: "02.2012 - 11.2014",
-    description: "Specialized in International financial markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account.",
+    description: "Specialized in International Financial Markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account basing on determinants of Polish balance of payments.",
+    type: 'education'
+  },
+  {
+    title: "Erasmus Exchange Program",
+    organization: "European University Viadrina Frankfurt (Oder)",
+    period: "04.2011 - 07.2011",
+    description: "Student exchange program.",
+    type: 'education'
+  },
+  {
+    title: "Faculty of Administration and Social Sciences",
+    organization: "Warsaw University of Technology",
+    period: "10.2008 - 01.2012",
+    description: "The analysis of state budget in 2006-2010.",
     type: 'education'
   }
 ];
@@ -84,8 +147,8 @@ const TimelineItem: FC<{
           <div 
             className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer
               ${item.type === 'work' 
-                ? 'bg-ghibli-purple text-white' 
-                : 'bg-ghibli-pink text-white'}`}
+                ? 'bg-portfolio-primary text-white' 
+                : 'bg-portfolio-accent text-white'}`}
             onClick={onClick}
           >
             {item.type === 'work' 
@@ -93,21 +156,21 @@ const TimelineItem: FC<{
               : <i className="fas fa-graduation-cap text-xs"></i>}
           </div>
           {!isLast && (
-            <div className="absolute top-6 bottom-0 left-1/2 w-0.5 -ml-px bg-gray-300 dark:bg-gray-600 h-full"></div>
+            <div className="absolute top-6 bottom-0 left-1/2 w-0.5 -ml-px bg-portfolio-lighter dark:bg-portfolio-dark h-full"></div>
           )}
         </div>
         
         <div className="flex-1">
           <div 
             onClick={onClick}
-            className={`flex justify-between items-center cursor-pointer bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md 
-              ${isActive ? 'border-l-4 border-ghibli-purple dark:border-ghibli-lightPink' : ''}`}
+            className={`flex justify-between items-center cursor-pointer bg-white dark:bg-portfolio-darker rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow
+              ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
           >
             <div>
-              <h4 className="font-nunito font-bold text-lg">{item.title}</h4>
-              <h5 className="text-sm text-gray-600 dark:text-gray-400">{item.organization}</h5>
+              <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
+              <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
             </div>
-            <span className="text-xs px-3 py-1 bg-ghibli-lightBlue dark:bg-ghibli-blue/30 text-ghibli-blue dark:text-ghibli-lightBlue rounded-full whitespace-nowrap">
+            <span className="text-xs px-3 py-1 bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter rounded-full whitespace-nowrap">
               {item.period}
             </span>
           </div>
@@ -121,8 +184,8 @@ const TimelineItem: FC<{
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="pt-4 pl-4 pr-4 pb-2 bg-white dark:bg-gray-800 rounded-b-lg shadow-md mt-1">
-                  <p className="text-sm">{item.description}</p>
+                <div className="pt-4 pl-4 pr-4 pb-2 bg-white dark:bg-portfolio-darker rounded-b-lg shadow-md mt-1">
+                  <p className="text-sm text-portfolio-text dark:text-portfolio-lighter/90">{item.description}</p>
                 </div>
               </motion.div>
             )}

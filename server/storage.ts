@@ -57,45 +57,65 @@ export class MemStorage implements IStorage {
   }
 
   private initializeSampleData() {
-    // Sample projects
+    // Real GitHub projects
     const sampleProjects: InsertProject[] = [
       {
-        title: "Open Banking Data Pipeline",
-        description: "Developed ELT data pipelines for the Open Banking area at BNP Paribas, flattening and normalizing JSON data into Hive tables for analytics.",
-        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        liveUrl: "https://github.com/konutech",
-        githubUrl: "https://github.com/konutech",
-        technologies: ["MongoDB", "HDFS", "HiveSQL", "Python", "Airflow"],
+        title: "Data Engineering Zoomcamp Capstone",
+        description: "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB.",
+        imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
+        liveUrl: null,
+        githubUrl: "https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01",
+        technologies: ["Airflow", "Kafka", "PySpark", "PostgreSQL", "Streamlit", "Docker"],
         featured: true,
         userId: null
       },
       {
-        title: "Churn Prediction Model",
-        description: "Developed and operationalized a customer churn prediction classifier for an insurance company, improving retention strategies and minimizing customer attrition.",
-        imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        liveUrl: "https://github.com/konutech",
-        githubUrl: "https://github.com/konutech",
-        technologies: ["Python", "scikit-learn", "pandas", "SAS Viya"],
+        title: "LLM Zoomcamp Capstone",
+        description: "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database.",
+        imageUrl: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        liveUrl: null,
+        githubUrl: "https://github.com/KonuTech/llm-zoomcamp-capstone-01",
+        technologies: ["Flask", "Elasticsearch", "PostgreSQL", "Grafana", "Docker", "Python"],
         featured: true,
         userId: null
       },
       {
-        title: "Optimal Route Calculation",
-        description: "Developed a PoC application to calculate and visualize the closest routes between controlled entities and controllers in the public sector, solving a graph problem at scale.",
-        imageUrl: "https://images.unsplash.com/photo-1557599443-2071a2df9c19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        liveUrl: "https://github.com/konutech",
-        githubUrl: "https://github.com/konutech",
-        technologies: ["Python", "SQL", "Pandas", "NetworkX", "Matplotlib"],
+        title: "MLOps Zoomcamp Project",
+        description: "End-to-end MLOps on GCP - An implementation of MLOps best practices for machine learning workflows on Google Cloud Platform.",
+        imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        liveUrl: null,
+        githubUrl: "https://github.com/KonuTech/mlops-zoomcamp-project",
+        technologies: ["PySpark", "Scikit-learn", "XGBoost", "Prefect", "MLflow", "FastAPI", "Evidently AI"],
         featured: false,
         userId: null
       },
       {
-        title: "HR Analytics Dashboard",
-        description: "Designed and developed an HR demo dashboard using SAS Viya, providing insights into employee performance, retention, and departmental metrics.",
-        imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        liveUrl: "https://github.com/konutech",
-        githubUrl: "https://github.com/konutech",
-        technologies: ["SAS Viya", "SAS Visual Analytics", "SQL", "Data Visualization"],
+        title: "Machine Learning Zoomcamp Capstone 01",
+        description: "Dockerized Flask service for scoring if a customer will default on payments, implementing various machine learning algorithms.",
+        imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80",
+        liveUrl: null,
+        githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01",
+        technologies: ["Pandas", "Scikit-learn", "XGBoost", "Flask", "Docker"],
+        featured: false,
+        userId: null
+      },
+      {
+        title: "Machine Learning Zoomcamp Capstone 02",
+        description: "Image classifier using transfer learning with TensorFlow and deployment with Docker and Kubernetes.",
+        imageUrl: "https://images.unsplash.com/photo-1617791160588-241658c0f566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1264&q=80",
+        liveUrl: null,
+        githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02",
+        technologies: ["TensorFlow", "Transfer Learning", "Docker", "Kubernetes", "Kind Cluster"],
+        featured: false,
+        userId: null
+      },
+      {
+        title: "Delta Table Streaming Databricks",
+        description: "Implementation of streaming data processing with Delta tables in Databricks, demonstrating efficient data pipeline patterns.",
+        imageUrl: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
+        liveUrl: null,
+        githubUrl: "https://github.com/KonuTech/delta-table-streaming-databricks",
+        technologies: ["Databricks", "PySpark", "Delta Tables", "Streaming", "JSON"],
         featured: false,
         userId: null
       }

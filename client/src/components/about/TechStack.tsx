@@ -21,10 +21,10 @@ const TechStack: FC = () => {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
       {techStack.map((tech, index) => (
         <div key={index} className="flex flex-col items-center">
-          <div className="w-16 h-16 bg-white dark:bg-gray-800 rounded-lg shadow-md flex items-center justify-center mb-2">
-            <i className={`${tech.icon} text-2xl text-ghibli-blue`}></i>
+          <div className="w-16 h-16 bg-white dark:bg-portfolio-dark rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-center justify-center mb-2">
+            <i className={`${tech.icon} text-2xl text-portfolio-primary dark:text-portfolio-lighter`}></i>
           </div>
-          <span className="text-sm font-medium">{tech.name}</span>
+          <span className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter">{tech.name}</span>
         </div>
       ))}
     </div>
