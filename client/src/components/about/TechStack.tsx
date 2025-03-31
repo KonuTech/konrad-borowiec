@@ -14,7 +14,10 @@ const techStack: TechItem[] = [
   { name: "Airflow", icon: "fas fa-wind" },
   { name: "Hadoop", icon: "fas fa-server" },
   { name: "SAS", icon: "fas fa-chart-line" },
-  { name: "Linux", icon: "fab fa-linux" }
+  { name: "Linux", icon: "fab fa-linux" },
+  { name: "Databricks", icon: "fas fa-bolt" },
+  { name: "Excel", icon: "fas fa-table" },
+  { name: "Replit", icon: "fas fa-code" }
 ];
 
 const TechStack: FC = () => {

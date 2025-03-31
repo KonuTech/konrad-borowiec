@@ -2,9 +2,8 @@ import { FC } from 'react';
 
 const ContactInfo: FC = () => {
   return (
-    <div className="bg-portfolio-lightest dark:bg-portfolio-darker rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+    <div className="flex flex-col justify-between h-full">
       <div>
-        <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Contact Information</h3>
         
         <div className="space-y-6">
           <div className="flex items-start space-x-4">

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Timeline from './Timeline';
 import TechStack from './TechStack';
+import ContactInfo from '../contact/ContactInfo';
 
 const AboutSection = () => {
   return (
@@ -33,6 +34,11 @@ const AboutSection = () => {
             <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6">
               <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Tech Stack</h3>
               <TechStack />
+            </div>
+            
+            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6">
+              <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Contact Information</h3>
+              <ContactInfo />
             </div>
           </motion.div>
           

@@ -517,6 +517,7 @@ export class MemStorage implements IStorage {
         { path: 'attached_assets/IMG_20220715_182856.jpg', filename: 'motorcycle-country-road.jpg' }
       ];
       
+      // Process images if they don't exist yet
       for (const image of imagesToProcess) {
         try {
           // Process and save the image
@@ -524,7 +525,6 @@ export class MemStorage implements IStorage {
           
           // Skip if image already exists
           if (fs.existsSync(outputPath)) {
-            motorcycleImages.push(`/images/motorcycles/${image.filename}`);
             continue;
           }
           
@@ -536,13 +536,23 @@ export class MemStorage implements IStorage {
             { width: 800, quality: 80 }
           );
           
-          motorcycleImages.push(`/images/motorcycles/${image.filename}`);
           console.log(`Processed motorcycle image: ${image.filename}`);
         } catch (error) {
           console.error(`Error processing image ${image.path}:`, error);
         }
       }
       
+      // Scan the directory for all available images
+      const files = fs.readdirSync(motorcycleImagesDir);
+      
+      // Add all image files to the list
+      for (const file of files) {
+        if (file.endsWith('.jpg') || file.endsWith('.jpeg') || file.endsWith('.png')) {
+          motorcycleImages.push(`/images/motorcycles/${file}`);
+        }
+      }
+      
+      console.log(`Found ${motorcycleImages.length} motorcycle images in total`);
       return motorcycleImages;
     } catch (error) {
       console.error('Error processing motorcycle images:', error);

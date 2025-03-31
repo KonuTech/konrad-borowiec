@@ -4,7 +4,6 @@ import AboutSection from '@/components/about/AboutSection';
 import ProjectsSection from '@/components/projects/ProjectsSection';
 import BooksSection from '@/components/books/BooksSection';
 import InterestsSection from '@/components/interests/InterestsSection';
-import ContactSection from '@/components/contact/ContactSection';
 
 const Home: FC = () => {
   return (
@@ -14,7 +13,6 @@ const Home: FC = () => {
       <ProjectsSection />
       <BooksSection />
       <InterestsSection />
-      <ContactSection />
     </>
   );
 };
