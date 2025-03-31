@@ -6,6 +6,8 @@ interface BookCardProps {
 }
 
 const BookCard: FC<BookCardProps> = ({ book }) => {
+  const isToRead = book.status === 'to-read';
+  
   // Generate star ratings
   const renderRating = (rating: number | null | undefined) => {
     if (!rating) return null;
@@ -57,6 +59,11 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
               alt={book.title} 
               className="w-full h-full object-cover"
             />
+            {isToRead && (
+              <div className="absolute top-0 right-0 bg-ghibli-pink text-white text-xs px-2 py-1 m-2 rounded-full">
+                To Read
+              </div>
+            )}
             <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
               <h3 className="font-nunito font-bold text-lg text-white">{book.title}</h3>
               <p className="text-sm text-gray-200">{book.author}</p>
@@ -64,7 +71,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
           </div>
           <div className="p-4 flex items-center justify-between">
             <div className="flex">
-              {renderRating(book.rating)}
+              {!isToRead ? renderRating(book.rating) : <span className="text-xs italic text-gray-400">Not yet rated</span>}
             </div>
             {book.genre && (
               <span className={`text-xs ${getGenreColors(book.genre)} px-2 py-1 rounded-full`}>
@@ -77,15 +84,28 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
         {/* Card Back */}
         <div className="book-card-back absolute w-full h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md p-6 flex flex-col">
           <h3 className="font-nunito font-bold text-lg mb-2">{book.title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-            {book.review}
-          </p>
-          <div>
-            <p className="text-sm font-medium text-ghibli-purple dark:text-ghibli-lightPink mb-1">My Takeaway:</p>
-            <p className="text-xs text-gray-600 dark:text-gray-300 italic">
-              "The idea that tiny changes compound over time completely changed my approach to personal development."
-            </p>
-          </div>
+          {isToRead ? (
+            <div className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow flex flex-col items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-ghibli-lightPink flex items-center justify-center mb-3">
+                <i className="fas fa-book-reader text-ghibli-pink text-lg"></i>
+              </div>
+              <p className="text-center">
+                This book is on my reading list! I'm looking forward to exploring it soon.
+              </p>
+            </div>
+          ) : (
+            <>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                {book.review || "I enjoyed this book and found it valuable for my professional development."}
+              </p>
+              {book.review && (
+                <div>
+                  <p className="text-sm font-medium text-ghibli-purple dark:text-ghibli-lightPink mb-1">My Rating:</p>
+                  <div className="flex">{renderRating(book.rating)}</div>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>

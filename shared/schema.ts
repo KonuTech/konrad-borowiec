@@ -24,7 +24,8 @@ export const books = pgTable("books", {
   genre: text("genre"),
   rating: integer("rating"),
   review: text("review"),
-  userId: integer("user_id").references(() => users.id)
+  userId: integer("user_id").references(() => users.id),
+  status: text("status").default("read") // Can be "read" or "to-read"
 });
 
 export const insertBookSchema = createInsertSchema(books).omit({

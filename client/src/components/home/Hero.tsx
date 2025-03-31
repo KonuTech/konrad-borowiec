@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 
+// Import the profile photo
+import profilePhoto from '@assets/konrad.jpg';
+
 const Hero = () => {
   return (
     <section id="home" className="pt-32 pb-20 overflow-hidden">
@@ -58,9 +61,10 @@ const Hero = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-ghibli-blue via-ghibli-purple to-ghibli-pink opacity-30 animate-spin-slow"></div>
               <img 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
-                alt="Developer portrait" 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
+                src={profilePhoto} 
+                alt="Konrad Borowiec portrait" 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg bg-white"
+                style={{ objectPosition: 'center top' }}
               />
             </div>
           </motion.div>

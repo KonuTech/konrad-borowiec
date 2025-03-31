@@ -103,50 +103,168 @@ export class MemStorage implements IStorage {
 
     // Sample books
     const sampleBooks: InsertBook[] = [
+      // Books read or currently reading
       {
-        title: "Python for Data Analysis",
-        author: "Wes McKinney",
-        coverUrl: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+        title: "Data Engineering with Databricks Cookbook",
+        author: "Pulkit Chadha",
+        coverUrl: "https://m.media-amazon.com/images/I/61Qzv+YQADL._SL1360_.jpg",
         genre: "Programming",
         rating: 5,
-        review: "An essential guide for data processing with Python, focusing on pandas, NumPy, and data visualization tools. Extremely practical for anyone working with data.",
-        userId: null
+        review: "Excellent practical guide for implementing data engineering solutions with Databricks. Provides clear examples and best practices.",
+        userId: null,
+        status: "read"
       },
       {
-        title: "Learning Spark",
-        author: "Matei Zaharia et al.",
-        coverUrl: "https://images.unsplash.com/photo-1589149098258-3b71a54060f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=739&q=80",
+        title: "Fundamentals of Data Engineering",
+        author: "Joe Reis & Matt Housley",
+        coverUrl: "https://m.media-amazon.com/images/I/71Vl+yM7GVL._SL1500_.jpg",
+        genre: "Programming",
+        rating: 5,
+        review: "Comprehensive overview of data engineering principles and practices. Essential reading for anyone in the field.",
+        userId: null,
+        status: "read"
+      },
+      {
+        title: "Data Engineering with dbt",
+        author: "Roberto Zagni",
+        coverUrl: "https://m.media-amazon.com/images/I/61IPcsjqbML._SL1360_.jpg",
         genre: "Programming",
         rating: 4,
-        review: "A comprehensive introduction to Apache Spark for big data processing. Great resource for understanding distributed data processing and building scalable data pipelines.",
-        userId: null
-      },
-      {
-        title: "The Data Warehouse Toolkit",
-        author: "Ralph Kimball",
-        coverUrl: "https://images.unsplash.com/photo-1456428746267-a1756408f782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        genre: "Programming",
-        rating: 5,
-        review: "The classic guide to dimensional modeling. Foundational knowledge for anyone working with data warehouses and business intelligence systems.",
-        userId: null
+        review: "A thorough guide to implementing data transformation workflows using dbt. Very practical for modern data stack implementation.",
+        userId: null,
+        status: "read"
       },
       {
         title: "Sapiens",
         author: "Yuval Noah Harari",
-        coverUrl: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+        coverUrl: "https://m.media-amazon.com/images/I/713jIoMO3UL._SL1500_.jpg",
         genre: "History",
         rating: 5,
         review: "A fascinating exploration of human history, from the emergence of Homo sapiens to the present day. Provides valuable context for understanding human behavior and society.",
-        userId: null
+        userId: null,
+        status: "read"
+      },
+      
+      // Books to read
+      {
+        title: "Databricks Certified Associate Developer for Apache Spark Using Python",
+        author: "Moshiur Bhuiyan",
+        coverUrl: "https://m.media-amazon.com/images/I/61aZPkx4hJL._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
       },
       {
-        title: "Deep Learning with Python",
-        author: "François Chollet",
-        coverUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        title: "Data Modeling with Snowflake",
+        author: "Serge Gershkovich",
+        coverUrl: "https://m.media-amazon.com/images/I/71pFDwAAy4L._SL1500_.jpg",
         genre: "Programming",
-        rating: 5,
-        review: "Written by the creator of Keras, this book provides a practical introduction to deep learning with Python. Excellent balance of theory and application.",
-        userId: null
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Data Engineering Best Practices",
+        author: "Richard J. Schiller & David Larochelle",
+        coverUrl: "https://m.media-amazon.com/images/I/61achhPNuzL._SL1360_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Data Engineering with Google Cloud Platform",
+        author: "Adi Wijaya",
+        coverUrl: "https://m.media-amazon.com/images/I/710JKsGxkKL._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Data Engineering with Scala and Spark",
+        author: "Eric Tome, Rupam Bhattacharajee & David Radford",
+        coverUrl: "https://m.media-amazon.com/images/I/71QMF1jQ7ZL._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Data Observability for Data Engineering",
+        author: "Michele Pinto & Sammy El Khammal",
+        coverUrl: "https://m.media-amazon.com/images/I/71vC1Oq0ILL._SL1500_.jpg", 
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "The Definitive Guide to Data Integration",
+        author: "Pierre-Yves Bonnefoy, Emeric Chaize, Raphael Mansuy & Mehdi Tazi",
+        coverUrl: "https://m.media-amazon.com/images/I/61q5jxqzQYL._SL1254_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Getting Started with DuckDB",
+        author: "Simon Aubury & Net Letcher",
+        coverUrl: "https://m.media-amazon.com/images/I/71yZuGCvT6L._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Polars Cookbook",
+        author: "Yuki Kakegawa",
+        coverUrl: "https://m.media-amazon.com/images/I/71iAiY70UDL._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Practical Data Quality",
+        author: "Robert Hawker",
+        coverUrl: "https://m.media-amazon.com/images/I/71mV0sqF+YL._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Python Algorithmic Trading Cookbook",
+        author: "Pushpak Dagade",
+        coverUrl: "https://m.media-amazon.com/images/I/61zN+-0wd1L._SL1360_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
+      },
+      {
+        title: "Python Object-oriented Programming",
+        author: "Steven F. Lott & Dusty Phillips",
+        coverUrl: "https://m.media-amazon.com/images/I/61zw5vV5AnL._SL1500_.jpg",
+        genre: "Programming",
+        rating: null,
+        review: null,
+        userId: null,
+        status: "to-read"
       }
     ];
 
@@ -184,7 +302,17 @@ export class MemStorage implements IStorage {
 
   async createBook(insertBook: InsertBook): Promise<Book> {
     const id = this.bookIdCounter++;
-    const book: Book = { ...insertBook, id };
+    const book: Book = { 
+      id,
+      title: insertBook.title,
+      author: insertBook.author,
+      coverUrl: insertBook.coverUrl ?? null,
+      genre: insertBook.genre ?? null,
+      rating: insertBook.rating ?? null, 
+      review: insertBook.review ?? null,
+      userId: insertBook.userId ?? null,
+      status: insertBook.status ?? 'read'
+    };
     this.books.set(id, book);
     return book;
   }
@@ -213,7 +341,17 @@ export class MemStorage implements IStorage {
 
   async createProject(insertProject: InsertProject): Promise<Project> {
     const id = this.projectIdCounter++;
-    const project: Project = { ...insertProject, id };
+    const project: Project = { 
+      id,
+      title: insertProject.title,
+      description: insertProject.description,
+      userId: insertProject.userId ?? null,
+      imageUrl: insertProject.imageUrl ?? null,
+      liveUrl: insertProject.liveUrl ?? null,
+      githubUrl: insertProject.githubUrl ?? null,
+      technologies: insertProject.technologies ?? null,
+      featured: insertProject.featured ?? null
+    };
     this.projects.set(id, project);
     return project;
   }
