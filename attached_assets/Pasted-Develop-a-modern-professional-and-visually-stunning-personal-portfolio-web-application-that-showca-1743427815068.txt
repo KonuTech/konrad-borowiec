@@ -1,0 +1,76 @@
+Develop a modern, professional, and visually stunning personal portfolio web application that showcases your skills, projects, and personality to potential employers. The design should be inspired by Studio Ghibli’s pastel, colorful aesthetic, making it unique and visually appealing.
+
+Tech Stack & Architecture:
+Frontend:
+- Use React or a similar framework that works best with TypeScript for maintainability and scalability.
+- Utilize Tailwind CSS or Styled Components for styling.
+- Incorporate Framer Motion for smooth animations and transitions.
+- Employ Zustand or Context API for state management if needed.
+
+Backend:
+- Utilize Node.js with Express or Next.js API routes, or another suitable solution that works best with TypeScript.
+- Implement MongoDB with Mongoose ORM or another suitable solution that works best with TypeScript for data management.
+- Integrate JWT authentication or NextAuth.js for user authentication.
+
+Deployment & CI/CD:
+- Ensure the solution supports any Deployment & CI/CD, code repository it was designed to use.
+
+Website Structure & Features:
+1. Home Page (Landing Section)
+- Include a professional-looking hero section with a high-quality photo.
+- Incorporate a short tagline about yourself, your work, and passions.
+- Add smooth entrance animations for a polished feel.
+- Include a call-to-action button such as “View My Work” or “Contact Me”.
+
+2. About Me Page
+- Craft a well-written bio focusing on your background and expertise.
+- Showcase your education, experience, and major achievements in a timeline.
+- Create an interactive Tech Stack section with logos/icons.
+
+3. Portfolio / Projects Page
+- Design a grid-based layout with a card-style project showcase.
+- Ensure each project includes a title, description, tech stack used, live demo & GitHub links, and image previews or interactive carousel.
+
+4. Books Section📚
+- Feature a visually appealing grid/list of books you've read.
+- Each book entry should contain the title, author, cover image, short personal review & rating.
+
+Best Approach for Storing Book Covers in MongoDB:
+- Store only the image URL in MongoDB and use an external storage service like Cloudinary, AWS S3, Firebase Storage, or another suitable solution that works best with TypeScript.
+
+Contact Page:
+- Create a clean and modern contact form (name, email, message).
+- Include links to GitHub, LinkedIn, Twitter.
+- Optionally, incorporate an interactive map for location-based personalization.
+
+Admin Panel (For Future Book Management):
+- Develop a login-protected dashboard for CRUD operations to add, edit, delete books.
+- Include file upload functionality for book covers using an external storage solution.
+- Plan for future scalability by adding genre-based filtering & user-authored notes.
+
+Design & Aesthetics:
+- Utilize a Studio Ghibli-inspired pastel color palette.
+- Incorporate soft UI elements such as rounded corners and smooth transitions.
+- Provide a dark mode toggle for accessibility.
+- Ensure a minimalist, clean, and easy-to-navigate UX.
+
+SEO & Performance Optimization:
+- Implement metadata, OpenGraph tags, and structured data for search engines.
+- Enable lazy loading for images & components.
+- Optimize page load speed using Next.js features and consider static site generation (SSG) / server-side rendering (SSR).
+
+Security & Best Practices:
+- Implement input validation & sanitization to prevent XSS & SQL Injection.
+- Utilize Helmet middleware for setting HTTP security headers.
+- Enforce CORS policies & authentication safeguards.
+- Consider implementing rate limiting to prevent abuse.
+
+Testing & Debugging:
+- Conduct unit tests for UI components using Jest & React Testing Library or another suitable solution that works best with TypeScript.
+- Perform API testing with Postman / Supertest.
+- Ensure cross-browser & mobile responsiveness testing.
+
+Final Deliverables:
+- Provide full source code with a clean folder structure.
+- Deliver an optimized & scalable MongoDB book storage.
+- Ensure compatibility with any code repository, Deployment & CI/CD it was designed to use.
