@@ -1,10 +1,38 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import session from "express-session";
+import createMemoryStore from "memorystore";
+
+// Check for SESSION_SECRET environment variable
+const SESSION_SECRET = process.env.SESSION_SECRET || (process.env.NODE_ENV === 'production' ? null : 'dev-session-secret');
+
+// In production, we require a proper SESSION_SECRET
+if (process.env.NODE_ENV === 'production' && !SESSION_SECRET) {
+  console.error('ERROR: SESSION_SECRET environment variable is required in production mode');
+  process.exit(1);
+}
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Setup memory store for sessions
+const MemoryStore = createMemoryStore(session);
+
+// Configure session middleware
+app.use(session({
+  secret: SESSION_SECRET as string,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  },
+  store: new MemoryStore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  })
+}));
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -44,7 +72,7 @@ app.use((req, res, next) => {
     const message = err.message || "Internal Server Error";
 
     res.status(status).json({ message });
-    throw err;
+    console.error('Error:', err);
   });
 
   // importantly only setup vite in development and after
