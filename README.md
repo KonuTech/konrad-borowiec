@@ -26,7 +26,6 @@ The portfolio is built using HTML and CSS, with a focus on creating an engaging 
 -   **Font Awesome:** Utilized to incorporate a wide range of icons, enhancing the visual appeal and usability of the website.
 -   **Google Fonts:** Integrated to provide custom typography, using the 'Nunito' and 'Lato' font families to enhance the website's aesthetic.
 
-
 ## Features
 
 -   **Responsive Design:** The site is designed to be responsive and adapt to different screen sizes.
@@ -47,6 +46,7 @@ This portfolio is designed to be highly customizable, allowing you to tailor it 
 -   **Extending Functionality:** The use of TypeScript opens up possibilities for extending the portfolio's functionality. You can add new features, interactive elements, or integrate with external APIs using TypeScript.
 
 ## Future Improvements
+
 -   **Content Expansion:** More content can be added to showcase additional projects and skills.
 
 ## Author
@@ -55,4 +55,6 @@ This portfolio is designed to be highly customizable, allowing you to tailor it 
 
 ## License
 
-This project is open source and available for use.
+© All rights reserved. This project is not open source. No part of this project, including the code, design, and content, may be used, reproduced, or distributed without the express written consent of the author, Konrad Borowiec.
+
+**Public Showcase:** This repository is made public for showcase purposes only, allowing others to view the code and design as examples of Konrad Borowiec's work.
