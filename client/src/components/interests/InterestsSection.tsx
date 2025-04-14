@@ -27,6 +27,41 @@ const realMotorcycleImages = [
   "/images/motorcycles/camping-with-motorcycle.jpg",
   "/images/motorcycles/ferry-motorcycle-deck.jpg",
   "/images/motorcycles/motorcycle-by-lake.jpg",
+  "/images/motorcycles/IMG_20220708_094645.jpg",
+  "/images/motorcycles/IMG_20220708_162848.jpg",
+  "/images/motorcycles/IMG_20220713_172632.jpg",
+  "/images/motorcycles/IMG_20220713_180355.jpg",
+  "/images/motorcycles/IMG_20220715_101945.jpg",
+  "/images/motorcycles/IMG_20220717_144202.jpg",
+  "/images/motorcycles/IMG_20240504_154451.jpg",
+  "/images/motorcycles/IMG_20240506_101431.jpg",
+  "/images/motorcycles/IMG_20240506_102354.jpg",
+  "/images/motorcycles/IMG_20240506_143240.jpg",
+  "/images/motorcycles/IMG_20240506_164230.jpg",
+  "/images/motorcycles/IMG_20240506_182721.jpg",
+  "/images/motorcycles/IMG_20240509_131509.jpg",
+  "/images/motorcycles/IMG_20240509_191420.jpg",
+  "/images/motorcycles/IMG_20240511_113014.jpg",
+  "/images/motorcycles/IMG_20240515_171651.jpg",
+  "/images/motorcycles/alto-de-velefique-sign.jpg",
+  "/images/motorcycles/blue-motorcycle-mountain-pass.jpg",
+  "/images/motorcycles/blue-motorcycles-parked.jpg",
+  "/images/motorcycles/cabo-da-roca-sign.jpg",
+  "/images/motorcycles/canyon-walkway-bridge.jpg",
+  "/images/motorcycles/castle-mountain-cliff.jpg",
+  "/images/motorcycles/coastal-mountain-view.jpg",
+  "/images/motorcycles/col-de-iseran-sign.jpg",
+  "/images/motorcycles/collada-de-toses-sign.jpg",
+  "/images/motorcycles/desert-mountain-road.jpg",
+  "/images/motorcycles/golden-fields-landscape.jpg",
+  "/images/motorcycles/motorcycle-by-river.jpg",
+  "/images/motorcycles/motorcycle-country-road.jpg",
+  "/images/motorcycles/motorcycle-ferry-port.jpg",
+  "/images/motorcycles/motorcycles-mountain-road-signs.jpg",
+  "/images/motorcycles/mountain-coastal-view.jpg",
+  "/images/motorcycles/mountain-valley-clouds.jpg",
+  "/images/motorcycles/ocean-sunset-waves.jpg",
+  "/images/motorcycles/valencia-city-of-arts.jpg"
 ];
 
 // Fallback motorcycle images
@@ -205,6 +240,19 @@ const InterestsSection: FC = () => {
                   </div>
                 </>
               )}
+            </div>
+
+            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6">
+              <h3 className="font-nunito font-bold text-xl mb-4 text-portfolio-primary dark:text-portfolio-lighter">Financial Markets</h3>
+              <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90">
+                My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading. Starting three years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities.
+              </p>
+              <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90">
+                Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results. This hands-on experience has provided valuable insights into market dynamics and investment principles.
+              </p>
+              <p className="text-portfolio-text dark:text-portfolio-lighter/90">
+                For those interested in building their investment knowledge, particularly Polish speakers, I recommend inwestomat.eu—an exceptional resource that offers university-caliber financial education in an accessible format.
+              </p>
             </div>
           </motion.div>
         </div>

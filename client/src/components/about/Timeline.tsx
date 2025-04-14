@@ -122,7 +122,7 @@ const sortedTimelineItems = [...timelineItems].sort((a, b) => {
   const aYear = parseInt(a.period.split(' - ')[0].split('.')[1]);
   const bYear = parseInt(b.period.split(' - ')[0].split('.')[1]);
   if (aYear !== bYear) return bYear - aYear;
-  
+
   const aMonth = parseInt(a.period.split(' - ')[0].split('.')[0]);
   const bMonth = parseInt(b.period.split(' - ')[0].split('.')[0]);
   return bMonth - aMonth;
@@ -145,21 +145,21 @@ const TimelineItem: FC<{
       <div className="flex items-start">
         <div className="relative mr-4">
           <div 
-            className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer
+            className={`w-8 h-8 rounded-full flex items-center justify-center cursor-pointer relative z-10
               ${item.type === 'work' 
                 ? 'bg-portfolio-primary text-white' 
                 : 'bg-portfolio-accent text-white'}`}
             onClick={onClick}
           >
             {item.type === 'work' 
-              ? <i className="fas fa-briefcase text-xs"></i> 
-              : <i className="fas fa-graduation-cap text-xs"></i>}
+              ? <i className="fas fa-briefcase text-sm"></i> 
+              : <i className="fas fa-graduation-cap text-sm"></i>}
           </div>
           {!isLast && (
-            <div className="absolute top-6 bottom-0 left-1/2 w-0.5 -ml-px bg-portfolio-lighter dark:bg-portfolio-dark h-full"></div>
+            <div className="absolute top-8 bottom-0 left-1/2 w-0.5 -ml-px bg-portfolio-lighter dark:bg-[#4A90E2] h-full"></div>
           )}
         </div>
-        
+
         <div className="flex-1">
           <div 
             onClick={onClick}
@@ -174,7 +174,7 @@ const TimelineItem: FC<{
               {item.period}
             </span>
           </div>
-          
+
           <AnimatePresence>
             {isActive && (
               <motion.div 
