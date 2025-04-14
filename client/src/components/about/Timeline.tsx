@@ -155,6 +155,9 @@ const TimelineItem: FC<{
               ? <i className="fas fa-briefcase text-lg"></i> 
               : <i className="fas fa-graduation-cap text-lg"></i>}
           </div>
+          <div className="mt-2 text-sm text-portfolio-text dark:text-portfolio-lighter text-center">
+            {item.period}
+          </div>
           {!isLast && (
             <div className="absolute top-12 bottom-0 left-1/2 w-1 -ml-px bg-portfolio-lighter dark:bg-[#4A90E2] h-full opacity-100"></div>
           )}
@@ -171,9 +174,7 @@ const TimelineItem: FC<{
               <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
             </div>
           </div>
-          <span className="text-sm px-4 py-2 mt-2 ml-16 inline-block bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter rounded-full whitespace-nowrap">
-            {item.period}
-          </span>
+          
 
           <AnimatePresence>
             {isActive && (

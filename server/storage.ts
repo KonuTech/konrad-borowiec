@@ -127,7 +127,7 @@ export class MemStorage implements IStorage {
         title: "Personal Portfolio Website",
         description: "A modern, professional portfolio website built with React, TypeScript, and Tailwind CSS. Features responsive design, dark mode support, and interactive components.",
         technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Vite"],
-        imageUrl: "/images/projects/portfolio-website.png",
+        imageUrl: "/images/projects/fe646730-a205-4591-822d-9f718b1aba8c.png",
         githubUrl: "https://github.com/KonuTech/konrad-borowiec",
         featured: true
       }

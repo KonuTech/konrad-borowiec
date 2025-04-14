@@ -17,9 +17,6 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex items-start justify-between mb-3">
           <h3 className="font-nunito font-bold text-xl text-portfolio-dark dark:text-portfolio-lighter">{project.title}</h3>
-          {project.featured && (
-            <span className="text-xs px-2 py-1 bg-portfolio-lightest dark:bg-portfolio-primary/30 text-portfolio-primary dark:text-portfolio-lighter rounded-full">Featured</span>
-          )}
         </div>
         <p className="text-sm text-portfolio-text dark:text-portfolio-lighter mb-4">
           {project.description}

@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="cloud-bg h-80 opacity-20 dark:opacity-10"></div>
         <div className="cloud-mask absolute bottom-0 w-full h-40"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 -mt-60 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <motion.div 
@@ -43,7 +43,7 @@ const Hero = () => {
               </a>
             </div>
           </motion.div>
-          
+
           <motion.div 
             className="md:w-1/2 flex justify-center"
             initial={{ opacity: 0 }}
@@ -71,7 +71,7 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-        
+
         <motion.div 
           className="flex justify-center mt-20"
           initial={{ opacity: 0, y: 20 }}
