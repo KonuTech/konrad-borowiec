@@ -149,6 +149,19 @@ const InterestsSection: FC = () => {
                 appreciate diverse architectural styles, and observe economic differences across regions—creating a deeper connection with the places I visit.
               </p>
             </div>
+
+            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6">
+              <h3 className="font-nunito font-bold text-xl mb-4 text-portfolio-primary dark:text-portfolio-lighter">Financial Markets</h3>
+              <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90">
+                My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading. Starting three years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities.
+              </p>
+              <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90">
+                Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results. This hands-on experience has provided valuable insights into market dynamics and investment principles.
+              </p>
+              <p className="text-portfolio-text dark:text-portfolio-lighter/90">
+                For those interested in building their investment knowledge, particularly Polish speakers, I recommend <a href="https://inwestomat.eu/" target="_blank" rel="noopener noreferrer" className="text-portfolio-primary hover:text-portfolio-accent transition-colors">inwestomat.eu</a>—an exceptional resource that offers university-caliber financial education in an accessible format.
+              </p>
+            </div>
           </motion.div>
           
           <motion.div
@@ -242,18 +255,7 @@ const InterestsSection: FC = () => {
               )}
             </div>
 
-            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6">
-              <h3 className="font-nunito font-bold text-xl mb-4 text-portfolio-primary dark:text-portfolio-lighter">Financial Markets</h3>
-              <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90">
-                My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading. Starting three years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities.
-              </p>
-              <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90">
-                Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results. This hands-on experience has provided valuable insights into market dynamics and investment principles.
-              </p>
-              <p className="text-portfolio-text dark:text-portfolio-lighter/90">
-                For those interested in building their investment knowledge, particularly Polish speakers, I recommend inwestomat.eu—an exceptional resource that offers university-caliber financial education in an accessible format.
-              </p>
-            </div>
+            
           </motion.div>
         </div>
         

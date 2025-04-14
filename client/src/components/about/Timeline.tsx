@@ -143,34 +143,34 @@ const TimelineItem: FC<{
       transition={{ duration: 0.4 }}
     >
       <div className="flex items-start">
-        <div className="relative mr-4">
+        <div className="relative mr-6">
           <div 
-            className={`w-8 h-8 rounded-full flex items-center justify-center cursor-pointer relative z-10
+            className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
               ${item.type === 'work' 
                 ? 'bg-portfolio-primary text-white' 
                 : 'bg-portfolio-accent text-white'}`}
             onClick={onClick}
           >
             {item.type === 'work' 
-              ? <i className="fas fa-briefcase text-sm"></i> 
-              : <i className="fas fa-graduation-cap text-sm"></i>}
+              ? <i className="fas fa-briefcase text-lg"></i> 
+              : <i className="fas fa-graduation-cap text-lg"></i>}
           </div>
           {!isLast && (
-            <div className="absolute top-8 bottom-0 left-1/2 w-0.5 -ml-px bg-portfolio-lighter dark:bg-[#4A90E2] h-full"></div>
+            <div className="absolute top-12 bottom-0 left-1/2 w-1 -ml-px bg-portfolio-lighter dark:bg-[#4A90E2] h-full opacity-100"></div>
           )}
         </div>
 
         <div className="flex-1">
           <div 
             onClick={onClick}
-            className={`flex justify-between items-center cursor-pointer bg-white dark:bg-portfolio-darker rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow
+            className={`flex justify-between items-center cursor-pointer bg-white dark:bg-portfolio-darker rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow w-full
               ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
           >
-            <div>
+            <div className="flex-grow">
               <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
               <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
             </div>
-            <span className="text-xs px-3 py-1 bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter rounded-full whitespace-nowrap">
+            <span className="text-sm px-4 py-2 ml-4 bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter rounded-full whitespace-nowrap">
               {item.period}
             </span>
           </div>
