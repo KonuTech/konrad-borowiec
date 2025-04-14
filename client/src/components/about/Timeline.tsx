@@ -144,24 +144,26 @@ const TimelineItem: FC<{
     >
       <div className="flex items-start">
         <div className="relative mr-6">
-          <div 
-            className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
-              ${item.type === 'work' 
-                ? 'bg-portfolio-primary text-white' 
-                : 'bg-portfolio-accent text-white'}`}
-            onClick={onClick}
-          >
-            {item.type === 'work' 
-              ? <i className="fas fa-briefcase text-lg"></i> 
-              : <i className="fas fa-graduation-cap text-lg"></i>}
+            <div className="flex flex-col items-center">
+              <div 
+                className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
+                  ${item.type === 'work' 
+                    ? 'bg-portfolio-primary text-white' 
+                    : 'bg-portfolio-accent text-white'}`}
+                onClick={onClick}
+              >
+                {item.type === 'work' 
+                  ? <i className="fas fa-briefcase text-lg"></i> 
+                  : <i className="fas fa-graduation-cap text-lg"></i>}
+              </div>
+              {!isLast && (
+                <div className="w-1 bg-portfolio-lighter dark:bg-[#4A90E2] h-full opacity-100 mt-0"></div>
+              )}
+            </div>
+            <div className="absolute top-14 text-sm text-portfolio-text dark:text-portfolio-lighter text-center w-full">
+              {item.period}
+            </div>
           </div>
-          <div className="mt-2 text-sm text-portfolio-text dark:text-portfolio-lighter text-center">
-            {item.period}
-          </div>
-          {!isLast && (
-            <div className="absolute top-12 bottom-0 left-1/2 w-1 -ml-px bg-portfolio-lighter dark:bg-[#4A90E2] h-full opacity-100"></div>
-          )}
-        </div>
 
         <div className="flex-1">
           <div 
@@ -174,7 +176,7 @@ const TimelineItem: FC<{
               <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
             </div>
           </div>
-          
+
 
           <AnimatePresence>
             {isActive && (
