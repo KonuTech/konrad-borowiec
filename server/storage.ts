@@ -1,8 +1,16 @@
-import { 
-  users, type User, type InsertUser,
-  books, type Book, type InsertBook,
-  projects, type Project, type InsertProject,
-  contacts, type Contact, type InsertContact
+import {
+  users,
+  type User,
+  type InsertUser,
+  books,
+  type Book,
+  type InsertBook,
+  projects,
+  type Project,
+  type InsertProject,
+  contacts,
+  type Contact,
+  type InsertContact,
 } from "@shared/schema";
 import { ensureImageDirectories } from "./imageUtils";
 import path from "path";
@@ -25,7 +33,10 @@ export interface IStorage {
   getProjects(): Promise<Project[]>;
   getProject(id: number): Promise<Project | undefined>;
   createProject(project: InsertProject): Promise<Project>;
-  updateProject(id: number, project: Partial<InsertProject>): Promise<Project | undefined>;
+  updateProject(
+    id: number,
+    project: Partial<InsertProject>,
+  ): Promise<Project | undefined>;
   deleteProject(id: number): Promise<boolean>;
 
   // Contact methods
@@ -64,73 +75,126 @@ export class MemStorage implements IStorage {
     const sampleProjects: InsertProject[] = [
       {
         title: "Data Engineering Zoomcamp Capstone",
-        description: "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB.",
+        description:
+          "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB.",
         imageUrl: "/images/projects/Data-Engineering-Zoomcamp-Capstone.png",
         liveUrl: null,
-        githubUrl: "https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01",
-        technologies: ["Airflow", "Kafka", "PySpark", "PostgreSQL", "Streamlit", "Docker"],
-        featured: true,
-        userId: null
+        githubUrl:
+          "https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01",
+        technologies: [
+          "Airflow",
+          "Kafka",
+          "PySpark",
+          "PostgreSQL",
+          "Streamlit",
+          "Docker",
+        ],
+        featured: false,
+        userId: null,
       },
       {
         title: "LLM Zoomcamp Capstone",
-        description: "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database.",
+        description:
+          "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database.",
         imageUrl: "/images/projects/LLM-Zoomcamp-Capstone.png",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/llm-zoomcamp-capstone-01",
-        technologies: ["Flask", "Elasticsearch", "PostgreSQL", "Grafana", "Docker", "Python"],
-        featured: true,
-        userId: null
+        technologies: [
+          "Flask",
+          "Elasticsearch",
+          "PostgreSQL",
+          "Grafana",
+          "Docker",
+          "Python",
+        ],
+        featured: false,
+        userId: null,
       },
       {
         title: "MLOps Zoomcamp Project",
-        description: "End-to-end MLOps on GCP - An implementation of MLOps best practices for machine learning workflows on Google Cloud Platform.",
+        description:
+          "End-to-end MLOps on GCP - An implementation of MLOps best practices for machine learning workflows on Google Cloud Platform.",
         imageUrl: "/images/projects/MLOps-Zoomcamp-Project.jfif",
         liveUrl: null,
         githubUrl: "https://github.com/KonuTech/mlops-zoomcamp-project",
-        technologies: ["PySpark", "Scikit-learn", "XGBoost", "Prefect", "MLflow", "FastAPI", "Evidently AI"],
+        technologies: [
+          "PySpark",
+          "Scikit-learn",
+          "XGBoost",
+          "Prefect",
+          "MLflow",
+          "FastAPI",
+          "Evidently AI",
+        ],
         featured: false,
-        userId: null
+        userId: null,
       },
       {
         title: "Machine Learning Zoomcamp Capstone 01",
-        description: "Dockerized Flask service for scoring if a customer will default on payments, implementing various machine learning algorithms.",
+        description:
+          "Dockerized Flask service for scoring if a customer will default on payments, implementing various machine learning algorithms.",
         imageUrl: "/images/projects/Machine-Learning-Zoomcamp-Capstone-01.jfif",
         liveUrl: null,
-        githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01",
+        githubUrl:
+          "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01",
         technologies: ["Pandas", "Scikit-learn", "XGBoost", "Flask", "Docker"],
         featured: false,
-        userId: null
+        userId: null,
       },
       {
         title: "Machine Learning Zoomcamp Capstone 02",
-        description: "Image classifier using transfer learning with TensorFlow and deployment with Docker and Kubernetes.",
+        description:
+          "Image classifier using transfer learning with TensorFlow and deployment with Docker and Kubernetes.",
         imageUrl: "/images/projects/Machine-Learning-Zoomcamp-Capstone-02.png",
         liveUrl: null,
-        githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02",
-        technologies: ["TensorFlow", "Transfer Learning", "Docker", "Kubernetes", "Kind Cluster"],
+        githubUrl:
+          "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02",
+        technologies: [
+          "TensorFlow",
+          "Transfer Learning",
+          "Docker",
+          "Kubernetes",
+          "Kind Cluster",
+        ],
         featured: false,
-        userId: null
+        userId: null,
       },
       {
         title: "Delta Table Streaming Databricks",
-        description: "Implementation of streaming data processing with Delta tables in Databricks, demonstrating efficient data pipeline patterns.",
+        description:
+          "Implementation of streaming data processing with Delta tables in Databricks, demonstrating efficient data pipeline patterns.",
         imageUrl: "/images/projects/Delta-Table-Streaming-Databricks.jfif",
         liveUrl: null,
-        githubUrl: "https://github.com/KonuTech/delta-table-streaming-databricks",
-        technologies: ["Databricks", "PySpark", "Delta Tables", "Streaming", "JSON"],
+        githubUrl:
+          "https://github.com/KonuTech/delta-table-streaming-databricks",
+        technologies: [
+          "Databricks",
+          "PySpark",
+          "Delta Tables",
+          "Streaming",
+          "JSON",
+        ],
         featured: false,
-        userId: null
+        userId: null,
       },
       {
-        id: 0,
         title: "Personal Portfolio Website",
-        description: "A modern, professional portfolio website built with React, TypeScript, and Tailwind CSS. Features responsive design, dark mode support, and interactive components.",
-        technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Vite"],
+        description:
+          "A modern, professional portfolio website built with React, TypeScript, and Tailwind CSS. Features responsive design, dark mode support, and interactive components.",
         imageUrl: "/images/projects/fe646730-a205-4591-822d-9f718b1aba8c.png",
+        liveUrl: null,
         githubUrl: "https://github.com/KonuTech/konrad-borowiec",
-        featured: true
-      }
+        technologies: [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Node.js",
+          "Express",
+          "Vite",
+        ],
+        featured: false,
+        userId: null,
+      },
     ];
 
     // Sample books
@@ -139,12 +203,14 @@ export class MemStorage implements IStorage {
       {
         title: "Data Engineering with Databricks Cookbook",
         author: "Pulkit Chadha",
-        coverUrl: "/images/projects/Data-Engineering-with-Databricks-Cookbook.jfif",
+        coverUrl:
+          "/images/projects/Data-Engineering-with-Databricks-Cookbook.jfif",
         genre: "Programming",
         rating: 5,
-        review: "Excellent practical guide for implementing data engineering solutions with Databricks. Provides clear examples and best practices.",
+        review:
+          "Excellent practical guide for implementing data engineering solutions with Databricks. Provides clear examples and best practices.",
         userId: null,
-        status: "read"
+        status: "read",
       },
       {
         title: "Fundamentals of Data Engineering",
@@ -152,9 +218,10 @@ export class MemStorage implements IStorage {
         coverUrl: "/images/projects/Fundamentals-of-Data-Engineering.jfif",
         genre: "Programming",
         rating: 5,
-        review: "Comprehensive overview of data engineering principles and practices. Essential reading for anyone in the field.",
+        review:
+          "Comprehensive overview of data engineering principles and practices. Essential reading for anyone in the field.",
         userId: null,
-        status: "read"
+        status: "read",
       },
       {
         title: "Data Engineering with dbt",
@@ -162,138 +229,152 @@ export class MemStorage implements IStorage {
         coverUrl: "/images/projects/Data-Engineering-with-dbt.jfif",
         genre: "Programming",
         rating: 4,
-        review: "A thorough guide to implementing data transformation workflows using dbt. Very practical for modern data stack implementation.",
+        review:
+          "A thorough guide to implementing data transformation workflows using dbt. Very practical for modern data stack implementation.",
         userId: null,
-        status: "read"
+        status: "read",
       },
-
 
       // Books to read
       {
-        title: "Databricks Certified Associate Developer for Apache Spark Using Python",
+        title:
+          "Databricks Certified Associate Developer for Apache Spark Using Python",
         author: "Moshiur Bhuiyan",
-        coverUrl: "https://m.media-amazon.com/images/I/61aZPkx4hJL._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/61aZPkx4hJL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Data Modeling with Snowflake",
         author: "Serge Gershkovich",
-        coverUrl: "https://m.media-amazon.com/images/I/71pFDwAAy4L._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/71pFDwAAy4L._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Data Engineering Best Practices",
         author: "Richard J. Schiller & David Larochelle",
-        coverUrl: "https://m.media-amazon.com/images/I/61achhPNuzL._SL1360_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/61achhPNuzL._SL1360_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Data Engineering with Google Cloud Platform",
         author: "Adi Wijaya",
-        coverUrl: "https://m.media-amazon.com/images/I/710JKsGxkKL._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/710JKsGxkKL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Data Engineering with Scala and Spark",
         author: "Eric Tome, Rupam Bhattacharajee & David Radford",
-        coverUrl: "https://m.media-amazon.com/images/I/71QMF1jQ7ZL._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/71QMF1jQ7ZL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Data Observability for Data Engineering",
         author: "Michele Pinto & Sammy El Khammal",
-        coverUrl: "https://m.media-amazon.com/images/I/71vC1Oq0ILL._SL1500_.jpg", 
+        coverUrl:
+          "https://m.media-amazon.com/images/I/71vC1Oq0ILL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "The Definitive Guide to Data Integration",
-        author: "Pierre-Yves Bonnefoy, Emeric Chaize, Raphael Mansuy & Mehdi Tazi",
-        coverUrl: "https://m.media-amazon.com/images/I/61q5jxqzQYL._SL1254_.jpg",
+        author:
+          "Pierre-Yves Bonnefoy, Emeric Chaize, Raphael Mansuy & Mehdi Tazi",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/61q5jxqzQYL._SL1254_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Getting Started with DuckDB",
         author: "Simon Aubury & Net Letcher",
-        coverUrl: "https://m.media-amazon.com/images/I/71yZuGCvT6L._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/71yZuGCvT6L._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Polars Cookbook",
         author: "Yuki Kakegawa",
-        coverUrl: "https://m.media-amazon.com/images/I/71iAiY70UDL._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/71iAiY70UDL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Practical Data Quality",
         author: "Robert Hawker",
-        coverUrl: "https://m.media-amazon.com/images/I/71mV0sqF+YL._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/71mV0sqF+YL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Python Algorithmic Trading Cookbook",
         author: "Pushpak Dagade",
-        coverUrl: "https://m.media-amazon.com/images/I/61zN+-0wd1L._SL1360_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/61zN+-0wd1L._SL1360_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
+        status: "to-read",
       },
       {
         title: "Python Object-oriented Programming",
         author: "Steven F. Lott & Dusty Phillips",
-        coverUrl: "https://m.media-amazon.com/images/I/61zw5vV5AnL._SL1500_.jpg",
+        coverUrl:
+          "https://m.media-amazon.com/images/I/61zw5vV5AnL._SL1500_.jpg",
         genre: "Programming",
         rating: null,
         review: null,
         userId: null,
-        status: "to-read"
-      }
+        status: "to-read",
+      },
     ];
 
     // Add sample data to storage
-    sampleProjects.forEach(project => this.createProject(project));
-    sampleBooks.forEach(book => this.createBook(book));
+    sampleProjects.forEach((project) => this.createProject(project));
+    sampleBooks.forEach((book) => this.createBook(book));
   }
 
   // User methods
@@ -325,22 +406,25 @@ export class MemStorage implements IStorage {
 
   async createBook(insertBook: InsertBook): Promise<Book> {
     const id = this.bookIdCounter++;
-    const book: Book = { 
+    const book: Book = {
       id,
       title: insertBook.title,
       author: insertBook.author,
       coverUrl: insertBook.coverUrl ?? null,
       genre: insertBook.genre ?? null,
-      rating: insertBook.rating ?? null, 
+      rating: insertBook.rating ?? null,
       review: insertBook.review ?? null,
       userId: insertBook.userId ?? null,
-      status: insertBook.status ?? 'read'
+      status: insertBook.status ?? "read",
     };
     this.books.set(id, book);
     return book;
   }
 
-  async updateBook(id: number, bookUpdate: Partial<InsertBook>): Promise<Book | undefined> {
+  async updateBook(
+    id: number,
+    bookUpdate: Partial<InsertBook>,
+  ): Promise<Book | undefined> {
     const book = this.books.get(id);
     if (!book) return undefined;
 
@@ -364,7 +448,7 @@ export class MemStorage implements IStorage {
 
   async createProject(insertProject: InsertProject): Promise<Project> {
     const id = this.projectIdCounter++;
-    const project: Project = { 
+    const project: Project = {
       id,
       title: insertProject.title,
       description: insertProject.description,
@@ -373,13 +457,16 @@ export class MemStorage implements IStorage {
       liveUrl: insertProject.liveUrl ?? null,
       githubUrl: insertProject.githubUrl ?? null,
       technologies: insertProject.technologies ?? null,
-      featured: insertProject.featured ?? null
+      featured: insertProject.featured ?? null,
     };
     this.projects.set(id, project);
     return project;
   }
 
-  async updateProject(id: number, projectUpdate: Partial<InsertProject>): Promise<Project | undefined> {
+  async updateProject(
+    id: number,
+    projectUpdate: Partial<InsertProject>,
+  ): Promise<Project | undefined> {
     const project = this.projects.get(id);
     if (!project) return undefined;
 
@@ -395,10 +482,10 @@ export class MemStorage implements IStorage {
   // Contact methods
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = this.contactIdCounter++;
-    const contact: Contact = { 
-      ...insertContact, 
-      id, 
-      createdAt: new Date() 
+    const contact: Contact = {
+      ...insertContact,
+      id,
+      createdAt: new Date(),
     };
     this.contacts.set(id, contact);
     return contact;
