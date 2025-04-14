@@ -144,7 +144,7 @@ const TimelineItem: FC<{
     >
       <div className="flex items-start">
         <div className="relative mr-6">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center relative">
               <div 
                 className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
                   ${item.type === 'work' 
@@ -157,11 +157,14 @@ const TimelineItem: FC<{
                   : <i className="fas fa-graduation-cap text-lg"></i>}
               </div>
               {!isLast && (
-                <div className="w-1 bg-portfolio-lighter dark:bg-[#4A90E2] h-full opacity-100 mt-0"></div>
+                <div className={`w-1 bg-portfolio-lighter dark:bg-[#4A90E2] opacity-100 transition-all duration-300 absolute top-12
+                  ${isActive ? 'h-[calc(100%_+_2rem)]' : 'h-16'}`} 
+                />
               )}
-            </div>
-            <div className="absolute top-14 text-sm text-portfolio-text dark:text-portfolio-lighter text-center w-full">
-              {item.period}
+              <div className={`text-sm text-portfolio-text dark:text-portfolio-lighter text-center w-full transition-all duration-300 absolute
+                ${isActive ? 'top-[calc(100%_+_1rem)]' : 'top-14'}`}>
+                {item.period}
+              </div>
             </div>
           </div>
 
