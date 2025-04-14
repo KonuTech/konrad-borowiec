@@ -156,14 +156,19 @@ const TimelineItem: FC<{
                   ? <i className="fas fa-briefcase text-lg"></i> 
                   : <i className="fas fa-graduation-cap text-lg"></i>}
               </div>
-              {!isLast && (
-                <div className={`w-1 bg-portfolio-lighter dark:bg-[#4A90E2] opacity-100 transition-all duration-300 absolute top-12
-                  ${isActive ? 'h-[calc(100%_+_2rem)]' : 'h-16'}`} 
-                />
-              )}
-              <div className={`text-sm text-portfolio-text dark:text-portfolio-lighter text-center w-full transition-all duration-300 absolute
-                ${isActive ? 'top-[calc(100%_+_1rem)]' : 'top-14'}`}>
-                {item.period}
+              <div className="relative h-full">
+                {!isLast && (
+                  <div 
+                    className={`w-1 bg-portfolio-lighter dark:bg-[#4A90E2] opacity-100 transition-all duration-300 absolute left-1/2 transform -translate-x-1/2 top-12
+                      ${isActive ? 'h-[calc(100%_+_4rem)]' : 'h-16'}`} 
+                  />
+                )}
+                <div 
+                  className={`text-sm text-portfolio-text dark:text-portfolio-lighter text-center w-full transition-all duration-300 absolute left-1/2 transform -translate-x-1/2
+                    ${isActive ? 'top-[calc(100%_+_3rem)]' : 'top-14'}`}
+                >
+                  {item.period}
+                </div>
               </div>
             </div>
           </div>
