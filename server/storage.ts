@@ -319,7 +319,7 @@ export class MemStorage implements IStorage {
         title: "Getting Started with DuckDB",
         author: "Simon Aubury & Net Letcher",
         coverUrl:
-          "https://m.media-amazon.com/images/I/71yZuGCvT6L._SL1500_.jpg",
+          "/images/projects/getting-started-with-duckdb.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -330,7 +330,7 @@ export class MemStorage implements IStorage {
         title: "Polars Cookbook",
         author: "Yuki Kakegawa",
         coverUrl:
-          "https://m.media-amazon.com/images/I/71iAiY70UDL._SL1500_.jpg",
+          "/images/projects/polars-cookbook.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -341,7 +341,7 @@ export class MemStorage implements IStorage {
         title: "Practical Data Quality",
         author: "Robert Hawker",
         coverUrl:
-          "https://m.media-amazon.com/images/I/71mV0sqF+YL._SL1500_.jpg",
+          "/images/projects/practical-data-quality.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -352,7 +352,7 @@ export class MemStorage implements IStorage {
         title: "Python Algorithmic Trading Cookbook",
         author: "Pushpak Dagade",
         coverUrl:
-          "https://m.media-amazon.com/images/I/61zN+-0wd1L._SL1360_.jpg",
+          "/images/projects/python-algorithmic-trading-cookbook.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -363,7 +363,7 @@ export class MemStorage implements IStorage {
         title: "Python Object-oriented Programming",
         author: "Steven F. Lott & Dusty Phillips",
         coverUrl:
-          "https://m.media-amazon.com/images/I/61zw5vV5AnL._SL1500_.jpg",
+          "/images/projects/python-object-oriented-programming.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
