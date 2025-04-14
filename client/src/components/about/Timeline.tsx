@@ -144,36 +144,42 @@ const TimelineItem: FC<{
     >
       <div className="flex items-start">
         <div className="relative mr-6">
-            <div className="flex flex-col items-center relative">
-              <div 
-                className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
-                  ${item.type === 'work' 
-                    ? 'bg-portfolio-primary text-white' 
-                    : 'bg-portfolio-accent text-white'}`}
-                onClick={onClick}
-              >
-                {item.type === 'work' 
-                  ? <i className="fas fa-briefcase text-lg"></i> 
-                  : <i className="fas fa-graduation-cap text-lg"></i>}
-              </div>
-              <div className="relative h-full">
-                {!isLast && (
-                  <div 
-                    className={`w-1 bg-portfolio-lighter dark:bg-[#4A90E2] opacity-100 transition-all duration-300 absolute left-1/2 transform -translate-x-1/2 top-12
-                      ${isActive ? 'h-[calc(100%_+_4rem)]' : 'h-16'}`} 
-                  />
-                )}
-                <div 
-                  className={`text-sm text-portfolio-text dark:text-portfolio-lighter text-center w-full transition-all duration-300 absolute left-1/2 transform -translate-x-1/2
-                    ${isActive ? 'top-[calc(100%_+_3rem)]' : 'top-14'}`}
-                >
-                  {item.period}
-                </div>
-              </div>
+          <div className="flex flex-col items-center">
+            {/* Icon container */}
+            <div 
+              className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
+                ${item.type === 'work' 
+                  ? 'bg-portfolio-primary text-white' 
+                  : 'bg-portfolio-accent text-white'}`}
+              onClick={onClick}
+            >
+              {item.type === 'work' 
+                ? <i className="fas fa-briefcase text-lg"></i> 
+                : <i className="fas fa-graduation-cap text-lg"></i>}
+            </div>
+            
+            {/* Vertical line that extends dynamically */}
+            <div className="relative w-full min-h-[8rem]">
+              {!isLast && (
+                <motion.div 
+                  className="w-1 bg-portfolio-lighter dark:bg-[#4A90E2] absolute left-1/2 transform -translate-x-1/2"
+                  initial={{ height: "4rem" }}
+                  animate={{ 
+                    height: isActive ? "calc(100% + 8rem)" : "4rem"
+                  }}
+                  transition={{ 
+                    duration: 0.5,
+                    ease: "easeInOut"
+                  }}
+                  style={{ top: "0.5rem" }}
+                />
+              )}
             </div>
           </div>
+        </div>
 
-        <div className="flex-1">
+        <div className="flex-1 relative">
+          {/* Title and organization card */}
           <div 
             onClick={onClick}
             className={`flex flex-col cursor-pointer bg-white dark:bg-portfolio-darker rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow w-full
@@ -185,7 +191,7 @@ const TimelineItem: FC<{
             </div>
           </div>
 
-
+          {/* Description (expands/collapses) */}
           <AnimatePresence>
             {isActive && (
               <motion.div 
@@ -194,6 +200,7 @@ const TimelineItem: FC<{
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
+                layout
               >
                 <div className="pt-4 pl-4 pr-4 pb-2 bg-white dark:bg-portfolio-darker rounded-b-lg shadow-md mt-1">
                   <p className="text-sm text-portfolio-text dark:text-portfolio-lighter/90">{item.description}</p>
@@ -201,6 +208,25 @@ const TimelineItem: FC<{
               </motion.div>
             )}
           </AnimatePresence>
+          
+          {/* Date display - positioned dynamically based on content */}
+          <motion.div 
+            className="flex items-center absolute left-0 transform -translate-x-[calc(100%+1.5rem)]"
+            initial={{ 
+              top: isActive ? "calc(100% + 0.5rem)" : "1.5rem" 
+            }}
+            animate={{ 
+              top: isActive ? "calc(100% + 0.5rem)" : "1.5rem" 
+            }}
+            transition={{ 
+              duration: 0.5,
+              ease: "easeInOut"
+            }}
+          >
+            <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter text-right whitespace-nowrap">
+              {item.period}
+            </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>
