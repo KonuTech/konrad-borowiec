@@ -196,13 +196,18 @@ const TimelineItem: FC<{
               ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
           >
             <div className="flex-grow">
-              <div className="flex justify-between items-start">
+              {/* Responsive layout for title, organization, and date */}
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                 <div>
                   <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
                   <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
+                  {/* Date displayed under organization on mobile */}
+                  <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter mt-1 block sm:hidden">
+                    {item.period}
+                  </div>
                 </div>
-                {/* Date displayed inside the title card */}
-                <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter text-right whitespace-nowrap">
+                {/* Date displayed on the right side on larger screens */}
+                <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter text-right whitespace-nowrap hidden sm:block">
                   {item.period}
                 </div>
               </div>
