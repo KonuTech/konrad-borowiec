@@ -163,17 +163,17 @@ const TimelineItem: FC<{
         <div className="flex-1">
           <div 
             onClick={onClick}
-            className={`flex justify-between items-center cursor-pointer bg-white dark:bg-portfolio-darker rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow w-full
+            className={`flex flex-col cursor-pointer bg-white dark:bg-portfolio-darker rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow w-full
               ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
           >
             <div className="flex-grow">
               <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
               <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
             </div>
-            <span className="text-sm px-4 py-2 ml-4 bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter rounded-full whitespace-nowrap">
-              {item.period}
-            </span>
           </div>
+          <span className="text-sm px-4 py-2 mt-2 ml-16 inline-block bg-portfolio-lightest dark:bg-portfolio-dark text-portfolio-primary dark:text-portfolio-lighter rounded-full whitespace-nowrap">
+            {item.period}
+          </span>
 
           <AnimatePresence>
             {isActive && (

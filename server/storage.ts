@@ -13,21 +13,21 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  
+
   // Book methods
   getBooks(): Promise<Book[]>;
   getBook(id: number): Promise<Book | undefined>;
   createBook(book: InsertBook): Promise<Book>;
   updateBook(id: number, book: Partial<InsertBook>): Promise<Book | undefined>;
   deleteBook(id: number): Promise<boolean>;
-  
+
   // Project methods
   getProjects(): Promise<Project[]>;
   getProject(id: number): Promise<Project | undefined>;
   createProject(project: InsertProject): Promise<Project>;
   updateProject(id: number, project: Partial<InsertProject>): Promise<Project | undefined>;
   deleteProject(id: number): Promise<boolean>;
-  
+
   // Contact methods
   createContact(contact: InsertContact): Promise<Contact>;
   getContacts(): Promise<Contact[]>;
@@ -38,7 +38,7 @@ export class MemStorage implements IStorage {
   private books: Map<number, Book>;
   private projects: Map<number, Project>;
   private contacts: Map<number, Contact>;
-  
+
   private userIdCounter: number;
   private bookIdCounter: number;
   private projectIdCounter: number;
@@ -49,12 +49,12 @@ export class MemStorage implements IStorage {
     this.books = new Map();
     this.projects = new Map();
     this.contacts = new Map();
-    
+
     this.userIdCounter = 1;
     this.bookIdCounter = 1;
     this.projectIdCounter = 1;
     this.contactIdCounter = 1;
-    
+
     // Initialize with sample data
     this.initializeSampleData();
   }
@@ -121,6 +121,15 @@ export class MemStorage implements IStorage {
         technologies: ["Databricks", "PySpark", "Delta Tables", "Streaming", "JSON"],
         featured: false,
         userId: null
+      },
+      {
+        id: 0,
+        title: "Personal Portfolio Website",
+        description: "A modern, professional portfolio website built with React, TypeScript, and Tailwind CSS. Features responsive design, dark mode support, and interactive components.",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Vite"],
+        imageUrl: "/images/projects/portfolio-website.png",
+        githubUrl: "https://github.com/KonuTech/konrad-borowiec",
+        featured: true
       }
     ];
 
@@ -158,7 +167,7 @@ export class MemStorage implements IStorage {
         status: "read"
       },
 
-      
+
       // Books to read
       {
         title: "Databricks Certified Associate Developer for Apache Spark Using Python",
@@ -334,7 +343,7 @@ export class MemStorage implements IStorage {
   async updateBook(id: number, bookUpdate: Partial<InsertBook>): Promise<Book | undefined> {
     const book = this.books.get(id);
     if (!book) return undefined;
-    
+
     const updatedBook = { ...book, ...bookUpdate };
     this.books.set(id, updatedBook);
     return updatedBook;
@@ -373,7 +382,7 @@ export class MemStorage implements IStorage {
   async updateProject(id: number, projectUpdate: Partial<InsertProject>): Promise<Project | undefined> {
     const project = this.projects.get(id);
     if (!project) return undefined;
-    
+
     const updatedProject = { ...project, ...projectUpdate };
     this.projects.set(id, updatedProject);
     return updatedProject;
