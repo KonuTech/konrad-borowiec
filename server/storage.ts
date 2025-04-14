@@ -241,7 +241,7 @@ export class MemStorage implements IStorage {
           "Databricks Certified Associate Developer for Apache Spark Using Python",
         author: "Moshiur Bhuiyan",
         coverUrl:
-          "https://m.media-amazon.com/images/I/61aZPkx4hJL._SL1500_.jpg",
+          "/images/projects/data-bricks-certified-associate-developer-for-apache-spark-using-python.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -252,7 +252,7 @@ export class MemStorage implements IStorage {
         title: "Data Modeling with Snowflake",
         author: "Serge Gershkovich",
         coverUrl:
-          "https://m.media-amazon.com/images/I/71pFDwAAy4L._SL1500_.jpg",
+          "/images/projects/Data-Modeling-with-Snowflake.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -263,7 +263,7 @@ export class MemStorage implements IStorage {
         title: "Data Engineering Best Practices",
         author: "Richard J. Schiller & David Larochelle",
         coverUrl:
-          "https://m.media-amazon.com/images/I/61achhPNuzL._SL1360_.jpg",
+          "/images/projects/data-engineering-best-practices.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -274,7 +274,7 @@ export class MemStorage implements IStorage {
         title: "Data Engineering with Google Cloud Platform",
         author: "Adi Wijaya",
         coverUrl:
-          "https://m.media-amazon.com/images/I/710JKsGxkKL._SL1500_.jpg",
+          "/images/projects/data-engineering-with-google-cloud-platform.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -285,7 +285,7 @@ export class MemStorage implements IStorage {
         title: "Data Engineering with Scala and Spark",
         author: "Eric Tome, Rupam Bhattacharajee & David Radford",
         coverUrl:
-          "https://m.media-amazon.com/images/I/71QMF1jQ7ZL._SL1500_.jpg",
+          "/images/projects/data-engineering-with-scala-and-spark.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -296,7 +296,7 @@ export class MemStorage implements IStorage {
         title: "Data Observability for Data Engineering",
         author: "Michele Pinto & Sammy El Khammal",
         coverUrl:
-          "https://m.media-amazon.com/images/I/71vC1Oq0ILL._SL1500_.jpg",
+          "/images/projects/data-observability-for-data-engineering.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
@@ -308,7 +308,7 @@ export class MemStorage implements IStorage {
         author:
           "Pierre-Yves Bonnefoy, Emeric Chaize, Raphael Mansuy & Mehdi Tazi",
         coverUrl:
-          "https://m.media-amazon.com/images/I/61q5jxqzQYL._SL1254_.jpg",
+          "/images/projects/The-Definitive-Guide-to-Data-Integration.jpeg",
         genre: "Programming",
         rating: null,
         review: null,
