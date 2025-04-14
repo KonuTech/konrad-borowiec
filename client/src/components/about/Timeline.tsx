@@ -133,7 +133,8 @@ const TimelineItem: FC<{
   isLast: boolean; 
   isActive: boolean;
   onClick: () => void;
-}> = ({ item, isLast, isActive, onClick }) => {
+  index: number;
+}> = ({ item, isLast, isActive, onClick, index }) => {
   return (
     <motion.div 
       layout
@@ -159,19 +160,28 @@ const TimelineItem: FC<{
             </div>
             
             {/* Vertical line that extends dynamically */}
-            <div className="relative w-full min-h-[8rem]">
+            <div className="relative w-full min-h-[4rem]">
               {!isLast && (
                 <motion.div 
                   className="w-1 bg-portfolio-lighter dark:bg-[#4A90E2] absolute left-1/2 transform -translate-x-1/2"
                   initial={{ height: "4rem" }}
                   animate={{ 
-                    height: isActive ? "calc(100% + 8rem)" : "4rem"
+                    height: isActive ? "var(--timeline-line-height, calc(100% + 6rem))" : "4rem"
                   }}
                   transition={{ 
                     duration: 0.5,
                     ease: "easeInOut"
                   }}
                   style={{ top: "0.5rem" }}
+                  onAnimationStart={() => {
+                    if (isActive) {
+                      // Delay to let the content expand first
+                      setTimeout(() => {
+                        const descriptionHeight = document.querySelector(`.timeline-description-id-${index}`)?.clientHeight || 0;
+                        document.documentElement.style.setProperty('--timeline-line-height', `calc(100% + ${Math.max(4, descriptionHeight / 16)}rem)`);
+                      }, 10);
+                    }
+                  }}
                 />
               )}
             </div>
@@ -186,8 +196,16 @@ const TimelineItem: FC<{
               ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
           >
             <div className="flex-grow">
-              <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
-              <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
+                  <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
+                </div>
+                {/* Date displayed inside the title card */}
+                <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter text-right whitespace-nowrap">
+                  {item.period}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -202,31 +220,12 @@ const TimelineItem: FC<{
                 className="overflow-hidden"
                 layout
               >
-                <div className="pt-4 pl-4 pr-4 pb-2 bg-white dark:bg-portfolio-darker rounded-b-lg shadow-md mt-1">
+                <div className={`pt-4 pl-4 pr-4 pb-2 bg-white dark:bg-portfolio-darker rounded-b-lg shadow-md mt-1 timeline-description-id-${index}`}>
                   <p className="text-sm text-portfolio-text dark:text-portfolio-lighter/90">{item.description}</p>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
-          
-          {/* Date display - positioned dynamically based on content */}
-          <motion.div 
-            className="flex items-center absolute left-0 transform -translate-x-[calc(100%+1.5rem)]"
-            initial={{ 
-              top: isActive ? "calc(100% + 0.5rem)" : "1.5rem" 
-            }}
-            animate={{ 
-              top: isActive ? "calc(100% + 0.5rem)" : "1.5rem" 
-            }}
-            transition={{ 
-              duration: 0.5,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter text-right whitespace-nowrap">
-              {item.period}
-            </div>
-          </motion.div>
         </div>
       </div>
     </motion.div>
@@ -242,15 +241,18 @@ const Timeline: FC = () => {
 
   return (
     <div className="pl-4 pr-4">
-      {sortedTimelineItems.map((item, index) => (
-        <TimelineItem
-          key={index}
-          item={item}
-          isLast={index === sortedTimelineItems.length - 1}
-          isActive={activeIndex === index}
-          onClick={() => toggleItem(index)}
-        />
-      ))}
+      <AnimatePresence>
+        {sortedTimelineItems.map((item, index) => (
+          <TimelineItem
+            key={index}
+            item={item}
+            isLast={index === sortedTimelineItems.length - 1}
+            isActive={activeIndex === index}
+            onClick={() => toggleItem(index)}
+            index={index}
+          />
+        ))}
+      </AnimatePresence>
     </div>
   );
 };
