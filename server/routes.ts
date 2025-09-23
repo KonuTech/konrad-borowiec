@@ -7,14 +7,8 @@ import { fromZodError } from "zod-validation-error";
 import express from "express";
 import path from "path";
 import fs from "fs";
-// Only need basic directory functions for static image serving
-import { ensureImageDirectories } from "./imageUtils";
 
-// Reuse optimized directory structure from imageUtils
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Ensure public directories exist - this is now optimized with caching
-  await ensureImageDirectories();
-  
   // Serve static files from assets directory
   app.use('/assets', express.static(path.join(process.cwd(), 'assets')));
   

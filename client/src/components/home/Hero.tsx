@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-// Import the profile photo
-import profilePhoto from "@assets/pictures/photos/konrad.jpg";
+// Profile photo served via Express static middleware
+const profilePhoto = "/assets/pictures/photos/konrad.jpg";
 
 const Hero = () => {
   return (
