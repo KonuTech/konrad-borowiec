@@ -13,11 +13,11 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 - `npm run build` - Build static application for production to `build/` directory
 - `npm run preview` - Preview production build locally
 - `npm run check` - Run TypeScript type checking
-- `npm run analyze` - Build and analyze bundle size with vite-bundle-analyzer
+- `npm run analyze` - Build and analyze bundle size (Note: script references `dist` but actual output is `build/`)
 
-### Docker Development (Legacy - for testing static build)
+### Testing Static Build
 - `docker run --rm -v $(pwd):/app -w /app node:18-alpine npm run build` - Build with Docker
-- `docker run --rm -d -p 8080:80 -v $(pwd)/build:/usr/share/nginx/html --name portfolio-preview nginx:alpine` - Serve static build with nginx
+- `docker run --rm -d -p 8080:80 -v $(pwd)/build:/usr/share/nginx/html --name portfolio-preview nginx:alpine` - Serve static build with nginx for testing
 
 ### Environment Setup
 - No external dependencies or backend services required
@@ -54,7 +54,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 - Tailwind CSS for utility-first styling
 - shadcn/ui component library for consistent UI components
 - Dark mode support via ThemeContext
-- Custom theme configuration via `theme.json` and Replit plugin
+- Custom theme configuration via `theme.json`
 
 ### Important Technical Details
 
@@ -137,7 +137,8 @@ build/
 - Build command: `npm run build`
 - Build output directory: `build`
 - No API or backend configuration required
-- All routing handled client-side by React Router
+- All routing handled client-side by Wouter
+- GitHub Actions workflow: `azure-static-web-apps-gentle-bush-092d4010f.yml`
 
 ## Migration Notes
 
