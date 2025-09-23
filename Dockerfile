@@ -41,6 +41,9 @@ FROM node:18-alpine AS production
 
 WORKDIR /app
 
+# Install curl for health checks
+RUN apk add --no-cache curl
+
 # Copy package files
 COPY package*.json ./
 
@@ -49,6 +52,7 @@ RUN npm ci --only=production && npm cache clean --force
 
 # Copy built application from build stage
 COPY --from=build /app/dist ./dist
+COPY --from=build /app/assets ./assets
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs
@@ -63,6 +67,13 @@ EXPOSE 5000
 
 # Set production environment
 ENV NODE_ENV=production
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:5000/api/projects || exit 1
+
+# Graceful shutdown support
+STOPSIGNAL SIGTERM
 
 # Start production server
 CMD ["npm", "run", "start"]

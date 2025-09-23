@@ -25,6 +25,11 @@ This is Konrad Borowiec's personal portfolio website built as a full-stack TypeS
 - `npm run start` - Start production server
 - `npm run check` - Run TypeScript type checking
 
+### Optimization Commands
+- `npm run analyze` - Analyze bundle size with vite-bundle-analyzer
+- `npm run optimize-images` - Optimize images using Sharp compression
+- `npm run audit-deps` - Check for unused dependencies with depcheck
+
 ### Environment Setup
 **Docker (Default):**
 - No external dependencies required
@@ -58,6 +63,10 @@ This is Konrad Borowiec's personal portfolio website built as a full-stack TypeS
 - `/api/projects` - Project CRUD operations (returns mock data)
 - `/api/books` - Book management with "read" and "to-read" status (in-memory storage)
 - `/api/contact` - Contact form submissions (logged to console)
+- `/api/images/motorcycle` - Dynamic motorcycle gallery image listing
+- `/api/images/cycling` - Dynamic cycling gallery image listing
+- `/health` - Health check endpoint for monitoring
+- `/api/metrics` - Development-only metrics endpoint
 
 **Data Management**:
 - Completely stateless with in-memory mock data services
@@ -83,6 +92,21 @@ This is Konrad Borowiec's personal portfolio website built as a full-stack TypeS
 
 **Data Layer**: Uses in-memory mock data services with no external dependencies or persistent storage.
 
+**Performance & Security Optimizations**:
+- Multi-level caching system (API responses cached in memory with TTL)
+- Rate limiting (100 requests/15min for API, 5/min for contact form)
+- Security headers (CSP, XSS protection, HSTS in production)
+- Request validation and malicious pattern detection
+- Image optimization with Sharp (dynamic resizing, format conversion, quality control)
+- Performance monitoring with metrics collection and slow request alerts
+- Graceful shutdown handling and health checks
+
+**Asset Management**:
+- Dynamic image serving from `/assets/pictures/` with optimization parameters
+- Support for on-the-fly image optimization via query params (?w=300&format=webp&q=85)
+- HTTP caching for static assets (30 days) and optimized images (1 year)
+- Motorcycle gallery with 58 images loaded dynamically from filesystem
+
 ## Key Dependencies to Know
 
 **Frontend Stack**:
@@ -97,12 +121,16 @@ This is Konrad Borowiec's personal portfolio website built as a full-stack TypeS
 - Express.js with TypeScript
 - Zod for validation
 - Express sessions with memory store
-- Static data serving (no database connectivity)
+- Sharp for image optimization
+- In-memory caching and rate limiting
+- Security middleware stack
 
 **Development Tools**:
 - tsx for running TypeScript in development
 - esbuild for production server bundling
 - Docker for containerized development
+- Sharp for image processing and optimization
+- Bundle analyzer for size monitoring
 
 ## Development Notes
 
@@ -115,3 +143,62 @@ This is Konrad Borowiec's personal portfolio website built as a full-stack TypeS
 - Application is completely stateless with no external database dependencies
 - Mock data is defined in `server/mockData.ts` and can be easily customized
 - Contact form submissions are logged to console and stored temporarily in memory
+
+## Performance & Optimization Features
+
+### Middleware Stack (Applied in Order)
+1. **Security Headers** - CSP, XSS protection, frame options (relaxed for development)
+2. **Request Validation** - User agent validation and malicious pattern detection
+3. **Performance Monitoring** - Request duration tracking and slow request alerts
+4. **Compression** - Vary headers for response compression
+5. **Rate Limiting** - Applied per API route with different limits
+6. **Caching** - In-memory response caching with configurable TTL
+
+### Caching Strategy
+- **API Responses**: In-memory caching with different TTLs per endpoint
+  - Projects: 1 hour (3600s)
+  - Books: 30 minutes (1800s)
+  - Images: 2 hours (7200s)
+- **Static Assets**: HTTP caching with ETags and proper cache headers
+- **Optimized Images**: 1-year cache for processed images with immutable flag
+
+### Image Optimization
+- **Dynamic Processing**: URL query parameters for width, format, and quality
+- **Format Support**: WebP and JPEG with quality control
+- **Sharp Integration**: Server-side image processing with resize and optimization
+- **Fallback Strategy**: Original images served if optimization fails
+
+### Security Features
+- **Rate Limiting**: Custom implementation with IP-based tracking and cleanup
+- **Request Validation**: Pattern matching for common attack vectors
+- **Security Headers**: Comprehensive security header stack
+- **Production Hardening**: HSTS only in production, relaxed CSP for development
+
+### Monitoring & Metrics
+- **Performance Tracking**: Response time monitoring with alerts for >1000ms requests
+- **Cache Analytics**: Hit/miss ratio tracking and reporting
+- **System Metrics**: Memory usage, uptime, and request statistics
+- **Health Checks**: Docker health check endpoint for container orchestration
+- **Graceful Shutdown**: Proper signal handling and connection cleanup
+
+## Important File Locations
+
+### Core Server Architecture
+- `server/index.ts` - Main server entry point with graceful shutdown
+- `server/routes.ts` - API routes with middleware integration
+- `server/mockData.ts` - Stateless mock data service
+- `server/monitoring.ts` - Metrics collection and logging system
+
+### Middleware Modules
+- `server/middleware/cache.ts` - In-memory caching with TTL management
+- `server/middleware/performance.ts` - Request timing and monitoring
+- `server/middleware/security.ts` - Rate limiting and security headers
+
+### Frontend Hooks & Utilities
+- `client/src/hooks/useOptimizedImage.ts` - Image optimization React hook
+- `client/src/components/interests/InterestsSection.tsx` - Dynamic gallery implementation
+
+### Build & Optimization
+- `scripts/optimize-assets.js` - Image compression automation
+- `Dockerfile` - Multi-stage build with health checks and non-root user
+- `docker-compose.yml` - Development and production configurations

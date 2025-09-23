@@ -7,16 +7,86 @@ import { fromZodError } from "zod-validation-error";
 import express from "express";
 import path from "path";
 import fs from "fs";
+import sharp from "sharp";
+import { cacheMiddleware } from "./middleware/cache";
+import { performanceMonitoring, compressionMiddleware } from "./middleware/performance";
+import { rateLimitMiddleware, securityHeaders, requestValidation } from "./middleware/security";
+import { metricsCollector } from "./monitoring";
+
+async function optimizeImage(imagePath: string, width?: number, format: 'webp' | 'jpeg' = 'webp', quality: number = 85) {
+  const image = sharp(imagePath);
+
+  if (width) {
+    image.resize(width, null, { withoutEnlargement: true });
+  }
+
+  if (format === 'webp') {
+    return image.webp({ quality });
+  }
+
+  return image.jpeg({ quality, progressive: true });
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Serve static files from assets directory
-  app.use('/assets', express.static(path.join(process.cwd(), 'assets')));
-  
-  // API routes prefix
-  const apiRouter = "/api";
+  // Security middleware (applied first)
+  app.use(securityHeaders);
+  app.use(requestValidation);
 
-  // Get all projects
-  app.get(`${apiRouter}/projects`, async (req: Request, res: Response) => {
+  // Global middleware
+  app.use(performanceMonitoring);
+  app.use(compressionMiddleware());
+
+  // Enhanced static serving with caching
+  app.use('/assets', express.static(path.join(process.cwd(), 'assets'), {
+    maxAge: '30d',
+    etag: true,
+    lastModified: true,
+    setHeaders: (res, path) => {
+      if (path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.png') || path.endsWith('.webp')) {
+        res.set('Cache-Control', 'public, max-age=31536000, immutable');
+      }
+    }
+  }));
+
+  // Dynamic image optimization endpoint
+  app.get('/assets/pictures/:category/:filename', async (req: Request, res: Response) => {
+    const { category, filename } = req.params;
+    const { w, format, q } = req.query;
+    const imagePath = path.join(process.cwd(), 'assets', 'pictures', category, filename);
+
+    try {
+      if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ message: 'Image not found' });
+      }
+
+      // Serve optimized images
+      if (w || format || q) {
+        const width = w ? parseInt(w as string) : undefined;
+        const imageFormat = (format as 'webp' | 'jpeg') || 'webp';
+        const quality = q ? parseInt(q as string) : 85;
+
+        const optimized = await optimizeImage(imagePath, width, imageFormat, quality);
+
+        res.set('Content-Type', `image/${imageFormat}`);
+        res.set('Cache-Control', 'public, max-age=31536000, immutable');
+        return optimized.pipe(res);
+      }
+
+      // Serve original with caching
+      res.set('Cache-Control', 'public, max-age=2592000');
+      res.sendFile(imagePath);
+    } catch (error) {
+      console.error('Image optimization error:', error);
+      res.status(500).json({ message: 'Image processing failed' });
+    }
+  });
+  
+  // API routes prefix with rate limiting
+  const apiRouter = "/api";
+  app.use(apiRouter, rateLimitMiddleware());
+
+  // Get all projects with caching
+  app.get(`${apiRouter}/projects`, cacheMiddleware(3600), async (req: Request, res: Response) => {
     try {
       const projects = await mockDataService.getProjects();
       res.status(200).json(projects);
@@ -41,8 +111,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get all books
-  app.get(`${apiRouter}/books`, async (req: Request, res: Response) => {
+  // Get all books with caching
+  app.get(`${apiRouter}/books`, cacheMiddleware(1800), async (req: Request, res: Response) => {
     try {
       const books = await mockDataService.getBooks();
       res.status(200).json(books);
@@ -121,8 +191,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Submit contact form
-  app.post(`${apiRouter}/contact`, async (req: Request, res: Response) => {
+  // Submit contact form with strict rate limiting
+  app.post(`${apiRouter}/contact`, rateLimitMiddleware(true), async (req: Request, res: Response) => {
     try {
       const contactData = insertContactSchema.parse(req.body);
       const newContact = await mockDataService.createContact(contactData);
@@ -150,8 +220,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get motorcycle gallery images
-  app.get(`${apiRouter}/images/motorcycle`, async (req: Request, res: Response) => {
+  // Get motorcycle gallery images with caching
+  app.get(`${apiRouter}/images/motorcycle`, cacheMiddleware(7200), async (req: Request, res: Response) => {
     try {
       const motorcycleDir = path.join(process.cwd(), 'assets', 'pictures', 'motorcycling');
 
@@ -171,8 +241,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get cycling gallery images
-  app.get(`${apiRouter}/images/cycling`, async (req: Request, res: Response) => {
+  // Get cycling gallery images with caching
+  app.get(`${apiRouter}/images/cycling`, cacheMiddleware(7200), async (req: Request, res: Response) => {
     try {
       const cyclingDir = path.join(process.cwd(), 'assets', 'pictures', 'cycling');
 
@@ -191,6 +261,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to fetch cycling images" });
     }
   });
+
+  // Health check endpoint
+  app.get('/health', (req: Request, res: Response) => {
+    res.status(200).json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      environment: process.env.NODE_ENV || 'development'
+    });
+  });
+
+  // Metrics endpoint (development only)
+  if (process.env.NODE_ENV === 'development') {
+    app.get(`${apiRouter}/metrics`, (req: Request, res: Response) => {
+      res.status(200).json(metricsCollector.getAllMetrics());
+    });
+  }
 
   const httpServer = createServer(app);
   return httpServer;
