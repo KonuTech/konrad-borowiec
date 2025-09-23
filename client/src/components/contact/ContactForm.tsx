@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useMutation } from '@tanstack/react-query';
-import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { insertContactSchema } from '@shared/types';
+import { api } from '@/lib/staticApi';
 
 // Extend the base schema with more validations
 const contactFormSchema = insertContactSchema.extend({
@@ -29,29 +28,25 @@ const ContactForm = () => {
     }
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormValues) => {
-      return apiRequest('POST', '/api/contact', data);
-    },
-    onSuccess: () => {
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    try {
+      await api.contact.create(data);
       toast({
         title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        description: "Thank you for your message. It has been saved locally for demo purposes.",
         variant: "default",
       });
       reset();
-    },
-    onError: (error) => {
+    } catch (error) {
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
-  });
-
-  const onSubmit = async (data: ContactFormValues) => {
-    contactMutation.mutate(data);
   };
 
   return (
@@ -98,12 +93,12 @@ const ContactForm = () => {
         )}
       </div>
       
-      <button 
+      <button
         type="submit"
-        disabled={contactMutation.isPending}
+        disabled={isSubmitting}
         className="w-full py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold disabled:opacity-70 disabled:transform-none"
       >
-        {contactMutation.isPending ? (
+        {isSubmitting ? (
           <span className="flex items-center justify-center">
             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

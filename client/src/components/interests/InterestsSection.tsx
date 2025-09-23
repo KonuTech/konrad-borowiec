@@ -1,65 +1,34 @@
 import { FC, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
-
-// Fallback motorcycle images
-const fallbackMotorcycleImages = [
-  "https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-  "https://images.unsplash.com/photo-1525160354320-d8e92641c563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
-  "https://images.unsplash.com/photo-1571646750134-88aa82a0154c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80",
-  "https://images.unsplash.com/photo-1508357710528-af67c8d478a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-  "https://images.unsplash.com/photo-1622185135505-2d795003994a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-  "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-];
-
-// Default cycling images (will be replaced with dynamic loading if available)
-const defaultCyclingImages = ["/assets/pictures/cycling/IMG_20220713_171341.jpg"];
+import { api } from "@/lib/staticApi";
 
 const InterestsSection: FC = () => {
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
   const [activeCyclingIndex, setActiveCyclingIndex] = useState(0);
-  const [motorcycleImages, setMotorcycleImages] = useState<string[]>(
-    fallbackMotorcycleImages,
-  );
-  const [cyclingImages, setCyclingImages] = useState<string[]>(
-    defaultCyclingImages,
-  );
+  const [motorcycleImages, setMotorcycleImages] = useState<string[]>([]);
+  const [cyclingImages, setCyclingImages] = useState<string[]>([]);
   const [activeGallery, setActiveGallery] = useState<"motorcycle" | "cycling">(
     "motorcycle",
   );
 
-  // Fetch motorcycle images from API
+  // Load images from static data
   useEffect(() => {
-    const fetchMotorcycleImages = async () => {
+    const loadImages = async () => {
       try {
-        const response = await fetch('/api/images/motorcycle');
-        if (response.ok) {
-          const data = await response.json();
-          if (data.images && data.images.length > 0) {
-            setMotorcycleImages(data.images);
-          }
-        }
+        const [motorcycleData, cyclingData] = await Promise.all([
+          api.images.getMotorcycle(),
+          api.images.getCycling()
+        ]);
+
+        setMotorcycleImages(motorcycleData);
+        setCyclingImages(cyclingData);
       } catch (error) {
-        console.error('Failed to fetch motorcycle images:', error);
+        console.error('Failed to load images:', error);
       }
     };
 
-    const fetchCyclingImages = async () => {
-      try {
-        const response = await fetch('/api/images/cycling');
-        if (response.ok) {
-          const data = await response.json();
-          if (data.images && data.images.length > 0) {
-            setCyclingImages(data.images);
-          }
-        }
-      } catch (error) {
-        console.error('Failed to fetch cycling images:', error);
-      }
-    };
-
-    fetchMotorcycleImages();
-    fetchCyclingImages();
+    loadImages();
   }, []);
 
   return (

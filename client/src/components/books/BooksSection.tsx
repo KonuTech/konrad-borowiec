@@ -1,16 +1,33 @@
-import { useQuery } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import BookCard from './BookCard';
 import { Book } from '@shared/types';
-import { useState } from 'react';
+import { api } from '@/lib/staticApi';
 
 const BooksSection = () => {
-  const { data: books = [], isLoading, error } = useQuery<Book[]>({
-    queryKey: ['/api/books'],
-  });
-  
+  const [books, setBooks] = useState<Book[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showToRead, setShowToRead] = useState(false);
+
+  useEffect(() => {
+    const loadBooks = async () => {
+      try {
+        setIsLoading(true);
+        const data = await api.books.getAll();
+        setBooks(data);
+        setError(null);
+      } catch (err) {
+        setError('Failed to load books');
+        console.error('Error loading books:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadBooks();
+  }, []);
 
   // Filter books by status
   const readBooks = books.filter(book => book.status === 'read' || !book.status);

@@ -1,13 +1,32 @@
-import { useQuery } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ProjectCard from './ProjectCard';
 import { Project } from '@shared/types';
+import { api } from '@/lib/staticApi';
 
 const ProjectsSection = () => {
-  const { data: projects = [], isLoading, error } = useQuery<Project[]>({
-    queryKey: ['/api/projects'],
-  });
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        setIsLoading(true);
+        const data = await api.projects.getAll();
+        setProjects(data);
+        setError(null);
+      } catch (err) {
+        setError('Failed to load projects');
+        console.error('Error loading projects:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadProjects();
+  }, []);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-portfolio-dark">
