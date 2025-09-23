@@ -29,6 +29,7 @@ jobs:
       run: |
         az provider register --namespace Microsoft.App --wait
         az provider register --namespace Microsoft.OperationalInsights --wait
+        az provider register --namespace Microsoft.ContainerRegistry --wait
 
     - name: Create Resource Group (if not exists)
       run: |
