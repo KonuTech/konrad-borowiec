@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Book } from '@shared/schema';
+import { Book } from '@shared/types';
 
 interface BookCardProps {
   book: Book;

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Project } from '@shared/schema';
+import { Project } from '@shared/types';
 
 interface ProjectCardProps {
   project: Project;

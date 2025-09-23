@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ProjectCard from './ProjectCard';
-import { Project } from '@shared/schema';
+import { Project } from '@shared/types';
 
 const ProjectsSection = () => {
   const { data: projects = [], isLoading, error } = useQuery<Project[]>({

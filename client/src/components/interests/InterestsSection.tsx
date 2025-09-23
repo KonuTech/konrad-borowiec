@@ -2,58 +2,6 @@ import { FC, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 
-// Real motorcycle images - just a starter set, we'll load all dynamically
-const realMotorcycleImages = [
-  "/images/motorcycles/motorcycle-mountain-road.jpg",
-  "/images/motorcycles/motorcycle-camping.jpg",
-  "/images/motorcycles/mountain-fjord-view.jpg",
-  "/images/motorcycles/beach-sunset.jpg",
-  "/images/motorcycles/mountain-valley-river.jpg",
-  "/images/motorcycles/castle-lake-view.jpg",
-  "/images/motorcycles/cruise-ship-fjord.jpg",
-  "/images/motorcycles/mountain-fjord-overlook.jpg",
-  "/images/motorcycles/highland-lake-view.jpg",
-  "/images/motorcycles/highland-valley.jpg",
-  "/images/motorcycles/highland-plain.jpg",
-  "/images/motorcycles/mountain-cliff-road.jpg",
-  "/images/motorcycles/coastal-road-view.jpg",
-  "/images/motorcycles/ferry-motorcycles.jpg",
-  "/images/motorcycles/alpine-mountain-view.jpg",
-  "/images/motorcycles/mountain-restaurant.jpg",
-  "/images/motorcycles/sunset-coastal-ride.jpg",
-  "/images/motorcycles/venice-canal.jpg",
-  "/images/motorcycles/blue-motorcycle-mountains.jpg",
-  "/images/motorcycles/alpine-valley-view.jpg",
-  "/images/motorcycles/camping-with-motorcycle.jpg",
-  "/images/motorcycles/ferry-motorcycle-deck.jpg",
-  "/images/motorcycles/IMG_20220708_094645.jpg",
-  "/images/motorcycles/IMG_20220708_162848.jpg",
-  "/images/motorcycles/IMG_20220713_172632.jpg",
-  "/images/motorcycles/IMG_20220713_180355.jpg",
-  "/images/motorcycles/IMG_20220717_144202.jpg",
-  "/images/motorcycles/IMG_20240506_101431.jpg",
-  "/images/motorcycles/IMG_20240506_102354.jpg",
-  "/images/motorcycles/IMG_20240506_143240.jpg",
-  "/images/motorcycles/IMG_20240506_182721.jpg",
-  "/images/motorcycles/IMG_20240509_131509.jpg",
-  "/images/motorcycles/IMG_20240509_191420.jpg",
-  "/images/motorcycles/IMG_20240515_171651.jpg",
-  "/images/motorcycles/alto-de-velefique-sign.jpg",
-  "/images/motorcycles/blue-motorcycle-mountain-pass.jpg",
-  "/images/motorcycles/blue-motorcycles-parked.jpg",
-  "/images/motorcycles/cabo-da-roca-sign.jpg",
-  "/images/motorcycles/canyon-walkway-bridge.jpg",
-  "/images/motorcycles/castle-mountain-cliff.jpg",
-  "/images/motorcycles/col-de-iseran-sign.jpg",
-  "/images/motorcycles/collada-de-toses-sign.jpg",
-  "/images/motorcycles/desert-mountain-road.jpg",
-  "/images/motorcycles/golden-fields-landscape.jpg",
-  "/images/motorcycles/motorcycle-by-river.jpg",
-  "/images/motorcycles/motorcycle-country-road.jpg",
-  "/images/motorcycles/motorcycle-ferry-port.jpg",
-  "/images/motorcycles/motorcycles-mountain-road-signs.jpg",
-];
-
 // Fallback motorcycle images
 const fallbackMotorcycleImages = [
   "https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
@@ -64,8 +12,8 @@ const fallbackMotorcycleImages = [
   "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
 ];
 
-// Cycling image
-const cyclingImages = ["/images/cycling/IMG_20220713_171341.jpg"];
+// Default cycling images (will be replaced with dynamic loading if available)
+const defaultCyclingImages = ["/assets/pictures/cycling/IMG_20220713_171341.jpg"];
 
 const InterestsSection: FC = () => {
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
@@ -73,14 +21,45 @@ const InterestsSection: FC = () => {
   const [motorcycleImages, setMotorcycleImages] = useState<string[]>(
     fallbackMotorcycleImages,
   );
+  const [cyclingImages, setCyclingImages] = useState<string[]>(
+    defaultCyclingImages,
+  );
   const [activeGallery, setActiveGallery] = useState<"motorcycle" | "cycling">(
     "motorcycle",
   );
 
-  // Use the real images directly from the static files
+  // Fetch motorcycle images from API
   useEffect(() => {
-    // Just set the motorcycle images directly
-    setMotorcycleImages(realMotorcycleImages);
+    const fetchMotorcycleImages = async () => {
+      try {
+        const response = await fetch('/api/images/motorcycle');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.images && data.images.length > 0) {
+            setMotorcycleImages(data.images);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch motorcycle images:', error);
+      }
+    };
+
+    const fetchCyclingImages = async () => {
+      try {
+        const response = await fetch('/api/images/cycling');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.images && data.images.length > 0) {
+            setCyclingImages(data.images);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch cycling images:', error);
+      }
+    };
+
+    fetchMotorcycleImages();
+    fetchCyclingImages();
   }, []);
 
   return (

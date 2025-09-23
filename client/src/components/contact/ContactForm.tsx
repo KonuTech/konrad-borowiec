@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { useMutation } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
-import { insertContactSchema } from '@shared/schema';
+import { insertContactSchema } from '@shared/types';
 
 // Extend the base schema with more validations
 const contactFormSchema = insertContactSchema.extend({

@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import BookCard from './BookCard';
-import { Book } from '@shared/schema';
+import { Book } from '@shared/types';
 import { useState } from 'react';
 
 const BooksSection = () => {
