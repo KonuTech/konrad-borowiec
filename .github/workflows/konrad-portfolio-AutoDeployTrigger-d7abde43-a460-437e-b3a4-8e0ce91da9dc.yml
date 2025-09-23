@@ -35,15 +35,12 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }}
-          _dockerfilePathKey_: _dockerfilePath_
-          _targetLabelKey_: _targetLabel_
+          dockerfilePath: Dockerfile
           registryUrl: acrkonradportfolio2024.azurecr.io
           registryUsername: ${{ secrets.KONRADPORTFOLIO_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.KONRADPORTFOLIO_REGISTRY_PASSWORD }}
           containerAppName: konrad-portfolio
           resourceGroup: rg-konrad-portfolio
           imageToBuild: acrkonradportfolio2024.azurecr.io/konrad-portfolio:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
 
 
