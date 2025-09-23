@@ -42,5 +42,6 @@ jobs:
           containerAppName: konrad-portfolio
           resourceGroup: rg-konrad-portfolio
           imageToBuild: acrkonradportfolio2024.azurecr.io/konrad-portfolio:${{ github.sha }}
+          environmentVariables: NODE_ENV=production SESSION_SECRET=${{ secrets.SESSION_SECRET }}
 
 
