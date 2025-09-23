@@ -1,0 +1,81 @@
+apiVersion: apps/v1alpha1
+kind: ContainerApp
+metadata:
+  name: konrad-portfolio
+spec:
+  # Environment configuration
+  environmentId: /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.App/managedEnvironments/{environment-name}
+
+  # Container configuration
+  template:
+    containers:
+    - name: portfolio-app
+      image: {registry-name}.azurecr.io/konrad-portfolio:latest
+      resources:
+        cpu: "0.25"      # Free tier: 0.25 vCPU
+        memory: "0.5Gi"  # Free tier: 0.5 GB RAM
+      env:
+      - name: NODE_ENV
+        value: "production"
+      - name: SESSION_SECRET
+        secretRef: session-secret
+      probes:
+      - type: Liveness
+        httpGet:
+          path: "/health"
+          port: 5000
+        initialDelaySeconds: 30
+        periodSeconds: 30
+      - type: Readiness
+        httpGet:
+          path: "/health"
+          port: 5000
+        initialDelaySeconds: 10
+        periodSeconds: 10
+
+    # Scaling configuration (Free tier)
+    scale:
+      minReplicas: 0    # Can scale to zero on free tier
+      maxReplicas: 10   # Free tier limit
+      rules:
+      - name: http-scaling
+        http:
+          metadata:
+            concurrentRequests: "30"
+
+    # Revision configuration
+    revisionSuffix: v1
+
+  # Ingress configuration
+  configuration:
+    ingress:
+      external: true
+      targetPort: 5000
+      transport: http
+      corsPolicy:
+        allowCredentials: true
+        allowedOrigins:
+        - "*"
+        allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+        allowedHeaders:
+        - "*"
+
+    # Secrets configuration
+    secrets:
+    - name: session-secret
+      value: "{generate-secure-session-secret}"
+
+    # Registry configuration
+    registries:
+    - server: {registry-name}.azurecr.io
+      username: {registry-username}
+      passwordSecretRef: registry-password
+
+    # Additional secrets for registry
+    - name: registry-password
+      value: "{registry-password}"

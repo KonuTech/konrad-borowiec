@@ -202,3 +202,50 @@ This is Konrad Borowiec's personal portfolio website built as a full-stack TypeS
 - `scripts/optimize-assets.js` - Image compression automation
 - `Dockerfile` - Multi-stage build with health checks and non-root user
 - `docker-compose.yml` - Development and production configurations
+
+### Azure Deployment Infrastructure
+- `azure-deployment/deploy.sh` - One-click Azure Container Apps deployment script
+- `azure-deployment/deploy-bicep.sh` - Infrastructure as Code deployment using Bicep
+- `azure-deployment/bicep/main.bicep` - Bicep template for complete Azure infrastructure
+- `azure-deployment/containerapp.yaml` - Kubernetes-style Container App configuration
+- `.github/workflows/deploy-azure.yml` - GitHub Actions CI/CD pipeline
+
+## Deployment Options
+
+### Azure Container Apps (Free Tier) - Recommended
+The application is optimized for Azure Container Apps free tier deployment with:
+- **Resources**: 0.25 vCPU, 0.5GB RAM per container
+- **Scaling**: 0-10 replicas (can scale to zero for cost savings)
+- **Free Allowance**: 2M requests, 400,000 GB-s execution time per month
+
+**Quick Deployment:**
+```bash
+cd azure-deployment
+chmod +x deploy.sh
+# Update SUBSCRIPTION_ID and REGISTRY_NAME in script
+./deploy.sh
+```
+
+**CI/CD Deployment:**
+1. Set GitHub repository secrets: `AZURE_CREDENTIALS`, `SESSION_SECRET`
+2. Push to main branch for automatic deployment via GitHub Actions
+
+**Manual Azure CLI:**
+```bash
+# Build and deploy with Azure CLI
+az containerapp up --name konrad-portfolio --source . --ingress external --target-port 5000
+```
+
+### Deployment Architecture
+- **Azure Container Registry**: Stores optimized Docker images
+- **Container Apps Environment**: Managed Kubernetes environment
+- **Log Analytics Workspace**: For monitoring and observability
+- **Health Checks**: Built-in container health monitoring at `/health`
+- **Auto-scaling**: HTTP-based scaling rules with scale-to-zero capability
+
+### Production Features
+- **HTTPS**: Automatic SSL certificate provisioning
+- **Custom Domains**: Support for custom domain mapping
+- **Blue/Green Deployments**: Zero-downtime deployments via revisions
+- **Monitoring**: Integrated Azure Monitor and Application Insights
+- **Security**: Production-hardened with rate limiting and security headers
