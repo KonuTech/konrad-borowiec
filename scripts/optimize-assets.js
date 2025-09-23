@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const sharp = require('sharp');
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
 
 const ASSETS_DIR = path.join(process.cwd(), 'assets');
 const PICTURES_DIR = path.join(ASSETS_DIR, 'pictures');
@@ -73,8 +73,9 @@ async function main() {
   console.log('Image optimization complete!');
 }
 
-if (require.main === module) {
+// Check if this is the main module (ES module equivalent)
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 
-module.exports = { optimizeImage };
+export { optimizeImage };
