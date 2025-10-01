@@ -50,7 +50,7 @@ const InterestsSection: FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-6 md:flex md:flex-col md:justify-between"
           >
             <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <h3 className="font-nunito font-bold text-xl mb-4 text-portfolio-primary dark:text-portfolio-lighter">
