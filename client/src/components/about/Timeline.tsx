@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type TimelineItem = {
@@ -10,6 +10,13 @@ type TimelineItem = {
 };
 
 const timelineItems: TimelineItem[] = [
+  {
+    title: "B2B Consultant",
+    organization: "Crestt Sp z o.o. (Santander Bank Polska S.A.)",
+    period: "04.2025 - 08.2025",
+    description: "Supporting role in Oracle APEX application development. Collaborated with business analysts to assist in the development of a reporting tool for ESRS (European Sustainability Reporting Standards). Designed and implemented BI functionalities into APEX application using PL/SQL. Performed modifications to the reporting model when needed. Utilized PL/SQL to generate and displayed reports. Contributed ideas and provided feedback by applying my expertise and knowledge in reporting tasks.",
+    type: 'work'
+  },
   {
     title: "Data Analytics & Engineering",
     organization: "Public Sector",
@@ -26,7 +33,7 @@ const timelineItems: TimelineItem[] = [
   },
   {
     title: "Big Data Developer",
-    organization: "Crestt Sp z o.o. (Bank Pekao, Nationale-Nederlanden)",
+    organization: "Crestt Sp z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.)",
     period: "02.2021 - 06.2022",
     description: "Development of batch data processing solutions for one of the largest banks in Poland. The ELT processes for Data Lake were designed using Airflow, Python, PySpark, and Hive within the on-premise Cloudera Data Platform. Development and operationalization of churn related classifier for insurance company. Added functionalities for scoring and monitoring of new data. Development and operationalization of classifiers for VR training company. Design and development of HR demo dashboard with a use SAS Viya.",
     type: 'work'
@@ -40,21 +47,21 @@ const timelineItems: TimelineItem[] = [
   },
   {
     title: "SAS Analyst",
-    organization: "ITFS Sp. z o. o. (PZU)",
+    organization: "ITFS Sp. z o. o. (PZU S.A.)",
     period: "05.2020 - 09.2020",
     description: "Co-responsible for migrating SAS Visual Analytics reports to the SAS Viya environment for Poland's largest insurance company. Tasks included importing dashboards to Viya, repairing XML schemas, redesigning dashboard layouts for improved UX, creating global Themes, developing XML/HTML forms, and processing JSON files using Python.",
     type: 'work'
   },
   {
     title: "Junior Data Scientist",
-    organization: "Crestt Sp z o. o. (Polkomtel, TVP)",
+    organization: "Crestt Sp z o. o. (Polkomtel Sp. z o. o., TVP S.A.)",
     period: "03.2019 - 04.2020",
     description: "As a consultant at a major Polish telecom, participated in projects to upgrade data mart recalculation processes. Developed production-ready SAS scripts focusing on 4GL and SQL for data processing. Handled data collection and segmentation using Python. Contributed to dashboard development using Shiny and Tableau.",
     type: 'work'
   },
   {
     title: "Data/Business Intelligence Analyst",
-    organization: "NatWest Markets plc / The Royal Bank of Scotland Group",
+    organization: "NatWest Markets plc\nThe Royal Bank of Scotland Group",
     period: "11.2016 - 03.2019",
     description: "Consolidated and simplified financial regulatory reporting using SAS 4GL and SQL. Developed reports using SAP BO, SAS EG, and SAS VA. Utilized Stored Processes for user self-service. Recognized as a top dashboard developer and ranked in top ten in an internal competition designing optimal binary classifiers with customer data.",
     type: 'work'
@@ -128,13 +135,28 @@ const sortedTimelineItems = [...timelineItems].sort((a, b) => {
   return bMonth - aMonth;
 });
 
-const TimelineItem: FC<{ 
-  item: TimelineItem; 
-  isLast: boolean; 
+const TimelineItem: FC<{
+  item: TimelineItem;
+  isLast: boolean;
   isActive: boolean;
   onClick: () => void;
   index: number;
 }> = ({ item, isLast, isActive, onClick, index }) => {
+  useEffect(() => {
+    if (isLast && isActive) {
+      setTimeout(() => {
+        const descriptionElement = document.querySelector(`.timeline-description-id-${index}`);
+        if (descriptionElement) {
+          const descriptionHeight = descriptionElement.clientHeight || 0;
+          const isMobile = window.innerWidth < 768;
+          const multiplier = isMobile ? 1.5 : 0.5;
+          const calculatedHeight = Math.max(isMobile ? 8 : 3, (descriptionHeight / 16) * multiplier);
+          document.documentElement.style.setProperty('--timeline-line-height-last', `calc(100% + ${calculatedHeight}rem)`);
+        }
+      }, 10);
+    }
+  }, [isActive, isLast, index]);
+
   return (
     <motion.div 
       layout
@@ -147,28 +169,28 @@ const TimelineItem: FC<{
         <div className="relative mr-6">
           <div className="flex flex-col items-center">
             {/* Icon container */}
-            <div 
+            <div
               className={`w-12 h-12 rounded-full flex items-center justify-center cursor-pointer relative z-10
-                ${item.type === 'work' 
-                  ? 'bg-portfolio-primary text-white' 
-                  : 'bg-portfolio-accent text-white'}`}
+                ${item.type === 'work'
+                  ? 'bg-portfolio-primary text-white'
+                  : 'bg-portfolio-accent dark:bg-portfolio-darker text-white'}`}
               onClick={onClick}
             >
-              {item.type === 'work' 
-                ? <i className="fas fa-briefcase text-lg"></i> 
+              {item.type === 'work'
+                ? <i className="fas fa-briefcase text-lg"></i>
                 : <i className="fas fa-graduation-cap text-lg"></i>}
             </div>
             
             {/* Vertical line that extends dynamically */}
             <div className="relative w-full min-h-[4rem]">
               {!isLast && (
-                <motion.div 
+                <motion.div
                   className="w-1 bg-portfolio-lighter dark:bg-[#4A90E2] absolute left-1/2 transform -translate-x-1/2"
                   initial={{ height: "4rem" }}
-                  animate={{ 
+                  animate={{
                     height: isActive ? "var(--timeline-line-height, calc(100% + 6rem))" : "4rem"
                   }}
-                  transition={{ 
+                  transition={{
                     duration: 0.5,
                     ease: "easeInOut"
                   }}
@@ -182,6 +204,20 @@ const TimelineItem: FC<{
                       }, 10);
                     }
                   }}
+                />
+              )}
+              {isLast && (
+                <motion.div
+                  className="w-1 bg-portfolio-lighter dark:bg-[#4A90E2] absolute left-1/2 transform -translate-x-1/2"
+                  initial={{ height: "4rem" }}
+                  animate={{
+                    height: isActive ? "var(--timeline-line-height-last, calc(100% + 6rem))" : "4rem"
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut"
+                  }}
+                  style={{ top: "0.5rem" }}
                 />
               )}
             </div>
@@ -200,7 +236,7 @@ const TimelineItem: FC<{
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                 <div>
                   <h4 className="font-nunito font-bold text-lg text-portfolio-dark dark:text-portfolio-lighter">{item.title}</h4>
-                  <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70">{item.organization}</h5>
+                  <h5 className="text-sm text-portfolio-text dark:text-portfolio-lighter/70 whitespace-pre-line">{item.organization}</h5>
                   {/* Date displayed under organization on mobile */}
                   <div className="text-sm font-medium text-portfolio-text dark:text-portfolio-lighter mt-1 block sm:hidden">
                     {item.period}

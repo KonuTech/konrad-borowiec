@@ -23,11 +23,11 @@ const AboutSection = () => {
           >
             <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">My Journey</h3>
-              <p className="mb-4 leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
+              <p className="mb-4 leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90 text-justify">
                 I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.
               </p>
-              <p className="mb-6 leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
-                My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, scalable solutions.
+              <p className="mb-6 leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90 text-justify">
+                My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.
               </p>
             </div>
             

@@ -54,26 +54,26 @@ const Hero = () => {
             <h1 className="font-nunito font-extrabold text-3xl md:text-5xl lg:text-6xl mb-3 md:mb-4 bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-dark bg-clip-text text-transparent">
               Konrad Borowiec
             </h1>
-            <p className="text-lg mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 text-portfolio-text dark:text-portfolio-lighter">
-              Data isn't just numbers—it's the key to smarter decisions.
+            <p className="text-lg mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 text-portfolio-text dark:text-portfolio-lighter text-justify">
+              Data isn't just numbers - it's the key to smarter decisions.
               <br />
-              As your expert in data engineering, analytics, and machine
-              learning, I craft pipelines and unlock deep insights from raw
+              As your specialist in data engineering, analytics, and machine
+              learning, I craft pipelines and unlock insights from raw
               data.
               <br />
               <br />
-              Let's transform your data into a catalyst for innovation!
+              Let's transform your data into a catalyst for progress!
             </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-start gap-4 md:max-w-lg">
               <a
                 href="#projects"
-                className="px-6 py-3 bg-white dark:bg-portfolio-darker text-portfolio-primary dark:text-portfolio-lighter border border-portfolio-primary dark:border-portfolio-lighter rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold"
+                className="px-6 py-3 bg-white dark:bg-portfolio-darker text-portfolio-primary dark:text-portfolio-lighter border border-portfolio-primary dark:border-portfolio-lighter rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold text-center flex items-center justify-center md:flex-1"
               >
-                View My Work
+                Check out my side projects
               </a>
               <a
                 href="#contact-info"
-                className="px-6 py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold"
+                className="px-6 py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold text-center flex items-center justify-center md:flex-1"
               >
                 Contact Me
               </a>

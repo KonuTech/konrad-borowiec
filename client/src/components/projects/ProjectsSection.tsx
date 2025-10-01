@@ -32,7 +32,7 @@ const ProjectsSection = () => {
     <section id="projects" className="py-20 bg-white dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My <span className="gradient-text">Projects</span>
+          My side <span className="gradient-text">Projects</span>
         </SectionTitle>
         
         {isLoading ? (

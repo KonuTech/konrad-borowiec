@@ -70,7 +70,7 @@ const BooksSection = () => {
                       : 'text-portfolio-text dark:text-portfolio-lighter hover:bg-portfolio-lightest dark:hover:bg-portfolio-darker'
                   }`}
                 >
-                  Books Read or Currently Reading
+                  Read Books
                 </button>
                 <button
                   onClick={() => setShowToRead(true)}
