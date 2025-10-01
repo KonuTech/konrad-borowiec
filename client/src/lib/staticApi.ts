@@ -1,31 +1,31 @@
-import { staticDataService } from '../data/mockData';
+import { dataService } from '../data/data';
 import type { Project, Book, Contact } from '../../../shared/types';
 
 // Static API service that replaces backend API calls
 export const api = {
   // Projects
   projects: {
-    getAll: (): Promise<Project[]> => staticDataService.getProjects(),
-    getById: (id: number): Promise<Project | null> => staticDataService.getProject(id),
+    getAll: (): Promise<Project[]> => dataService.getProjects(),
+    getById: (id: number): Promise<Project | null> => dataService.getProject(id),
   },
 
   // Books
   books: {
-    getAll: (): Promise<Book[]> => staticDataService.getBooks(),
-    getById: (id: number): Promise<Book | null> => staticDataService.getBook(id),
+    getAll: (): Promise<Book[]> => dataService.getBooks(),
+    getById: (id: number): Promise<Book | null> => dataService.getBook(id),
   },
 
   // Images
   images: {
-    getMotorcycle: (): Promise<string[]> => staticDataService.getMotorcycleImages(),
-    getCycling: (): Promise<string[]> => staticDataService.getCyclingImages(),
+    getMotorcycle: (): Promise<string[]> => dataService.getMotorcycleImages(),
+    getCycling: (): Promise<string[]> => dataService.getCyclingImages(),
   },
 
   // Contact
   contact: {
     create: (contactData: Omit<Contact, 'id' | 'createdAt'>): Promise<Contact> =>
-      staticDataService.createContact(contactData),
-    getAll: (): Promise<Contact[]> => staticDataService.getContacts(),
+      dataService.createContact(contactData),
+    getAll: (): Promise<Contact[]> => dataService.getContacts(),
   },
 };
 

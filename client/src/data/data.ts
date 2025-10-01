@@ -1,25 +1,25 @@
 import type { Project, Book, Contact } from "../../../shared/types";
 
-// Mock data for projects
-export const mockProjects: Project[] = [
+// Portfolio projects data
+export const projects: Project[] = [
   {
     id: 1,
     title: "Data Engineering Zoomcamp Capstone",
-    description: "End-to-end data engineering project showcasing modern data pipeline architecture with cloud technologies.",
+    description: "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit",
     imageUrl: "/pictures/projects/Data-Engineering-Zoomcamp-Capstone.png",
-    liveUrl: "https://github.com/example/data-engineering-capstone",
-    githubUrl: "https://github.com/example/data-engineering-capstone",
-    technologies: ["Python", "Apache Airflow", "BigQuery", "Docker", "Terraform"],
+    // liveUrl: "https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01",
+    githubUrl: "https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01",
+    technologies: ["Python", "Docker", "Apache Airflow", "Kafka", "PySpark", "PostgreSQL", "Streamlit"],
     featured: true,
   },
   {
     id: 2,
     title: "LLM Zoomcamp Capstone",
-    description: "Large Language Model application implementing RAG architecture with vector databases and modern ML stack.",
+    description: "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring",
     imageUrl: "/pictures/projects/LLM-Zoomcamp-Capstone.png",
-    liveUrl: "https://github.com/example/llm-capstone",
-    githubUrl: "https://github.com/example/llm-capstone",
-    technologies: ["Python", "LangChain", "Vector DB", "FastAPI", "Docker"],
+    // liveUrl: "https://github.com/KonuTech/llm-zoomcamp-capstone-01",
+    githubUrl: "https://github.com/KonuTech/llm-zoomcamp-capstone-01",
+    technologies: ["Python", "Elasticsearch", "PostgreSQL", "Flask", "Docker", "Grafana"],
     featured: true,
   },
   {
@@ -27,34 +27,45 @@ export const mockProjects: Project[] = [
     title: "MLOps Zoomcamp Project",
     description: "Machine Learning Operations project demonstrating model deployment, monitoring, and CI/CD practices.",
     imageUrl: "/pictures/projects/MLOps-Zoomcamp-Project.jfif",
-    liveUrl: "https://github.com/example/mlops-project",
-    githubUrl: "https://github.com/example/mlops-project",
-    technologies: ["Python", "MLflow", "Kubernetes", "Grafana", "GitHub Actions"],
+    // liveUrl: "https://github.com/KonuTech/mlops-zoomcamp-project",
+    githubUrl: "https://github.com/KonuTech/mlops-zoomcamp-project",
+    technologies: ["Python", "PySpark", "Sciki-learn", "MLflow", "XGBoost", "Kubernetes", "Grafana", "GitHub Actions"],
     featured: true,
   },
   {
     id: 4,
     title: "Machine Learning Zoomcamp Capstone",
-    description: "Comprehensive machine learning project covering the full ML lifecycle from data preparation to deployment.",
+    description: "Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker",
     imageUrl: "/pictures/projects/Machine-Learning-Zoomcamp-Capstone-01.jfif",
-    githubUrl: "https://github.com/example/ml-zoomcamp-capstone",
+    // liveUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01",
+    githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01",
     technologies: ["Python", "scikit-learn", "XGBoost", "Flask", "AWS"],
     featured: false,
   },
   {
     id: 5,
+    title: "Machine Learning Zoomcamp Capstone",
+    description: "TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster",
+    imageUrl: "/pictures/projects/Machine-Learning-Zoomcamp-Capstone-01.jfif",
+    // liveUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02",
+    githubUrl: "https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02",
+    technologies: ["Python", "scikit-learn", "XGBoost", "Flask", "AWS"],
+    featured: false,
+  },
+  {
+    id: 6,
     title: "Portfolio Website",
     description: "Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout.",
     imageUrl: "/pictures/projects/fe646730-a205-4591-822d-9f718b1aba8c.png",
-    liveUrl: "https://portfolio.example.com",
-    githubUrl: "https://github.com/example/portfolio",
+    // liveUrl: "https://github.com/KonuTech/konrad-borowiec",
+    githubUrl: "https://github.com/KonuTech/konrad-borowiec",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
     featured: false,
   },
 ];
 
-// Mock data for books
-export const mockBooks: Book[] = [
+// Reading list data
+export const books: Book[] = [
   {
     id: 1,
     title: "Fundamentals of Data Engineering",
@@ -95,8 +106,8 @@ export const mockBooks: Book[] = [
   },
 ];
 
-// Mock motorcycle images - static list for static app
-export const mockMotorcycleImages = [
+// Motorcycle gallery images
+export const motorcycleImages = [
   "/pictures/motorcycling/IMG-1750ba11ef604ba4734c21d9f74f7f45-V.jpg",
   "/pictures/motorcycling/IMG-1b27076fdf9a09515e29c0798b19e001-V.jpg",
   "/pictures/motorcycling/IMG-23b0a9c0ecf622c381aca22631f78879-V.jpg",
@@ -159,67 +170,67 @@ export const mockMotorcycleImages = [
   // "/pictures/cycling/IMG-130f1d41030b51238c944acf3c325879-V.jpg",
 ];
 
-// Mock cycling images - static list for static app
-export const mockCyclingImages = [
+// Cycling gallery images
+export const cyclingImages = [
   "/pictures/cycling/IMG-130f1d41030b51238c944acf3c325879-V.jpg",
 ];
 
-// In-memory storage for contacts (for demo - in real static app would use external service)
-let mockContacts: Contact[] = [];
+// Contact form submissions storage
+let contacts: Contact[] = [];
 let contactIdCounter = 1;
 
-// Static data service - mimics API calls but uses local data
-export const staticDataService = {
+// Data service for portfolio content
+export const dataService = {
   // Projects
   async getProjects(): Promise<Project[]> {
-    return Promise.resolve(mockProjects);
+    return Promise.resolve(projects);
   },
 
   async getProject(id: number): Promise<Project | null> {
-    const project = mockProjects.find(p => p.id === id);
+    const project = projects.find(p => p.id === id);
     return Promise.resolve(project || null);
   },
 
   // Books
   async getBooks(): Promise<Book[]> {
-    return Promise.resolve(mockBooks);
+    return Promise.resolve(books);
   },
 
   async getBook(id: number): Promise<Book | null> {
-    const book = mockBooks.find(b => b.id === id);
+    const book = books.find(b => b.id === id);
     return Promise.resolve(book || null);
   },
 
   // Images
   async getMotorcycleImages(): Promise<string[]> {
-    return Promise.resolve(mockMotorcycleImages);
+    return Promise.resolve(motorcycleImages);
   },
 
   async getCyclingImages(): Promise<string[]> {
-    return Promise.resolve(mockCyclingImages);
+    return Promise.resolve(cyclingImages);
   },
 
-  // Contact (for demo purposes - stores in local storage)
+  // Contact form
   async createContact(contactData: Omit<Contact, 'id' | 'createdAt'>): Promise<Contact> {
     const newContact: Contact = {
       ...contactData,
       id: contactIdCounter++,
       createdAt: new Date(),
     };
-    mockContacts.push(newContact);
+    contacts.push(newContact);
 
-    // Store in localStorage for persistence in static app
-    localStorage.setItem('portfolio-contacts', JSON.stringify(mockContacts));
+    // Store in localStorage for persistence
+    localStorage.setItem('portfolio-contacts', JSON.stringify(contacts));
 
     return Promise.resolve(newContact);
   },
 
   async getContacts(): Promise<Contact[]> {
-    // Load from localStorage in static app
+    // Load from localStorage
     const stored = localStorage.getItem('portfolio-contacts');
     if (stored) {
-      mockContacts = JSON.parse(stored);
+      contacts = JSON.parse(stored);
     }
-    return Promise.resolve(mockContacts);
+    return Promise.resolve(contacts);
   },
 };
