@@ -80,7 +80,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#contact-info"
+                href="#contact"
                 className="hover:text-portfolio-primary transition-colors duration-300"
               >
                 Contact Me

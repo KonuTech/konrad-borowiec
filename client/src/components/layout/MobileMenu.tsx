@@ -63,7 +63,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         </li>
         <li>
           <a
-            href="#contact-info"
+            href="#contact"
             className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
             onClick={handleLinkClick}
           >

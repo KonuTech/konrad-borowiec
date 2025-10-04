@@ -72,7 +72,7 @@ const Hero = () => {
                 Check out my side projects
               </a>
               <a
-                href="#contact-info"
+                href="#contact"
                 className="px-6 py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold text-center flex items-center justify-center md:flex-1"
               >
                 Contact Me
