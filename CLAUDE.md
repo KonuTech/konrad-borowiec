@@ -46,7 +46,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 - `components/ui/` - Reusable UI components (shadcn/ui based)
 
 **Static Data Layer**: Replaces backend API with static data services:
-- `client/src/data/mockData.ts` - Central data source with mock projects, books, and images
+- `client/src/data/data.ts` - Central data source with projects, books, and images
 - `client/src/lib/staticApi.ts` - API compatibility layer that maps old API calls to static data
 - All data operations return Promises to maintain async API compatibility
 
@@ -96,10 +96,10 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 ## Static Data Architecture
 
 ### Data Sources
-- **Projects**: Defined in `mockProjects` array with project details and cover images
-- **Books**: Reading list with covers, status (read/to-read), and reviews in `mockBooks` array
-- **Images**: Static arrays of image paths for motorcycle and cycling galleries
-- **Contacts**: Stored in localStorage via `staticDataService.createContact()`
+- **Projects**: Defined in `projects` array with project details and cover images
+- **Books**: Reading list with covers, status (read/to-read), and reviews in `books` array
+- **Images**: Static arrays of image paths for motorcycle and cycling galleries (`motorcycleImages`, `cyclingImages`)
+- **Contacts**: Stored in localStorage via `dataService.createContact()`
 
 ### API Compatibility Layer
 The `staticApi.ts` provides backward compatibility with the original API structure:
@@ -160,7 +160,7 @@ This application was migrated from a full-stack Express.js + React application t
 ## Important File Locations
 
 ### Core Static Architecture
-- `client/src/data/mockData.ts` - Central static data source and service layer
+- `client/src/data/data.ts` - Central static data source and service layer
 - `client/src/lib/staticApi.ts` - API compatibility layer for static data
 - `client/src/components/contact/ContactForm.tsx` - Updated to use localStorage
 - `vite.config.ts` - Static build configuration

@@ -1,4 +1,4 @@
-# Konrad Borowiec - Personal Portfolio
+# Konrad Borowiec - Welcome to my About Me web page
 
 A modern, responsive portfolio website built as a frontend-only static web application using React, TypeScript, and Tailwind CSS. The site showcases professional skills, projects, books, and personal interests with a clean, interactive design.
 
@@ -111,7 +111,7 @@ The portfolio is deployed on Azure Static Web Apps and automatically updates via
 This portfolio is built as a pure frontend application with no backend dependencies. All data is managed through static data services that simulate API responses.
 
 ### **Static Data Layer**
-- **`client/src/data/mockData.ts`** - Central data source for projects, books, and images
+- **`client/src/data/data.ts`** - Central data source for projects, books, and images
 - **`client/src/lib/staticApi.ts`** - API compatibility layer for seamless data access
 - **localStorage** - Contact form submissions persistence
 
@@ -165,7 +165,7 @@ The static build works with any hosting platform:
 
 ### **Adding New Content**
 
-**Projects**: Update `mockProjects` array in `client/src/data/mockData.ts`
+**Projects**: Update `projects` array in `client/src/data/data.ts`
 ```typescript
 {
   id: 5,
@@ -177,7 +177,7 @@ The static build works with any hosting platform:
 }
 ```
 
-**Books**: Update `mockBooks` array with reading status
+**Books**: Update `books` array in `client/src/data/data.ts` with reading status
 ```typescript
 {
   id: 10,
@@ -253,15 +253,6 @@ This project was migrated from a full-stack Express.js application to a frontend
 This project is not open source. The code and design are made public for showcase purposes only. No part of this project may be used, reproduced, or distributed without express written consent from the author.
 
 **Public Showcase**: This repository demonstrates modern web development practices and serves as an example of clean, maintainable React TypeScript architecture.
-
-## 🤝 Contact
-
-For inquiries about this project or potential collaboration:
-
-- **Portfolio**: [Live Demo URL]
-- **LinkedIn**: [Profile URL]
-- **GitHub**: [@KonuTech](https://github.com/KonuTech)
-- **Email**: [Contact via portfolio form]
 
 ---
 
