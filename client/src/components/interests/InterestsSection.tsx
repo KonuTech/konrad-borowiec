@@ -129,7 +129,7 @@ const InterestsSection: FC = () => {
               <p className="mb-4 text-portfolio-text dark:text-portfolio-lighter/90 text-justify">
                 My journey in financial markets reflects a thoughtful, long-term
                 investment approach rather than short-term trading. Starting
-                three years ago, I built a foundation with conservative
+                a few years ago, I built a foundation with conservative
                 instruments like anti-inflation bonds and ETFs, gradually
                 expanding into dividend-generating Polish equities.
               </p>

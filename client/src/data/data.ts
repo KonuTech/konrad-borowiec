@@ -236,6 +236,14 @@ export const books: Book[] = [
     genre: "Data Engineering",
     status: "to-read",
   },
+  {
+    id: 19,
+    title: "Data Management Solutions Using SAS Hash Table Operations. A Business Intelligence Case Study.",
+    author: "Paul Dorfman, Don Henderson",
+    coverUrl: "/pictures/readings/Data-Management-Solutions-Using-SAS-Hash-Table-Operations.jpeg",
+    genre: "Data Engineering",
+    status: "read",
+  },
 ];
 
 // Motorcycle gallery images
