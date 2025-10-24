@@ -122,7 +122,7 @@ export const books: Book[] = [
     author: "Adi Wijaya",
     coverUrl: "/pictures/readings/data-engineering-with-google-cloud-platform.jpg",
     genre: "Data Engineering",
-    status: "to-read",
+    status: "read",
   },
   {
     id: 5,
@@ -150,7 +150,7 @@ export const books: Book[] = [
   },
   {
     id: 8,
-    title: "Python Algorithminc Trading Cookbook.",
+    title: "Python Algorithmic Trading Cookbook.",
     author: "Pushpak Dagade",
     coverUrl: "/pictures/readings/python-algorithmic-trading.jpg",
     genre: "Data Engineering",
