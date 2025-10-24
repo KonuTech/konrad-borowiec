@@ -226,7 +226,7 @@ export const books: Book[] = [
     author: "Rui Machado, Helder Russa",
     coverUrl: "/pictures/readings/analytics-engineering-with-sql-and-dbt.jpg",
     genre: "Data Engineering",
-    status: "to-read",
+    status: "read",
   },
   {
     id: 18,
