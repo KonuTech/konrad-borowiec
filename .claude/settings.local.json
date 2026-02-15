@@ -13,7 +13,11 @@
       "Bash(git -C /mnt/c/Users/borow/VSC/projects/konrad-borowiec push)",
       "Bash(git push:*)",
       "Bash(git -C /mnt/c/Users/borow/VSC/projects/konrad-borowiec add client/src/components/home/Hero.tsx client/src/components/layout/Header.tsx client/src/components/layout/MobileMenu.tsx)",
-      "Bash(git -C:*)"
+      "Bash(git -C:*)",
+      "Bash(npm run build:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_close"
     ]
   }
 }
