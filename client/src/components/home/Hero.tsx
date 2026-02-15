@@ -81,42 +81,6 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <motion.div
-          className="flex justify-center mt-10 md:mt-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="flex space-x-5 md:space-x-6">
-            <a
-              href="https://github.com/konutech"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl md:text-4xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300"
-              aria-label="GitHub"
-            >
-              <i className="fab fa-github"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/32167"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl md:text-4xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300"
-              aria-label="LinkedIn"
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a
-              href="https://credly.com/users/konrad-borowiec/badges"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl md:text-4xl text-portfolio-dark dark:text-portfolio-lighter hover:text-portfolio-primary transition-colors duration-300"
-              aria-label="Credly"
-            >
-              <i className="fas fa-certificate"></i>
-            </a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -70,7 +70,21 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             Contact Me
           </a>
         </li>
-        
+        <li className="flex space-x-4 px-4 pt-2">
+          <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer"
+            className="text-lg hover:text-portfolio-primary transition-colors duration-300" aria-label="GitHub">
+            <i className="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer"
+            className="text-lg hover:text-portfolio-primary transition-colors duration-300" aria-label="LinkedIn">
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer"
+            className="text-lg hover:text-portfolio-primary transition-colors duration-300" aria-label="Credly">
+            <i className="fas fa-certificate"></i>
+          </a>
+        </li>
+
         {/* Dark Mode Toggle for Mobile */}
         <li className="mt-4 border-t border-portfolio-lightest dark:border-portfolio-dark pt-4">
           <button

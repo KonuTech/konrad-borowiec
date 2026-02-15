@@ -37,7 +37,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
-          <ul className="flex space-x-8 font-nunito font-semibold text-sm text-portfolio-text dark:text-portfolio-lighter">
+          <ul className="flex items-center space-x-8 font-nunito font-semibold text-sm text-portfolio-text dark:text-portfolio-lighter">
             <li>
               <a
                 href="#home"
@@ -86,7 +86,24 @@ const Header = () => {
                 Contact Me
               </a>
             </li>
-
+            <li>
+              <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer"
+                className="hover:text-portfolio-primary transition-colors duration-300" aria-label="GitHub">
+                <i className="fab fa-github text-lg"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer"
+                className="hover:text-portfolio-primary transition-colors duration-300" aria-label="LinkedIn">
+                <i className="fab fa-linkedin text-lg"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer"
+                className="hover:text-portfolio-primary transition-colors duration-300" aria-label="Credly">
+                <i className="fas fa-certificate text-lg"></i>
+              </a>
+            </li>
           </ul>
         </nav>
 
