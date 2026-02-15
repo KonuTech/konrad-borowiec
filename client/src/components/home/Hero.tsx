@@ -5,13 +5,13 @@ const profilePhoto = "/pictures/photos/konrad.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-16 md:pt-32 pb-20 overflow-hidden">
+    <section id="home" className="pt-16 md:pt-24 pb-20 md:pb-14 overflow-hidden">
       <div className="relative">
-        <div className="cloud-bg h-60 md:h-80 opacity-20 dark:opacity-10"></div>
+        <div className="cloud-bg h-60 md:h-64 opacity-20 dark:opacity-10"></div>
         <div className="cloud-mask absolute bottom-0 w-full h-40"></div>
       </div>
 
-      <div className="container mx-auto px-4 -mt-40 md:-mt-60 relative z-10">
+      <div className="container mx-auto px-4 -mt-40 md:-mt-48 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
           {/* Profile Photo - Positioned first on mobile for immediate visibility */}
           <motion.div

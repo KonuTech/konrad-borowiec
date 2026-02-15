@@ -44,7 +44,7 @@ const BooksSection = () => {
   const booksToDisplay = showToRead ? sortedToReadBooks : sortedReadBooks;
 
   return (
-    <section id="books" className="py-20 bg-portfolio-lightest dark:bg-portfolio-darker">
+    <section id="books" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
         <SectionTitle>
           My <span className="gradient-text">Book Collection</span>
@@ -97,7 +97,7 @@ const BooksSection = () => {
               ))}
             </div>
             
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 md:mt-8">
               <a 
                 href="#top"
                 className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"

@@ -34,7 +34,7 @@ const InterestsSection: FC = () => {
   return (
     <section
       id="interests"
-      className="py-20 bg-portfolio-lightest dark:bg-portfolio-darker"
+      className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker"
     >
       <div className="container mx-auto px-4">
         <SectionTitle>
@@ -44,13 +44,13 @@ const InterestsSection: FC = () => {
           </span>
         </SectionTitle>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6 mt-10 md:mt-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 md:flex md:flex-col md:justify-between"
+            className="space-y-6 md:space-y-4 md:flex md:flex-col md:justify-between"
           >
             <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <h3 className="font-nunito font-bold text-xl mb-4 text-portfolio-primary dark:text-portfolio-lighter">
@@ -162,7 +162,7 @@ const InterestsSection: FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-8 md:space-y-4"
           >
             {/* Combined Gallery with Tabs */}
             <div className="bg-white dark:bg-portfolio-dark p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
@@ -257,7 +257,7 @@ const InterestsSection: FC = () => {
         </div>
 
         {/* Back to Top Button */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 md:mt-8">
           <a
             href="#home"
             className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"

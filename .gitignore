@@ -7,4 +7,4 @@ vite.config.ts.*
 .config
 .local
 .upm
-.temp/.temp.txt
+.temp

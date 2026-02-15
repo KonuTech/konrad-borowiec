@@ -29,7 +29,7 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-portfolio-dark">
+    <section id="projects" className="py-20 md:py-14 bg-white dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
         <SectionTitle>
           My side <span className="gradient-text">Projects</span>
@@ -57,7 +57,7 @@ const ProjectsSection = () => {
               ))}
             </div>
             
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 md:mt-8">
               <a 
                 href="#top"
                 className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"

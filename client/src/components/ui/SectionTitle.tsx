@@ -8,7 +8,7 @@ interface SectionTitleProps {
 const SectionTitle: FC<SectionTitleProps> = ({ children }) => {
   return (
     <motion.div 
-      className="text-center mb-16"
+      className="text-center mb-16 md:mb-10"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
