@@ -38,9 +38,7 @@ const BooksSection = () => {
     a.title.localeCompare(b.title)
   );
   
-  const sortedToReadBooks = [...toReadBooks].sort((a, b) => 
-    a.title.localeCompare(b.title)
-  );
+  const sortedToReadBooks = toReadBooks;
 
   // Display books based on the selected tab
   const booksToDisplay = showToRead ? sortedToReadBooks : sortedReadBooks;

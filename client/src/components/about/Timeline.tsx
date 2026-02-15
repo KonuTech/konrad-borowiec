@@ -11,6 +11,13 @@ type TimelineItem = {
 
 const timelineItems: TimelineItem[] = [
   {
+    title: "Data Engineer",
+    organization: "Sublime Sp z o.o.",
+    period: "11.2025 - 03.2026",
+    description: "Responsible for designing and developing data pipelines and ETL processes. Collaborated with cross-functional teams to ensure data quality and availability. Contributed to data architecture improvements and automation of data workflows.",
+    type: 'work'
+  },
+  {
     title: "B2B Consultant",
     organization: "Crestt Sp z o.o. (Santander Bank Polska S.A.)",
     period: "04.2025 - 08.2025",

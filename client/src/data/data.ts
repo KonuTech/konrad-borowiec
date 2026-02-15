@@ -87,6 +87,14 @@ export const projects: Project[] = [
 // Reading list data
 export const books: Book[] = [
   {
+    id: 20,
+    title: "Data Pipelines with Apache Airflow. Orchestration for data and AI. Second Edition.",
+    author: "Julian de Ruiter, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, Bas Garenslak",
+    coverUrl: "/pictures/readings/data-pipelines-with-apache-airflow.jpg",
+    genre: "Data Engineering",
+    status: "to-read",
+  },
+  {
     id: 1,
     title: "Fundamentals of Data Engineering. Plan and Build Robus Data Systems.",
     author: "Joe Reis & Matt Housley",

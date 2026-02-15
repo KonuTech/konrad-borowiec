@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm run check:*)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(git -C /mnt/c/Users/borow/VSC/projects/konrad-borowiec status)",
+      "Bash(git -C /mnt/c/Users/borow/VSC/projects/konrad-borowiec diff)",
+      "Bash(git -C /mnt/c/Users/borow/VSC/projects/konrad-borowiec log --oneline -5)",
+      "Bash(git add:*)"
+    ]
+  }
+}

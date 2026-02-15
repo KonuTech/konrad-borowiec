@@ -13,11 +13,15 @@ const techStack: TechItem[] = [
   { name: "Python", icon: "fab fa-python" },
   { name: "PySpark", icon: "fab fa-python" },
   { name: "Databricks", icon: "fas fa-bolt" },
-  { name: "Airflow", icon: "fas fa-wind" },
+  { name: "Apache Airflow", icon: "fas fa-wind" },
   { name: "Linux", icon: "fab fa-linux" },
   { name: "Docker", icon: "fab fa-docker" },
   { name: "Claude Code", icon: "fas fa-code" },
   { name: "MS Excel", icon: "fas fa-table" },
+  { name: "GCP - Big Query", icon: "fab fa-google" },
+  { name: "Apache Superset", icon: "fas fa-chart-bar" },
+  { name: "GitLab", icon: "fab fa-gitlab" },
+  { name: "VS Code", icon: "fas fa-code" },
 ];
 
 const TechStack: FC = () => {
