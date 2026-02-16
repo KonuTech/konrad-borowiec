@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 const ContactInfo: FC = () => {
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className="flex flex-col md:flex-row md:gap-16 md:items-start h-full">
       <div>
-        
+        <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Contact Information</h3>
         <div className="space-y-6">
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10 rounded-full bg-portfolio-lighter/30 dark:bg-portfolio-primary/30 flex items-center justify-center flex-shrink-0">
@@ -38,8 +38,8 @@ const ContactInfo: FC = () => {
         </div>
       </div>
       
-      <div className="mt-10">
-        <h3 className="font-nunito font-bold text-xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Connect With Me</h3>
+      <div className="mt-10 md:mt-0">
+        <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Connect With Me</h3>
         
         <div className="flex space-x-4">
           <a

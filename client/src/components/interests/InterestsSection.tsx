@@ -34,7 +34,7 @@ const InterestsSection: FC = () => {
   return (
     <section
       id="interests"
-      className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker"
+      className="pt-20 pb-6 md:pt-14 md:pb-4 bg-portfolio-lightest dark:bg-portfolio-darker"
     >
       <div className="container mx-auto px-4">
         <SectionTitle>
@@ -257,7 +257,7 @@ const InterestsSection: FC = () => {
         </div>
 
         {/* Back to Top Button */}
-        <div className="text-center mt-16 md:mt-8">
+        <div className="text-center mt-8 md:mt-4">
           <a
             href="#home"
             className="inline-flex items-center font-nunito font-bold text-portfolio-primary dark:text-portfolio-lighter hover:text-portfolio-dark dark:hover:text-white transition-colors duration-300"

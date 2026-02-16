@@ -12,14 +12,14 @@ type TimelineItem = {
 const timelineItems: TimelineItem[] = [
   {
     title: "Data Engineer",
-    organization: "Sublime Sp z o.o.",
+    organization: "Marketing Engineers Group sp. z o.o.",
     period: "10.2025 - 03.2026",
-    description: "Responsible for designing and developing data pipelines and ETL processes. Collaborated with cross-functional teams to ensure data quality and availability. Contributed to data architecture improvements and automation of data workflows.",
+    description: "Maintained production data infrastructure powering analytics for e-commerce clients, processing data from multiple platforms into a unified BigQuery warehouse orchestrated by Apache Airflow. Used Apache Superset as the BI solution.\n\n• Developed a custom Apache Airflow connector for Magento 2 with OAuth 1.0a (HMAC-SHA256) authentication, generator-based pagination, and exponential-backoff retry logic across multiple REST API endpoints. Extracted records into GCS as NDJSON with daily loading into BigQuery.\n\n• Engineered a Google Ads ETL pipeline integrating the Google Ads API with BigQuery via GCS staging. Designed analytical tables mapping Google Ads spend to actual e-commerce client stock for rendering in Apache Superset. Leveraged dynamic Jinja2 date templating with intelligent lookback windows and daily query splitting to handle API limitations.\n\n• Onboarded e-commerce clients onto a config-driven data platform. Leveraged a YAML-to-DAG generation framework to dynamically produce Airflow DAGs from declarative client configurations.\n\n• Executed a zero-downtime Klaviyo API revision migration spanning a multi-year revision gap. Designed and ran automated validation tests across multiple categories (authentication, subscription schemas, marketing fields, event structures, campaign filters, flow pagination, metric types), confirming zero breaking changes.\n\n• Developed a custom dbt macro for Unicode text normalization to resolve product ID mapping and deduplication failures caused by special characters (Polish, Russian, and other non-ASCII glyphs) in e-commerce product URLs. Standardized URL parsing across the unified ECOM entity schema spanning four platforms (e.g., Shopify, Shoper, WooCommerce, and Magento), enabling reliable cross-platform deduplication.\n\n• Used the Superset REST API via Superset MCP to programmatically query dashboard and chart configurations for automated data lineage investigations and subsequent fixes.\n\n• Maintained rigorous quality standards by designing comprehensive validation suites for every table and pipeline. Authored SQL tests covering cross-layer consistency (staging through transformed), NULL-rate analysis on mandatory fields, surrogate-key uniqueness, referential integrity, and old-vs-new API output comparison.",
     type: 'work'
   },
   {
     title: "B2B Consultant",
-    organization: "Crestt Sp z o.o. (Santander Bank Polska S.A.)",
+    organization: "Crestt sp. z o.o. (Santander Bank Polska S.A.)",
     period: "04.2025 - 08.2025",
     description: "Supporting role in Oracle APEX application development. Collaborated with business analysts to assist in the development of a reporting tool for ESRS (European Sustainability Reporting Standards). Designed and implemented BI functionalities into APEX application using PL/SQL. Performed modifications to the reporting model when needed. Utilized PL/SQL to generate and displayed reports. Contributed ideas and provided feedback by applying my expertise and knowledge in reporting tasks.",
     type: 'work'
@@ -40,7 +40,7 @@ const timelineItems: TimelineItem[] = [
   },
   {
     title: "Big Data Developer",
-    organization: "Crestt Sp z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.)",
+    organization: "Crestt sp. z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.)",
     period: "02.2021 - 06.2022",
     description: "Development of batch data processing solutions for one of the largest banks in Poland. The ELT processes for Data Lake were designed using Airflow, Python, PySpark, and Hive within the on-premise Cloudera Data Platform. Development and operationalization of churn related classifier for insurance company. Added functionalities for scoring and monitoring of new data. Development and operationalization of classifiers for VR training company. Design and development of HR demo dashboard with a use SAS Viya.",
     type: 'work'
@@ -61,7 +61,7 @@ const timelineItems: TimelineItem[] = [
   },
   {
     title: "Junior Data Scientist",
-    organization: "Crestt Sp z o. o. (Polkomtel Sp. z o. o., TVP S.A.)",
+    organization: "Crestt sp. z o. o. (Polkomtel sp. z o. o., TVP S.A.)",
     period: "03.2019 - 04.2020",
     description: "As a consultant at a major Polish telecom, participated in projects to upgrade data mart recalculation processes. Developed production-ready SAS scripts focusing on 4GL and SQL for data processing. Handled data collection and segmentation using Python. Contributed to dashboard development using Shiny and Tableau.",
     type: 'work'
@@ -269,7 +269,7 @@ const TimelineItem: FC<{
                 layout
               >
                 <div className={`pt-4 pl-4 pr-4 pb-2 bg-white dark:bg-portfolio-darker rounded-b-lg shadow-md mt-1 timeline-description-id-${index}`}>
-                  <p className="text-sm text-portfolio-text dark:text-portfolio-lighter/90">{item.description}</p>
+                  <p className="text-sm text-portfolio-text dark:text-portfolio-lighter/90 whitespace-pre-line">{item.description}</p>
                 </div>
               </motion.div>
             )}

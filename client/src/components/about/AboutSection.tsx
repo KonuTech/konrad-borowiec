@@ -37,7 +37,7 @@ const AboutSection = () => {
             </div>
             
             <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6 md:mt-4">
-              <h3 id="contact" className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter scroll-mt-24">Contact Information</h3>
+              <div id="contact" className="scroll-mt-24"></div>
               <ContactInfo />
             </div>
           </motion.div>
