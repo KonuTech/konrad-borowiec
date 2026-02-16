@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Timeline from './Timeline';
@@ -7,9 +7,64 @@ import ContactInfo from '../contact/ContactInfo';
 
 const AboutSection = () => {
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
+  const [timelineMaxHeight, setTimelineMaxHeight] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const expandedRef = useRef(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const getLeftCol = () => {
+      const flexRow = section.querySelector('.flex.flex-col');
+      return flexRow?.querySelector(':scope > div') as HTMLElement | null;
+    };
+
+    const computeHeight = () => {
+      if (expandedRef.current) return;
+      const leftCol = getLeftCol();
+      const heading = headingRef.current;
+      const button = buttonRef.current;
+      if (!leftCol || !heading || !button) return;
+
+      if (window.innerWidth < 768) {
+        setTimelineMaxHeight(null);
+        return;
+      }
+
+      const leftHeight = leftCol.offsetHeight;
+      const headingStyle = window.getComputedStyle(heading);
+      const headingTotal = heading.offsetHeight + parseFloat(headingStyle.marginBottom || '0');
+      const buttonStyle = window.getComputedStyle(button);
+      const buttonTotal = button.offsetHeight + parseFloat(buttonStyle.marginTop || '0');
+      const cardEl = heading.closest('.p-6');
+      let cardPadding = 48;
+      if (cardEl) {
+        const cs = window.getComputedStyle(cardEl);
+        cardPadding = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+      }
+      const maxH = leftHeight - headingTotal - buttonTotal - cardPadding;
+      setTimelineMaxHeight(maxH > 0 ? maxH : null);
+    };
+
+    const observer = new ResizeObserver(() => computeHeight());
+    const leftCol = getLeftCol();
+    if (leftCol) observer.observe(leftCol);
+    window.addEventListener('resize', computeHeight);
+    const timer = setTimeout(computeHeight, 800);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', computeHeight);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
-    <section id="about" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
+    <section ref={sectionRef} id="about" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
         <SectionTitle>
           About <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">Me</span>
@@ -17,7 +72,7 @@ const AboutSection = () => {
         
         <div className="flex flex-col md:flex-row gap-10 md:gap-6">
           {/* Bio Section */}
-          <motion.div 
+          <motion.div
             className="md:w-1/2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,12 +109,17 @@ const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div ref={timelineRef} className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Experience & Education</h3>
+              <h3 ref={headingRef} className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Experience & Education</h3>
               <div className="relative">
                 <div
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    isTimelineExpanded ? 'max-h-[10000px]' : 'max-h-[400px] md:max-h-[1100px]'
+                    isTimelineExpanded ? 'max-h-[10000px]' : 'max-h-[400px] md:max-h-[1050px]'
                   }`}
+                  style={
+                    !isTimelineExpanded && timelineMaxHeight !== null
+                      ? { maxHeight: `${timelineMaxHeight}px` }
+                      : undefined
+                  }
                 >
                   <Timeline />
                 </div>
@@ -68,11 +128,19 @@ const AboutSection = () => {
                 )}
               </div>
               <button
+                ref={buttonRef}
                 onClick={() => {
                   if (isTimelineExpanded) {
                     timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Keep guard active during collapse animation, then recompute
+                    setIsTimelineExpanded(false);
+                    setTimeout(() => {
+                      expandedRef.current = false;
+                    }, 600);
+                  } else {
+                    expandedRef.current = true;
+                    setIsTimelineExpanded(true);
                   }
-                  setIsTimelineExpanded(!isTimelineExpanded);
                 }}
                 className="mt-4 w-full text-center py-2 px-4 rounded-full font-nunito font-medium text-portfolio-primary dark:text-portfolio-lighter hover:bg-portfolio-primary/10 dark:hover:bg-portfolio-lighter/10 transition-colors duration-300"
               >

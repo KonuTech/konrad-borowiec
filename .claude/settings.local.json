@@ -28,7 +28,18 @@
       "mcp__plugin_playwright_playwright__browser_run_code",
       "mcp__plugin_playwright_playwright__browser_evaluate",
       "Bash(npx vite:*)",
-      "Bash(fuser:*)"
+      "Bash(fuser:*)",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "Bash(xargs:*)",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "Bash(ss:*)",
+      "Bash(PORT=5174 npx vite:*)",
+      "Bash(curl:*)",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "Bash(node -e:*)",
+      "Bash(npx tsc:*)",
+      "Bash(git status:*)"
     ]
   }
 }
