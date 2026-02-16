@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Timeline from './Timeline';
@@ -5,6 +6,8 @@ import TechStack from './TechStack';
 import ContactInfo from '../contact/ContactInfo';
 
 const AboutSection = () => {
+  const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
+  const timelineRef = useRef<HTMLDivElement>(null);
   return (
     <section id="about" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
@@ -50,9 +53,31 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div ref={timelineRef} className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Experience & Education</h3>
-              <Timeline />
+              <div className="relative">
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isTimelineExpanded ? 'max-h-[10000px]' : 'max-h-[400px] md:max-h-[1100px]'
+                  }`}
+                >
+                  <Timeline />
+                </div>
+                {!isTimelineExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white dark:from-portfolio-dark to-transparent pointer-events-none" />
+                )}
+              </div>
+              <button
+                onClick={() => {
+                  if (isTimelineExpanded) {
+                    timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                  setIsTimelineExpanded(!isTimelineExpanded);
+                }}
+                className="mt-4 w-full text-center py-2 px-4 rounded-full font-nunito font-medium text-portfolio-primary dark:text-portfolio-lighter hover:bg-portfolio-primary/10 dark:hover:bg-portfolio-lighter/10 transition-colors duration-300"
+              >
+                {isTimelineExpanded ? 'Hide Timeline \u25B2' : 'Show Full Timeline \u25BC'}
+              </button>
             </div>
           </motion.div>
         </div>
