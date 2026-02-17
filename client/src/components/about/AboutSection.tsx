@@ -9,26 +9,18 @@ const AboutSection = () => {
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
   const [timelineMaxHeight, setTimelineMaxHeight] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const timelineContainerRef = useRef<HTMLDivElement>(null);
   const expandedRef = useRef(false);
+  const computeHeightRef = useRef<() => void>(() => {});
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const getLeftCol = () => {
-      const flexRow = section.querySelector('.flex.flex-col');
-      return flexRow?.querySelector(':scope > div') as HTMLElement | null;
-    };
-
     const computeHeight = () => {
       if (expandedRef.current) return;
-      const leftCol = getLeftCol();
-      const heading = headingRef.current;
-      const button = buttonRef.current;
-      if (!leftCol || !heading || !button) return;
+      const leftCol = leftColRef.current;
+      const rightCard = timelineRef.current;
+      const timelineContainer = timelineContainerRef.current;
+      if (!leftCol || !rightCard || !timelineContainer) return;
 
       if (window.innerWidth < 768) {
         setTimelineMaxHeight(null);
@@ -36,23 +28,17 @@ const AboutSection = () => {
       }
 
       const leftHeight = leftCol.offsetHeight;
-      const headingStyle = window.getComputedStyle(heading);
-      const headingTotal = heading.offsetHeight + parseFloat(headingStyle.marginBottom || '0');
-      const buttonStyle = window.getComputedStyle(button);
-      const buttonTotal = button.offsetHeight + parseFloat(buttonStyle.marginTop || '0');
-      const cardEl = heading.closest('.p-6');
-      let cardPadding = 48;
-      if (cardEl) {
-        const cs = window.getComputedStyle(cardEl);
-        cardPadding = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-      }
-      const maxH = leftHeight - headingTotal - buttonTotal - cardPadding;
+      const rightCardHeight = rightCard.offsetHeight;
+      const timelineContainerHeight = timelineContainer.offsetHeight;
+      const nonTimelineHeight = rightCardHeight - timelineContainerHeight;
+      const maxH = leftHeight - nonTimelineHeight;
       setTimelineMaxHeight(maxH > 0 ? maxH : null);
     };
 
+    computeHeightRef.current = computeHeight;
+
     const observer = new ResizeObserver(() => computeHeight());
-    const leftCol = getLeftCol();
-    if (leftCol) observer.observe(leftCol);
+    if (leftColRef.current) observer.observe(leftColRef.current);
     window.addEventListener('resize', computeHeight);
     const timer = setTimeout(computeHeight, 800);
 
@@ -64,7 +50,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
+    <section id="about" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
         <SectionTitle>
           About <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">Me</span>
@@ -73,6 +59,7 @@ const AboutSection = () => {
         <div className="flex flex-col md:flex-row gap-10 md:gap-6">
           {/* Bio Section */}
           <motion.div
+            ref={leftColRef}
             className="md:w-1/2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,9 +96,10 @@ const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div ref={timelineRef} className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h3 ref={headingRef} className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Experience & Education</h3>
+              <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Experience & Education</h3>
               <div className="relative">
                 <div
+                  ref={timelineContainerRef}
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
                     isTimelineExpanded ? 'max-h-[10000px]' : 'max-h-[400px] md:max-h-[1050px]'
                   }`}
@@ -128,7 +116,6 @@ const AboutSection = () => {
                 )}
               </div>
               <button
-                ref={buttonRef}
                 onClick={() => {
                   if (isTimelineExpanded) {
                     timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -136,6 +123,7 @@ const AboutSection = () => {
                     setIsTimelineExpanded(false);
                     setTimeout(() => {
                       expandedRef.current = false;
+                      requestAnimationFrame(() => computeHeightRef.current());
                     }, 600);
                   } else {
                     expandedRef.current = true;

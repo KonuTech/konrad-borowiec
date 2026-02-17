@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 const ContactInfo: FC = () => {
   return (
-    <div className="flex flex-col md:flex-row md:gap-16 md:items-start h-full">
+    <div className="flex flex-col lg:flex-row lg:gap-16 lg:items-start h-full">
       <div>
         <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Contact Information</h3>
         <div className="space-y-6">
@@ -38,7 +38,7 @@ const ContactInfo: FC = () => {
         </div>
       </div>
       
-      <div className="mt-10 md:mt-0">
+      <div className="mt-10 lg:mt-0">
         <h3 className="font-nunito font-bold text-2xl mb-6 text-portfolio-primary dark:text-portfolio-lighter">Connect With Me</h3>
         
         <div className="flex space-x-4">
