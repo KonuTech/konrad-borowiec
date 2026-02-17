@@ -21,7 +21,7 @@ const timelineItems: TimelineItem[] = [
     title: "B2B Consultant",
     organization: "Crestt sp. z o.o. (Santander Bank Polska S.A.)",
     period: "04.2025 - 08.2025",
-    description: "Supporting role in Oracle APEX application development. Collaborated with business analysts to assist in the development of a reporting tool for ESRS (European Sustainability Reporting Standards). Designed and implemented BI functionalities into APEX application using PL/SQL. Performed modifications to the reporting model when needed. Utilized PL/SQL to generate and displayed reports. Contributed ideas and provided feedback by applying my expertise and knowledge in reporting tasks.",
+    description: "Supporting role in Oracle APEX application development. Collaborated with business analysts to assist in the development of a reporting tool for ESRS (European Sustainability Reporting Standards). Designed and implemented BI functionalities into APEX application using PL/SQL. Performed modifications to the reporting model when needed. Utilized PL/SQL to generate displayed reports. Contributed ideas and provided feedback by applying my expertise and knowledge in reporting tasks.",
     type: 'work'
   },
   {
