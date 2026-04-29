@@ -34,38 +34,44 @@ export const fetchApi = {
   get: async (url: string) => {
     // Map API URLs to static data methods
     switch (url) {
-      case '/api/projects':
+      case '/api/projects': {
         const projects = await api.projects.getAll();
         return { json: () => Promise.resolve(projects) };
+      }
 
-      case '/api/books':
+      case '/api/books': {
         const books = await api.books.getAll();
         return { json: () => Promise.resolve(books) };
+      }
 
-      case '/api/images/motorcycle':
+      case '/api/images/motorcycle': {
         const motorcycleImages = await api.images.getMotorcycle();
         return { json: () => Promise.resolve({ images: motorcycleImages }) };
+      }
 
-      case '/api/images/cycling':
+      case '/api/images/cycling': {
         const cyclingImages = await api.images.getCycling();
         return { json: () => Promise.resolve({ images: cyclingImages }) };
+      }
 
       default:
         throw new Error(`Static API: Unsupported URL: ${url}`);
     }
   },
 
-  post: async (url: string, data: any) => {
+  post: async (url: string, data: unknown) => {
     switch (url) {
-      case '/api/contact':
-        const contact = await api.contact.create(data);
+      case '/api/contact': {
+        const contact = await api.contact.create(data as Omit<Contact, 'id' | 'createdAt'>);
         return {
           ok: true,
-          json: () => Promise.resolve({
-            message: 'Contact form submitted successfully! (stored locally)',
-            contact
-          })
+          json: () =>
+            Promise.resolve({
+              message: 'Contact form submitted successfully! (stored locally)',
+              contact,
+            }),
         };
+      }
 
       default:
         throw new Error(`Static API: Unsupported POST URL: ${url}`);

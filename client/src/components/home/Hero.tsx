@@ -1,21 +1,21 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 // Profile photo served via Express static middleware
-const profilePhoto = "/pictures/photos/konrad.jpg";
+const profilePhoto = '/pictures/photos/konrad.jpg';
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-16 md:pt-24 pb-20 md:pb-14 overflow-hidden">
+    <section id="home" className="overflow-hidden pb-20 pt-16 md:pb-14 md:pt-24">
       <div className="relative">
-        <div className="cloud-bg h-60 md:h-64 opacity-20 dark:opacity-10"></div>
-        <div className="cloud-mask absolute bottom-0 w-full h-40"></div>
+        <div className="cloud-bg h-60 opacity-20 dark:opacity-10 md:h-64"></div>
+        <div className="cloud-mask absolute bottom-0 h-40 w-full"></div>
       </div>
 
-      <div className="container mx-auto px-4 -mt-40 md:-mt-48 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
+      <div className="container relative z-10 mx-auto -mt-40 px-4 md:-mt-48">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row md:gap-10">
           {/* Profile Photo - Positioned first on mobile for immediate visibility */}
           <motion.div
-            className="md:w-1/2 flex justify-center order-first md:order-last"
+            className="order-first flex justify-center md:order-last md:w-1/2"
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
@@ -26,61 +26,59 @@ const Hero = () => {
               y: {
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
               },
             }}
           >
             <div className="relative mb-6 md:mb-0">
-              <div className="w-60 h-60 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-light opacity-30 animate-spin-slow"></div>
+              <div className="animate-spin-slow h-60 w-60 rounded-full bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-light opacity-30 md:h-80 md:w-80"></div>
               <img
                 src={profilePhoto}
                 alt="Konrad Borowiec portrait"
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-52 h-52 md:w-72 md:h-72 rounded-full object-cover border-4 border-white dark:border-portfolio-dark shadow-lg bg-white"
-                style={{ objectPosition: "center -50px" }}
+                className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-4 border-white bg-white object-cover shadow-lg dark:border-portfolio-dark md:h-72 md:w-72"
+                style={{ objectPosition: 'center -50px' }}
               />
             </div>
           </motion.div>
 
           {/* Introduction Text - Second on mobile */}
           <motion.div
-            className="text-center md:text-left md:w-1/2 order-last md:order-first"
+            className="order-last text-center md:order-first md:w-1/2 md:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-portfolio-primary dark:text-portfolio-light font-nunito font-bold mb-3 md:mb-4">
+            <p className="font-nunito mb-3 font-bold text-portfolio-primary dark:text-portfolio-light md:mb-4">
               Hello, I'm
             </p>
-            <h1 className="font-nunito font-extrabold text-3xl md:text-5xl lg:text-6xl mb-3 md:mb-4 bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-dark bg-clip-text text-transparent">
+            <h1 className="font-nunito mb-3 bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-dark bg-clip-text text-3xl font-extrabold text-transparent md:mb-4 md:text-5xl lg:text-6xl">
               Konrad Borowiec
             </h1>
-            <p className="text-lg mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 text-portfolio-text dark:text-portfolio-lighter text-justify">
+            <p className="mx-auto mb-6 max-w-lg text-justify text-lg text-portfolio-text dark:text-portfolio-lighter md:mx-0 md:mb-8">
               Data isn't just numbers - it's the key to smarter decisions.
               <br />
-              As your specialist in data engineering, analytics, and machine
-              learning, I craft pipelines and unlock insights from raw
-              data.
+              As your specialist in data engineering, analytics, and machine learning, I craft
+              pipelines and unlock insights from raw data.
               <br />
               <br />
               Let's transform your data into a catalyst for progress!
             </p>
-            <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-start gap-4 md:max-w-lg">
+            <div className="flex flex-col flex-wrap justify-center gap-4 md:max-w-lg md:flex-row md:justify-start">
               <a
                 href="#projects"
-                className="px-6 py-3 bg-white dark:bg-portfolio-darker text-portfolio-primary dark:text-portfolio-lighter border border-portfolio-primary dark:border-portfolio-lighter rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold text-center flex items-center justify-center md:flex-1"
+                className="font-nunito flex transform items-center justify-center rounded-md border border-portfolio-primary bg-white px-6 py-3 text-center font-bold text-portfolio-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-portfolio-lighter dark:bg-portfolio-darker dark:text-portfolio-lighter md:flex-1"
               >
                 Check out my side projects
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 bg-portfolio-primary hover:bg-portfolio-dark text-white rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 font-nunito font-bold text-center flex items-center justify-center md:flex-1"
+                className="font-nunito flex transform items-center justify-center rounded-md bg-portfolio-primary px-6 py-3 text-center font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-portfolio-dark hover:shadow-lg md:flex-1"
               >
                 Contact Me
               </a>
             </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

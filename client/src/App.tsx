@@ -1,9 +1,9 @@
-import { Switch, Route } from "wouter";
-import { Toaster } from "@/components/ui/toaster";
-import NotFound from "@/pages/not-found";
-import Home from "@/pages/Home";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { Switch, Route } from 'wouter';
+import { Toaster } from '@/components/ui/toaster';
+import NotFound from '@/pages/not-found';
+import Home from '@/pages/Home';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 function Router() {
   return (
@@ -16,7 +16,7 @@ function Router() {
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-grow">
         <Router />

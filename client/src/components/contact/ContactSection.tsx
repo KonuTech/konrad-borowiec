@@ -4,12 +4,15 @@ import ContactInfo from './ContactInfo';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-portfolio-dark">
+    <section id="contact" className="bg-white py-20 dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          Get In <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">Touch</span>
+          Get In{' '}
+          <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
+            Touch
+          </span>
         </SectionTitle>
-        
+
         <div className="flex justify-center">
           {/* Contact Info */}
           <motion.div

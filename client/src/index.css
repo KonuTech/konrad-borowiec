@@ -12,7 +12,7 @@ html {
   }
 
   body {
-    @apply font-sans antialiased bg-white dark:bg-portfolio-darker text-portfolio-text dark:text-portfolio-lighter;
+    @apply bg-white font-sans text-portfolio-text antialiased dark:bg-portfolio-darker dark:text-portfolio-lighter;
   }
 }
 
@@ -27,11 +27,15 @@ html {
 
 /* Ghibli card hover effect */
 .ghibli-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .ghibli-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Book card flip animation */
@@ -88,7 +92,7 @@ html {
 }
 
 .dark .cloud-mask {
-  background-image: linear-gradient(to top, #1A3A58 20%, transparent 100%);
+  background-image: linear-gradient(to top, #1a3a58 20%, transparent 100%);
 }
 
 /* Spin animations */
@@ -107,11 +111,11 @@ html {
 
 /* Button styles */
 .btn-primary {
-  @apply bg-portfolio-primary hover:bg-portfolio-dark text-white font-medium rounded-md px-4 py-2 transition-colors duration-300;
+  @apply rounded-md bg-portfolio-primary px-4 py-2 font-medium text-white transition-colors duration-300 hover:bg-portfolio-dark;
 }
 
 .btn-outline {
-  @apply border border-portfolio-primary text-portfolio-primary hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark font-medium rounded-md px-4 py-2 transition-colors duration-300;
+  @apply rounded-md border border-portfolio-primary px-4 py-2 font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark;
 }
 
 /* Section styles */
@@ -126,8 +130,13 @@ html {
 
 /* Float animation */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
@@ -136,5 +145,5 @@ html {
 
 /* Card hover effect */
 .hover-card {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
 }

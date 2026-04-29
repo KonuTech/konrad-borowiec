@@ -50,13 +50,16 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 md:py-14 bg-portfolio-lightest dark:bg-portfolio-darker">
+    <section id="about" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          About <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">Me</span>
+          About{' '}
+          <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
+            Me
+          </span>
         </SectionTitle>
-        
-        <div className="flex flex-col md:flex-row gap-10 md:gap-6">
+
+        <div className="flex flex-col gap-10 md:flex-row md:gap-6">
           {/* Bio Section */}
           <motion.div
             ref={leftColRef}
@@ -66,37 +69,52 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">My Journey</h3>
-              <p className="mb-4 leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90 text-justify">
-                I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.
+            <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
+              <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
+                My Journey
+              </h3>
+              <p className="mb-4 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
+                I'm a Data Guy with a strong background in the financial services sector. I enjoy my
+                work the most when the tools and solutions I develop are actively used by other
+                people or businesses. With expertise in SQL, Python, and various data processing
+                technologies, I focus on designing efficient data pipelines and extracting valuable
+                insights.
               </p>
-              <p className="mb-6 leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90 text-justify">
-                My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.
+              <p className="mb-6 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
+                My journey began in finance and analytics, evolving into a more technical role
+                specializing in data engineering, big data processing, and machine learning. I enjoy
+                solving complex data challenges and building robust, reliable solutions.
               </p>
             </div>
-            
-            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6 md:mt-4">
-              <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Tech Stack</h3>
+
+            <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
+              <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
+                Tech Stack
+              </h3>
               <TechStack />
             </div>
-            
-            <div className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mt-6 md:mt-4">
+
+            <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
               <div id="contact" className="scroll-mt-24"></div>
               <ContactInfo />
             </div>
           </motion.div>
-          
+
           {/* Timeline Section */}
-          <motion.div 
+          <motion.div
             className="md:w-1/2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div ref={timelineRef} className="bg-white dark:bg-portfolio-dark p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="font-nunito font-bold text-2xl mb-6 md:mb-4 text-portfolio-primary dark:text-portfolio-lighter">Experience & Education</h3>
+            <div
+              ref={timelineRef}
+              className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark"
+            >
+              <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
+                Experience & Education
+              </h3>
               <div className="relative">
                 <div
                   ref={timelineContainerRef}
@@ -112,7 +130,7 @@ const AboutSection = () => {
                   <Timeline />
                 </div>
                 {!isTimelineExpanded && (
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white dark:from-portfolio-dark to-transparent pointer-events-none" />
+                  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent dark:from-portfolio-dark" />
                 )}
               </div>
               <button
@@ -130,19 +148,19 @@ const AboutSection = () => {
                     setIsTimelineExpanded(true);
                   }
                 }}
-                className="mt-4 w-full text-center py-2 px-4 rounded-full font-nunito font-medium text-portfolio-primary dark:text-portfolio-lighter hover:bg-portfolio-primary/10 dark:hover:bg-portfolio-lighter/10 transition-colors duration-300"
+                className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
               >
                 {isTimelineExpanded ? 'Hide Timeline \u25B2' : 'Show Full Timeline \u25BC'}
               </button>
             </div>
           </motion.div>
         </div>
-        
+
         {/* Back to Top Button */}
-        <div className="flex justify-center mt-16 md:mt-8">
-          <a 
-            href="#home" 
-            className="bg-portfolio-primary hover:bg-portfolio-primary/80 text-white px-6 py-3 rounded-full font-nunito font-medium flex items-center transition-all duration-300 shadow-md hover:shadow-lg"
+        <div className="mt-16 flex justify-center md:mt-8">
+          <a
+            href="#home"
+            className="font-nunito flex items-center rounded-full bg-portfolio-primary px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:bg-portfolio-primary/80 hover:shadow-lg"
           >
             <i className="fas fa-arrow-up mr-2"></i> Back to Top
           </a>

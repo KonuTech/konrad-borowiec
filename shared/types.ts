@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 // Basic types for the portfolio application
 export const insertContactSchema = z.object({
@@ -14,7 +14,7 @@ export const insertBookSchema = z.object({
   genre: z.string().optional(),
   rating: z.number().min(1).max(5).optional(),
   review: z.string().optional(),
-  status: z.enum(["read", "to-read"]).default("read"),
+  status: z.enum(['read', 'to-read']).default('read'),
 });
 
 export const insertProjectSchema = z.object({

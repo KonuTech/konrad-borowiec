@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { Link } from "wouter";
-import DarkModeToggle from "./DarkModeToggle";
-import MobileMenu from "./MobileMenu";
+import { useState, useEffect } from 'react';
+import { Link } from 'wouter';
+import DarkModeToggle from './DarkModeToggle';
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,8 +13,8 @@ const Header = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMobileMenu = () => {
@@ -23,25 +23,28 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 bg-white/95 dark:bg-portfolio-darker/95 backdrop-blur-md py-4 shadow-sm transition-colors duration-300 ${
+      className={`fixed top-0 z-50 w-full bg-white/95 py-4 shadow-sm backdrop-blur-md transition-colors duration-300 dark:bg-portfolio-darker/95 ${
         isScrolled ? 'shadow-md' : ''
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <Link href="/" className="text-xl font-nunito font-bold text-portfolio-dark dark:text-portfolio-lighter">
+          <Link
+            href="/"
+            className="font-nunito text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
+          >
             <span className="text-2xl">👨‍💻</span> Konrad Borowiec
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
-          <ul className="flex items-center space-x-8 font-nunito font-semibold text-sm text-portfolio-text dark:text-portfolio-lighter">
+          <ul className="font-nunito flex items-center space-x-8 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
             <li>
               <a
                 href="#home"
-                className="hover:text-portfolio-primary transition-colors duration-300"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
               >
                 Home
               </a>
@@ -49,7 +52,7 @@ const Header = () => {
             <li>
               <a
                 href="#about"
-                className="hover:text-portfolio-primary transition-colors duration-300"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
               >
                 About
               </a>
@@ -57,7 +60,7 @@ const Header = () => {
             <li>
               <a
                 href="#projects"
-                className="hover:text-portfolio-primary transition-colors duration-300"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
               >
                 Projects
               </a>
@@ -65,7 +68,7 @@ const Header = () => {
             <li>
               <a
                 href="#books"
-                className="hover:text-portfolio-primary transition-colors duration-300"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
               >
                 Books
               </a>
@@ -73,7 +76,7 @@ const Header = () => {
             <li>
               <a
                 href="#interests"
-                className="hover:text-portfolio-primary transition-colors duration-300"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
               >
                 Interests
               </a>
@@ -81,26 +84,41 @@ const Header = () => {
             <li>
               <a
                 href="#contact"
-                className="hover:text-portfolio-primary transition-colors duration-300"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
               >
                 Contact Me
               </a>
             </li>
             <li>
-              <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer"
-                className="hover:text-portfolio-primary transition-colors duration-300" aria-label="GitHub">
+              <a
+                href="https://github.com/konutech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
+                aria-label="GitHub"
+              >
                 <i className="fab fa-github text-lg"></i>
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer"
-                className="hover:text-portfolio-primary transition-colors duration-300" aria-label="LinkedIn">
+              <a
+                href="https://linkedin.com/in/32167"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
+                aria-label="LinkedIn"
+              >
                 <i className="fab fa-linkedin text-lg"></i>
               </a>
             </li>
             <li>
-              <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer"
-                className="hover:text-portfolio-primary transition-colors duration-300" aria-label="Credly">
+              <a
+                href="https://credly.com/users/konrad-borowiec/badges"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-portfolio-primary"
+                aria-label="Credly"
+              >
                 <i className="fas fa-certificate text-lg"></i>
               </a>
             </li>
@@ -113,7 +131,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden rounded-full p-2 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark transition-colors duration-300 text-portfolio-text dark:text-portfolio-lighter"
+            className="rounded-full p-2 text-portfolio-text transition-colors duration-300 hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-dark md:hidden"
             aria-label="Menu"
             onClick={toggleMobileMenu}
           >

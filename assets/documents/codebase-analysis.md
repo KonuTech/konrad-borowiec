@@ -7,6 +7,7 @@
 ---
 
 ## Table of Contents
+
 1. [Architecture Overview](#1-architecture-overview)
 2. [Strengths](#2-strengths)
 3. [Improvement Propositions](#3-improvement-propositions)
@@ -56,13 +57,14 @@ The project is a **frontend-only static portfolio website** migrated from a full
 
 **Issue:** The `package.json` includes a massive number of Radix UI components (20+ packages) and many UI utilities that may not all be used in the codebase.
 
-| Category | Examples | Concern |
-|----------|----------|---------|
-| Radix UI | 20+ `@radix-ui/react-*` packages | Many may be unused; each adds to bundle |
-| UI utilities | `cmdk`, `vaul`, `input-otp`, `react-resizable-panels`, `recharts`, `react-day-picker` | Portfolio site likely doesn't need all of these |
-| Replit plugins | `@replit/vite-plugin-*` | Development-only dependencies in production build context |
+| Category       | Examples                                                                              | Concern                                                   |
+| -------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Radix UI       | 20+ `@radix-ui/react-*` packages                                                      | Many may be unused; each adds to bundle                   |
+| UI utilities   | `cmdk`, `vaul`, `input-otp`, `react-resizable-panels`, `recharts`, `react-day-picker` | Portfolio site likely doesn't need all of these           |
+| Replit plugins | `@replit/vite-plugin-*`                                                               | Development-only dependencies in production build context |
 
 **Proposed Improvements:**
+
 1. Run `npm run analyze` to audit actual bundle composition
 2. Remove unused Radix UI packages and related shadcn/ui components
 3. Audit `recharts`, `react-day-picker`, `cmdk`, `vaul`, `input-otp` — remove if unused
@@ -78,6 +80,7 @@ The project is a **frontend-only static portfolio website** migrated from a full
 **Issue 1: Data layer mixing concerns.** `client/src/data/data.ts` contains both static data definitions AND service functions with localStorage persistence logic. This violates the Single Responsibility Principle.
 
 **Proposed Improvements:**
+
 ```
 client/src/data/
 ├── data.ts          # Static data only (projects, books, images arrays)
@@ -90,7 +93,7 @@ client/src/data/
 
 **Proposed Improvement:** Either add `@assets` to tsconfig paths or remove the alias if unused.
 
-**Issue 3: `server/**/*` in tsconfig include.** The tsconfig includes `server/**/*` but no server directory exists (removed during migration). This is dead configuration.
+**Issue 3: `server/**/_`in tsconfig include.** The tsconfig includes`server/\*\*/_` but no server directory exists (removed during migration). This is dead configuration.
 
 **Proposed Improvement:** Remove `server/**/*` from tsconfig include.
 
@@ -101,15 +104,19 @@ client/src/data/
 ### 3.3 Performance Optimization
 
 **Issue 1: Unnecessary async for static data.** All data loading goes through `useEffect` + async `api.*.getAll()` calls, even though the data is immediately available in memory. This creates:
+
 - Unnecessary loading states that flash briefly
 - Extra render cycles
 - Complexity for no benefit
 
 **Proposed Improvement:** For truly static data, import directly:
+
 ```tsx
 // Instead of:
 const [projects, setProjects] = useState([]);
-useEffect(() => { api.projects.getAll().then(setProjects) }, []);
+useEffect(() => {
+  api.projects.getAll().then(setProjects);
+}, []);
 
 // Consider:
 import { projects } from '@/data/data';
@@ -118,6 +125,7 @@ import { projects } from '@/data/data';
 **Issue 2: Scroll event listener without throttling/debouncing.** `Header.tsx` attaches a raw scroll event listener that fires on every scroll event.
 
 **Proposed Improvement:** Use `requestAnimationFrame` or a debounce wrapper:
+
 ```tsx
 useEffect(() => {
   let rafId: number;
@@ -127,10 +135,10 @@ useEffect(() => {
       setIsScrolled(window.scrollY > 10);
     });
   };
-  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener('scroll', handleScroll, { passive: true });
   return () => {
     cancelAnimationFrame(rafId);
-    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener('scroll', handleScroll);
   };
 }, []);
 ```
@@ -138,11 +146,13 @@ useEffect(() => {
 **Issue 3: `ThemeContext.tsx` has a bug in dependency array.** The initialization `useEffect` includes `initialized` in the dependency array, but `setInitialized(true)` is called inside the effect guarded by `if (initialized) return`. This means the effect will run twice (once when initialized=false, once when initialized=true).
 
 **Proposed Improvement:** Use a ref or restructure to avoid the double-execution risk:
+
 ```tsx
 useEffect(() => {
   // Initialize theme on mount only
   const stored = localStorage.getItem('darkMode');
-  const isDark = stored !== null ? stored === 'true' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark =
+    stored !== null ? stored === 'true' : window.matchMedia('(prefers-color-scheme: dark)').matches;
   setDarkMode(isDark);
   applyDarkMode(isDark);
 }, []); // Empty dependency array - runs once on mount
@@ -159,14 +169,16 @@ useEffect(() => {
 **Issue 1: Inconsistent schema usage.** `shared/types.ts` defines Zod schemas (`insertContactSchema`, `insertBookSchema`, `insertProjectSchema`) but these schemas are not used to validate the static data in `data.ts`. The static data bypasses validation entirely.
 
 **Proposed Improvement:** Add a validation step at module load time:
+
 ```typescript
 import { insertProjectSchema } from '@shared/types';
-const validatedProjects = projects.map(p => insertProjectSchema.parse(p));
+const validatedProjects = projects.map((p) => insertProjectSchema.parse(p));
 ```
 
 **Issue 2: `Contact` type includes `createdAt: Date` but localStorage stores JSON.** Dates serialize to strings in JSON. When loaded back from localStorage, `createdAt` becomes a string, not a Date object, causing type mismatch.
 
 **Proposed Improvement:** Either:
+
 - Store ISO strings and convert on load: `createdAt: new Date(storedString)`
 - Or change the type to `createdAt: string` and parse when needed
 
@@ -177,6 +189,7 @@ const validatedProjects = projects.map(p => insertProjectSchema.parse(p));
 ### 3.5 Styling & CSS
 
 **Issue 1: Duplicate CSS definitions.** CSS classes defined in both `client/src/index.css` AND `<style>` block in `client/index.html`:
+
 - `.book-card`, `.book-card-inner`, `.book-card-front`, `.book-card-back`
 - `.cloud-bg`, `.cloud-mask`
 - `.timeline-dot:before`
@@ -193,6 +206,7 @@ The HTML inline styles and the CSS file define overlapping classes with differen
 **Issue 3: Hardcoded class strings in components.** Components like `ContactForm.tsx` have long inline className strings that could be extracted to named constants or component variants using `class-variance-authority` (already installed).
 
 **Issue 4: Font Awesome loaded via CDN.** The project loads Font Awesome from `cdnjs.cloudflare.com` but also has `lucide-react` and `react-icons` installed. Icon usage is inconsistent:
+
 - Header uses `<i className="fab fa-github">` (Font Awesome)
 - Project could use lucide-react icons instead
 
@@ -205,6 +219,7 @@ The HTML inline styles and the CSS file define overlapping classes with differen
 **Issue 1: Missing semantic HTML structure.** The `App.tsx` wraps content in `<div className="min-h-screen flex flex-col">` rather than using semantic elements. The `<main>` element is present but sections lack ARIA landmarks.
 
 **Proposed Improvement:**
+
 ```tsx
 <header>...</header>
 <main id="main-content" role="main">
@@ -224,11 +239,12 @@ The HTML inline styles and the CSS file define overlapping classes with differen
 **Issue 4: Missing meta tags.** No Twitter Card tags, no canonical URL, no favicon link, no theme-color meta for mobile browsers.
 
 **Proposed Improvements:**
+
 ```html
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="theme-color" content="#4A90E2">
-<link rel="canonical" href="https://actual-url.com">
-<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#4A90E2" />
+<link rel="canonical" href="https://actual-url.com" />
+<meta name="twitter:card" content="summary_large_image" />
 ```
 
 **Issue 5: Color contrast in dark mode.** Verify all text/background combinations meet WCAG AA (4.5:1) ratio, especially the custom portfolio colors.
@@ -240,6 +256,7 @@ The HTML inline styles and the CSS file define overlapping classes with differen
 **Issue 1: No linting configured.** No ESLint configuration detected. For a TypeScript + React project, ESLint with `@typescript-eslint` and `eslint-plugin-react-hooks` would catch common issues.
 
 **Proposed Improvement:** Add ESLint configuration with:
+
 - `@typescript-eslint/parser` + rules
 - `eslint-plugin-react-hooks` (rules of hooks)
 - `eslint-plugin-jsx-a11y` (accessibility)
@@ -251,6 +268,7 @@ The HTML inline styles and the CSS file define overlapping classes with differen
 **Issue 3: Console.log statements in production.** `ThemeContext.tsx` contains `console.log` debug statements. `staticApi.ts` and component files use `console.error`.
 
 **Proposed Improvement:** Implement a logging utility that respects `NODE_ENV`:
+
 ```typescript
 const log = process.env.NODE_ENV === 'development' ? console.log : () => {};
 ```
@@ -268,11 +286,12 @@ const log = process.env.NODE_ENV === 'development' ? console.log : () => {};
 **Issue 2: External font loading blocks rendering.** Google Fonts and Font Awesome are loaded with `<link>` tags without `media="print" onload="this.media='all'"` pattern, causing render-blocking.
 
 **Proposed Improvement:** Use the font-display: swap pattern or preload fonts:
+
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="..." rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="..." rel="stylesheet"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="..." rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="..." rel="stylesheet" /></noscript>
 ```
 
 **Issue 3: No error boundary for hydration.** If the script fails to load, users see a blank page.
@@ -286,11 +305,13 @@ const log = process.env.NODE_ENV === 'development' ? console.log : () => {};
 **Issue 1: No test infrastructure.** The project has zero tests. The tsconfig explicitly excludes `**/*.test.ts` suggesting tests were considered but never implemented.
 
 **Proposed Improvement:** Set up:
+
 - **Vitest** (native Vite integration) for unit tests
 - **Testing Library** for component tests
 - At minimum: test the contact form validation logic, data service, and utility functions
 
 **Priority test targets:**
+
 1. `lib/utils.ts` — pure functions, easy to test
 2. `ContactForm` — form validation and submission flow
 3. `ThemeContext` — theme toggling and persistence
@@ -313,22 +334,22 @@ const log = process.env.NODE_ENV === 'development' ? console.log : () => {};
 
 ## 4. Priority Summary
 
-| Priority | Area | Effort | Impact |
-|----------|------|--------|--------|
-| 🔴 High | Remove unused dependencies (bundle size) | Low | High |
-| 🔴 High | Fix `analyze` script (wrong output dir) | Trivial | Medium |
-| 🔴 High | Consolidate duplicate CSS (index.html vs index.css) | Low | Medium |
-| 🟡 Medium | Fix ThemeContext double-initialization bug | Low | Medium |
-| 🟡 Medium | Replace Font Awesome with lucide-react | Medium | Medium |
-| 🟡 Medium | Add ESLint + Prettier | Medium | High (DX) |
-| 🟡 Medium | Fix `createdAt` Date/string mismatch in localStorage | Low | Medium |
-| 🟢 Low | Add test infrastructure (Vitest + Testing Library) | High | High |
-| 🟢 Low | Improve SEO meta tags | Low | Medium |
-| 🟢 Low | Add skip navigation + ARIA landmarks | Low | Medium |
-| 🟢 Low | Separate data definitions from service layer | Medium | Medium |
-| 🟢 Low | Remove static async wrappers for truly static data | Medium | Low |
-| 🟢 Low | Add CSP headers for deployment | Low | Medium |
+| Priority  | Area                                                 | Effort  | Impact    |
+| --------- | ---------------------------------------------------- | ------- | --------- |
+| 🔴 High   | Remove unused dependencies (bundle size)             | Low     | High      |
+| 🔴 High   | Fix `analyze` script (wrong output dir)              | Trivial | Medium    |
+| 🔴 High   | Consolidate duplicate CSS (index.html vs index.css)  | Low     | Medium    |
+| 🟡 Medium | Fix ThemeContext double-initialization bug           | Low     | Medium    |
+| 🟡 Medium | Replace Font Awesome with lucide-react               | Medium  | Medium    |
+| 🟡 Medium | Add ESLint + Prettier                                | Medium  | High (DX) |
+| 🟡 Medium | Fix `createdAt` Date/string mismatch in localStorage | Low     | Medium    |
+| 🟢 Low    | Add test infrastructure (Vitest + Testing Library)   | High    | High      |
+| 🟢 Low    | Improve SEO meta tags                                | Low     | Medium    |
+| 🟢 Low    | Add skip navigation + ARIA landmarks                 | Low     | Medium    |
+| 🟢 Low    | Separate data definitions from service layer         | Medium  | Medium    |
+| 🟢 Low    | Remove static async wrappers for truly static data   | Medium  | Low       |
+| 🟢 Low    | Add CSP headers for deployment                       | Low     | Medium    |
 
 ---
 
-*This analysis is intended as a roadmap for future improvements. No changes have been made to the codebase.*
+_This analysis is intended as a roadmap for future improvements. No changes have been made to the codebase._

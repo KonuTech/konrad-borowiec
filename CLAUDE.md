@@ -9,6 +9,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 ## Development Commands
 
 ### Static App Development
+
 - `npm run dev` - Start Vite development server on host 0.0.0.0 (accessible externally)
 - `npm run build` - Build static application for production to `build/` directory
 - `npm run preview` - Preview production build locally
@@ -16,10 +17,12 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 - `npm run analyze` - Build and analyze bundle size (Note: script references `dist` but actual output is `build/`)
 
 ### Testing Static Build
+
 - `docker run --rm -v $(pwd):/app -w /app node:18-alpine npm run build` - Build with Docker
 - `docker run --rm -d -p 8080:80 -v $(pwd)/build:/usr/share/nginx/html --name portfolio-preview nginx:alpine` - Serve static build with nginx for testing
 
 ### Environment Setup
+
 - No external dependencies or backend services required
 - Development server runs on port specified by Vite (default 5173)
 - Production build outputs to `build/` directory
@@ -28,6 +31,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 ## Architecture Overview
 
 ### Project Structure
+
 - `client/` - React frontend application (Vite + TypeScript + Tailwind CSS)
 - `shared/` - Shared TypeScript types and Zod validation schemas
 - `assets/` - Static assets (images, documents) copied to build output
@@ -38,6 +42,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 **Frontend-Only Static App**: No backend server required. All data is provided through static data services that simulate API responses using in-memory data.
 
 **Component Architecture**: React components organized by feature areas:
+
 - `components/about/` - About section components (Timeline, TechStack)
 - `components/books/` - Book-related components with reading list functionality
 - `components/contact/` - Contact form (saves to localStorage for demo purposes)
@@ -46,11 +51,13 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 - `components/ui/` - Reusable UI components (shadcn/ui based)
 
 **Static Data Layer**: Replaces backend API with static data services:
+
 - `client/src/data/data.ts` - Central data source with projects, books, and images
 - `client/src/lib/staticApi.ts` - API compatibility layer that maps old API calls to static data
 - All data operations return Promises to maintain async API compatibility
 
 **Styling System**:
+
 - Tailwind CSS for utility-first styling
 - shadcn/ui component library for consistent UI components
 - Dark mode support via ThemeContext
@@ -71,6 +78,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 ## Key Dependencies to Know
 
 **Frontend Stack**:
+
 - React 18 + TypeScript
 - Vite for bundling and development
 - Tailwind CSS + shadcn/ui for styling
@@ -79,6 +87,7 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 - React Hook Form + Zod for form validation
 
 **Development Tools**:
+
 - Vite for bundling and hot reloading
 - TypeScript for type checking
 - PostCSS + Autoprefixer for CSS processing
@@ -96,21 +105,25 @@ This is Konrad Borowiec's personal portfolio website built as a frontend-only st
 ## Static Data Architecture
 
 ### Data Sources
+
 - **Projects**: Defined in `projects` array with project details and cover images
 - **Books**: Reading list with covers, status (read/to-read), and reviews in `books` array
 - **Images**: Static arrays of image paths for motorcycle and cycling galleries (`motorcycleImages`, `cyclingImages`)
 - **Contacts**: Stored in localStorage via `dataService.createContact()`
 
 ### API Compatibility Layer
+
 The `staticApi.ts` provides backward compatibility with the original API structure:
+
 ```typescript
 // Original API calls still work
-await api.projects.getAll()
-await api.books.getAll()
-await api.contact.create(contactData)
+await api.projects.getAll();
+await api.books.getAll();
+await api.contact.create(contactData);
 ```
 
 ### Asset Management
+
 - Source assets in `assets/` directory are copied to build output
 - Image paths in mock data use `/pictures/` prefix for static serving
 - All asset references are validated against actual files in `assets/` directory
@@ -118,6 +131,7 @@ await api.contact.create(contactData)
 ## Deployment for Static Hosting
 
 ### Build Output Structure
+
 ```
 build/
 ├── index.html          # Main HTML file
@@ -128,12 +142,14 @@ build/
 ```
 
 ### Deployment Platforms
+
 - **Azure Static Web Apps**: Primary deployment target
 - **Netlify**: Alternative static hosting
 - **Vercel**: Alternative static hosting
 - **GitHub Pages**: Alternative static hosting
 
 ### Azure Static Web Apps Configuration
+
 - Build command: `npm run build`
 - Build output directory: `build`
 - No API or backend configuration required
@@ -145,6 +161,7 @@ build/
 This application was migrated from a full-stack Express.js + React application to a frontend-only static app:
 
 ### Changes Made
+
 1. **Removed Express.js backend** and all server-side dependencies
 2. **Created static data services** to replace API calls
 3. **Updated package.json** to remove server scripts and dependencies
@@ -153,6 +170,7 @@ This application was migrated from a full-stack Express.js + React application t
 6. **Updated contact form** to use localStorage instead of backend storage
 
 ### Backward Compatibility
+
 - Component interfaces remain unchanged
 - Async patterns preserved with Promise-based static data services
 - Type definitions maintained via shared types
@@ -160,18 +178,21 @@ This application was migrated from a full-stack Express.js + React application t
 ## Important File Locations
 
 ### Core Static Architecture
+
 - `client/src/data/data.ts` - Central static data source and service layer
 - `client/src/lib/staticApi.ts` - API compatibility layer for static data
 - `client/src/components/contact/ContactForm.tsx` - Updated to use localStorage
 - `vite.config.ts` - Static build configuration
 
 ### Component Updates
+
 - `client/src/components/projects/ProjectsSection.tsx` - Uses useState/useEffect instead of React Query
 - `client/src/components/books/BooksSection.tsx` - Uses useState/useEffect instead of React Query
 - `client/src/components/interests/InterestsSection.tsx` - Uses static image arrays
 - `client/src/App.tsx` - Removed QueryClientProvider wrapper
 
 ### Build Configuration
+
 - `package.json` - Updated scripts for static development
 - `vite.config.ts` - Configured for static build output to `build/` directory
 - `tsconfig.json` - TypeScript configuration for client-only build

@@ -1,0 +1,41 @@
+cd ~/ollama-modelfiles
+nano Modelfile
+
+# CPU heavy
+
+FROM qwen3.6:latest
+
+# --- Context window (keep as needed, but note tradeoff) ---
+# Large context = higher VRAM + slower attention
+PARAMETER num_ctx 24576
+
+# --- FULL GPU OFFLOAD (critical fix) ---
+# -1 means: offload as many layers as possible to GPU
+# This is what you actually want for performance
+PARAMETER num_gpu -1
+
+# --- CPU threads (only for orchestration, not inference) ---
+# Keep moderate; CPU is not the bottleneck for GPU models
+PARAMETER num_thread 8
+
+# --- Prompt processing batch size ---
+# Higher helps prompt ingestion, not generation speed
+PARAMETER num_batch 512
+
+# --- Sampling (good stability for coding) ---
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.1
+
+ollama create qwen3-analysis -f Modelfile
+
+sudo tcpdump -i lo port 11434 -A -s 0
+
+time ollama run qwen3-analysis "Explain in detail how a modern operating system schedules processes, including threads, context switching, and CPU affinity. Provide examples in Linux."
+
+
+curl http://localhost:11434/api/generate -d '{
+  "model": "qwen3-analysis",
+  "prompt": "Explain in detail how a modern operating system schedules processes, including threads, context switching, and CPU affinity. Provide examples in Linux.",
+  "stream": true
+}'

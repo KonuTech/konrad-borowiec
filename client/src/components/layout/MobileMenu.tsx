@@ -8,18 +8,20 @@ interface MobileMenuProps {
 
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
-  
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+
+  const handleLinkClick = (_e: React.MouseEvent<HTMLAnchorElement>) => {
     onClose();
   };
 
   return (
-    <div className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-portfolio-darker shadow-md py-4 animate-slide-down ${isOpen ? 'block' : 'hidden'}`}>
-      <ul className="flex flex-col space-y-4 px-4 font-nunito font-semibold text-sm text-portfolio-text dark:text-portfolio-lighter">
+    <div
+      className={`animate-slide-down absolute left-0 top-full w-full bg-white py-4 shadow-md dark:bg-portfolio-darker md:hidden ${isOpen ? 'block' : 'hidden'}`}
+    >
+      <ul className="font-nunito flex flex-col space-y-4 px-4 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
         <li>
           <a
             href="#home"
-            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
             Home
@@ -28,7 +30,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <li>
           <a
             href="#about"
-            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
             About
@@ -37,7 +39,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <li>
           <a
             href="#projects"
-            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
             Projects
@@ -46,7 +48,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <li>
           <a
             href="#books"
-            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
             Books
@@ -55,7 +57,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <li>
           <a
             href="#interests"
-            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
             Interests
@@ -64,31 +66,46 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <li>
           <a
             href="#contact"
-            className="block py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark hover:text-portfolio-primary dark:hover:text-white rounded-lg transition-colors duration-300"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
             Contact Me
           </a>
         </li>
         <li className="flex space-x-4 px-4 pt-2">
-          <a href="https://github.com/konutech" target="_blank" rel="noopener noreferrer"
-            className="text-lg hover:text-portfolio-primary transition-colors duration-300" aria-label="GitHub">
+          <a
+            href="https://github.com/konutech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg transition-colors duration-300 hover:text-portfolio-primary"
+            aria-label="GitHub"
+          >
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/32167" target="_blank" rel="noopener noreferrer"
-            className="text-lg hover:text-portfolio-primary transition-colors duration-300" aria-label="LinkedIn">
+          <a
+            href="https://linkedin.com/in/32167"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg transition-colors duration-300 hover:text-portfolio-primary"
+            aria-label="LinkedIn"
+          >
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="https://credly.com/users/konrad-borowiec/badges" target="_blank" rel="noopener noreferrer"
-            className="text-lg hover:text-portfolio-primary transition-colors duration-300" aria-label="Credly">
+          <a
+            href="https://credly.com/users/konrad-borowiec/badges"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg transition-colors duration-300 hover:text-portfolio-primary"
+            aria-label="Credly"
+          >
             <i className="fas fa-certificate"></i>
           </a>
         </li>
 
         {/* Dark Mode Toggle for Mobile */}
-        <li className="mt-4 border-t border-portfolio-lightest dark:border-portfolio-dark pt-4">
+        <li className="mt-4 border-t border-portfolio-lightest pt-4 dark:border-portfolio-dark">
           <button
-            className="w-full flex items-center justify-between py-2 px-4 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark rounded-lg transition-colors duration-300"
+            className="flex w-full items-center justify-between rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark"
             onClick={(e) => {
               e.preventDefault();
               toggleDarkMode();

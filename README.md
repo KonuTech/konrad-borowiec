@@ -20,22 +20,26 @@ The portfolio is deployed on Azure Static Web Apps and automatically updates via
 ## 🛠️ Tech Stack
 
 ### **Frontend Framework**
+
 - **React 18** - Modern React with hooks and functional components
 - **TypeScript** - Type-safe development with enhanced tooling
 - **Vite** - Fast build tool and development server
 
 ### **Styling & UI**
+
 - **Tailwind CSS** - Utility-first CSS framework
 - **shadcn/ui** - High-quality, accessible UI components
 - **Radix UI** - Unstyled, accessible component primitives
 - **Framer Motion** - Smooth animations and transitions
 
 ### **Routing & Forms**
+
 - **Wouter** - Lightweight client-side routing
 - **React Hook Form** - Performant forms with easy validation
 - **Zod** - TypeScript-first schema validation
 
 ### **Development Tools**
+
 - **PostCSS** - CSS processing with Autoprefixer
 - **Class Variance Authority** - Utility for creating component variants
 - **Lucide React** - Beautiful, customizable icons
@@ -69,23 +73,27 @@ The portfolio is deployed on Azure Static Web Apps and automatically updates via
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - **Node.js** 18+
 - **npm** or **yarn**
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/KonuTech/konrad-borowiec.git
    cd konrad-borowiec
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -97,32 +105,37 @@ The portfolio is deployed on Azure Static Web Apps and automatically updates via
 
 ## 📜 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build for production to `build/` directory |
-| `npm run preview` | Preview production build locally |
-| `npm run check` | Run TypeScript type checking |
-| `npm run analyze` | Build and analyze bundle size |
+| Command           | Description                                |
+| ----------------- | ------------------------------------------ |
+| `npm run dev`     | Start development server with hot reload   |
+| `npm run build`   | Build for production to `build/` directory |
+| `npm run preview` | Preview production build locally           |
+| `npm run check`   | Run TypeScript type checking               |
+| `npm run analyze` | Build and analyze bundle size              |
 
 ## 🏗️ Architecture
 
 ### **Frontend-Only Static Application**
+
 This portfolio is built as a pure frontend application with no backend dependencies. All data is managed through static data services that simulate API responses.
 
 ### **Static Data Layer**
+
 - **`client/src/data/data.ts`** - Central data source for projects, books, and images
 - **`client/src/lib/staticApi.ts`** - API compatibility layer for seamless data access
 - **localStorage** - Contact form submissions persistence
 
 ### **Component Architecture**
+
 Components are organized by feature and follow React best practices:
+
 - Functional components with hooks
 - TypeScript for type safety
 - Props interfaces for clear contracts
 - Consistent styling with Tailwind CSS
 
 ### **State Management**
+
 - **React Context** - Theme state (dark/light mode)
 - **useState/useEffect** - Local component state
 - **React Hook Form** - Form state management
@@ -131,31 +144,40 @@ Components are organized by feature and follow React best practices:
 ## 🎨 Styling System
 
 ### **Design Tokens**
+
 Custom theme configuration via `theme.json` with consistent color palette:
+
 - Primary: `#4A90E2` (Professional blue)
 - Gradient: Primary → Light → Accent variations
 - Typography: Nunito and Lato font families
 
 ### **Responsive Design**
+
 Mobile-first approach with Tailwind breakpoints:
+
 - `sm`: 640px and up
 - `md`: 768px and up
 - `lg`: 1024px and up
 - `xl`: 1280px and up
 
 ### **Dark Mode**
+
 System-aware dark mode with smooth transitions and optimized contrast ratios.
 
 ## 📦 Deployment
 
 ### **Azure Static Web Apps** (Primary)
+
 Automatically deployed via GitHub Actions workflow:
+
 - **Build Command**: `npm run build`
 - **Output Directory**: `build/`
 - **Workflow**: `.github/workflows/azure-static-web-apps-*.yml`
 
 ### **Alternative Hosting**
+
 The static build works with any hosting platform:
+
 - **Netlify**: Drop `build/` folder or connect GitHub
 - **Vercel**: Import GitHub repository
 - **GitHub Pages**: Upload `build/` contents
@@ -166,6 +188,7 @@ The static build works with any hosting platform:
 ### **Adding New Content**
 
 **Projects**: Update `projects` array in `client/src/data/data.ts`
+
 ```typescript
 {
   id: 5,
@@ -178,6 +201,7 @@ The static build works with any hosting platform:
 ```
 
 **Books**: Update `books` array in `client/src/data/data.ts` with reading status
+
 ```typescript
 {
   id: 10,
@@ -215,16 +239,20 @@ docker run --rm -d -p 8080:80 \
 ## 📈 Performance
 
 ### **Optimizations**
+
 - **Tree Shaking**: Unused code elimination
 - **Code Splitting**: Lazy loading with Vite
 - **Asset Optimization**: Compressed images and fonts
 - **CSS Purging**: Unused styles removed in production
 
 ### **Bundle Analysis**
+
 ```bash
 npm run analyze
 ```
+
 Current bundle sizes (gzipped):
+
 - **JavaScript**: ~114 KB
 - **CSS**: ~13 KB
 - **Total First Load**: ~127 KB
@@ -234,6 +262,7 @@ Current bundle sizes (gzipped):
 This project was migrated from a full-stack Express.js application to a frontend-only static web app:
 
 ### **Migration Benefits**
+
 - ✅ **Simplified Deployment**: No server management required
 - ✅ **Better Performance**: CDN-optimized static assets
 - ✅ **Cost Effective**: Free hosting on static platforms
@@ -241,6 +270,7 @@ This project was migrated from a full-stack Express.js application to a frontend
 - ✅ **Easy Scaling**: Automatic CDN distribution
 
 ### **Backward Compatibility**
+
 - Component interfaces preserved
 - Async data patterns maintained
 - Type definitions unchanged
