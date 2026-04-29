@@ -1,0 +1,53 @@
+find /mnt/c -type f -name "*.gguf" 2>/dev/null
+/mnt/c/Program Files/LM Studio/resources/app/.webpack/bin/bundled-models/nomic-ai/nomic-embed-text-v1.5-GGUF/nomic-embed-text-v1.5.Q4_K_M.gguf
+/mnt/c/Users/borow/.lmstudio/.internal/bundled-models/nomic-ai/nomic-embed-text-v1.5-GGUF/nomic-embed-text-v1.5.Q4_K_M.gguf
+/mnt/c/Users/borow/.lmstudio/models/lmstudio-community/Qwen3.6-27B-GGUF/mmproj-Qwen3.6-27B-BF16.gguf
+/mnt/c/Users/borow/.lmstudio/models/lmstudio-community/Qwen3.6-27B-GGUF/Qwen3.6-27B-Q4_K_M.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-aquila.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-baichuan.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-bert-bge.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-command-r.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-deepseek-coder.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-deepseek-llm.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-falcon.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-gemma-4.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-gpt-2.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-gpt-neox.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-llama-bpe.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-llama-spm.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-mpt.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-nomic-bert-moe.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-phi-3.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-qwen2.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-refact.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/models/ggml-vocab-starcoder.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/llama.cpp/qwen3.6.gguf
+/mnt/c/Users/borow/VSC/projects/konrad-borowiec/Qwen3.6-27B-Q4_K_M.gguf
+
+
+cd llama.cpp
+
+./build/bin/llama-cli \
+  -m ~/models/Qwen3.6-27B-Q4_K_M.gguf \
+  -ngl 999 \
+  -t 16 \
+  -c 8192 \
+  --temp 0.2 \
+  --top-p 0.9
+
+
+./build/bin/llama-cli \
+  -m /mnt/c/Users/borow/.lmstudio/models/lmstudio-community/Qwen3.6-27B-GGUF/Qwen3.6-27B-Q4_K_M.gguf \
+  -ngl 999 \
+  -t 16 \
+  -c 8192 \
+  --temp 0.2 \
+  --top-p 0.9 \
+  -p "You are a senior software engineering assistant. You write production-grade code only. Follow these rules:
+- Output ONLY code unless explanation is requested
+- Prefer Python, TypeScript, C++
+- Ask clarifying questions if requirements are unclear
+- Keep solutions minimal, correct, and idiomatic
+
+User:"
+
