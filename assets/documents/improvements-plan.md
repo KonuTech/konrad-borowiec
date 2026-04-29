@@ -442,7 +442,7 @@ No Content Security Policy is configured. Static sites benefit from CSP headers 
 ## Progress Tracking
 
 ### Phase 1: Quick Wins
-- [ ] 1.1 Remove Unused Dependencies
+- [x] 1.1 Remove Unused Dependencies
 - [ ] 1.2 Fix `analyze` Script
 - [ ] 1.3 Consolidate Duplicate CSS
 
