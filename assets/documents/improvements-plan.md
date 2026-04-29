@@ -443,11 +443,11 @@ No Content Security Policy is configured. Static sites benefit from CSP headers 
 
 ### Phase 1: Quick Wins
 - [x] 1.1 Remove Unused Dependencies
-- [ ] 1.2 Fix `analyze` Script
-- [ ] 1.3 Consolidate Duplicate CSS
-
+- [x] 1.2 Fix `analyze` Script
+- [x] 1.3 Consolidate Duplicate CSS
+ 
 ### Phase 2: Core Fixes
-- [ ] 2.1 Fix ThemeContext Double-Initialization Bug
+- [x] 2.1 Fix ThemeContext Double-Initialization Bug
 - [ ] 2.2 Replace Font Awesome with lucide-react
 - [ ] 2.3 Add ESLint + Prettier
 - [ ] 2.4 Fix `createdAt` Date/String Mismatch

@@ -16,7 +16,6 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
-  const [initialized, setInitialized] = useState<boolean>(false);
 
   // Apply the dark mode class to the document
   const applyDarkMode = (isDark: boolean) => {
@@ -28,11 +27,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     return isDark;
   };
 
-  // Initial setup
+  // Initial setup — runs exactly once on mount
   useEffect(() => {
-    // Prevent double initialization
-    if (initialized) return;
-
     // Check localStorage first
     const storedPreference = localStorage.getItem('darkMode');
     
@@ -46,11 +42,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
       setDarkMode(applyDarkMode(prefersDark));
     }
     
-    setInitialized(true);
-    
     // Debug
     console.log('Dark mode initialized');
-  }, [initialized]);
+  }, []);
 
   // Listen for system preference changes
   useEffect(() => {
