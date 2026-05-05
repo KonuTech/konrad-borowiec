@@ -36,11 +36,13 @@
     "ctaContact": "Skontaktuj się"
   },
   "about": {
-    "title": "O mnie",
+    "title": "Experience & Education",
     "description": "Jestem pasjonatem danych z doświadczeniem w budowaniu solidnych rurociągów danych i rozwiązań analitycznych.",
     "experience": "Doświadczenie",
     "skills": "Umiejętności",
-    "education": "Edukacja"
+    "education": "Edukacja",
+    "bio1": "Jestem 'Data Guy' z silnym doświadczeniem w sektorze usług finansowych. Najwięcej czerpię przyjemności z pracy, kiedy narzędzia i rozwiązania, które tworzę, są aktywnie używane przez innych ludzi lub biznesy. Z biegłością w SQL, Pythonie i różnych technologiach przetwarzania danych, skupiam się na projektowaniu wydajnych rurociągów danych i wyciąganiu cennych wniosków.",
+    "bio2": "Moja podróż rozpoczęła się w finansach i analityce, ewoluując w bardziej techniczną rolę specjalizującą się w inżynierii danych, przetwarzaniu dużych zbiorów danych i uczeniu maszynowym. Czerpię przyjemność z rozwiązywania złożonych wyzwań danych i budowania solidnych, niezawodnych rozwiązań."
   },
   "timeline": {
     "title": "Moja Podróż",
@@ -48,7 +50,26 @@
       "year": "{year}",
       "title": "{title}",
       "description": "{description}"
-    }
+    },
+    "items.0": "Obsługa produkcyjnej infrastruktury danych napędzającej analitykę dla klientów e-commerce, przetwarzanie danych z wielu platform do jednolitego magazynu BigQuery koordynowanego przez Apache Airflow. Użycie Apache Superset jako rozwiązania BI.\n\n• Rozwinął niestandardowe połączenie Apache Airflow dla Magento 2 z uwierzytelnianiem OAuth 1.0a (HMAC-SHA256), generatorową paginacją i logiką ponawiania z wykładniczym opóźnieniem na wielu endpointach REST API. Wyeksportował rekordy do GCS jako NDJSON z codziennym ładowaniem do BigQuery.\n\n• Zaprojektował ETL Google Ads łączący Google Ads API z BigQuery przez GCS staging. Stworzył analityczne tabele mapujące wydatki Google Ads na rzeczywistą stan towaru klienta e-commerce do wyświetlania w Apache Superset. Wykorzystał dynamiczne szablony daty Jinja2 z inteligentnymi oknami lookback do właściwego radzenia sobie z późnymi przybyciami i deduplikacją.\n\n• Dołączył klientów e-commerce do platformy danych sterowanej konfiguracją. Wykorzystał framework generujący DAG-y z YAML do dynamicznego tworzenia Airflow DAG z deklaracyjnych konfiguracji klientów.\n\n• Wykonał zero-downtime migrację Klaviyo API revision przełamując wieloletnią lukę revision. Zaplanował i uruchomił automatyczne testy walidacyjne dla wielu kategorii (uwierzytelnianie, schematy subskrypcji, pola marketingowe, struktury zdarzeń, filtry kampanii, paginacja flow, typy metryk), potwierdzając zero breaking changes.\n\n• Rozwinął niestandardowy dbt macro do normalizacji tekstu Unicode do rozwiązania problemów mapowania ID produktów i deduplikacji spowodowanych znakami specjalnymi (polskie, rosyjskie i inne nieliteralne znaki ASCII) w URLach produktów e-commerce. Standaryzował parsowanie URL na jednolitym schemacie ECOM obejmującym cztery platformy (np. Shopify, Shoper, WooCommerce, Magento), umożliwiając niezawodne deduplikowanie międzyplatformowe.\n\n• Wykorzystał REST API Superset przez Superset MCP do programowego zapytywania konfiguracji dashboardów i wykresów do automatycznych śledztw linii danych i kolejnych napraw.\n\n• Zachowywał rygorystyczne standardy jakości tworząc kompleksowe zestawy walidacyjne dla każdej tabeli i rurociągu. Autor testów SQL obejmujących spójność międzywarstwową (staging przez transformed), analizę NULL-rate na wymaganych polach, unikalność klucza surrogata, integralność referencyjną i porównanie outputu starego-vs-nowego API.\n\n• Rurociąg GISCO Eurostat Geospatial: Zaprojektował i wdrożył end-to-end ETL integrujący dane geospatialne Eurostat GISCO do platformy danych Airflow firmy. Zbudował niestandardowy plugin Airflow (operator + hook) pobierający ok. 815 000 kodów pocztowych UE i 1 211 wielokątów NUTS3 z API GISCO, stawiający je jako NDJSON w Google Cloud Storage i ładujący do BigQuery. Zaimplementował ijson streaming do obsługi 350 MB GeoJSON kodów pocztowych w limitach pamięci kontenera. Stworzył dbt source i transformed models z pełną hierarchią NUTS (kraj/NUTS1/NUTS2/NUTS3). Zarejestrował rurociąg w frameworku generatora DAG do automatycznego wdrażania między środowiskami. Dane służą mapowym wizualizacjom Superset dla 31 krajów UE/EEA/EFTA.\n\n• Backfill & Migracja Schematu Kanału Sprzedaży: Przewodził inicjatywie backfillu danych do integracji historycznych danych zamówień z aplikacji mobilnej w analitycznym rurociągu głównego klienta e-commerce. Rozszerzył schemat BigQuery staging i dbt models (warstwy source i transformed) do pomieszczenia nowej kolumny kanału sprzedaży, umożliwiając filtrowanie między zamówieniami webowymi a aplikacyjnymi na wszystkich warstwach raportowych. Zarządzał kompatybilnością wsteczną dla 2+ lat historycznych plików CSV brakujących nowej kolumny zapewniając bezproblemową ingestję nowych plików zawierających oba typy kanałów. Skoordynował zmiany schematu między GCS-to-BQ ingestion, dbt incremental models i downstream Superset dashboards.",
+    "items.1": "Wsparciowa rola w rozwoju aplikacji Oracle APEX. Współpraca z analitykami biznesowymi do wspomagania rozwoju narzędzia raportowego dla ESRS (Europejskie Standardy Raportowania Zrównoważonego Rozwoju). Zaplanował i wdrożył funkcjonalności BI do aplikacji APEX używając PL/SQL. Wykonał modyfikacje do modelu raportowania gdy potrzebne. Wykorzystał PL/SQL do generowania wyświetlanych raportów. Wnosił pomysły i dostarczał feedback stosując swoją wiedzę i umiejętności w zadaniach raportowych.",
+    "items.2": "Zależnie od skali analityki, raportowanie danych krajowych używając Oracle SQL lub Oracle PL/SQL. Rozwój aplikacji PoC do obliczania i wizualizacji najbliższych tras między kontrolowaną jednostką a dziesięcioma najbliższymi kontrolerami (pracownicy sektora publicznego). Problem grafowy na skali big data. Użyto Pythona i SQL.",
+    "items.3": "Rozwój ELT rurociągów danych dla Open Banking. Włączając spłaszczanie, deduplikację i normalizację źródła JSON do tabel Hive. Przetwarzanie zarówno półstrukturowanych jak i strukturyzowanych danych. Technologie użyte: MongoDB, HDFS, HiveSQL, Python, Airflow i GitLab dla CICD. Ad-hoc analityka aktywności klientów w Open Banking.",
+    "items.4": "Rozwój rozwiązań przetwarzania danych batch dla jednego z największych banków w Polsce. ELT procesy dla Data Lake zaprojektowane używając Airflow, Python, PySpark i Hive w on-premise Cloudera Data Platform. Rozwój i operationalizacja klasyfikatora powiązanego z churnem dla firmy ubezpieczeniowej. Dodano funkcjonalności do scoringu i monitoringowania nowych danych. Rozwój i operationalizacja klasyfikatorów dla firmy VR training. Projekt i rozwój demo dashboardu HR z użyciem SAS Viya.",
+    "items.5": "Tester tabel outputowych tworzonych przez SAS Developers. Obsługa dokumentacji w Obszarze Ubezpieczeń Mienia.",
+    "items.6": "Współodpowiedzialny za migrację raportów SAS Visual Analytics do środowiska SAS Viya dla największej firmy ubezpieczeniowej w Polsce. Zadania obejmowały importowanie dashboardów do Viya, naprawę schematów XML, prze projektowanie layoutów dashboardów do ulepszonego UX, tworzenie globalnych Themes, rozwijanie XML/HTML form i przetwarzanie plików JSON używając Pythona.",
+    "items.7": "Jako konsultant w dużej polskiej firmie telekomunikacyjnej, brał udział w projektach do upgrade procesu recalkulacji data mart. Rozwinął produkcyjne skrypty SAS skupiające się na 4GL i SQL do przetwarzania danych. Obsługiwał zbieranie danych i segmentację używając Pythona. Wnosił do rozwoju dashboardów używając Shiny i Tableau.",
+    "items.8": "Skonsolidował i uproszczył raportowanie regulacyjne finansowe używając SAS 4GL i SQL. Rozwinął raporty używając SAP BO, SAS EG i SAS VA. Wykorzystał Stored Processes dla user self-service. Uznany za top dashboard developer i sklasyfikowany w dziesiątce w internal competition projektując optymalne binary classifiers z danymi klientów.",
+    "items.9": "Automatyzacja raportowania używając SAS Guide i SAS VA. Rozwój dashboardów do oceny wydajności oddziałów bankowych, ułatwiając statystyczną i wizualną analitykę wydanych pożyczek.",
+    "items.10": "Przetwarzanie danych finansowych, aktualizacja stanów finansowych i wsparcie migracji danych między bazami danych.",
+    "items.11": "Wsparcie rozwoju predykcyjnego modelu używanego do szacowania parametru LGD w Valuation Standards and Reporting Team.",
+    "items.12": "Podyplomowe studia z Inżynierii Dużych Zbiorów Danych. Rozwój systemu rekomendacji filmów używając Pythona dla end project.",
+    "items.13": "Podyplomowe studia. Ocena Reject Inference metod zaimplementowanych w SAS Enterprise Miner z użyciem credit scorecard modeli zbudowanych na losowo wygenerowanych danych portfela finansowego konsumenta.",
+    "items.14": "Specjalizacja w Międzynarodowych Rynkach Finansowych. Praca dyplomowa: Użycie modelu regresji logistycznej do szacowania prawdopodobieństwa korekty polskiego rachunku bieżącego bazując na determinantach polskiego bilansu płatniczego.",
+    "items.15": "Program wymiany studenckiej.",
+    "items.16": "Analiza budżetu państwa w 2006-2010.",
+    "items.17": "",
+    "items.18": ""
   },
   "projects": {
     "title": "Moje Projekty",
@@ -77,6 +98,40 @@
       "photography": "Inżynieria analityczna i technologia",
       "history": "Historia, architektura i ekonomia",
       "financial": "Rynki finansowe"
+    },
+    "motorcycling": {
+      "heading": "Motocykle",
+      "description1": "Jestem pasjonatem podążania za swoją pasją do świata na dwóch kółkach. Wycieczki motocyklowe oferują mi idealną mieszankę przygody, wolności i połączenia z naturą.",
+      "description2": "Od krętych górskich dróg do wybrzeżnych autostrad, każda podróż przynosi nowe perspektywy i niezapomniane doświadczenia.",
+      "description3": "Przeglądaj moją galerię zdjęć z niedawnych podróży motocyklowych po pięknych krajobrazach, górskich drogach i trasach wybrzeżnych!"
+    },
+    "cycling": {
+      "heading": "Kolarstwo",
+      "description1": "Kolarstwo to kolejna moja pasja, która pozwala mi pozostać aktywnym podczas odkrywania pięknych krajobrazów.",
+      "description2": "Czy to szybka jazda przez lokalne szlaki, czy wielodniowa wyprawa w okolicach, kolarstwo zapewnia zarówno ćwiczenia fizyczne, jak i odświeżenie umysłu."
+    },
+    "photography": {
+      "heading": "Inżynieria analityczna i technologia",
+      "description1": "Poza moją pracą zawodową, jestem głęboko zainteresowany postępami w dziedzinie inżynierii danych i analityki danych.",
+      "description2": "Czuję przyjemność z pracy z nowoczesnymi platformami danych, eksploracji nowych narzędzi do modelowania danych i transformacji, optymalizacji rurociągów danych oraz eksperymentowania z metodami, które czynią dane bardziej niezawodnymi, skalowalnymi i użytecznymi.",
+      "description3": "Śledzę również najnowsze trendy w infrastrukturze chmurowej, procesach ELT/ETL oraz technikach wizualizacji, aby pozostać na bieżąco w tej dziedzinie.",
+      "description4": "Moja lista książek technicznych odzwierciedla tę pasję, ponieważ stale szukam sposobów na poszerzenie swojej wiedzy i umiejętności w tych szybko ewoluujących obszarach."
+    },
+    "history": {
+      "heading": "Historia, architektura i ekonomia",
+      "description1": "Mam głębokie zainteresowanie historią, architekturą i ekonomią, które w dużej mierze wpływają na to, jak odkrywam świat.",
+      "description2": "Nauczanie się o różnych cywilizacjach, ich osiągnięciach architektonicznych i systemach gospodarczych pomaga mi zrozumieć ewolucję ludzkiego społeczeństwa i kultury.",
+      "description3": "Te zainteresowania są w rzeczywistości napędzającą siłą moich motocyklowych podróży i przygód kolarskich. Pozwalają mi bezpośrednio doświadczać historycznych miejsc, cenić różnorodne style architektoniczne i obserwować różnice gospodarcze między regionami — tworząc głębsze połączenie z miejscami, które odwiedzam."
+    },
+    "financial": {
+      "heading": "Rynki finansowe",
+      "description1": "Moja podróż na rynkach finansowych odzwierciedla przemyśloną, długoterminową podejście inwestycyjne, a nie krótkoterminową handlową.",
+      "description2": "Zaczynając kilka lat temu, zbudowałem fundamenty z konserwatywnych instrumentów takich jak obligacje antyinflacyjne i ETF-y, stopniowo rozszerzając się o dywidendowe polskie akcje.",
+      "description3": "Obecnie utrzymuję zdywersyfikowany portfel na obu polskim i amerykańskim rynkach, stosując systematyczną strategię inwestycyjną, która przyniosła zadowalające wyniki.",
+      "description4": "To praktyczne doświadczenie dostarczyło cennych wniosków o dynamice rynkowe i zasadach inwestycyjnych.",
+      "description5": "Dla osób zainteresowanych budowaniem swojej wiedzy inwestycyjnej, szczególnie dla polskojęzycznych, polecam",
+      "recommendation": "inwestomat.eu",
+      "recommendationDesc": "- wyjątkowy zasób, który oferuje finansowe oświatę na poziomie uniwersyteckim w dostępnym formacie."
     }
   },
   "contact": {

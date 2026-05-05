@@ -335,7 +335,10 @@ const Timeline: FC = () => {
         {sortedTimelineItems.map((item, index) => (
           <TimelineItem
             key={index}
-            item={item}
+            item={{
+              ...item,
+              description: t(`timeline.items.${index}`) || item.description,
+            }}
             isLast={index === sortedTimelineItems.length - 1}
             isActive={activeIndex === index}
             onClick={() => toggleItem(index)}

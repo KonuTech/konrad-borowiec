@@ -57,14 +57,13 @@ const InterestsSection: FC = () => {
                 {t('interests.categories.motorcycling')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                I'm passionate about exploring the world on two wheels. Motorcycle road trips offer
-                me the perfect blend of adventure, freedom, and connection with nature. From winding
-                mountain roads to coastal highways, each journey brings new perspectives and
-                unforgettable experiences.
+                {t('interests.motorcycling.description1')}
               </p>
               <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                Browse through my photo gallery from recent motorcycle journeys across beautiful
-                landscapes, mountain roads, and coastal routes!
+                {t('interests.motorcycling.description2')}
+              </p>
+              <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.motorcycling.description3')}
               </p>
             </div>
 
@@ -73,10 +72,10 @@ const InterestsSection: FC = () => {
                 {t('interests.categories.cycling')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                Cycling is another passion of mine that allows me to stay active while exploring
-                beautiful landscapes. Whether it's a quick ride through local trails or a day-long
-                excursion in the countryside, cycling provides both physical exercise and mental
-                refreshment.
+                {t('interests.cycling.description1')}
+              </p>
+              <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.cycling.description2')}
               </p>
             </div>
 
@@ -85,16 +84,16 @@ const InterestsSection: FC = () => {
                 {t('interests.categories.photography')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                Beyond my professional work, I'm deeply interested in the advancements in data
-                engineering and analytics engineering. I enjoy working with modern data platforms,
-                exploring new tools for data modeling and transformation, optimizing data pipelines,
-                and experimenting with ways to make data more reliable, scalable, and actionable. I
-                also keep up with the latest trends in cloud data infrastructure, ELT/ETL processes,
-                and visualization techniques to stay current in the field.
+                {t('interests.photography.description1')}
               </p>
               <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                My technical reading list reflects this passion, as I constantly seek to expand my
-                knowledge and skills in these rapidly evolving areas.
+                {t('interests.photography.description2')}
+              </p>
+              <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.photography.description3')}
+              </p>
+              <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.photography.description4')}
               </p>
             </div>
 
@@ -103,16 +102,13 @@ const InterestsSection: FC = () => {
                 {t('interests.categories.history')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                I have a profound interest in history, architecture, and economics, which greatly
-                influences how I explore the world. Learning about different civilizations, their
-                architectural achievements, and economic systems helps me understand the evolution
-                of human society and culture.
+                {t('interests.history.description1')}
               </p>
               <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                These interests are actually the driving forces behind my motorcycle road trips and
-                cycling adventures. They allow me to directly experience historical sites,
-                appreciate diverse architectural styles, and observe economic differences across
-                regions—creating a deeper connection with the places I visit.
+                {t('interests.history.description2')}
+              </p>
+              <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.history.description3')}
               </p>
             </div>
 
@@ -121,30 +117,28 @@ const InterestsSection: FC = () => {
                 {t('interests.categories.financial')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                My journey in financial markets reflects a thoughtful, long-term investment approach
-                rather than short-term trading. Starting a few years ago, I built a foundation with
-                conservative instruments like anti-inflation bonds and ETFs, gradually expanding
-                into dividend-generating Polish equities.
+                {t('interests.financial.description1')}
               </p>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                Currently, I maintain a diversified portfolio across both Polish and U.S. markets,
-                applying a systematic investment strategy that has yielded satisfactory results.
-                This hands-on experience has provided valuable insights into market dynamics and
-                investment principles.
+                {t('interests.financial.description2')}
+              </p>
+              <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.financial.description3')}
               </p>
               <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
-                For those interested in building their investment knowledge, particularly Polish
-                speakers, I recommend{' '}
+                {t('interests.financial.description4')}
+              </p>
+              <p className="text-justify text-portfolio-text dark:text-portfolio-lighter/90">
+                {t('interests.financial.description5')}{' '}
                 <a
                   href="https://inwestomat.eu/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-portfolio-primary transition-colors hover:text-portfolio-accent"
                 >
-                  inwestomat.eu
+                  {t('interests.financial.recommendation')}
                 </a>
-                - an exceptional resource that offers university-caliber financial education in an
-                accessible format.
+                {t('interests.financial.recommendationDesc')}
               </p>
             </div>
           </motion.div>

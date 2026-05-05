@@ -55,7 +55,6 @@ const AboutSection = () => {
     <section id="about" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          About{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
             {t('about.title')}
           </span>
@@ -76,16 +75,10 @@ const AboutSection = () => {
                 {t('about.experience')}
               </h3>
               <p className="mb-4 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
-                I'm a Data Guy with a strong background in the financial services sector. I enjoy my
-                work the most when the tools and solutions I develop are actively used by other
-                people or businesses. With expertise in SQL, Python, and various data processing
-                technologies, I focus on designing efficient data pipelines and extracting valuable
-                insights.
+                {t('about.bio1')}
               </p>
               <p className="mb-6 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
-                My journey began in finance and analytics, evolving into a more technical role
-                specializing in data engineering, big data processing, and machine learning. I enjoy
-                solving complex data challenges and building robust, reliable solutions.
+                {t('about.bio2')}
               </p>
             </div>
 
