@@ -36,7 +36,8 @@
     "ctaContact": "Skontaktuj się"
   },
   "about": {
-    "title": "Experience & Education",
+    "title": "O mnie",
+    "timelineTitle": "Experience & Education",
     "description": "Jestem pasjonatem danych z doświadczeniem w budowaniu solidnych rurociągów danych i rozwiązań analitycznych.",
     "experience": "Doświadczenie",
     "skills": "Umiejętności",

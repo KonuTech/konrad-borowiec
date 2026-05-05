@@ -108,7 +108,7 @@ const AboutSection = () => {
               className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark"
             >
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                {t('timeline.sectionTitle')}
+                {t('about.timelineTitle')}
               </h3>
               <div className="relative">
                 <div

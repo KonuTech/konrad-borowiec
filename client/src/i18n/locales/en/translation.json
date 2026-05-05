@@ -36,7 +36,8 @@
     "ctaContact": "Contact Me"
   },
   "about": {
-    "title": "Experience & Education",
+    "title": "About Me",
+    "timelineTitle": "Experience & Education",
     "description": "I'm a passionate data professional with expertise in building robust data pipelines and analytics solutions.",
     "experience": "Experience",
     "skills": "Skills",
