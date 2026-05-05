@@ -46,6 +46,7 @@
   },
   "timeline": {
     "title": "Moja Podróż",
+    "sectionTitle": "Doświadczenie i Edukacja",
     "item": {
       "year": "{year}",
       "title": "{title}",
