@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '@/context/ThemeContext';
 
 interface MobileMenuProps {
@@ -8,6 +9,7 @@ interface MobileMenuProps {
 
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   const handleLinkClick = (_e: React.MouseEvent<HTMLAnchorElement>) => {
     onClose();
@@ -24,7 +26,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
-            Home
+            {t('menu.home')}
           </a>
         </li>
         <li>
@@ -33,7 +35,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
-            About
+            {t('menu.about')}
           </a>
         </li>
         <li>
@@ -42,7 +44,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
-            Projects
+            {t('menu.projects')}
           </a>
         </li>
         <li>
@@ -51,7 +53,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
-            Books
+            {t('menu.books')}
           </a>
         </li>
         <li>
@@ -60,7 +62,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
-            Interests
+            {t('menu.interests')}
           </a>
         </li>
         <li>
@@ -69,7 +71,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
           >
-            Contact Me
+            {t('menu.contact')}
           </a>
         </li>
         <li className="flex space-x-4 px-4 pt-2">
@@ -111,7 +113,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               toggleDarkMode();
             }}
           >
-            <span>{darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</span>
+            <span>{darkMode ? t('ui.lightMode') : t('ui.darkMode')}</span>
             <span className="ml-2">
               {darkMode ? (
                 <i className="fas fa-sun text-yellow-500"></i>

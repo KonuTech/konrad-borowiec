@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Timeline from './Timeline';
 import TechStack from './TechStack';
 import ContactInfo from '../contact/ContactInfo';
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
   const [timelineMaxHeight, setTimelineMaxHeight] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -55,7 +57,7 @@ const AboutSection = () => {
         <SectionTitle>
           About{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
-            Me
+            {t('about.title')}
           </span>
         </SectionTitle>
 
@@ -71,7 +73,7 @@ const AboutSection = () => {
           >
             <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                My Journey
+                {t('about.experience')}
               </h3>
               <p className="mb-4 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
                 I'm a Data Guy with a strong background in the financial services sector. I enjoy my
@@ -89,7 +91,7 @@ const AboutSection = () => {
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                Tech Stack
+                {t('about.skills')}
               </h3>
               <TechStack />
             </div>
@@ -113,7 +115,7 @@ const AboutSection = () => {
               className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark"
             >
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                Experience & Education
+                {t('about.title')}
               </h3>
               <div className="relative">
                 <div

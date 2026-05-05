@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ProjectCard from './ProjectCard';
 import { Project } from '@shared/types';
 import { api } from '@/lib/staticApi';
 
 const ProjectsSection = () => {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +34,7 @@ const ProjectsSection = () => {
     <section id="projects" className="bg-white py-20 dark:bg-portfolio-dark md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My side <span className="gradient-text">Projects</span>
+          My side <span className="gradient-text">{t('projects.title')}</span>
         </SectionTitle>
 
         {isLoading ? (
@@ -40,7 +42,7 @@ const ProjectsSection = () => {
             <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-portfolio-primary"></div>
           </div>
         ) : error ? (
-          <div className="text-center text-red-500">Failed to load projects</div>
+          <div className="text-center text-red-500">{t('projects.noProjects')}</div>
         ) : (
           <>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

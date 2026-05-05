@@ -1,9 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { api } from '@/lib/staticApi';
 
 const InterestsSection: FC = () => {
+  const { t } = useTranslation();
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
   const [activeCyclingIndex, setActiveCyclingIndex] = useState(0);
   const [motorcycleImages, setMotorcycleImages] = useState<string[]>([]);
@@ -38,7 +40,7 @@ const InterestsSection: FC = () => {
         <SectionTitle>
           My{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
-            Interests and Hobbies
+            {t('interests.title')}
           </span>
         </SectionTitle>
 
@@ -52,7 +54,7 @@ const InterestsSection: FC = () => {
           >
             <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-4 text-xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-                Motorcycle Road Trips
+                {t('interests.categories.motorcycling')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
                 I'm passionate about exploring the world on two wheels. Motorcycle road trips offer
@@ -68,7 +70,7 @@ const InterestsSection: FC = () => {
 
             <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-4 text-xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-                Cycling
+                {t('interests.categories.cycling')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
                 Cycling is another passion of mine that allows me to stay active while exploring
@@ -80,7 +82,7 @@ const InterestsSection: FC = () => {
 
             <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-4 text-xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-                Analytics Engineering & Technology
+                {t('interests.categories.photography')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
                 Beyond my professional work, I'm deeply interested in the advancements in data
@@ -98,7 +100,7 @@ const InterestsSection: FC = () => {
 
             <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-4 text-xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-                History, Architecture & Economics
+                {t('interests.categories.history')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
                 I have a profound interest in history, architecture, and economics, which greatly
@@ -116,7 +118,7 @@ const InterestsSection: FC = () => {
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-4 text-xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-                Financial Markets
+                {t('interests.categories.financial')}
               </h3>
               <p className="mb-4 text-justify text-portfolio-text dark:text-portfolio-lighter/90">
                 My journey in financial markets reflects a thoughtful, long-term investment approach
@@ -165,7 +167,7 @@ const InterestsSection: FC = () => {
                   }`}
                   onClick={() => setActiveGallery('motorcycle')}
                 >
-                  Motorcycle Gallery
+                  {t('interests.categories.motorcycling')}
                 </button>
                 <button
                   className={`font-nunito px-4 py-2 font-medium transition-all ${
@@ -175,7 +177,7 @@ const InterestsSection: FC = () => {
                   }`}
                   onClick={() => setActiveGallery('cycling')}
                 >
-                  Cycling Gallery
+                  {t('interests.categories.cycling')}
                 </button>
               </div>
 
@@ -252,7 +254,7 @@ const InterestsSection: FC = () => {
             href="#home"
             className="font-nunito inline-flex items-center font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
           >
-            Back to Top <i className="fas fa-arrow-up ml-2"></i>
+            {t('ui.backToTop')} <i className="fas fa-arrow-up ml-2"></i>
           </a>
         </div>
       </div>

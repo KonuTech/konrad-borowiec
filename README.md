@@ -43,6 +43,7 @@ The portfolio is deployed on Azure Static Web Apps and automatically updates via
 - **PostCSS** - CSS processing with Autoprefixer
 - **Class Variance Authority** - Utility for creating component variants
 - **Lucide React** - Beautiful, customizable icons
+- **i18next** - Internationalization framework
 
 ## 📁 Project Structure
 

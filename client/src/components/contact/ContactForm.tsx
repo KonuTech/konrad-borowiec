@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useTranslation } from 'react-i18next';
 import { useToast } from '@/hooks/use-toast';
 import { insertContactSchema } from '@shared/types';
 import { api } from '@/lib/staticApi';
@@ -16,6 +17,7 @@ const contactFormSchema = insertContactSchema.extend({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -38,16 +40,15 @@ const ContactForm = () => {
     try {
       await api.contact.create(data);
       toast({
-        title: 'Message sent!',
-        description: 'Thank you for your message. It has been saved locally for demo purposes.',
+        title: t('toast.sent'),
+        description: t('toast.success'),
         variant: 'default',
       });
       reset();
     } catch (error) {
       toast({
-        title: 'Error',
-        description:
-          error instanceof Error ? error.message : 'Failed to send message. Please try again.',
+        title: t('toast.error'),
+        description: t('toast.failed'),
         variant: 'destructive',
       });
     } finally {
@@ -59,42 +60,42 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-6">
         <label htmlFor="name" className="mb-2 block text-sm font-medium">
-          Your Name
+          {t('contact.labels.name')}
         </label>
         <input
           type="text"
           id="name"
           {...register('name')}
           className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-portfolio-primary dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-portfolio-lighter"
-          placeholder="John Doe"
+          placeholder={t('contact.labels.name')}
         />
         {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
       </div>
 
       <div className="mb-6">
         <label htmlFor="email" className="mb-2 block text-sm font-medium">
-          Your Email
+          {t('contact.labels.email')}
         </label>
         <input
           type="email"
           id="email"
           {...register('email')}
           className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-portfolio-primary dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-portfolio-lighter"
-          placeholder="john@example.com"
+          placeholder={t('contact.labels.email')}
         />
         {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
       </div>
 
       <div className="mb-6">
         <label htmlFor="message" className="mb-2 block text-sm font-medium">
-          Your Message
+          {t('contact.labels.message')}
         </label>
         <textarea
           id="message"
           {...register('message')}
           rows={5}
           className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-portfolio-primary dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-portfolio-lighter"
-          placeholder="I'd like to discuss a project..."
+          placeholder={t('contact.labels.message')}
         ></textarea>
         {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
       </div>
@@ -126,10 +127,10 @@ const ContactForm = () => {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               ></path>
             </svg>
-            Sending...
+            {t('ui.toggle')}
           </span>
         ) : (
-          'Send Message'
+          t('contact.send')
         )}
       </button>
     </form>

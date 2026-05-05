@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
+import { useTranslation } from 'react-i18next';
 import DarkModeToggle from './DarkModeToggle';
 import MobileMenu from './MobileMenu';
+import LanguageSwitcher from '../i18n/LanguageSwitcher';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -32,21 +35,21 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <Link
             href="/"
-            className="font-nunito text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
+            className="font-nunita text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
           >
-            <span className="text-2xl">👨‍💻</span> Konrad Borowiec
+            <span className="text-2xl">👨‍💻</span> {t('footer.logo')}
           </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex">
-          <ul className="font-nunito flex items-center space-x-8 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
+          <ul className="font-nunita flex items-center space-x-8 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
             <li>
               <a
                 href="#home"
                 className="transition-colors duration-300 hover:text-portfolio-primary"
               >
-                Home
+                {t('common.home')}
               </a>
             </li>
             <li>
@@ -54,7 +57,7 @@ const Header = () => {
                 href="#about"
                 className="transition-colors duration-300 hover:text-portfolio-primary"
               >
-                About
+                {t('common.about')}
               </a>
             </li>
             <li>
@@ -62,7 +65,7 @@ const Header = () => {
                 href="#projects"
                 className="transition-colors duration-300 hover:text-portfolio-primary"
               >
-                Projects
+                {t('common.projects')}
               </a>
             </li>
             <li>
@@ -70,7 +73,7 @@ const Header = () => {
                 href="#books"
                 className="transition-colors duration-300 hover:text-portfolio-primary"
               >
-                Books
+                {t('common.books')}
               </a>
             </li>
             <li>
@@ -78,7 +81,7 @@ const Header = () => {
                 href="#interests"
                 className="transition-colors duration-300 hover:text-portfolio-primary"
               >
-                Interests
+                {t('common.interests')}
               </a>
             </li>
             <li>
@@ -86,7 +89,7 @@ const Header = () => {
                 href="#contact"
                 className="transition-colors duration-300 hover:text-portfolio-primary"
               >
-                Contact Me
+                {t('common.contact')}
               </a>
             </li>
             <li>
@@ -121,6 +124,10 @@ const Header = () => {
               >
                 <i className="fas fa-certificate text-lg"></i>
               </a>
+            </li>
+            <li>
+              {/* Language Switcher */}
+              <LanguageSwitcher />
             </li>
           </ul>
         </nav>

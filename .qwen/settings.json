@@ -25,7 +25,11 @@
       "Bash(strictport: *)",
       "Bash(git branch *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git push)",
+      "Bash(mkdir *)",
+      "Bash(npm install)",
+      "Bash(npm run *)"
     ]
   },
   "$version": 3

@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ContactInfo from './ContactInfo';
 
 const ContactSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="bg-white py-20 dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
         <SectionTitle>
           Get In{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
-            Touch
+            {t('contact.title')}
           </span>
         </SectionTitle>
 

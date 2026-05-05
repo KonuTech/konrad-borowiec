@@ -1,0 +1,121 @@
+{
+  "common": {
+    "home": "Start",
+    "about": "O mnie",
+    "projects": "Projekty",
+    "books": "Książki",
+    "interests": "Zainteresowania",
+    "contact": "Kontakt",
+    "contactMe": "Skontaktuj się",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "credly": "Credly",
+    "demo": "Demo na żywo",
+    "readMore": "Czytaj więcej",
+    "viewCode": "Zobacz kod",
+    "contactMe": "Skontaktuj się",
+    "copyright": "© {year} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
+    "professional": "Profesjonalne rozwiązania danych"
+  },
+  "menu": {
+    "home": "Start",
+    "about": "O mnie",
+    "projects": "Projekty",
+    "books": "Książki",
+    "interests": "Zainteresowania",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "intro": "Cześć, jestem",
+    "title": "Konrad Borowiec",
+    "subtitle": "Dane to nie tylko liczby - to klucz do mądrzejszych decyzji.",
+    "description": "Jako specjalista od inżynierii danych, analityki i uczenia maszynowego, tworzę rurociągi i wydobywam wnioski z surowych danych. Przekształćmy Twoje dane w katalizator postępu!",
+    "ctaProjects": "Zobacz moje projekty",
+    "ctaContact": "Skontaktuj się"
+  },
+  "about": {
+    "title": "O mnie",
+    "description": "Jestem pasjonatem danych z doświadczeniem w budowaniu solidnych rurociągów danych i rozwiązań analitycznych.",
+    "experience": "Doświadczenie",
+    "skills": "Umiejętności",
+    "education": "Edukacja"
+  },
+  "timeline": {
+    "title": "Moja Podróż",
+    "item": {
+      "year": "{year}",
+      "title": "{title}",
+      "description": "{description}"
+    }
+  },
+  "projects": {
+    "title": "Moje Projekty",
+    "description": "Oto niektóre z moich ostatnich projektów pokazujących moje umiejętności w inżynierii danych, uczeniu maszynowym i rozwoju webowym.",
+    "noProjects": "Brak projektów. Wróć później!",
+    "technologies": "Technologie"
+  },
+  "books": {
+    "title": "Lista Czytania",
+    "description": "Książki, które przeczytałem i planuję przeczytać w dziedzinie inżynierii danych i uczenia maszynowego.",
+    "genre": "Kategoria",
+    "status": "Status",
+    "rating": "Ocena",
+    "review": "Recenzja",
+    "noBooks": "Brak książek. Wróć później!",
+    "read": "Przeczytane",
+    "toRead": "Do przeczytania"
+  },
+  "interests": {
+    "title": "Zainteresowania",
+    "description": "Poza pracą, czerpię przyjemność z poznawania różnych hobby i zainteresowań.",
+    "categories": {
+      "title": "Kategorie",
+      "motorcycling": "Motocykle",
+      "cycling": "Kolarstwo",
+      "photography": "Inżynieria analityczna i technologia",
+      "history": "Historia, architektura i ekonomia",
+      "financial": "Rynki finansowe"
+    }
+  },
+  "contact": {
+    "title": "Skontaktuj się",
+    "description": "Zawsze jestem otwarty na omawianie nowych projektów, kreatywnych pomysłów lub możliwości dołączenia do Twojej wizji.",
+    "name": "Imię i nazwisko",
+    "email": "Adres e-mail",
+    "message": "Wiadomość",
+    "send": "Wyślij wiadomość",
+    "required": "To pole jest wymagane",
+    "success": "Wiadomość wysłana pomyślnie!",
+    "error": "Nie udało się wysłać wiadomości. Spróbuj ponownie.",
+    "labels": {
+      "name": "Twoje Imię i Nazwisko",
+      "email": "Twój Adres E-mail",
+      "message": "Twoja Wiadomość",
+      "phone": "Telefon",
+      "location": "Lokalizacja",
+      "connect": "Połącz się ze mną"
+    }
+  },
+  "footer": {
+    "logo": "Konrad Borowiec",
+    "description": "Analiza danych i inżynieria danych",
+    "copyright": "© {year} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
+    "tagline": "Profesjonalne rozwiązania danych"
+  },
+  "ui": {
+    "darkMode": "Tryb ciemny",
+    "lightMode": "Tryb jasny",
+    "toggle": "Przełącz motyw",
+    "menu": "Menu",
+    "closeMenu": "Zamknij menu",
+    "backToTop": "Powrót na górę"
+  },
+  "toast": {
+    "success": "Sukces",
+    "error": "Błąd",
+    "sent": "Wiadomość wysłana pomyślnie!",
+    "failed": "Nie udało się wysłać wiadomości"
+  }
+}

@@ -1,6 +1,8 @@
 import { Link } from 'wouter';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,16 +14,16 @@ const Footer = () => {
               href="/"
               className="font-nunito text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
             >
-              <span className="text-2xl">👨‍💻</span> Konrad Borowiec
+              <span className="text-2xl">👨‍💻</span> {t('footer.logo')}
             </Link>
-            <p className="mt-2 text-sm text-portfolio-muted">Data Analysis & Data Engineering</p>
+            <p className="mt-2 text-sm text-portfolio-muted">{t('footer.description')}</p>
           </div>
 
           <div className="text-center md:text-right">
             <p className="text-sm text-portfolio-text dark:text-portfolio-lighter">
-              &copy; {currentYear} Konu-Tec Konrad Borowiec. All rights reserved.
+              {t('footer.copyright', { year: currentYear })}
             </p>
-            <p className="mt-2 text-xs text-portfolio-muted">Professional data solutions</p>
+            <p className="mt-2 text-xs text-portfolio-muted">{t('footer.tagline')}</p>
           </div>
         </div>
       </div>
