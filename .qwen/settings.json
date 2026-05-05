@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(import *)",
+      "Bash(const *)",
+      "Bash(import.meta.url)",
+      "Bash(__filename)",
+      "Bash(plugins: *)",
+      "Bash(resolve: *)",
+      "Bash(alias: *)",
+      "Bash('@': *)",
+      "Bash(__dirname, *)",
+      "Bash('@shared': *)",
+      "Bash('@assets': *)",
+      "Bash(},)",
+      "Bash(root: *)",
+      "Bash(build: *)",
+      "Bash(outdir: *)",
+      "Bash(emptyoutdir: *)",
+      "Bash(publicdir: *)",
+      "Bash(})",
+      "Bash(eof)",
+      "Bash(server: *)",
+      "Bash(port: *)",
+      "Bash(strictport: *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  },
+  "$version": 3
+}
