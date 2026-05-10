@@ -5,7 +5,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import { api } from '@/lib/staticApi';
 
 const InterestsSection: FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
   const [activeCyclingIndex, setActiveCyclingIndex] = useState(0);
   const [motorcycleImages, setMotorcycleImages] = useState<string[]>([]);
@@ -38,10 +38,21 @@ const InterestsSection: FC = () => {
     >
       <div className="container mx-auto px-4">
         <SectionTitle>
-          <span className="text-portfolio-primary">{t('interests.headingPrefix')}</span>{' '}
-          <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
-            {t('interests.title')}
-          </span>
+          {i18n.language === 'en' ? (
+            <>
+              My{' '}
+              <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
+                {t('interests.title')}
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="text-portfolio-primary">{t('interests.headingPrefix')}</span>{' '}
+              <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
+                {t('interests.title')}
+              </span>
+            </>
+          )}
         </SectionTitle>
 
         <div className="mt-10 grid grid-cols-1 gap-10 md:mt-6 md:grid-cols-2 md:gap-6">
