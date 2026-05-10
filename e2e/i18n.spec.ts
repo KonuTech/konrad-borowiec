@@ -14,9 +14,9 @@ test('i18n: switch to Polish and check key UI texts', async ({ page }) => {
   // Check hero CTA (Polish)
   await expect(page.locator('text=Zobacz moje projekty')).toBeVisible();
 
-  // Check contact label (Polish)
+  // Check contact section title (Polish)
   await page.locator('#contact').scrollIntoViewIfNeeded();
-  await expect(page.locator('text=Twoje Imię i Nazwisko')).toBeVisible();
+  await expect(page.locator('text=Skontaktuj się')).toBeVisible();
 
   // Check projects heading prefix + title
   await page.locator('#projects').scrollIntoViewIfNeeded();
