@@ -1,8 +1,10 @@
 import { useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '@/context/ThemeContext';
 
 const DarkModeToggle = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   // Debug the current state - useful for troubleshooting
   useEffect(() => {
@@ -12,10 +14,10 @@ const DarkModeToggle = () => {
 
   return (
     <button
-      className="rounded-full border border-portfolio-primary/30 bg-portfolio-lightest p-2 text-portfolio-primary shadow-sm transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:text-portfolio-lighter dark:hover:bg-portfolio-darker"
+      className="rounded-full p-2 text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-dark"
       aria-label="Toggle dark mode"
       onClick={toggleDarkMode}
-      title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={darkMode ? t('ui.lightMode') : t('ui.darkMode')}
     >
       {darkMode ? (
         <i className="fas fa-sun text-yellow-500"></i>

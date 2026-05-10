@@ -1,0 +1,678 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "👨‍💻 Konrad Borowiec" [ref=e7] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Home" [ref=e11] [cursor=pointer]:
+              - /url: "#home"
+          - listitem [ref=e12]:
+            - link "About" [ref=e13] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e14]:
+            - link "Projects" [ref=e15] [cursor=pointer]:
+              - /url: "#projects"
+          - listitem [ref=e16]:
+            - link "Books" [ref=e17] [cursor=pointer]:
+              - /url: "#books"
+          - listitem [ref=e18]:
+            - link "Interests" [ref=e19] [cursor=pointer]:
+              - /url: "#interests"
+          - listitem [ref=e20]:
+            - link "Contact" [ref=e21] [cursor=pointer]:
+              - /url: "#contact"
+          - listitem [ref=e22]:
+            - link "GitHub" [ref=e23] [cursor=pointer]:
+              - /url: https://github.com/konutech
+              - generic [ref=e24]: 
+          - listitem [ref=e25]:
+            - link "LinkedIn" [ref=e26] [cursor=pointer]:
+              - /url: https://linkedin.com/in/32167
+              - generic [ref=e27]: 
+          - listitem [ref=e28]:
+            - link "Credly" [ref=e29] [cursor=pointer]:
+              - /url: https://credly.com/users/konrad-borowiec/badges
+              - generic [ref=e30]: 
+          - listitem [ref=e31]:
+            - generic [ref=e32]:
+              - button "Select language" [expanded] [active] [ref=e33] [cursor=pointer]:
+                - img [ref=e34]
+                - generic [ref=e38]: English
+              - generic [ref=e913]:
+                - button "English" [ref=e914] [cursor=pointer]:
+                  - generic [ref=e915]: English
+                  - img [ref=e916]
+                - button "Polski" [ref=e918] [cursor=pointer]:
+                  - generic [ref=e919]: Polski
+      - generic [ref=e39]:
+        - button "Toggle dark mode" [ref=e40] [cursor=pointer]:
+          - generic [ref=e41]: 
+        - text: 
+    - text:    
+  - main [ref=e42]:
+    - generic [ref=e48]:
+      - img "Konrad Borowiec" [ref=e52]
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Hello, I'm
+        - heading "Konrad Borowiec" [level=1] [ref=e55]
+        - paragraph [ref=e56]:
+          - text: Data isn't just numbers - it's the key to smarter decisions.
+          - text: As your specialist in data engineering, analytics, and machine learning, I craft pipelines and unlock insights from raw data. Let's transform your data into a catalyst for progress!
+        - generic [ref=e57]:
+          - link "Check out my side projects" [ref=e58] [cursor=pointer]:
+            - /url: "#projects"
+          - link "Contact Me" [ref=e59] [cursor=pointer]:
+            - /url: "#contact"
+    - generic [ref=e61]:
+      - heading "About About Me" [level=2] [ref=e63]
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - heading "Experience" [level=3] [ref=e68]
+            - paragraph [ref=e69]: I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.
+            - paragraph [ref=e70]: My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.
+          - generic [ref=e71]:
+            - heading "Skills" [level=3] [ref=e72]
+            - generic [ref=e73]:
+              - generic [ref=e74]:
+                - generic [ref=e76]: 
+                - generic [ref=e77]: SQL
+              - generic [ref=e78]:
+                - generic [ref=e80]: 
+                - generic [ref=e81]: Oracle
+              - generic [ref=e82]:
+                - generic [ref=e84]: 
+                - generic [ref=e85]: SAS
+              - generic [ref=e86]:
+                - img [ref=e89]
+                - generic [ref=e91]: Hadoop
+              - generic [ref=e92]:
+                - generic [ref=e94]: 
+                - generic [ref=e95]: Python
+              - generic [ref=e96]:
+                - generic [ref=e98]: 
+                - generic [ref=e99]: PySpark
+              - generic [ref=e100]:
+                - img [ref=e103]
+                - generic [ref=e105]: Databricks
+              - generic [ref=e106]:
+                - img [ref=e109]
+                - generic [ref=e119]: Apache Airflow
+              - generic [ref=e120]:
+                - generic [ref=e122]: 
+                - generic [ref=e123]: Linux
+              - generic [ref=e124]:
+                - generic [ref=e126]: 
+                - generic [ref=e127]: Docker
+              - generic [ref=e128]:
+                - img [ref=e131]
+                - generic [ref=e133]: Claude Code
+              - generic [ref=e134]:
+                - generic [ref=e136]: 
+                - generic [ref=e137]: MS Excel
+              - generic [ref=e138]:
+                - generic [ref=e140]: 
+                - generic [ref=e141]: GCP - Big Query
+              - generic [ref=e142]:
+                - img [ref=e145]
+                - generic [ref=e149]: Apache Superset
+              - generic [ref=e150]:
+                - generic [ref=e152]: 
+                - generic [ref=e153]: GitLab
+              - generic [ref=e154]:
+                - img [ref=e157]
+                - generic [ref=e159]: dbt
+          - generic [ref=e161]:
+            - generic [ref=e162]:
+              - heading "Get In Touch" [level=3] [ref=e163]
+              - generic [ref=e164]:
+                - generic [ref=e165]:
+                  - generic [ref=e167]: 
+                  - generic [ref=e168]:
+                    - paragraph [ref=e169]: Your Email
+                    - link "borowiec.k@gmail.com" [ref=e170] [cursor=pointer]:
+                      - /url: mailto:borowiec.k@gmail.com
+                - generic [ref=e171]:
+                  - generic [ref=e173]: 
+                  - generic [ref=e174]:
+                    - paragraph [ref=e175]: Phone
+                    - paragraph [ref=e176]: +48 570 223 108
+                - generic [ref=e177]:
+                  - generic [ref=e179]: 
+                  - generic [ref=e180]:
+                    - paragraph [ref=e181]: Location
+                    - paragraph [ref=e182]: Warsaw, Poland
+            - generic [ref=e183]:
+              - heading "Connect With Me" [level=3] [ref=e184]
+              - generic [ref=e185]:
+                - link "GitHub" [ref=e186] [cursor=pointer]:
+                  - /url: https://github.com/konutech
+                  - generic [ref=e187]: 
+                - link "LinkedIn" [ref=e188] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/32167
+                  - generic [ref=e189]: 
+                - link "Credly" [ref=e190] [cursor=pointer]:
+                  - /url: https://credly.com/users/konrad-borowiec/badges
+                  - generic [ref=e191]: 
+        - generic [ref=e193]:
+          - heading "About Me" [level=3] [ref=e194]
+          - generic [ref=e197]:
+            - generic [ref=e199]:
+              - generic [ref=e203] [cursor=pointer]: 
+              - generic [ref=e206]:
+                - generic [ref=e209] [cursor=pointer]:
+                  - generic [ref=e210]:
+                    - heading "Data Engineer" [level=4] [ref=e211]
+                    - heading "Marketing Engineers Group sp. z o.o." [level=5] [ref=e212]
+                  - generic [ref=e213]: 10.2025 - 03.2026
+                - paragraph [ref=e216]: "Maintained production data infrastructure powering analytics for e-commerce clients, processing data from multiple platforms into a unified BigQuery warehouse orchestrated by Apache Airflow. Used Apache Superset as the BI solution. • Developed a custom Apache Airflow connector for Magento 2 with OAuth 1.0a (HMAC-SHA256) authentication, generator-based pagination, and exponential-backoff retry logic across multiple REST API endpoints. Extracted records into GCS as NDJSON with daily loading into BigQuery. • Engineered a Google Ads ETL pipeline integrating the Google Ads API with BigQuery via GCS staging. Designed analytical tables mapping Google Ads spend to actual e-commerce client stock for rendering in Apache Superset. Leveraged dynamic Jinja2 date templating with intelligent lookback windows to properly handle late arrivals and deduplication. • Onboarded e-commerce clients onto a config-driven data platform. Leveraged a YAML-to-DAG generation framework to dynamically produce Airflow DAGs from declarative client configurations. • Executed a zero-downtime Klaviyo API revision migration spanning a multi-year revision gap. Designed and ran automated validation tests across multiple categories (authentication, subscription schemas, marketing fields, event structures, campaign filters, flow pagination, metric types), confirming zero breaking changes. • Developed a custom dbt macro for Unicode text normalization to resolve product ID mapping and deduplication failures caused by special characters (Polish, Russian, and other non-ASCII glyphs) in e-commerce product URLs. Standardized URL parsing across the unified ECOM entity schema spanning four platforms (e.g., Shopify, Shoper, WooCommerce, and Magento), enabling reliable cross-platform deduplication. • Used the Superset REST API via Superset MCP to programmatically query dashboard and chart configurations for automated data lineage investigations and subsequent fixes. • Maintained rigorous quality standards by designing comprehensive validation suites for every table and pipeline. Authored SQL tests covering cross-layer consistency (staging through transformed), NULL-rate analysis on mandatory fields, surrogate-key uniqueness, referential integrity, and old-vs-new API output comparison. • Eurostat GISCO Geospatial Data Pipeline: Designed and implemented an end-to-end ETL pipeline integrating Eurostat GISCO geospatial data into the company's Airflow-based data platform. Built a custom Airflow plugin (operator + hook) that downloads ~815,000 EU postal codes and 1,211 NUTS3 boundary polygons from the GISCO API, stages them as NDJSON in Google Cloud Storage, and loads into BigQuery. Implemented ijson streaming to handle the 350MB postal codes GeoJSON within container memory limits. Created dbt source and transformed models with full NUTS hierarchy (country/NUTS1/NUTS2/NUTS3). Registered the pipeline in the DAG generator framework to enable automated deployment across environments. Data serves Superset map visualizations for 31 EU/EEA/EFTA countries. • Sales Channel Backfill & Schema Migration: Led a data backfill initiative to integrate historical mobile app order data into a major e-commerce client's analytics pipeline. Extended the BigQuery staging schema and dbt models (source and transformed layers) to accommodate a new sales channel column, enabling filtering between web and app orders across all reporting layers. Managed backward compatibility for 2+ years of historical CSV files lacking the new column while ensuring seamless ingestion of new files containing both channel types. Coordinated schema changes across GCS-to-BQ ingestion, dbt incremental models, and downstream Superset dashboards."
+            - generic [ref=e218]:
+              - generic [ref=e222] [cursor=pointer]: 
+              - generic [ref=e228] [cursor=pointer]:
+                - generic [ref=e229]:
+                  - heading "B2B Consultant" [level=4] [ref=e230]
+                  - heading "Crestt sp. z o.o. (Santander Bank Polska S.A.)" [level=5] [ref=e231]
+                - generic [ref=e232]: 04.2025 - 08.2025
+            - generic [ref=e234]:
+              - generic [ref=e238] [cursor=pointer]: 
+              - generic [ref=e244] [cursor=pointer]:
+                - generic [ref=e245]:
+                  - heading "Data Analytics & Engineering" [level=4] [ref=e246]
+                  - heading "Public Sector" [level=5] [ref=e247]
+                - generic [ref=e248]: 08.2024 - 02.2025
+            - generic [ref=e250]:
+              - generic [ref=e254] [cursor=pointer]: 
+              - generic [ref=e260] [cursor=pointer]:
+                - generic [ref=e261]:
+                  - heading "B2B Consultant" [level=4] [ref=e262]
+                  - heading "B2B.NET S.A. (BNP Paribas Bank Polska S.A.)" [level=5] [ref=e263]
+                - generic [ref=e264]: 07.2023 - 03.2024
+            - generic [ref=e266]:
+              - generic [ref=e270] [cursor=pointer]: 
+              - generic [ref=e276] [cursor=pointer]:
+                - generic [ref=e277]:
+                  - heading "Big Data Developer" [level=4] [ref=e278]
+                  - heading "Crestt sp. z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.)" [level=5] [ref=e279]
+                - generic [ref=e280]: 02.2021 - 06.2022
+            - generic [ref=e282]:
+              - generic [ref=e286] [cursor=pointer]: 
+              - generic [ref=e292] [cursor=pointer]:
+                - generic [ref=e293]:
+                  - heading "Business Intelligence Analyst" [level=4] [ref=e294]
+                  - heading "PZU S.A." [level=5] [ref=e295]
+                - generic [ref=e296]: 10.2020 - 01.2021
+            - generic [ref=e298]:
+              - generic [ref=e302] [cursor=pointer]: 
+              - generic [ref=e308] [cursor=pointer]:
+                - generic [ref=e309]:
+                  - heading "SAS Analyst" [level=4] [ref=e310]
+                  - heading "ITFS Sp. z o. o. (PZU S.A.)" [level=5] [ref=e311]
+                - generic [ref=e312]: 05.2020 - 09.2020
+            - generic [ref=e314]:
+              - generic [ref=e318] [cursor=pointer]: 
+              - generic [ref=e324] [cursor=pointer]:
+                - generic [ref=e325]:
+                  - heading "Junior Data Scientist" [level=4] [ref=e326]
+                  - heading "Crestt sp. z o. o. (Polkomtel sp. z o. o., TVP S.A.)" [level=5] [ref=e327]
+                - generic [ref=e328]: 03.2019 - 04.2020
+            - generic [ref=e330]:
+              - generic [ref=e334] [cursor=pointer]: 
+              - generic [ref=e340] [cursor=pointer]:
+                - generic [ref=e341]:
+                  - heading "Big Data Engineering" [level=4] [ref=e342]
+                  - heading "Polish-Japanese Academy of Information Technology" [level=5] [ref=e343]
+                - generic [ref=e344]: 03.2018 - 02.2019
+            - generic [ref=e346]:
+              - generic [ref=e350] [cursor=pointer]: 
+              - generic [ref=e356] [cursor=pointer]:
+                - generic [ref=e357]:
+                  - heading "Data/Business Intelligence Analyst" [level=4] [ref=e358]
+                  - heading "NatWest Markets plc The Royal Bank of Scotland Group" [level=5] [ref=e359]
+                - generic [ref=e360]: 11.2016 - 03.2019
+            - generic [ref=e362]:
+              - generic [ref=e366] [cursor=pointer]: 
+              - generic [ref=e372] [cursor=pointer]:
+                - generic [ref=e373]:
+                  - heading "Data Analyst" [level=4] [ref=e374]
+                  - heading "Bank Pocztowy S.A." [level=5] [ref=e375]
+                - generic [ref=e376]: 11.2015 - 11.2016
+            - generic [ref=e378]:
+              - generic [ref=e382] [cursor=pointer]: 
+              - generic [ref=e388] [cursor=pointer]:
+                - generic [ref=e389]:
+                  - heading "Junior Reporting Specialist" [level=4] [ref=e390]
+                  - heading "ASB Poland Sp. z o. o." [level=5] [ref=e391]
+                - generic [ref=e392]: 07.2015 - 09.2015
+            - generic [ref=e394]:
+              - generic [ref=e398] [cursor=pointer]: 
+              - generic [ref=e404] [cursor=pointer]:
+                - generic [ref=e405]:
+                  - heading "Intern, Credit Portfolio Analysis" [level=4] [ref=e406]
+                  - heading "Bank BPH S.A., GE Capital" [level=5] [ref=e407]
+                - generic [ref=e408]: 03.2014 - 02.2015
+            - generic [ref=e410]:
+              - generic [ref=e414] [cursor=pointer]: 
+              - generic [ref=e420] [cursor=pointer]:
+                - generic [ref=e421]:
+                  - heading "Statistical Analysis and Data Mining" [level=4] [ref=e422]
+                  - heading "Warsaw School of Economics" [level=5] [ref=e423]
+                - generic [ref=e424]: 10.2013 - 06.2015
+            - generic [ref=e426]:
+              - generic [ref=e430] [cursor=pointer]: 
+              - generic [ref=e436] [cursor=pointer]:
+                - generic [ref=e437]:
+                  - heading "MSc Finance and Accounting" [level=4] [ref=e438]
+                  - heading "Warsaw School of Economics" [level=5] [ref=e439]
+                - generic [ref=e440]: 02.2012 - 11.2014
+            - generic [ref=e442]:
+              - generic [ref=e446] [cursor=pointer]: 
+              - generic [ref=e452] [cursor=pointer]:
+                - generic [ref=e453]:
+                  - heading "Erasmus Exchange Program" [level=4] [ref=e454]
+                  - heading "European University Viadrina Frankfurt (Oder)" [level=5] [ref=e455]
+                - generic [ref=e456]: 04.2011 - 07.2011
+            - generic [ref=e458]:
+              - generic [ref=e462] [cursor=pointer]: 
+              - generic [ref=e468] [cursor=pointer]:
+                - generic [ref=e469]:
+                  - heading "Faculty of Administration and Social Sciences" [level=4] [ref=e470]
+                  - heading "Warsaw University of Technology" [level=5] [ref=e471]
+                - generic [ref=e472]: 10.2008 - 01.2012
+          - button "Show Full Timeline ▼" [ref=e473] [cursor=pointer]
+      - link " Back to Top" [ref=e475] [cursor=pointer]:
+        - /url: "#home"
+        - generic [ref=e476]: 
+        - text: Back to Top
+    - generic [ref=e478]:
+      - heading "My side My Projects" [level=2] [ref=e480]
+      - generic [ref=e482]:
+        - generic [ref=e484]:
+          - img "SQL Playground using NYC Taxi Data" [ref=e485]
+          - generic [ref=e486]:
+            - heading "SQL Playground using NYC Taxi Data" [level=3] [ref=e488]
+            - paragraph [ref=e489]: SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset . Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast
+            - generic [ref=e490]:
+              - generic [ref=e491]: Python
+              - generic [ref=e492]: PostgreSQL
+              - generic [ref=e493]: Superset
+              - generic [ref=e494]: Docker
+              - generic [ref=e495]: Claude Code
+            - link " GitHub" [ref=e497] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/sql-playgrounds
+              - generic [ref=e498]: 
+              - text: GitHub
+        - generic [ref=e500]:
+          - img "Classify stock growth for trading" [ref=e501]
+          - generic [ref=e502]:
+            - heading "Classify stock growth for trading" [level=3] [ref=e504]
+            - paragraph [ref=e505]: Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code
+            - generic [ref=e506]:
+              - generic [ref=e507]: Python
+              - generic [ref=e508]: Docker
+              - generic [ref=e509]: PostgreSQL
+              - generic [ref=e510]: Apache Airflow
+              - generic [ref=e511]: XGBoost
+              - generic [ref=e512]: React
+              - generic [ref=e513]: TypeScript
+              - generic [ref=e514]: JavaScript
+              - generic [ref=e515]: Jinja
+              - generic [ref=e516]: Claude Code
+            - link " GitHub" [ref=e518] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/classify-stock-growth-for-trading
+              - generic [ref=e519]: 
+              - text: GitHub
+        - generic [ref=e521]:
+          - img "Data Engineering Zoomcamp Capstone" [ref=e522]
+          - generic [ref=e523]:
+            - heading "Data Engineering Zoomcamp Capstone" [level=3] [ref=e525]
+            - paragraph [ref=e526]: "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit"
+            - generic [ref=e527]:
+              - generic [ref=e528]: Python
+              - generic [ref=e529]: Docker
+              - generic [ref=e530]: Apache Airflow
+              - generic [ref=e531]: Kafka
+              - generic [ref=e532]: PySpark
+              - generic [ref=e533]: PostgreSQL
+              - generic [ref=e534]: Streamlit
+            - link " GitHub" [ref=e536] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01
+              - generic [ref=e537]: 
+              - text: GitHub
+        - generic [ref=e539]:
+          - img "LLM Zoomcamp Capstone" [ref=e540]
+          - generic [ref=e541]:
+            - heading "LLM Zoomcamp Capstone" [level=3] [ref=e543]
+            - paragraph [ref=e544]: A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring
+            - generic [ref=e545]:
+              - generic [ref=e546]: Python
+              - generic [ref=e547]: Elasticsearch
+              - generic [ref=e548]: PostgreSQL
+              - generic [ref=e549]: Flask
+              - generic [ref=e550]: Docker
+              - generic [ref=e551]: Grafana
+            - link " GitHub" [ref=e553] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/llm-zoomcamp-capstone-01
+              - generic [ref=e554]: 
+              - text: GitHub
+        - generic [ref=e556]:
+          - img "MLOps Zoomcamp Capstone" [ref=e557]
+          - generic [ref=e558]:
+            - heading "MLOps Zoomcamp Capstone" [level=3] [ref=e560]
+            - paragraph [ref=e561]: e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
+            - generic [ref=e562]:
+              - generic [ref=e563]: GCP
+              - generic [ref=e564]: Python
+              - generic [ref=e565]: PySpark
+              - generic [ref=e566]: Pandas
+              - generic [ref=e567]: sciki-learn
+              - generic [ref=e568]: MLflow
+              - generic [ref=e569]: XGBoost
+              - generic [ref=e570]: Prefect
+              - generic [ref=e571]: Kubernetes
+              - generic [ref=e572]: FastAPI
+              - generic [ref=e573]: Flask
+              - generic [ref=e574]: Evidently AI
+            - link " GitHub" [ref=e576] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/mlops-zoomcamp-project
+              - generic [ref=e577]: 
+              - text: GitHub
+        - generic [ref=e579]:
+          - img "Machine Learning Zoomcamp Capstone" [ref=e580]
+          - generic [ref=e581]:
+            - heading "Machine Learning Zoomcamp Capstone" [level=3] [ref=e583]
+            - paragraph [ref=e584]: Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker
+            - generic [ref=e585]:
+              - generic [ref=e586]: Python
+              - generic [ref=e587]: scikit-learn
+              - generic [ref=e588]: XGBoost
+              - generic [ref=e589]: Flask
+              - generic [ref=e590]: Docker
+            - link " GitHub" [ref=e592] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01
+              - generic [ref=e593]: 
+              - text: GitHub
+        - generic [ref=e595]:
+          - img "Machine Learning Zoomcamp Capstone" [ref=e596]
+          - generic [ref=e597]:
+            - heading "Machine Learning Zoomcamp Capstone" [level=3] [ref=e599]
+            - paragraph [ref=e600]: TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster
+            - generic [ref=e601]:
+              - generic [ref=e602]: Python
+              - generic [ref=e603]: TensorFlow
+              - generic [ref=e604]: Kubernetes
+              - generic [ref=e605]: Docker
+              - generic [ref=e606]: Kind cluster
+            - link " GitHub" [ref=e608] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02
+              - generic [ref=e609]: 
+              - text: GitHub
+        - generic [ref=e611]:
+          - img "Portfolio Website" [ref=e612]
+          - generic [ref=e613]:
+            - heading "Portfolio Website" [level=3] [ref=e615]
+            - paragraph [ref=e616]: Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout.
+            - generic [ref=e617]:
+              - generic [ref=e618]: React
+              - generic [ref=e619]: TypeScript
+              - generic [ref=e620]: Tailwind CSS
+              - generic [ref=e621]: Node.js
+            - link " GitHub" [ref=e623] [cursor=pointer]:
+              - /url: https://github.com/KonuTech/konrad-borowiec
+              - generic [ref=e624]: 
+              - text: GitHub
+      - link "Back to Top " [ref=e626] [cursor=pointer]:
+        - /url: "#top"
+        - text: Back to Top
+        - generic [ref=e627]: 
+    - generic [ref=e629]:
+      - heading "My Reading List" [level=2] [ref=e631]
+      - generic [ref=e634]:
+        - button "Read" [ref=e635] [cursor=pointer]
+        - button "To Read" [ref=e636] [cursor=pointer]
+      - generic [ref=e637]:
+        - generic [ref=e640]:
+          - generic [ref=e641]:
+            - img "Analytics Engineering with SQL and dbt. Building Meaningful Data Models at Scale." [ref=e643]
+            - generic [ref=e644]:
+              - generic [ref=e645]:
+                - heading "Analytics Engineering with SQL and dbt. Building Meaningful Data Models at Scale." [level=3] [ref=e646]
+                - paragraph [ref=e647]: Rui Machado, Helder Russa
+              - generic [ref=e649]: Data Engineering
+          - generic [ref=e650]:
+            - heading "Analytics Engineering with SQL and dbt. Building Meaningful Data Models at Scale." [level=3] [ref=e651]
+            - paragraph [ref=e652]: I enjoyed this book and found it valuable for my professional development.
+        - generic [ref=e655]:
+          - generic [ref=e656]:
+            - img "Data Engineering with Databricks Cookbook. Build effective data and AI solutions using Apacher Spark, Databricks, and Delta Lake." [ref=e658]
+            - generic [ref=e659]:
+              - generic [ref=e660]:
+                - heading "Data Engineering with Databricks Cookbook. Build effective data and AI solutions using Apacher Spark, Databricks, and Delta Lake." [level=3] [ref=e661]
+                - paragraph [ref=e662]: Navdeep Ghai
+              - generic [ref=e664]: Data Engineering
+          - generic [ref=e665]:
+            - heading "Data Engineering with Databricks Cookbook. Build effective data and AI solutions using Apacher Spark, Databricks, and Delta Lake." [level=3] [ref=e666]
+            - paragraph [ref=e667]: Practical recipes for building data pipelines with Databricks.
+        - generic [ref=e670]:
+          - generic [ref=e671]:
+            - img "Data Engineering with dbt. A practical guide to building a claud-based, programatic, and dependabe data platform with SQL." [ref=e673]
+            - generic [ref=e674]:
+              - generic [ref=e675]:
+                - heading "Data Engineering with dbt. A practical guide to building a claud-based, programatic, and dependabe data platform with SQL." [level=3] [ref=e676]
+                - paragraph [ref=e677]: Roberto Zagni
+              - generic [ref=e679]: Data Engineering
+          - generic [ref=e680]:
+            - heading "Data Engineering with dbt. A practical guide to building a claud-based, programatic, and dependabe data platform with SQL." [level=3] [ref=e681]
+            - paragraph [ref=e682]: Comprehensive guide to using dbt for data transformation and modeling.
+        - generic [ref=e685]:
+          - generic [ref=e686]:
+            - img "Data Engineering with Google Cloud Platform. A guide to leveling up as a data engineer by building scalable data platforms with Google Cloud." [ref=e688]
+            - generic [ref=e689]:
+              - generic [ref=e690]:
+                - heading "Data Engineering with Google Cloud Platform. A guide to leveling up as a data engineer by building scalable data platforms with Google Cloud." [level=3] [ref=e691]
+                - paragraph [ref=e692]: Adi Wijaya
+              - generic [ref=e694]: Data Engineering
+          - generic [ref=e695]:
+            - heading "Data Engineering with Google Cloud Platform. A guide to leveling up as a data engineer by building scalable data platforms with Google Cloud." [level=3] [ref=e696]
+            - paragraph [ref=e697]: I enjoyed this book and found it valuable for my professional development.
+        - generic [ref=e700]:
+          - generic [ref=e701]:
+            - img "Data Management Solutions Using SAS Hash Table Operations. A Business Intelligence Case Study." [ref=e703]
+            - generic [ref=e704]:
+              - generic [ref=e705]:
+                - heading "Data Management Solutions Using SAS Hash Table Operations. A Business Intelligence Case Study." [level=3] [ref=e706]
+                - paragraph [ref=e707]: Paul Dorfman, Don Henderson
+              - generic [ref=e709]: Data Engineering
+          - generic [ref=e710]:
+            - heading "Data Management Solutions Using SAS Hash Table Operations. A Business Intelligence Case Study." [level=3] [ref=e711]
+            - paragraph [ref=e712]: I enjoyed this book and found it valuable for my professional development.
+        - generic [ref=e715]:
+          - generic [ref=e716]:
+            - img "Fundamentals of Data Engineering. Plan and Build Robus Data Systems." [ref=e718]
+            - generic [ref=e719]:
+              - generic [ref=e720]:
+                - heading "Fundamentals of Data Engineering. Plan and Build Robus Data Systems." [level=3] [ref=e721]
+                - paragraph [ref=e722]: Joe Reis & Matt Housley
+              - generic [ref=e724]: Data Engineering
+          - generic [ref=e725]:
+            - heading "Fundamentals of Data Engineering. Plan and Build Robus Data Systems." [level=3] [ref=e726]
+            - paragraph [ref=e727]: Essential guide to modern data engineering practices and architectures.
+        - generic [ref=e730]:
+          - generic [ref=e731]:
+            - img "Learning Spark. Lightning-Fast Data Analytics." [ref=e733]
+            - generic [ref=e734]:
+              - generic [ref=e735]:
+                - heading "Learning Spark. Lightning-Fast Data Analytics." [level=3] [ref=e736]
+                - paragraph [ref=e737]: Jules S. Damji, Brooke Wenig, Tathagata Das, Denny Lee
+              - generic [ref=e739]: Data Engineering
+          - generic [ref=e740]:
+            - heading "Learning Spark. Lightning-Fast Data Analytics." [level=3] [ref=e741]
+            - paragraph [ref=e742]: I enjoyed this book and found it valuable for my professional development.
+        - generic [ref=e745]:
+          - generic [ref=e746]:
+            - img "Understanding ETL. Data Pipelines for Modern Data Architectures." [ref=e748]
+            - generic [ref=e749]:
+              - generic [ref=e750]:
+                - heading "Understanding ETL. Data Pipelines for Modern Data Architectures." [level=3] [ref=e751]
+                - paragraph [ref=e752]: Matt Palmer
+              - generic [ref=e754]: Data Engineering
+          - generic [ref=e755]:
+            - heading "Understanding ETL. Data Pipelines for Modern Data Architectures." [level=3] [ref=e756]
+            - paragraph [ref=e757]: I enjoyed this book and found it valuable for my professional development.
+      - link "Back to Top " [ref=e759] [cursor=pointer]:
+        - /url: "#top"
+        - text: Back to Top
+        - generic [ref=e760]: 
+    - generic [ref=e762]:
+      - heading "My Interests" [level=2] [ref=e764]
+      - generic [ref=e766]:
+        - generic [ref=e767]:
+          - generic [ref=e768]:
+            - heading "Motorcycling" [level=3] [ref=e769]
+            - paragraph [ref=e770]: I'm passionate about exploring the world on two wheels. Motorcycle road trips offer me the perfect blend of adventure, freedom, and connection with nature.
+            - paragraph [ref=e771]: From winding mountain roads to coastal highways, each journey brings new perspectives and unforgettable experiences.
+            - paragraph [ref=e772]: Browse through my photo gallery from recent motorcycle journeys across beautiful landscapes, mountain roads, and coastal routes!
+          - generic [ref=e773]:
+            - heading "Cycling" [level=3] [ref=e774]
+            - paragraph [ref=e775]: Cycling is another passion of mine that allows me to stay active while exploring beautiful landscapes.
+            - paragraph [ref=e776]: Whether it's a quick ride through local trails or a day-long excursion in the countryside, cycling provides both physical exercise and mental refreshment.
+          - generic [ref=e777]:
+            - heading "Analytics Engineering & Technology" [level=3] [ref=e778]
+            - paragraph [ref=e779]: Beyond my professional work, I'm deeply interested in the advancements in data engineering and analytics engineering.
+            - paragraph [ref=e780]: I enjoy working with modern data platforms, exploring new tools for data modeling and transformation, optimizing data pipelines, and experimenting with ways to make data more reliable, scalable, and actionable.
+            - paragraph [ref=e781]: I also keep up with the latest trends in cloud data infrastructure, ELT/ETL processes, and visualization techniques to stay current in the field.
+            - paragraph [ref=e782]: My technical reading list reflects this passion, as I constantly seek to expand my knowledge and skills in these rapidly evolving areas.
+          - generic [ref=e783]:
+            - heading "History, Architecture & Economics" [level=3] [ref=e784]
+            - paragraph [ref=e785]: I have a profound interest in history, architecture, and economics, which greatly influences how I explore the world.
+            - paragraph [ref=e786]: Learning about different civilizations, their architectural achievements, and economic systems helps me understand the evolution of human society and culture.
+            - paragraph [ref=e787]: These interests are actually the driving forces behind my motorcycle road trips and cycling adventures. They allow me to directly experience historical sites, appreciate diverse architectural styles, and observe economic differences across regions—creating a deeper connection with the places I visit.
+          - generic [ref=e788]:
+            - heading "Financial Markets" [level=3] [ref=e789]
+            - paragraph [ref=e790]: My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading.
+            - paragraph [ref=e791]: Starting a few years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities.
+            - paragraph [ref=e792]: Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results.
+            - paragraph [ref=e793]: This hands-on experience has provided valuable insights into market dynamics and investment principles.
+            - paragraph [ref=e794]:
+              - text: For those interested in building their investment knowledge, particularly Polish speakers, I recommend
+              - link "inwestomat.eu" [ref=e795] [cursor=pointer]:
+                - /url: https://inwestomat.eu/
+              - text: "- an exceptional resource that offers university-caliber financial education in an accessible format."
+        - generic [ref=e797]:
+          - generic [ref=e798]:
+            - button "Motorcycling" [ref=e799] [cursor=pointer]
+            - button "Cycling" [ref=e800] [cursor=pointer]
+          - img "Motorcycle road trip" [ref=e802]
+          - generic [ref=e803]:
+            - button "Motorcycle thumbnail 1" [ref=e804] [cursor=pointer]:
+              - img "Motorcycle thumbnail 1" [ref=e805]
+            - button "Motorcycle thumbnail 2" [ref=e806] [cursor=pointer]:
+              - img "Motorcycle thumbnail 2" [ref=e807]
+            - button "Motorcycle thumbnail 3" [ref=e808] [cursor=pointer]:
+              - img "Motorcycle thumbnail 3" [ref=e809]
+            - button "Motorcycle thumbnail 4" [ref=e810] [cursor=pointer]:
+              - img "Motorcycle thumbnail 4" [ref=e811]
+            - button "Motorcycle thumbnail 5" [ref=e812] [cursor=pointer]:
+              - img "Motorcycle thumbnail 5" [ref=e813]
+            - button "Motorcycle thumbnail 6" [ref=e814] [cursor=pointer]:
+              - img "Motorcycle thumbnail 6" [ref=e815]
+            - button "Motorcycle thumbnail 7" [ref=e816] [cursor=pointer]:
+              - img "Motorcycle thumbnail 7" [ref=e817]
+            - button "Motorcycle thumbnail 8" [ref=e818] [cursor=pointer]:
+              - img "Motorcycle thumbnail 8" [ref=e819]
+            - button "Motorcycle thumbnail 9" [ref=e820] [cursor=pointer]:
+              - img "Motorcycle thumbnail 9" [ref=e821]
+            - button "Motorcycle thumbnail 10" [ref=e822] [cursor=pointer]:
+              - img "Motorcycle thumbnail 10" [ref=e823]
+            - button "Motorcycle thumbnail 11" [ref=e824] [cursor=pointer]:
+              - img "Motorcycle thumbnail 11" [ref=e825]
+            - button "Motorcycle thumbnail 12" [ref=e826] [cursor=pointer]:
+              - img "Motorcycle thumbnail 12" [ref=e827]
+            - button "Motorcycle thumbnail 13" [ref=e828] [cursor=pointer]:
+              - img "Motorcycle thumbnail 13" [ref=e829]
+            - button "Motorcycle thumbnail 14" [ref=e830] [cursor=pointer]:
+              - img "Motorcycle thumbnail 14" [ref=e831]
+            - button "Motorcycle thumbnail 15" [ref=e832] [cursor=pointer]:
+              - img "Motorcycle thumbnail 15" [ref=e833]
+            - button "Motorcycle thumbnail 16" [ref=e834] [cursor=pointer]:
+              - img "Motorcycle thumbnail 16" [ref=e835]
+            - button "Motorcycle thumbnail 17" [ref=e836] [cursor=pointer]:
+              - img "Motorcycle thumbnail 17" [ref=e837]
+            - button "Motorcycle thumbnail 18" [ref=e838] [cursor=pointer]:
+              - img "Motorcycle thumbnail 18" [ref=e839]
+            - button "Motorcycle thumbnail 19" [ref=e840] [cursor=pointer]:
+              - img "Motorcycle thumbnail 19" [ref=e841]
+            - button "Motorcycle thumbnail 20" [ref=e842] [cursor=pointer]:
+              - img "Motorcycle thumbnail 20" [ref=e843]
+            - button "Motorcycle thumbnail 21" [ref=e844] [cursor=pointer]:
+              - img "Motorcycle thumbnail 21" [ref=e845]
+            - button "Motorcycle thumbnail 22" [ref=e846] [cursor=pointer]:
+              - img "Motorcycle thumbnail 22" [ref=e847]
+            - button "Motorcycle thumbnail 23" [ref=e848] [cursor=pointer]:
+              - img "Motorcycle thumbnail 23" [ref=e849]
+            - button "Motorcycle thumbnail 24" [ref=e850] [cursor=pointer]:
+              - img "Motorcycle thumbnail 24" [ref=e851]
+            - button "Motorcycle thumbnail 25" [ref=e852] [cursor=pointer]:
+              - img "Motorcycle thumbnail 25" [ref=e853]
+            - button "Motorcycle thumbnail 26" [ref=e854] [cursor=pointer]:
+              - img "Motorcycle thumbnail 26" [ref=e855]
+            - button "Motorcycle thumbnail 27" [ref=e856] [cursor=pointer]:
+              - img "Motorcycle thumbnail 27" [ref=e857]
+            - button "Motorcycle thumbnail 28" [ref=e858] [cursor=pointer]:
+              - img "Motorcycle thumbnail 28" [ref=e859]
+            - button "Motorcycle thumbnail 29" [ref=e860] [cursor=pointer]:
+              - img "Motorcycle thumbnail 29" [ref=e861]
+            - button "Motorcycle thumbnail 30" [ref=e862] [cursor=pointer]:
+              - img "Motorcycle thumbnail 30" [ref=e863]
+            - button "Motorcycle thumbnail 31" [ref=e864] [cursor=pointer]:
+              - img "Motorcycle thumbnail 31" [ref=e865]
+            - button "Motorcycle thumbnail 32" [ref=e866] [cursor=pointer]:
+              - img "Motorcycle thumbnail 32" [ref=e867]
+            - button "Motorcycle thumbnail 33" [ref=e868] [cursor=pointer]:
+              - img "Motorcycle thumbnail 33" [ref=e869]
+            - button "Motorcycle thumbnail 34" [ref=e870] [cursor=pointer]:
+              - img "Motorcycle thumbnail 34" [ref=e871]
+            - button "Motorcycle thumbnail 35" [ref=e872] [cursor=pointer]:
+              - img "Motorcycle thumbnail 35" [ref=e873]
+            - button "Motorcycle thumbnail 36" [ref=e874] [cursor=pointer]:
+              - img "Motorcycle thumbnail 36" [ref=e875]
+            - button "Motorcycle thumbnail 37" [ref=e876] [cursor=pointer]:
+              - img "Motorcycle thumbnail 37" [ref=e877]
+            - button "Motorcycle thumbnail 38" [ref=e878] [cursor=pointer]:
+              - img "Motorcycle thumbnail 38" [ref=e879]
+            - button "Motorcycle thumbnail 39" [ref=e880] [cursor=pointer]:
+              - img "Motorcycle thumbnail 39" [ref=e881]
+            - button "Motorcycle thumbnail 40" [ref=e882] [cursor=pointer]:
+              - img "Motorcycle thumbnail 40" [ref=e883]
+            - button "Motorcycle thumbnail 41" [ref=e884] [cursor=pointer]:
+              - img "Motorcycle thumbnail 41" [ref=e885]
+            - button "Motorcycle thumbnail 42" [ref=e886] [cursor=pointer]:
+              - img "Motorcycle thumbnail 42" [ref=e887]
+            - button "Motorcycle thumbnail 43" [ref=e888] [cursor=pointer]:
+              - img "Motorcycle thumbnail 43" [ref=e889]
+            - button "Motorcycle thumbnail 44" [ref=e890] [cursor=pointer]:
+              - img "Motorcycle thumbnail 44" [ref=e891]
+            - button "Motorcycle thumbnail 45" [ref=e892] [cursor=pointer]:
+              - img "Motorcycle thumbnail 45" [ref=e893]
+            - button "Motorcycle thumbnail 46" [ref=e894] [cursor=pointer]:
+              - img "Motorcycle thumbnail 46" [ref=e895]
+            - button "Motorcycle thumbnail 47" [ref=e896] [cursor=pointer]:
+              - img "Motorcycle thumbnail 47" [ref=e897]
+            - button "Motorcycle thumbnail 48" [ref=e898] [cursor=pointer]:
+              - img "Motorcycle thumbnail 48" [ref=e899]
+      - link "Back to Top " [ref=e901] [cursor=pointer]:
+        - /url: "#home"
+        - text: Back to Top
+        - generic [ref=e902]: 
+  - contentinfo [ref=e903]:
+    - generic [ref=e905]:
+      - generic [ref=e906]:
+        - link "👨‍💻 Konrad Borowiec" [ref=e907] [cursor=pointer]:
+          - /url: /
+        - paragraph [ref=e908]: Data Analysis & Data Engineering
+      - generic [ref=e909]:
+        - paragraph [ref=e910]: "© {year} Konu-Tec Konrad Borowiec. All rights reserved."
+        - paragraph [ref=e911]: Professional data solutions
+  - region "Notifications (F8)":
+    - list

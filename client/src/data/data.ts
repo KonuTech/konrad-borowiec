@@ -372,7 +372,10 @@ export const motorcycleImages = [
 ];
 
 // Cycling gallery images
-export const cyclingImages = ['/pictures/cycling/IMG-130f1d41030b51238c944acf3c325879-V.jpg'];
+export const cyclingImages = [
+  '/pictures/cycling/signal-2026-05-03-131837_002.jpeg',
+  '/pictures/cycling/IMG-130f1d41030b51238c944acf3c325879-V.jpg',
+];
 
 // Contact form submissions storage
 let contacts: Contact[] = [];

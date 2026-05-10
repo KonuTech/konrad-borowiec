@@ -1,11 +1,14 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ContactInfo: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex h-full flex-col lg:flex-row lg:items-start lg:gap-16">
       <div>
         <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-          Contact Information
+          {t('contact.title')}
         </h3>
         <div className="space-y-6">
           <div className="flex items-start space-x-4">
@@ -14,7 +17,7 @@ const ContactInfo: FC = () => {
             </div>
             <div>
               <p className="mb-1 text-sm font-medium text-portfolio-text dark:text-portfolio-lighter/80">
-                Email
+                {t('contact.labels.email')}
               </p>
               <a
                 href="mailto:borowiec.k@gmail.com"
@@ -31,7 +34,7 @@ const ContactInfo: FC = () => {
             </div>
             <div>
               <p className="mb-1 text-sm font-medium text-portfolio-text dark:text-portfolio-lighter/80">
-                Phone
+                {t('contact.labels.phone')}
               </p>
               <p className="text-portfolio-text dark:text-portfolio-lighter">+48 570 223 108</p>
             </div>
@@ -43,7 +46,7 @@ const ContactInfo: FC = () => {
             </div>
             <div>
               <p className="mb-1 text-sm font-medium text-portfolio-text dark:text-portfolio-lighter/80">
-                Location
+                {t('contact.labels.location')}
               </p>
               <p className="text-portfolio-text dark:text-portfolio-lighter">Warsaw, Poland</p>
             </div>
@@ -53,7 +56,7 @@ const ContactInfo: FC = () => {
 
       <div className="mt-10 lg:mt-0">
         <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-          Connect With Me
+          {t('contact.labels.connect')}
         </h3>
 
         <div className="flex space-x-4">

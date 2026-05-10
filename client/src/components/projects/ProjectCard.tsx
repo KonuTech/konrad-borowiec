@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Project } from '@shared/types';
 
 interface ProjectCardProps {
@@ -6,8 +7,21 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
+  const { t } = useTranslation();
+
   return (
-    <div className="hover-card flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md dark:bg-portfolio-darker">
+    <div className="hover-card relative flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md dark:bg-portfolio-darker">
+      {project.githubUrl && (
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.title} on GitHub`}
+          className="absolute inset-0 z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-primary"
+        >
+          <span className="sr-only">{project.title}</span>
+        </a>
+      )}
       <img
         src={project.imageUrl || ''}
         alt={project.title}
@@ -21,7 +35,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
           </h3>
         </div>
         <p className="mb-4 text-sm text-portfolio-text dark:text-portfolio-lighter">
-          {project.description}
+          {t(`projects.items.${project.id}.description`, { defaultValue: project.description })}
         </p>
         <div className="mb-6 flex flex-wrap gap-2">
           {project.technologies &&
@@ -34,7 +48,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               </span>
             ))}
         </div>
-        <div className="mt-auto flex space-x-4">
+        <div className="relative z-20 mt-auto flex space-x-4">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -42,7 +56,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className="font-nunito text-sm font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
             >
-              <i className="fas fa-external-link-alt mr-1"></i> Live Demo
+              <i className="fas fa-external-link-alt mr-1"></i> {t('common.demo')}
             </a>
           )}
           {project.githubUrl && (
@@ -52,7 +66,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className="font-nunito text-sm font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
             >
-              <i className="fab fa-github mr-1"></i> GitHub
+              <i className="fab fa-github mr-1"></i> {t('common.github')}
             </a>
           )}
         </div>

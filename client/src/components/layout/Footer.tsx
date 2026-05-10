@@ -1,27 +1,35 @@
 import { Link } from 'wouter';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
+  const buildId =
+    (import.meta as any).env?.VITE_BUILD_ID || (import.meta as any).env?.VITE_COMMIT || 'local';
+
   return (
-    <footer className="bg-portfolio-lightest py-2 dark:bg-portfolio-darker md:py-2">
+    <footer className="bg-portfolio-lightest py-1 dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-1 md:flex-row md:gap-4">
           <div className="text-center md:text-left">
             <Link
               href="/"
               className="font-nunito text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
             >
-              <span className="text-2xl">👨‍💻</span> Konrad Borowiec
+              <span className="text-2xl">👨‍💻</span> {t('footer.logo')}
             </Link>
-            <p className="mt-2 text-sm text-portfolio-muted">Data Analysis & Data Engineering</p>
+            <p className="text-sm text-portfolio-muted">{t('footer.description')}</p>
           </div>
 
           <div className="text-center md:text-right">
             <p className="text-sm text-portfolio-text dark:text-portfolio-lighter">
-              &copy; {currentYear} Konu-Tec Konrad Borowiec. All rights reserved.
+              {t('footer.copyright', { year: currentYear })}
             </p>
-            <p className="mt-2 text-xs text-portfolio-muted">Professional data solutions</p>
+            <p className="text-xs text-portfolio-muted">
+              {t('footer.tagline')}
+              <span className="ml-2 opacity-70">{`· build: ${buildId}`}</span>
+            </p>
           </div>
         </div>
       </div>

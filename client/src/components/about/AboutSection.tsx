@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Timeline from './Timeline';
 import TechStack from './TechStack';
 import ContactInfo from '../contact/ContactInfo';
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
   const [timelineMaxHeight, setTimelineMaxHeight] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -53,9 +55,9 @@ const AboutSection = () => {
     <section id="about" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          About{' '}
+          {t('about.headingPrefix')}{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
-            Me
+            {t('about.title')}
           </span>
         </SectionTitle>
 
@@ -71,25 +73,19 @@ const AboutSection = () => {
           >
             <div className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                My Journey
+                {t('about.experience')}
               </h3>
               <p className="mb-4 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
-                I'm a Data Guy with a strong background in the financial services sector. I enjoy my
-                work the most when the tools and solutions I develop are actively used by other
-                people or businesses. With expertise in SQL, Python, and various data processing
-                technologies, I focus on designing efficient data pipelines and extracting valuable
-                insights.
+                {t('about.bio1')}
               </p>
               <p className="mb-6 text-justify leading-relaxed text-portfolio-text dark:text-portfolio-lighter/90">
-                My journey began in finance and analytics, evolving into a more technical role
-                specializing in data engineering, big data processing, and machine learning. I enjoy
-                solving complex data challenges and building robust, reliable solutions.
+                {t('about.bio2')}
               </p>
             </div>
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                Tech Stack
+                {t('about.skills')}
               </h3>
               <TechStack />
             </div>
@@ -113,7 +109,7 @@ const AboutSection = () => {
               className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark"
             >
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                Experience & Education
+                {t('about.timelineTitle')}
               </h3>
               <div className="relative">
                 <div
@@ -150,7 +146,7 @@ const AboutSection = () => {
                 }}
                 className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
               >
-                {isTimelineExpanded ? 'Hide Timeline \u25B2' : 'Show Full Timeline \u25BC'}
+                {isTimelineExpanded ? t('about.hideTimeline') : t('about.showTimeline')}
               </button>
             </div>
           </motion.div>
@@ -162,7 +158,7 @@ const AboutSection = () => {
             href="#home"
             className="font-nunito flex items-center rounded-full bg-portfolio-primary px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:bg-portfolio-primary/80 hover:shadow-lg"
           >
-            <i className="fas fa-arrow-up mr-2"></i> Back to Top
+            <i className="fas fa-arrow-up mr-2"></i> {t('ui.backToTop')}
           </a>
         </div>
       </div>

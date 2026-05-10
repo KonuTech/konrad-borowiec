@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 type TimelineItem = {
   title: string;
@@ -164,6 +165,8 @@ const TimelineItem: FC<{
   onClick: () => void;
   index: number;
 }> = ({ item, isLast, isActive, onClick, index }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (isLast && isActive) {
       setTimeout(() => {
@@ -319,6 +322,7 @@ const TimelineItem: FC<{
 };
 
 const Timeline: FC = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggleItem = (index: number) => {
@@ -331,7 +335,10 @@ const Timeline: FC = () => {
         {sortedTimelineItems.map((item, index) => (
           <TimelineItem
             key={index}
-            item={item}
+            item={{
+              ...item,
+              description: t(`timeline.items.${index}`) || item.description,
+            }}
             isLast={index === sortedTimelineItems.length - 1}
             isActive={activeIndex === index}
             onClick={() => toggleItem(index)}

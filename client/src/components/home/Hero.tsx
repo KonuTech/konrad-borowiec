@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 // Profile photo served via Express static middleware
 const profilePhoto = '/pictures/photos/konrad.jpg';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="home" className="overflow-hidden pb-20 pt-16 md:pb-14 md:pt-24">
       <div className="relative">
@@ -34,7 +37,7 @@ const Hero = () => {
               <div className="animate-spin-slow h-60 w-60 rounded-full bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-light opacity-30 md:h-80 md:w-80"></div>
               <img
                 src={profilePhoto}
-                alt="Konrad Borowiec portrait"
+                alt={t('hero.title')}
                 className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 transform rounded-full border-4 border-white bg-white object-cover shadow-lg dark:border-portfolio-dark md:h-72 md:w-72"
                 style={{ objectPosition: 'center -50px' }}
               />
@@ -49,32 +52,28 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="font-nunito mb-3 font-bold text-portfolio-primary dark:text-portfolio-light md:mb-4">
-              Hello, I'm
+              {t('hero.intro')}
             </p>
             <h1 className="font-nunito mb-3 bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-dark bg-clip-text text-3xl font-extrabold text-transparent md:mb-4 md:text-5xl lg:text-6xl">
-              Konrad Borowiec
+              {t('hero.title')}
             </h1>
             <p className="mx-auto mb-6 max-w-lg text-justify text-lg text-portfolio-text dark:text-portfolio-lighter md:mx-0 md:mb-8">
-              Data isn't just numbers - it's the key to smarter decisions.
+              {t('hero.subtitle')}
               <br />
-              As your specialist in data engineering, analytics, and machine learning, I craft
-              pipelines and unlock insights from raw data.
-              <br />
-              <br />
-              Let's transform your data into a catalyst for progress!
+              {t('hero.description')}
             </p>
             <div className="flex flex-col flex-wrap justify-center gap-4 md:max-w-lg md:flex-row md:justify-start">
               <a
                 href="#projects"
                 className="font-nunito flex transform items-center justify-center rounded-md border border-portfolio-primary bg-white px-6 py-3 text-center font-bold text-portfolio-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-portfolio-lighter dark:bg-portfolio-darker dark:text-portfolio-lighter md:flex-1"
               >
-                Check out my side projects
+                {t('hero.ctaProjects')}
               </a>
               <a
                 href="#contact"
                 className="font-nunito flex transform items-center justify-center rounded-md bg-portfolio-primary px-6 py-3 text-center font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-portfolio-dark hover:shadow-lg md:flex-1"
               >
-                Contact Me
+                {t('hero.ctaContact')}
               </a>
             </div>
           </motion.div>

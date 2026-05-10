@@ -1,0 +1,228 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "books": "Books",
+    "interests": "Interests",
+    "contact": "Contact",
+    "contactMe": "Contact Me",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "credly": "Credly",
+    "demo": "Live Demo",
+    "readMore": "Read More",
+    "viewCode": "View Code",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. All rights reserved.",
+    "professional": "Professional data solutions"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "books": "Books",
+    "interests": "Interests",
+    "contact": "Contact"
+  },
+  "hero": {
+    "intro": "Hello, I'm",
+    "title": "Konrad Borowiec",
+    "subtitle": "Data isn't just numbers - it's the key to smarter decisions.",
+    "description": "As your specialist in data engineering, analytics, and machine learning, I craft pipelines and unlock insights from raw data. Let's transform your data into a catalyst for progress!",
+    "ctaProjects": "Check out my side projects",
+    "ctaContact": "Contact Me"
+  },
+  "about": {
+    "headingPrefix": "About",
+    "title": "Me",
+    "timelineTitle": "Experience & Education",
+    "description": "I'm a passionate data professional with expertise in building robust data pipelines and analytics solutions.",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "bio1": "I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.",
+    "bio2": "My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.",
+    "showTimeline": "Show Full Timeline ▼",
+    "hideTimeline": "Hide Timeline ▲"
+  },
+  "timeline": {
+    "title": "My Journey",
+    "item": {
+      "year": "{year}",
+      "title": "{title}",
+      "description": "{description}"
+    },
+    "items.0": "Maintained production data infrastructure powering analytics for e-commerce clients, processing data from multiple platforms into a unified BigQuery warehouse orchestrated by Apache Airflow. Used Apache Superset as the BI solution.\n\n• Developed a custom Apache Airflow connector for Magento 2 with OAuth 1.0a (HMAC-SHA256) authentication, generator-based pagination, and exponential-backoff retry logic across multiple REST API endpoints. Extracted records into GCS as NDJSON with daily loading into BigQuery.\n\n• Engineered a Google Ads ETL pipeline integrating the Google Ads API with BigQuery via GCS staging. Designed analytical tables mapping Google Ads spend to actual e-commerce client stock for rendering in Apache Superset. Leveraged dynamic Jinja2 date templating with intelligent lookback windows to properly handle late arrivals and deduplication.\n\n• Onboarded e-commerce clients onto a config-driven data platform. Leveraged a YAML-to-DAG generation framework to dynamically produce Airflow DAGs from declarative client configurations.\n\n• Executed a zero-downtime Klaviyo API revision migration spanning a multi-year revision gap. Designed and ran automated validation tests across multiple categories (authentication, subscription schemas, marketing fields, event structures, campaign filters, flow pagination, metric types), confirming zero breaking changes.\n\n• Developed a custom dbt macro for Unicode text normalization to resolve product ID mapping and deduplication failures caused by special characters (Polish, Russian, and other non-ASCII glyphs) in e-commerce product URLs. Standardized URL parsing across the unified ECOM entity schema spanning four platforms (e.g., Shopify, Shoper, WooCommerce, and Magento), enabling reliable cross-platform deduplication.\n\n• Used the Superset REST API via Superset MCP to programmatically query dashboard and chart configurations for automated data lineage investigations and subsequent fixes.\n\n• Maintained rigorous quality standards by designing comprehensive validation suites for every table and pipeline. Authored SQL tests covering cross-layer consistency (staging through transformed), NULL-rate analysis on mandatory fields, surrogate-key uniqueness, referential integrity, and old-vs-new API output comparison.\n\n• Eurostat GISCO Geospatial Data Pipeline: Designed and implemented an end-to-end ETL pipeline integrating Eurostat GISCO geospatial data into the company's Airflow-based data platform. Built a custom Airflow plugin (operator + hook) that downloads ~815,000 EU postal codes and 1,211 NUTS3 boundary polygons from the GISCO API, stages them as NDJSON in Google Cloud Storage, and loads into BigQuery. Implemented ijson streaming to handle the 350MB postal codes GeoJSON within container memory limits. Created dbt source and transformed models with full NUTS hierarchy (country/NUTS1/NUTS2/NUTS3). Registered the pipeline in the DAG generator framework to enable automated deployment across environments. Data serves Superset map visualizations for 31 EU/EEA/EFTA countries.\n\n• Sales Channel Backfill & Schema Migration: Led a data backfill initiative to integrate historical mobile app order data into a major e-commerce client's analytics pipeline. Extended the BigQuery staging schema and dbt models (source and transformed layers) to accommodate a new sales channel column, enabling filtering between web and app orders across all reporting layers. Managed backward compatibility for 2+ years of historical CSV files lacking the new column while ensuring seamless ingestion of new files containing both channel types. Coordinated schema changes across GCS-to-BQ ingestion, dbt incremental models, and downstream Superset dashboards.",
+    "items.1": "Supporting role in Oracle APEX application development. Collaborated with business analysts to assist in the development of a reporting tool for ESRS (European Sustainability Reporting Standards). Designed and implemented BI functionalities into APEX application using PL/SQL. Performed modifications to the reporting model when needed. Utilized PL/SQL to generate displayed reports. Contributed ideas and provided feedback by applying my expertise and knowledge in reporting tasks.",
+    "items.2": "Depending on the scale of analysis, reporting of national data using either Oracle SQL or Oracle PL/SQL. Development of a PoC application to calculate and visualize the closest routes between a controlled entity and ten closest controllers (public sector employees). A graph problem on a big data scale. Used Python and SQL.",
+    "items.3": "Development of ELT data pipelines for the Open Banking area. Including flattening, deduplication, and normalization of JSON data source into Hive tables. Processing both semi-structured and structured data. Technologies used: MongoDB, HDFS, HiveSQL, Python, Airflow, and GitLab for CICD. Ad-hoc analysis of customers activity within Open Banking area.",
+    "items.4": "Development of batch data processing solutions for one of the largest banks in Poland. The ELT processes for Data Lake were designed using Airflow, Python, PySpark, and Hive within the on-premise Cloudera Data Platform. Development and operationalization of churn related classifier for insurance company. Added functionalities for scoring and monitoring of new data. Development and operationalization of classifiers for VR training company. Design and development of HR demo dashboard with a use SAS Viya.",
+    "items.5": "Tester of output tables created by SAS Developers. Maintenance of documentation in the Area of Property Insurances.",
+    "items.6": "Co-responsible for migrating SAS Visual Analytics reports to the SAS Viya environment for Poland's largest insurance company. Tasks included importing dashboards to Viya, repairing XML schemas, redesigning dashboard layouts for improved UX, creating global Themes, developing XML/HTML forms, and processing JSON files using Python.",
+    "items.7": "As a consultant at a major Polish telecom, participated in projects to upgrade data mart recalculation processes. Developed production-ready SAS scripts focusing on 4GL and SQL for data processing. Handled data collection and segmentation using Python. Contributed to dashboard development using Shiny and Tableau.",
+    "items.8": "Consolidated and simplified financial regulatory reporting using SAS 4GL and SQL. Developed reports using SAP BO, SAS EG, and SAS VA. Utilized Stored Processes for user self-service. Recognized as a top dashboard developer and ranked in top ten in an internal competition designing optimal binary classifiers with customer data.",
+    "items.9": "Automated reporting using SAS Guide and SAS VA. Developed dashboards for evaluating bank branch performance, facilitating statistical and visual analysis of issued loans.",
+    "items.10": "Processed financial data, actualized financial statements, and supported data migration between databases.",
+    "items.11": "Supported the development of a predictive model used for estimation of LGD parameter in the Valuation Standards and Reporting Team.",
+    "items.12": "Postgraduate studies in Large Data Sets Engineering. Developed a movie recommender system using Python for the end project.",
+    "items.13": "Postgraduate studies. Assessment of Reject Inference methods implemented in SAS Enterprise Miner with a use of credit scorecard models built on randomly generated consumer finance portfolio data.",
+    "items.14": "Specialized in International Financial Markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account basing on determinants of Polish balance of payments.",
+    "items.15": "Student exchange program.",
+    "items.16": "The analysis of state budget in 2006-2010.",
+    "items.17": "",
+    "items.18": ""
+  },
+  "projects": {
+    "title": "Projects",
+    "headingPrefix": "My Side",
+    "description": "Here are some of my recent projects showcasing my skills in data engineering, machine learning, and web development.",
+    "noProjects": "No projects yet. Check back soon!",
+    "technologies": "Technologies",
+    "items": {
+      "1": {
+        "description": "SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset . Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast"
+      },
+      "2": {
+        "description": "Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code"
+      },
+      "3": {
+        "description": "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit"
+      },
+      "4": {
+        "description": "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring"
+      },
+      "5": {
+        "description": "e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI"
+      },
+      "6": {
+        "description": "Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker"
+      },
+      "7": {
+        "description": "TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster"
+      },
+      "8": {
+        "description": "Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout."
+      }
+    }
+  },
+  "books": {
+    "headingPrefix": "My",
+    "title": "Reading List",
+    "description": "Books I've read and am planning to read in the data engineering and machine learning domain.",
+    "genre": "Genre",
+    "status": "Status",
+    "rating": "Rating",
+    "review": "Review",
+    "noBooks": "No books yet. Check back soon!",
+    "read": "Read",
+    "toRead": "To Read",
+    "toReadMessage": "This book is on my reading list! I'm looking forward to exploring it soon.",
+    "fallbackReview": "I enjoyed this book and found it valuable for my professional development.",
+    "genres": {
+      "Data Engineering": "Data Engineering"
+    },
+    "items": {
+      "1": {
+        "review": "Essential guide to modern data engineering practices and architectures."
+      },
+      "2": {
+        "review": "Comprehensive guide to using dbt for data transformation and modeling."
+      },
+      "3": {
+        "review": "Practical recipes for building data pipelines with Databricks."
+      }
+    }
+  },
+  "interests": {
+    "headingPrefix": "My",
+    "title": "Interests",
+    "description": "Outside of work, I enjoy exploring various hobbies and interests.",
+    "categories": {
+      "title": "Categories",
+      "motorcycling": "Motorcycling",
+      "cycling": "Cycling",
+      "photography": "Analytics Engineering & Technology",
+      "history": "History, Architecture & Economics",
+      "financial": "Financial Markets"
+    },
+    "motorcycling": {
+      "heading": "Motorcycling",
+      "description1": "I'm passionate about exploring the world on two wheels. Motorcycle road trips offer me the perfect blend of adventure, freedom, and connection with nature.",
+      "description2": "From winding mountain roads to coastal highways, each journey brings new perspectives and unforgettable experiences.",
+      "description3": "Browse through my photo gallery from recent motorcycle journeys across beautiful landscapes, mountain roads, and coastal routes!"
+    },
+    "cycling": {
+      "heading": "Cycling",
+      "description1": "Cycling is another passion of mine that allows me to stay active while exploring beautiful landscapes.",
+      "description2": "Whether it's a quick ride through local trails or a day-long excursion in the countryside, cycling provides both physical exercise and mental refreshment."
+    },
+    "photography": {
+      "heading": "Analytics Engineering & Technology",
+      "description1": "Beyond my professional work, I'm deeply interested in the advancements in data engineering and analytics engineering.",
+      "description2": "I enjoy working with modern data platforms, exploring new tools for data modeling and transformation, optimizing data pipelines, and experimenting with ways to make data more reliable, scalable, and actionable.",
+      "description3": "I also keep up with the latest trends in cloud data infrastructure, ELT/ETL processes, and visualization techniques to stay current in the field.",
+      "description4": "My technical reading list reflects this passion, as I constantly seek to expand my knowledge and skills in these rapidly evolving areas."
+    },
+    "history": {
+      "heading": "History, Architecture & Economics",
+      "description1": "I have a profound interest in history, architecture, and economics, which greatly influences how I explore the world.",
+      "description2": "Learning about different civilizations, their architectural achievements, and economic systems helps me understand the evolution of human society and culture.",
+      "description3": "These interests are actually the driving forces behind my motorcycle road trips and cycling adventures. They allow me to directly experience historical sites, appreciate diverse architectural styles, and observe economic differences across regions—creating a deeper connection with the places I visit."
+    },
+    "financial": {
+      "heading": "Financial Markets",
+      "description1": "My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading.",
+      "description2": "Starting a few years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities.",
+      "description3": "Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results.",
+      "description4": "This hands-on experience has provided valuable insights into market dynamics and investment principles.",
+      "description5": "For those interested in building their investment knowledge, particularly Polish speakers, I recommend",
+      "recommendation": "inwestomat.eu",
+      "recommendationDesc": "- an exceptional resource that offers university-caliber financial education in an accessible format."
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "required": "This field is required",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again.",
+    "labels": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "phone": "Phone",
+      "location": "Location",
+      "connect": "Connect With Me"
+    }
+  },
+  "notFound": {
+    "title": "404 Page Not Found",
+    "message": "Did you forget to add the page to the router?"
+  },
+  "footer": {
+    "logo": "Konrad Borowiec",
+    "description": "Data Analysis & Data Engineering",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. All rights reserved.",
+    "tagline": "Professional data solutions"
+  },
+  "ui": {
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "toggle": "Toggle Theme",
+    "menu": "Menu",
+    "closeMenu": "Close Menu",
+    "backToTop": "Back to Top"
+  },
+  "toast": {
+    "success": "Success",
+    "error": "Error",
+    "sent": "Message sent successfully!",
+    "failed": "Failed to send message"
+  }
+}

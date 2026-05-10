@@ -8,5 +8,4 @@ vite.config.ts.*
 .config
 .local
 .upm
-.temp
 .playwright-mcp

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Book } from '@shared/types';
 
 interface BookCardProps {
@@ -6,7 +7,11 @@ interface BookCardProps {
 }
 
 const BookCard: FC<BookCardProps> = ({ book }) => {
+  const { t } = useTranslation();
   const isToRead = book.status === 'to-read';
+  const reviewText = t(`books.items.${book.id}.review`, {
+    defaultValue: book.review || t('books.fallbackReview'),
+  });
 
   const getGenreColors = (genre: string | null | undefined) => {
     if (!genre) return 'bg-portfolio-lightest text-portfolio-text';
@@ -40,7 +45,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
             />
             {isToRead && (
               <div className="absolute right-0 top-0 m-2 rounded-full bg-portfolio-primary px-2 py-1 text-xs text-white">
-                To Read
+                {t('books.toRead')}
               </div>
             )}
           </div>
@@ -58,7 +63,7 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
             {book.genre && (
               <div className="mt-2 flex justify-start">
                 <span className={`text-xs ${getGenreColors(book.genre)} rounded-full px-2 py-1`}>
-                  {book.genre}
+                  {t(`books.genres.${book.genre}`, { defaultValue: book.genre })}
                 </span>
               </div>
             )}
@@ -75,15 +80,12 @@ const BookCard: FC<BookCardProps> = ({ book }) => {
               <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-portfolio-lightest">
                 <i className="fas fa-book-reader text-lg text-portfolio-primary"></i>
               </div>
-              <p className="text-center">
-                This book is on my reading list! I'm looking forward to exploring it soon.
-              </p>
+              <p className="text-center">{t('books.toReadMessage')}</p>
             </div>
           ) : (
             <>
               <p className="mb-4 flex-grow text-sm text-portfolio-text dark:text-portfolio-lighter">
-                {book.review ||
-                  'I enjoyed this book and found it valuable for my professional development.'}
+                {reviewText}
               </p>
             </>
           )}

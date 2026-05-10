@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import BookCard from './BookCard';
 import { Book } from '@shared/types';
 import { api } from '@/lib/staticApi';
 
 const BooksSection = () => {
+  const { t } = useTranslation();
   const [books, setBooks] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +47,7 @@ const BooksSection = () => {
     <section id="books" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My <span className="gradient-text">Book Collection</span>
+          {t('books.headingPrefix')} <span className="gradient-text">{t('books.title')}</span>
         </SectionTitle>
 
         {isLoading ? (
@@ -53,7 +55,7 @@ const BooksSection = () => {
             <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-portfolio-primary"></div>
           </div>
         ) : error ? (
-          <div className="text-center text-red-500">Failed to load books</div>
+          <div className="text-center text-red-500">{t('books.noBooks')}</div>
         ) : (
           <>
             <div className="mb-8 flex justify-center">
@@ -66,7 +68,7 @@ const BooksSection = () => {
                       : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
                   }`}
                 >
-                  Read Books
+                  {t('books.read')}
                 </button>
                 <button
                   onClick={() => setShowToRead(true)}
@@ -76,7 +78,7 @@ const BooksSection = () => {
                       : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
                   }`}
                 >
-                  Books To Read
+                  {t('books.toRead')}
                 </button>
               </div>
             </div>
@@ -100,7 +102,7 @@ const BooksSection = () => {
                 href="#top"
                 className="font-nunito inline-flex items-center font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
               >
-                Back to Top <i className="fas fa-arrow-up ml-2"></i>
+                {t('ui.backToTop')} <i className="fas fa-arrow-up ml-2"></i>
               </a>
             </div>
           </>
