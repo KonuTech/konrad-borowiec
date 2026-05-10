@@ -34,8 +34,7 @@ const ProjectsSection = () => {
     <section id="projects" className="bg-white py-20 dark:bg-portfolio-dark md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          <span className="text-portfolio-primary">{t('projects.headingPrefix')}</span>{' '}
-          <span className="gradient-text">{t('projects.title')}</span>
+          {t('projects.headingPrefix')} <span className="gradient-text">{t('projects.title')}</span>
         </SectionTitle>
 
         {isLoading ? (

@@ -47,8 +47,7 @@ const BooksSection = () => {
     <section id="books" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          <span className="text-portfolio-primary">{t('books.headingPrefix')}</span>{' '}
-          <span className="gradient-text">{t('books.title')}</span>
+          {t('books.headingPrefix')} <span className="gradient-text">{t('books.title')}</span>
         </SectionTitle>
 
         {isLoading ? (

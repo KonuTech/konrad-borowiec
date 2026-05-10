@@ -125,14 +125,13 @@ const Header = () => {
                 <i className="fas fa-certificate text-lg"></i>
               </a>
             </li>
-            <li>
-              {/* Language Switcher */}
-              <LanguageSwitcher />
-            </li>
           </ul>
         </nav>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
           {/* Dark Mode Toggle */}
           <DarkModeToggle />
 

@@ -47,7 +47,7 @@ const InterestsSection: FC = () => {
             </>
           ) : (
             <>
-              <span className="text-portfolio-primary">{t('interests.headingPrefix')}</span>{' '}
+              {t('interests.headingPrefix')}{' '}
               <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
                 {t('interests.title')}
               </span>

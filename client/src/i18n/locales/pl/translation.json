@@ -80,7 +80,33 @@
     "headingPrefix": "Moje Dodatkowe",
     "description": "Oto niektóre z moich ostatnich projektów pokazujących moje umiejętności w inżynierii danych, uczeniu maszynowym i rozwoju webowym.",
     "noProjects": "Brak projektów. Wróć później!",
-    "technologies": "Technologie"
+    "technologies": "Technologie",
+    "items": {
+      "1": {
+        "description": "Środowisko SQL bazujące na danych nowojorskich taksówek. Zdockeryzowane PostgreSQL, pgAdmin i Superset. Inicjalizacja bazy danych, backfill oraz ładowanie danych są wstępnie skonfigurowane i gotowe do użycia. Szybki start z analityką."
+      },
+      "2": {
+        "description": "Codzienny ETL i ML z użyciem Dockera, PostgreSQL, Airflow oraz XGBoost na wyselekcjonowanych spółkach giełdowych. Na koniec aplikacja webowa w React. Całość przygotowana przy użyciu Claude Code."
+      },
+      "3": {
+        "description": "Zdockeryzowany potok danych typu mini-batch w cyklu 5-minutowym. Spark Structured Streaming: odczyt z Kafki do PostgreSQL jako bazy docelowej. Airflow, Kafka, PySpark, PostgreSQL, Streamlit."
+      },
+      "4": {
+        "description": "Zdockeryzowana aplikacja RAG oparta na recenzjach gier PC pobranych ze sklepu Steam. Aplikacja Flask wykorzystująca wektorową bazę danych Elasticsearch. Dodatkowo PostgreSQL do logowania oraz Grafana do monitoringu."
+      },
+      "5": {
+        "description": "Kompleksowy MLOps na GCP - PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
+      },
+      "6": {
+        "description": "Zdockeryzowana usługa Flask - przewidywanie, czy klient nie spłaci zobowiązania. Pandas, scikit-learn, XGBoost, Flask, Docker."
+      },
+      "7": {
+        "description": "TensorFlow, klasyfikator obrazów, transfer learning, serwowanie modelu, Docker, Kubernetes, klaster Kind."
+      },
+      "8": {
+        "description": "Osobista strona portfolio zbudowana w React i TypeScript, z nowoczesnym designem i responsywnym układem."
+      }
+    }
   },
   "books": {
     "headingPrefix": "Moje",

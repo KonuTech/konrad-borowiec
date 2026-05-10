@@ -5,6 +5,9 @@ const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
+  const buildId =
+    (import.meta as any).env?.VITE_BUILD_ID || (import.meta as any).env?.VITE_COMMIT || 'local';
+
   return (
     <footer className="bg-portfolio-lightest py-2 dark:bg-portfolio-darker md:py-2">
       <div className="container mx-auto px-4">
@@ -26,6 +29,10 @@ const Footer = () => {
             <p className="mt-2 text-xs text-portfolio-muted">{t('footer.tagline')}</p>
           </div>
         </div>
+      </div>
+
+      <div className="container mx-auto mt-2 flex justify-center px-4">
+        <div className="text-xs text-portfolio-muted">{`build: ${buildId}`}</div>
       </div>
     </footer>
   );

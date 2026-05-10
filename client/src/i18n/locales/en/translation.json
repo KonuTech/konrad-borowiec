@@ -79,7 +79,33 @@
     "headingPrefix": "My Side",
     "description": "Here are some of my recent projects showcasing my skills in data engineering, machine learning, and web development.",
     "noProjects": "No projects yet. Check back soon!",
-    "technologies": "Technologies"
+    "technologies": "Technologies",
+    "items": {
+      "1": {
+        "description": "SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset . Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast"
+      },
+      "2": {
+        "description": "Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code"
+      },
+      "3": {
+        "description": "A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit"
+      },
+      "4": {
+        "description": "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring"
+      },
+      "5": {
+        "description": "e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI"
+      },
+      "6": {
+        "description": "Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker"
+      },
+      "7": {
+        "description": "TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster"
+      },
+      "8": {
+        "description": "Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout."
+      }
+    }
   },
   "books": {
     "headingPrefix": "My",

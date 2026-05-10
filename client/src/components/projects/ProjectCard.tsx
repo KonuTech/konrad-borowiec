@@ -24,7 +24,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
           </h3>
         </div>
         <p className="mb-4 text-sm text-portfolio-text dark:text-portfolio-lighter">
-          {project.description}
+          {t(`projects.items.${project.id}.description`, { defaultValue: project.description })}
         </p>
         <div className="mb-6 flex flex-wrap gap-2">
           {project.technologies &&

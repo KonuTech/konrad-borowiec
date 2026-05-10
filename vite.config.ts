@@ -4,11 +4,26 @@ import themePlugin from '@replit/vite-plugin-shadcn-theme-json';
 import path, { dirname } from 'path';
 import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+let gitShortSha = 'local';
+try {
+  gitShortSha = execFileSync('git', ['rev-parse', '--short', 'HEAD'], {
+    stdio: ['ignore', 'pipe', 'ignore'],
+  })
+    .toString()
+    .trim();
+} catch {
+  // leave as 'local'
+}
+
 export default defineConfig({
+  define: {
+    'import.meta.env.VITE_BUILD_ID': JSON.stringify(gitShortSha),
+  },
   plugins: [
     react(),
     runtimeErrorOverlay(),
