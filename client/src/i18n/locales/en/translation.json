@@ -73,7 +73,8 @@
     "items.18": ""
   },
   "projects": {
-    "title": "My Projects",
+    "title": "Projects",
+    "headingPrefix": "My side",
     "description": "Here are some of my recent projects showcasing my skills in data engineering, machine learning, and web development.",
     "noProjects": "No projects yet. Check back soon!",
     "technologies": "Technologies"

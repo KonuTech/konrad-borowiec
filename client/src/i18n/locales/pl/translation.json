@@ -74,7 +74,8 @@
     "items.18": ""
   },
   "projects": {
-    "title": "Moje Projekty",
+    "title": "Projekty",
+    "headingPrefix": "Moje",
     "description": "Oto niektóre z moich ostatnich projektów pokazujących moje umiejętności w inżynierii danych, uczeniu maszynowym i rozwoju webowym.",
     "noProjects": "Brak projektów. Wróć później!",
     "technologies": "Technologie"
