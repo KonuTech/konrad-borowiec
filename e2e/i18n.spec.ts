@@ -15,7 +15,7 @@ test('i18n: switch to Polish and check key UI texts', async ({ page }) => {
   await expect(page.locator('text=Zobacz moje projekty')).toBeVisible();
 
   // Check contact label (Polish)
-  await expect(page.locator('text=Imię i nazwisko')).toBeVisible();
+  await expect(page.locator('text=Twoje Imię i Nazwisko')).toBeVisible();
 
   // Check projects heading prefix + title
   await expect(page.locator('text=Moje')).toBeVisible();
