@@ -1,12 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 test('i18n: switch to Polish and check key UI texts', async ({ page }) => {
-  // Set i18next language preference in localStorage before loading
   await page.goto('/');
-  await page.evaluate(() => localStorage.setItem('i18nextLng', 'pl'));
-  await page.reload();
 
-  // Wait for page render
+  // Open language dropdown and choose Polish
+  const langButton = page.locator('button[aria-label="Select language"]');
+  await langButton.click();
+  await page.locator('button', { hasText: 'Polski' }).click();
+
+  // Wait for render
   await expect(page.locator('body')).toBeVisible();
 
   // Check hero CTA (Polish)
