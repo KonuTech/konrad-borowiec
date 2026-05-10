@@ -16,7 +16,7 @@ test('i18n: switch to Polish and check key UI texts', async ({ page }) => {
 
   // Check contact section title (Polish)
   await page.locator('#contact').scrollIntoViewIfNeeded();
-  await expect(page.locator('text=Skontaktuj się')).toBeVisible();
+  await expect(page.locator('text=Skontaktuj się').first()).toBeVisible();
 
   // Check projects heading prefix + title
   await page.locator('#projects').scrollIntoViewIfNeeded();
