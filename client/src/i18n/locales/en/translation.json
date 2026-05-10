@@ -15,7 +15,6 @@
     "demo": "Live Demo",
     "readMore": "Read More",
     "viewCode": "View Code",
-    "contactMe": "Contact Me",
     "copyright": "© {year} Konu-Tec Konrad Borowiec. All rights reserved.",
     "professional": "Professional data solutions"
   },
@@ -36,6 +35,7 @@
     "ctaContact": "Contact Me"
   },
   "about": {
+    "headingPrefix": "About",
     "title": "About Me",
     "timelineTitle": "Experience & Education",
     "description": "I'm a passionate data professional with expertise in building robust data pipelines and analytics solutions.",
@@ -43,7 +43,9 @@
     "skills": "Skills",
     "education": "Education",
     "bio1": "I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.",
-    "bio2": "My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions."
+    "bio2": "My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.",
+    "showTimeline": "Show Full Timeline ▼",
+    "hideTimeline": "Hide Timeline ▲"
   },
   "timeline": {
     "title": "My Journey",
@@ -79,18 +81,6 @@
     "noProjects": "No projects yet. Check back soon!",
     "technologies": "Technologies"
   },
-  "about": {
-    "title": "About Me",
-    "timelineTitle": "Experience & Education",
-    "description": "I'm a passionate data professional with expertise in building robust data pipelines and analytics solutions.",
-    "experience": "Experience",
-    "skills": "Skills",
-    "education": "Education",
-    "bio1": "I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.",
-    "bio2": "My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.",
-    "showTimeline": "Show Full Timeline \u25BC",
-    "hideTimeline": "Hide Timeline \u25B2"
-  },
   "books": {
     "headingPrefix": "My",
     "title": "Reading List",
@@ -103,8 +93,8 @@
     "read": "Read",
     "toRead": "To Read"
   },
-
   "interests": {
+    "headingPrefix": "My",
     "title": "Interests",
     "description": "Outside of work, I enjoy exploring various hobbies and interests.",
     "categories": {

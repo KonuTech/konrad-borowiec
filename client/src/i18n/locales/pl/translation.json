@@ -15,7 +15,6 @@
     "demo": "Demo na żywo",
     "readMore": "Czytaj więcej",
     "viewCode": "Zobacz kod",
-    "contactMe": "Skontaktuj się",
     "copyright": "© {year} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
     "professional": "Profesjonalne rozwiązania danych"
   },
@@ -36,6 +35,7 @@
     "ctaContact": "Skontaktuj się"
   },
   "about": {
+    "headingPrefix": "O",
     "title": "O mnie",
     "timelineTitle": "Doświadczenie i Edukacja",
     "description": "Jestem pasjonatem danych z doświadczeniem w budowaniu solidnych rurociągów danych i rozwiązań analitycznych.",
@@ -43,7 +43,9 @@
     "skills": "Umiejętności",
     "education": "Edukacja",
     "bio1": "Jestem 'Data Guy' z silnym doświadczeniem w sektorze usług finansowych. Najwięcej czerpię przyjemności z pracy, kiedy narzędzia i rozwiązania, które tworzę, są aktywnie używane przez innych ludzi lub biznesy. Z biegłością w SQL, Pythonie i różnych technologiach przetwarzania danych, skupiam się na projektowaniu wydajnych rurociągów danych i wyciąganiu cennych wniosków.",
-    "bio2": "Moja podróż rozpoczęła się w finansach i analityce, ewoluując w bardziej techniczną rolę specjalizującą się w inżynierii danych, przetwarzaniu dużych zbiorów danych i uczeniu maszynowym. Czerpię przyjemność z rozwiązywania złożonych wyzwań danych i budowania solidnych, niezawodnych rozwiązań."
+    "bio2": "Moja podróż rozpoczęła się w finansach i analityce, ewoluując w bardziej techniczną rolę specjalizującą się w inżynierii danych, przetwarzaniu dużych zbiorów danych i uczeniu maszynowym. Czerpię przyjemność z rozwiązywania złożonych wyzwań danych i budowania solidnych, niezawodnych rozwiązań.",
+    "showTimeline": "Pokaż pełną oś czasu ▼",
+    "hideTimeline": "Ukryj oś czasu ▲"
   },
   "timeline": {
     "title": "Moja Podróż",
@@ -80,18 +82,6 @@
     "noProjects": "Brak projektów. Wróć później!",
     "technologies": "Technologie"
   },
-  "about": {
-    "title": "O mnie",
-    "timelineTitle": "Doświadczenie i Edukacja",
-    "description": "Jestem pasjonatem danych z doświadczeniem w budowaniu solidnych rurociągów danych i rozwiązań analitycznych.",
-    "experience": "Doświadczenie",
-    "skills": "Umiejętności",
-    "education": "Edukacja",
-    "bio1": "Jestem 'Data Guy' z silnym doświadczeniem w sektorze usług finansowych. Najwięcej czerpię przyjemności z pracy, kiedy narzędzia i rozwiązania, które tworzę, są aktywnie używane przez innych ludzi lub biznesy. Z biegłością w SQL, Pythonie i różnych technologiach przetwarzania danych, skupiam się na projektowaniu wydajnych rurociągów danych i wyciąganiu cennych wniosków.",
-    "bio2": "Moja podróż rozpoczęła się w finansach i analityce, ewoluując w bardziej techniczną rolę specjalizującą się w inżynierii danych, przetwarzaniu dużych zbiorów danych i uczeniu maszynowym. Czerpię przyjemność z rozwiązywania złożonych wyzwań danych i budowania solidnych, niezawodnych rozwiązań.",
-    "showTimeline": "Pokaż pełną oś czasu \u25BC",
-    "hideTimeline": "Ukryj oś czasu \u25B2"
-  },
   "books": {
     "headingPrefix": "Moje",
     "title": "Lista Czytania",
@@ -104,8 +94,8 @@
     "read": "Przeczytane",
     "toRead": "Do przeczytania"
   },
-
   "interests": {
+    "headingPrefix": "Moje",
     "title": "Zainteresowania",
     "description": "Poza pracą, czerpię przyjemność z poznawania różnych hobby i zainteresowań.",
     "categories": {

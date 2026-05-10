@@ -38,7 +38,7 @@ const InterestsSection: FC = () => {
     >
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My{' '}
+          <span className="text-portfolio-primary">{t('interests.headingPrefix')}</span>{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
             {t('interests.title')}
           </span>
