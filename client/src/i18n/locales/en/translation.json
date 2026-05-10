@@ -179,6 +179,10 @@
       "connect": "Connect With Me"
     }
   },
+  "notFound": {
+    "title": "404 Page Not Found",
+    "message": "Did you forget to add the page to the router?"
+  },
   "footer": {
     "logo": "Konrad Borowiec",
     "description": "Data Analysis & Data Engineering",

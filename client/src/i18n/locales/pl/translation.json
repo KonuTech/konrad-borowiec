@@ -180,6 +180,10 @@
       "connect": "Połącz się ze mną"
     }
   },
+  "notFound": {
+    "title": "404 Strona nie znaleziona",
+    "message": "Czy zapomniałeś dodać stronę do routera?"
+  },
   "footer": {
     "logo": "Konrad Borowiec",
     "description": "Analiza danych i inżynieria danych",
