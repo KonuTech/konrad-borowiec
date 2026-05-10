@@ -20,6 +20,6 @@ test('i18n: switch to Polish and check key UI texts', async ({ page }) => {
 
   // Check projects heading prefix + title
   await page.locator('#projects').scrollIntoViewIfNeeded();
-  await expect(page.locator('text=Moje')).toBeVisible();
-  await expect(page.locator('text=Projekty')).toBeVisible();
+  await expect(page.locator('text=Moje').first()).toBeVisible();
+  await expect(page.locator('text=Projekty').first()).toBeVisible();
 });
