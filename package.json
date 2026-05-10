@@ -14,7 +14,10 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ci": "playwright test --reporter=dot"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -46,6 +49,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@replit/vite-plugin-cartographer": "^0.0.11",
     "@replit/vite-plugin-runtime-error-modal": "^0.0.3",
     "@replit/vite-plugin-shadcn-theme-json": "^0.0.4",
