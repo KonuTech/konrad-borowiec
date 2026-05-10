@@ -15,7 +15,7 @@
     "demo": "Live Demo",
     "readMore": "Read More",
     "viewCode": "View Code",
-    "copyright": "© {year} Konu-Tec Konrad Borowiec. All rights reserved.",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. All rights reserved.",
     "professional": "Professional data solutions"
   },
   "menu": {
@@ -117,7 +117,23 @@
     "review": "Review",
     "noBooks": "No books yet. Check back soon!",
     "read": "Read",
-    "toRead": "To Read"
+    "toRead": "To Read",
+    "toReadMessage": "This book is on my reading list! I'm looking forward to exploring it soon.",
+    "fallbackReview": "I enjoyed this book and found it valuable for my professional development.",
+    "genres": {
+      "Data Engineering": "Data Engineering"
+    },
+    "items": {
+      "1": {
+        "review": "Essential guide to modern data engineering practices and architectures."
+      },
+      "2": {
+        "review": "Comprehensive guide to using dbt for data transformation and modeling."
+      },
+      "3": {
+        "review": "Practical recipes for building data pipelines with Databricks."
+      }
+    }
   },
   "interests": {
     "headingPrefix": "My",
@@ -192,7 +208,7 @@
   "footer": {
     "logo": "Konrad Borowiec",
     "description": "Data Analysis & Data Engineering",
-    "copyright": "© {year} Konu-Tec Konrad Borowiec. All rights reserved.",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. All rights reserved.",
     "tagline": "Professional data solutions"
   },
   "ui": {

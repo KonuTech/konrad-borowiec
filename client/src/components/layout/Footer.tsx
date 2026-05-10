@@ -9,9 +9,9 @@ const Footer = () => {
     (import.meta as any).env?.VITE_BUILD_ID || (import.meta as any).env?.VITE_COMMIT || 'local';
 
   return (
-    <footer className="bg-portfolio-lightest py-2 dark:bg-portfolio-darker md:py-2">
+    <footer className="bg-portfolio-lightest py-1 dark:bg-portfolio-darker">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-1 md:flex-row md:gap-4">
           <div className="text-center md:text-left">
             <Link
               href="/"
@@ -19,20 +19,19 @@ const Footer = () => {
             >
               <span className="text-2xl">👨‍💻</span> {t('footer.logo')}
             </Link>
-            <p className="mt-2 text-sm text-portfolio-muted">{t('footer.description')}</p>
+            <p className="text-sm text-portfolio-muted">{t('footer.description')}</p>
           </div>
 
           <div className="text-center md:text-right">
             <p className="text-sm text-portfolio-text dark:text-portfolio-lighter">
               {t('footer.copyright', { year: currentYear })}
             </p>
-            <p className="mt-2 text-xs text-portfolio-muted">{t('footer.tagline')}</p>
+            <p className="text-xs text-portfolio-muted">
+              {t('footer.tagline')}
+              <span className="ml-2 opacity-70">{`· build: ${buildId}`}</span>
+            </p>
           </div>
         </div>
-      </div>
-
-      <div className="container mx-auto mt-2 flex justify-center px-4">
-        <div className="text-xs text-portfolio-muted">{`build: ${buildId}`}</div>
       </div>
     </footer>
   );

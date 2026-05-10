@@ -10,7 +10,18 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="hover-card flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md dark:bg-portfolio-darker">
+    <div className="hover-card relative flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md dark:bg-portfolio-darker">
+      {project.githubUrl && (
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.title} on GitHub`}
+          className="absolute inset-0 z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-primary"
+        >
+          <span className="sr-only">{project.title}</span>
+        </a>
+      )}
       <img
         src={project.imageUrl || ''}
         alt={project.title}
@@ -37,7 +48,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               </span>
             ))}
         </div>
-        <div className="mt-auto flex space-x-4">
+        <div className="relative z-20 mt-auto flex space-x-4">
           {project.liveUrl && (
             <a
               href={project.liveUrl}

@@ -15,7 +15,7 @@
     "demo": "Demo na żywo",
     "readMore": "Czytaj więcej",
     "viewCode": "Zobacz kod",
-    "copyright": "© {year} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
     "professional": "Profesjonalne rozwiązania danych"
   },
   "menu": {
@@ -118,7 +118,23 @@
     "review": "Recenzja",
     "noBooks": "Brak książek. Wróć później!",
     "read": "Przeczytane",
-    "toRead": "Do przeczytania"
+    "toRead": "Do przeczytania",
+    "toReadMessage": "Ta książka jest na mojej liście do przeczytania! Z niecierpliwością czekam, aby ją wkrótce zgłębić.",
+    "fallbackReview": "Ta książka sprawiła mi przyjemność i okazała się cenna dla mojego rozwoju zawodowego.",
+    "genres": {
+      "Data Engineering": "Inżynieria Danych"
+    },
+    "items": {
+      "1": {
+        "review": "Niezbędny przewodnik po nowoczesnych praktykach i architekturach inżynierii danych."
+      },
+      "2": {
+        "review": "Kompleksowy przewodnik po wykorzystaniu dbt do transformacji i modelowania danych."
+      },
+      "3": {
+        "review": "Praktyczne przepisy na budowanie potoków danych z Databricks."
+      }
+    }
   },
   "interests": {
     "headingPrefix": "Moje",
@@ -193,7 +209,7 @@
   "footer": {
     "logo": "Konrad Borowiec",
     "description": "Analiza danych i inżynieria danych",
-    "copyright": "© {year} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Wszelkie prawa zastrzeżone.",
     "tagline": "Profesjonalne rozwiązania danych"
   },
   "ui": {
