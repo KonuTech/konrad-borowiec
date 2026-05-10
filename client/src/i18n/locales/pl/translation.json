@@ -104,17 +104,7 @@
     "read": "Przeczytane",
     "toRead": "Do przeczytania"
   },
-  "books": {
-    "title": "Lista Czytania",
-    "description": "Książki, które przeczytałem i planuję przeczytać w dziedzinie inżynierii danych i uczenia maszynowego.",
-    "genre": "Kategoria",
-    "status": "Status",
-    "rating": "Ocena",
-    "review": "Recenzja",
-    "noBooks": "Brak książek. Wróć później!",
-    "read": "Przeczytane",
-    "toRead": "Do przeczytania"
-  },
+
   "interests": {
     "title": "Zainteresowania",
     "description": "Poza pracą, czerpię przyjemność z poznawania różnych hobby i zainteresowań.",

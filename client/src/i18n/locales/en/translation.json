@@ -103,17 +103,7 @@
     "read": "Read",
     "toRead": "To Read"
   },
-  "books": {
-    "title": "Reading List",
-    "description": "Books I've read and am planning to read in the data engineering and machine learning domain.",
-    "genre": "Genre",
-    "status": "Status",
-    "rating": "Rating",
-    "review": "Review",
-    "noBooks": "No books yet. Check back soon!",
-    "read": "Read",
-    "toRead": "To Read"
-  },
+
   "interests": {
     "title": "Interests",
     "description": "Outside of work, I enjoy exploring various hobbies and interests.",
