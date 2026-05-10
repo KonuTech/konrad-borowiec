@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Project } from '@shared/types';
 
 interface ProjectCardProps {
@@ -6,6 +7,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="hover-card flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-md dark:bg-portfolio-darker">
       <img
@@ -42,7 +45,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className="font-nunito text-sm font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
             >
-              <i className="fas fa-external-link-alt mr-1"></i> Live Demo
+              <i className="fas fa-external-link-alt mr-1"></i> {t('common.demo')}
             </a>
           )}
           {project.githubUrl && (
@@ -52,7 +55,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className="font-nunito text-sm font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
             >
-              <i className="fab fa-github mr-1"></i> GitHub
+              <i className="fab fa-github mr-1"></i> {t('common.github')}
             </a>
           )}
         </div>

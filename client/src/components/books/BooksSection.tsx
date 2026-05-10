@@ -47,7 +47,8 @@ const BooksSection = () => {
     <section id="books" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          My <span className="gradient-text">{t('books.title')}</span>
+          <span className="text-portfolio-primary">{t('books.headingPrefix')}</span>{' '}
+          <span className="gradient-text">{t('books.title')}</span>
         </SectionTitle>
 
         {isLoading ? (
@@ -102,7 +103,7 @@ const BooksSection = () => {
                 href="#top"
                 className="font-nunito inline-flex items-center font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
               >
-                Back to Top <i className="fas fa-arrow-up ml-2"></i>
+                {t('ui.backToTop')} <i className="fas fa-arrow-up ml-2"></i>
               </a>
             </div>
           </>

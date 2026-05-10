@@ -145,7 +145,7 @@ const AboutSection = () => {
                 }}
                 className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
               >
-                {isTimelineExpanded ? 'Hide Timeline \u25B2' : 'Show Full Timeline \u25BC'}
+                {isTimelineExpanded ? t('about.hideTimeline') : t('about.showTimeline')}
               </button>
             </div>
           </motion.div>
@@ -157,7 +157,7 @@ const AboutSection = () => {
             href="#home"
             className="font-nunito flex items-center rounded-full bg-portfolio-primary px-6 py-3 font-medium text-white shadow-md transition-all duration-300 hover:bg-portfolio-primary/80 hover:shadow-lg"
           >
-            <i className="fas fa-arrow-up mr-2"></i> Back to Top
+            <i className="fas fa-arrow-up mr-2"></i> {t('ui.backToTop')}
           </a>
         </div>
       </div>

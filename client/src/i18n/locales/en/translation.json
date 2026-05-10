@@ -74,10 +74,34 @@
   },
   "projects": {
     "title": "Projects",
-    "headingPrefix": "My side",
+    "headingPrefix": "My Side",
     "description": "Here are some of my recent projects showcasing my skills in data engineering, machine learning, and web development.",
     "noProjects": "No projects yet. Check back soon!",
     "technologies": "Technologies"
+  },
+  "about": {
+    "title": "About Me",
+    "timelineTitle": "Experience & Education",
+    "description": "I'm a passionate data professional with expertise in building robust data pipelines and analytics solutions.",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "bio1": "I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.",
+    "bio2": "My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.",
+    "showTimeline": "Show Full Timeline \u25BC",
+    "hideTimeline": "Hide Timeline \u25B2"
+  },
+  "books": {
+    "headingPrefix": "My",
+    "title": "Reading List",
+    "description": "Books I've read and am planning to read in the data engineering and machine learning domain.",
+    "genre": "Genre",
+    "status": "Status",
+    "rating": "Rating",
+    "review": "Review",
+    "noBooks": "No books yet. Check back soon!",
+    "read": "Read",
+    "toRead": "To Read"
   },
   "books": {
     "title": "Reading List",

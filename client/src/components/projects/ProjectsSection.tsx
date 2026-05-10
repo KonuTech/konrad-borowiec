@@ -34,7 +34,8 @@ const ProjectsSection = () => {
     <section id="projects" className="bg-white py-20 dark:bg-portfolio-dark md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          {t('projects.headingPrefix')} <span className="gradient-text">{t('projects.title')}</span>
+          <span className="text-portfolio-primary">{t('projects.headingPrefix')}</span>{' '}
+          <span className="gradient-text">{t('projects.title')}</span>
         </SectionTitle>
 
         {isLoading ? (
@@ -64,7 +65,7 @@ const ProjectsSection = () => {
                 href="#top"
                 className="font-nunito inline-flex items-center font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
               >
-                Back to Top <i className="fas fa-arrow-up ml-2"></i>
+                {t('ui.backToTop')} <i className="fas fa-arrow-up ml-2"></i>
               </a>
             </div>
           </>

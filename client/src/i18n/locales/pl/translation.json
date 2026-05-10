@@ -75,10 +75,34 @@
   },
   "projects": {
     "title": "Projekty",
-    "headingPrefix": "Moje",
+    "headingPrefix": "Moje Dodatkowe",
     "description": "Oto niektóre z moich ostatnich projektów pokazujących moje umiejętności w inżynierii danych, uczeniu maszynowym i rozwoju webowym.",
     "noProjects": "Brak projektów. Wróć później!",
     "technologies": "Technologie"
+  },
+  "about": {
+    "title": "O mnie",
+    "timelineTitle": "Doświadczenie i Edukacja",
+    "description": "Jestem pasjonatem danych z doświadczeniem w budowaniu solidnych rurociągów danych i rozwiązań analitycznych.",
+    "experience": "Doświadczenie",
+    "skills": "Umiejętności",
+    "education": "Edukacja",
+    "bio1": "Jestem 'Data Guy' z silnym doświadczeniem w sektorze usług finansowych. Najwięcej czerpię przyjemności z pracy, kiedy narzędzia i rozwiązania, które tworzę, są aktywnie używane przez innych ludzi lub biznesy. Z biegłością w SQL, Pythonie i różnych technologiach przetwarzania danych, skupiam się na projektowaniu wydajnych rurociągów danych i wyciąganiu cennych wniosków.",
+    "bio2": "Moja podróż rozpoczęła się w finansach i analityce, ewoluując w bardziej techniczną rolę specjalizującą się w inżynierii danych, przetwarzaniu dużych zbiorów danych i uczeniu maszynowym. Czerpię przyjemność z rozwiązywania złożonych wyzwań danych i budowania solidnych, niezawodnych rozwiązań.",
+    "showTimeline": "Pokaż pełną oś czasu \u25BC",
+    "hideTimeline": "Ukryj oś czasu \u25B2"
+  },
+  "books": {
+    "headingPrefix": "Moje",
+    "title": "Lista Czytania",
+    "description": "Książki, które przeczytałem i planuję przeczytać w dziedzinie inżynierii danych i uczenia maszynowego.",
+    "genre": "Kategoria",
+    "status": "Status",
+    "rating": "Ocena",
+    "review": "Recenzja",
+    "noBooks": "Brak książek. Wróć później!",
+    "read": "Przeczytane",
+    "toRead": "Do przeczytania"
   },
   "books": {
     "title": "Lista Czytania",
