@@ -56,9 +56,21 @@ const resources = {
   },
 };
 
+const saved =
+  typeof window !== 'undefined'
+    ? (() => {
+        try {
+          return localStorage.getItem('selectedLanguage');
+        } catch {
+          return null;
+        }
+      })()
+    : null;
+
 i18n.use(initReactI18next).init({
   resources,
   fallbackLng: 'en',
+  lng: saved || undefined,
   interpolation: {
     escapeValue: false,
   },
@@ -66,5 +78,12 @@ i18n.use(initReactI18next).init({
     useSuspense: false,
   },
 });
+
+// persist language selection to localStorage (graceful fallback if unavailable)
+try {
+  i18n.on('languageChanged', (lng) => localStorage.setItem('selectedLanguage', lng));
+} catch (e) {
+  /* localStorage may be unavailable in some environments; ignore */
+}
 
 export default i18n;
