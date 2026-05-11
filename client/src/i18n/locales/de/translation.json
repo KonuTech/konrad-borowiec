@@ -1,0 +1,228 @@
+{
+  "common": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "books": "Bücher",
+    "interests": "Interessen",
+    "contact": "Kontakt",
+    "contactMe": "Kontaktieren Sie mich",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "credly": "Credly",
+    "demo": "Live-Demo",
+    "readMore": "Mehr lesen",
+    "viewCode": "Code ansehen",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Alle Rechte vorbehalten.",
+    "professional": "Professionelle Datenlösungen"
+  },
+  "menu": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "projects": "Projekte",
+    "books": "Bücher",
+    "interests": "Interessen",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "intro": "Hallo, ich bin",
+    "title": "Konrad Borowiec",
+    "subtitle": "Daten sind nicht nur Zahlen — sie sind der Schlüssel zu intelligenteren Entscheidungen.",
+    "description": "Als Spezialist für Data Engineering, Analytics und Machine Learning baue ich Pipelines und erschließe Erkenntnisse aus Rohdaten. Lassen Sie uns Ihre Daten in einen Katalysator für Fortschritt verwandeln!",
+    "ctaProjects": "Schauen Sie sich meine Nebenprojekte an",
+    "ctaContact": "Kontaktieren Sie mich"
+  },
+  "about": {
+    "headingPrefix": "Über",
+    "title": "mich",
+    "timelineTitle": "Erfahrung und Ausbildung",
+    "description": "Ich bin ein leidenschaftlicher Datenprofi mit Erfahrung im Aufbau robuster Datenpipelines und analytischer Lösungen.",
+    "experience": "Erfahrung",
+    "skills": "Fähigkeiten",
+    "education": "Ausbildung",
+    "bio1": "Ich bin Data Guy mit starkem Hintergrund im Finanzsektor. Ich genieße meine Arbeit am meisten, wenn die Tools und Lösungen, die ich entwickle, aktiv von anderen Menschen oder Unternehmen genutzt werden. Mit Expertise in SQL, Python und verschiedenen Datenverarbeitungstechnologien konzentriere ich mich auf das Design effizienter Datenpipelines und das Extrahieren wertvoller Erkenntnisse.",
+    "bio2": "Mein Weg begann in den Finanzen und der Analyse und entwickelte sich zu einer technischeren Rolle, die sich auf Data Engineering, Big Data-Verarbeitung und Machine Learning spezialisiert. Ich liebe es, komplexe Datenherausforderungen zu lösen und robuste, zuverlässige Lösungen zu bauen.",
+    "showTimeline": "Vollständige Zeitleiste anzeigen ▼",
+    "hideTimeline": "Zeitleiste ausblenden ▲"
+  },
+  "timeline": {
+    "title": "Meine Reise",
+    "item": {
+      "year": "{year}",
+      "title": "{title}",
+      "description": "{description}"
+    },
+    "items.0": "Wartung der Produktionsdateninfrastruktur für E-Commerce-Kunden, die Analysen mit einem von Apache Airflow orchestrierten BigQuery-Warehouse versorgen, das Daten von mehreren Plattformen verarbeitet. Apache Superset als BI-Lösung verwendet.\n\n• Entwicklung eines benutzerdefinierten Apache Airflow-Connectors für Magento 2 mit OAuth 1.0a (HMAC-SHA256)-Authentifizierung, generatorbasierter Paginierung und exponentieller Backoff-Retry-Logik über mehrere REST-API-Endpunkte. Extraktion von Aufzeichnungen in GCS als NDJSON mit täglicher Belastung in BigQuery.\n\n• Engineering einer Google Ads ETL-Pipeline, die die Google Ads API mit BigQuery über GCS-Staging integriert. Entwurf analytischer Tabellen, die Google Ads-Ausgaben mit dem tatsächlichen E-Commerce-Kundenbestand für die Darstellung in Apache Superset abbilden. Nutzung dynamischer Jinja2-Datenvorlagen mit intelligenten Lookback-Fenstern zur korrekten Handhabung von späten Ankünften und Deduplizierung.\n\n• Onboarding von E-Commerce-Kunden auf eine konfigurierungsgetriebene Datenplattform. Nutzung eines YAML-to-DAG-Generierungsframeworks zur dynamischen Erstellung von Airflow DAGs aus deklarativen Kundenkonfigurationen.\n\n• Ausführung einer Zero-Downtime-Migration der Klaviyo-API-Revision über ein mehrjähriges Revisions-Fenster. Entwurf und Ausführung automatisierter Validierungstests in mehreren Kategorien (Authentifizierung, Abonnement-Schemata, Marketingfelder, Ereignisstrukturen, Kampagnenfilter, Flow-Paginierung, Metriktypen), Bestätigung von Zero Breaking Changes.\n\n• Entwicklung eines benutzerdefinierten dbt-Makros zur Unicode-Textnormalisierung zur Lösung von Produkt-ID-Mappings- und Deduplizierungsfehlern, die durch Sonderzeichen (polnische, russische und andere Nicht-ASCII-Glyphen) in E-Commerce-Produkt-URLs verursacht werden. Standardisierung der URL-Parsing über das einheitliche ECOM-Entitätsschema, das vier Plattformen abdeckt (z.B. Shopify, Shoper, WooCommerce und Magento), ermöglicht zuverlässige plattformübergreifende Deduplizierung.\n\n• Nutzung der Superset REST API über Superset MCP zur programmatischen Abfrage von Dashboard- und Chart-Konfigurationen für automatisierte Datenlineage-Untersuchungen und nachfolgende Korrekturen.\n\n• Aufrechterbung strenger Qualitätsstandards durch Design umfassender Validierungssuiten für jede Tabelle und Pipeline. Autoring von SQL-Tests, die Querschicht-Konsistenz (von Staging bis transformed), NULL-Rate-Analyse auf Pflichtfeldern, Surrogate-Key-Eindeutigkeit, referenzielle Integrität und alt-vs-neu API-Ausgabevergleich abdecken.\n\n• Eurostat GISCO Geodaten-Pipeline: Entwurf und Implementierung einer End-to-End-ETL-Pipeline zur Integration von Eurostat GISCO Geodaten in die Airflow-basierte Datenplattform des Unternehmens. Aufbau eines benutzerdefinierten Airflow-Plugins (Operator + Hook), das ~815.000 EU-Postleitzahlen und 1.211 NUTS3-Grenzpolygone von der GISCO-API herunterlädt, sie als NDJSON in Google Cloud Storage stagi und in BigQuery lädt. Implementierung von ijson-Streaming zur Handhabung der 350 MB Postleitzahlen-GeoJSON innerhalb von Container-Gedächtnisgrenzen. Erstellung von dbt-Source- und Transformed-Modellen mit voller NUTS-Hierarchie (Land/NUTS1/NUTS2/NUTS3). Registrierung der Pipeline im DAG-Generator-Framework zur ermöglicht automatisierten Bereitstellung über Umgebungen. Daten dienen Superset-Kartenvisualisierungen für 31 EU/EEA/EFTA-Länder.\n\n• Sales-Channel-Backfill & Schema-Migration: Leitung einer Daten-Backfill-Initiative zur Integration historischer Mobilapp-Bestelldaten in die Analytik-Pipeline eines wichtigen E-Commerce-Kunden. Erweiterung des BigQuery-Staging-Schemas und dbt-Modelle (Source- und Transformed-Schichten) um eine neue Sales-Channel-Spalte, ermöglicht Filterung zwischen Web- und App-Bestellungen über alle Berichtsschichten. Verwaltung von Rückwärtskompatibilität für 2+ Jahre historische CSV-Dateien ohne neue Spalte bei gleichzeitig nahtloser Ingestion neuer Dateien, die beide Kanalarten enthalten. Koordinierung von Schema-Änderungen über GCS-zu-BQ-Ingestion, dbt-Inkrementellen Modelle und nachgelagerte Superset-Dashboards.",
+    "items.1": "Support-Rolle in der Oracle APEX-Anwendungsentwicklung. Zusammenarbeit mit Business-Analysten zur Unterstützung bei der Entwicklung eines Berichtstools für ESRS (European Sustainability Reporting Standards). Entwurf und Implementierung von BI-Funktionalitäten in APEX-Anwendung mit PL/SQL. Durchführung von Modifikationen am Berichtsmodell bei Bedarf. Nutzung von PL/SQL zur Generierung angezeigter Berichte. Beiträge von Ideen und Rückmeldung durch Anwendung meiner Expertise und Kenntnisse in Berichterstattungsaufgaben.",
+    "items.2": "Je nach Analyseumfang, Berichterstattung nationaler Daten mit Oracle SQL oder Oracle PL/SQL. Entwicklung einer PoC-Anwendung zur Berechnung und Visualisierung der kürzesten Routen zwischen einer kontrollierten Entität und den zehn nächsten Controllern (öffentlicher Sektor-Mitarbeiter). Ein Graph-Problem im Big-Daten-Skala. Verwendet Python und SQL.",
+    "items.3": "Entwicklung von ELT-Datenpipelines für den Open-Banking-Bereich. Dazu gehören das Abflachen, Deduplizieren und Normalisieren von JSON-Datenquellen in Hive-Tabellen. Verarbeitung sowohl von halb- als auch vollstrukturierten Daten. Verwendete Technologien: MongoDB, HDFS, HiveSQL, Python, Airflow und GitLab für CICD. Ad-hoc-Analyse von Kundenaktivitäten im Open-Banking-Bereich.",
+    "items.4": "Entwicklung von Batch-Datenverarbeitungslösungen für einen der größten Banken in Polen. Die ELT-Prozesse für den Data Lake wurden mit Airflow, Python, PySpark und Hive innerhalb der on-premise Cloudera Data Platform entworfen. Entwicklung und Operationalisierung eines churn-bezogenen Klassifikators für Versicherungsgesellschaft. Hinzufügen von Funktionalitäten zum Scoring und Monitoring neuer Daten. Entwicklung und Operationalisierung von Klassifikatoren für VR-Trainingsfirma. Design und Entwicklung eines HR-Demo-Dashboards mit SAS Viya.",
+    "items.5": "Tester von Ausgabetabellen, die von SAS-Entwicklern erstellt wurden. Wartung von Dokumentation im Bereich der Sachversicherungen.",
+    "items.6": "Mitverantwortlich für die Migration von SAS Visual Analytics-Berichten in die SAS Viya-Umgebung für Polens größtes Versicherungskonzern. Aufgaben umfassten das Importieren von Dashboards nach Viya, Reparatur von XML-Schemata, Neugestaltung von Dashboard-Layouts für verbessertes UX, Erstellen globaler Themes, Entwickeln von XML/HTML-Formularen und Verarbeiten von JSON-Dateien mit Python.",
+    "items.7": "Als Berater bei einem großen polnischen Telekommunikationsunternehmen nahm ich an Projekten zur Aktualisierung von Data-Mart-Umrechnungsprozessen teil. Entwicklung von produktionsfertigen SAS-Skripten mit Fokus auf 4GL und SQL zur Datenverarbeitung. Handhabung von Datenerfassung und Segmentierung mit Python. Beiträge zur Dashboard-Entwicklung mit Shiny und Tableau.",
+    "items.8": "Konsolidierung und Vereinfachung des finanziellen regulatorischen Berichtswesens mit SAS 4GL und SQL. Entwicklung von Berichten mit SAP BO, SAS EG und SAS VA. Nutzung von Stored Processes für Benutzer-Self-Service. Als Top-Dashboard-Entwickler anerkannt und im Top-Ten einer internen Wettbewerb zur Gestaltung optimaler binärer Klassifikatoren mit Kundendaten eingestuft.",
+    "items.9": "Automatisierung der Berichterstattung mit SAS Guide und SAS VA. Entwicklung von Dashboards zur Bewertung der Filialleistung von Banken, die statistische und visuelle Analyse ausgegebener Kredite erleichtern.",
+    "items.10": "Verarbeitung finanzieller Daten, Aktualisierung finanzieller Statements und Unterstützung von Datenmigration zwischen Datenbanken.",
+    "items.11": "Unterstützung der Entwicklung eines prädiktiven Modells, das zur Schätzung des LGD-Parameters im Valuation Standards and Reporting Team verwendet wird.",
+    "items.12": "Promotionstudien im Bereich Large Data Sets Engineering. Entwicklung eines Filmempfehlungssystems mit Python für das Endprojekt.",
+    "items.13": "Promotionstudien. Bewertung von Reject-Inference-Methoden, die in SAS Enterprise Miner mit Kredit-Scorecard-Modellen, die auf zufällig generierten Consumer-Finance-Portfolio-Daten aufgebaut sind, implementiert wurden.",
+    "items.14": "Spezialisierung auf Internationale Finanzmärkte. Abschlussarbeit: Die Nutzung eines logistischen Regressionsmodells zur Schätzung der Wahrscheinlichkeit einer Korrektur des polnischen Leistungsbilanzs basierend auf Determinanten des polnischen Zahlungsbilanzs.",
+    "items.15": "Studentenaustauschprogramm.",
+    "items.16": "Analyse des Staatshaushalts in 2006-2010.",
+    "items.17": "",
+    "items.18": ""
+  },
+  "projects": {
+    "title": "Projekte",
+    "headingPrefix": "Meine",
+    "description": "Hier sind einige meiner letzten Projekte, die meine Fähigkeiten im Data Engineering, Machine Learning und Web-Development zeigen.",
+    "noProjects": "Noch keine Projekte. Schauen Sie bald wieder vorbei!",
+    "technologies": "Technologien",
+    "items": {
+      "1": {
+        "description": "SQL-Playground mit NYC-Taxi-Daten. Dockerisierte PostgreSQL, pgAdmin und Superset. Datenbankinitialisierung, Backfill und Datenaufnahme sind vor konfiguriert und bereit zum Starten. Analysen schnell starten."
+      },
+      "2": {
+        "description": "Tägliche ETL und ML mit Docker, PostgreSQL, Airflow und XGBoost auf ausgewählten Aktien. Schließlich React als Web-App. Alles mit Claude Code gemacht."
+      },
+      "3": {
+        "description": "Ein dockerisierter 5-Minuten-Mini-Batch-Datenpipeline. Spark Structured Streaming: Lesen von Kafka zu PostgreSQL als Sink-DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit."
+      },
+      "4": {
+        "description": "Eine dockerisierte RAG-Anwendung basierend auf PC-Spielrezensionen, die aus dem Steam-Store gezogen wurden. Mit einer Flask-App, die auf einem Elasticsearch-Vektordatenbank läuft. Zusätzlich PostgreSQL für Logging und Grafana für Monitoring."
+      },
+      "5": {
+        "description": "E2E-MLOps auf GCP — PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
+      },
+      "6": {
+        "description": "Dockerisierte Flask-Service — Scoring, ob ein Kunde defaulten wird. Pandas, Scikit-learn, XGBoost, Flask, Docker."
+      },
+      "7": {
+        "description": "TensorFlow, Bildklassifizierer, Transfer-Learning, Modell-Serving, Docker, Kubernetes, Kind-Cluster."
+      },
+      "8": {
+        "description": "Persönliches Portfolio-Webseite, gebaut mit React und TypeScript, mit modernem Design und responsivem Layout."
+      }
+    }
+  },
+  "books": {
+    "headingPrefix": "Meine",
+    "title": "Leseliste",
+    "description": "Bücher, die ich gelesen habe und die ich im Bereich Data Engineering und Machine Learning lesen plane.",
+    "genre": "Genre",
+    "status": "Status",
+    "rating": "Bewertung",
+    "review": "Rezension",
+    "noBooks": "Noch keine Bücher. Schauen Sie bald wieder vorbei!",
+    "read": "Gelesen",
+    "toRead": "Zu lesen",
+    "toReadMessage": "Dieses Buch ist in meiner Leseliste! Ich freue mich darauf, es bald zu erkunden.",
+    "fallbackReview": "Ich habe dieses Buch genossen und es als wertvoll für meine berufliche Entwicklung empfunden.",
+    "genres": {
+      "Data Engineering": "Data Engineering"
+    },
+    "items": {
+      "1": {
+        "review": "Essentieller Leitfaden für moderne Data-Engineering-Praktiken und Architekturen."
+      },
+      "2": {
+        "review": "Umfassender Leitfaden zur Nutzung von dbt für Daten Transformation und Modellierung."
+      },
+      "3": {
+        "review": "Praktische Rezepte für den Aufbau von Datenpipelines mit Databricks."
+      }
+    }
+  },
+  "interests": {
+    "headingPrefix": "Meine",
+    "title": "Interessen",
+    "description": "Außerhalb der Arbeit genieße ich die Erkundung verschiedener Hobbys und Interessen.",
+    "categories": {
+      "title": "Kategorien",
+      "motorcycling": "Motorradfahren",
+      "cycling": "Radfahren",
+      "photography": "Analytics Engineering & Technologie",
+      "history": "Geschichte, Architektur & Wirtschaft",
+      "financial": "Finanzmärkte"
+    },
+    "motorcycling": {
+      "heading": "Motorradfahren",
+      "description1": "Ich bin leidenschaftlich daran interessiert, die Welt auf zwei Rädern zu erkunden. Motorrad-Reisen bieten mir die perfekte Mischung aus Abenteuer, Freiheit und Verbindung mit der Natur.",
+      "description2": "Von gewundenen Bergstraßen bis zu Küstenautobahnen bringt jede Reise neue Perspektiven und unvergessliche Erfahrungen.",
+      "description3": "Stöbern Sie durch meine Fotogalerie von jüngsten Motorrad-Reisen durch wunderschöne Landschaften, Bergstraßen und Küstenrouten!"
+    },
+    "cycling": {
+      "heading": "Radfahren",
+      "description1": "Radfahren ist eine weitere Leidenschaft von mir, die mir erlaubt, aktiv zu bleiben, während ich wunderschöne Landschaften erkunde.",
+      "description2": "Ob es sich um eine schnelle Fahrt durch lokale Pfade oder einen ganztägigen Ausflug ins Land handelt, Radfahren bietet sowohl körperliche Bewegung als auch geistige Erfrischung."
+    },
+    "photography": {
+      "heading": "Analytics Engineering & Technologie",
+      "description1": "Außerhalb meiner beruflichen Tätigkeit bin ich tiefgreifend an Fortschritten im Data Engineering und Analytics Engineering interessiert.",
+      "description2": "Ich genieße die Arbeit mit modernen Datenplattformen, die Erkundung neuer Tools für Datenmodellierung und Transformation, Optimierung von Datenpipelines und Experimentieren mit Wegen, um Daten zuverlässiger, skalierbar und handlungsorientierter zu machen.",
+      "description3": "Ich halte mich auch auf dem neuesten Stand der neuesten Trends in Cloud-Dateninfrastruktur, ELT/ETL-Prozessen und Visualisierungstechniken, um aktuell in diesem Bereich zu bleiben.",
+      "description4": "Meine technische Leseliste spiegelt diese Leidenschaft wider, da ich ständig danach suche, mein Wissen und Fähigkeiten in diesen sich schnell entwickelnden Bereichen zu erweitern."
+    },
+    "history": {
+      "heading": "Geschichte, Architektur & Wirtschaft",
+      "description1": "Ich habe ein tiefgreifendes Interesse an Geschichte, Architektur und Wirtschaft, das stark beeinflusst, wie ich die Welt erkunde.",
+      "description2": "Das Lernen über verschiedene Zivilisationen, ihre architektonischen Errungenschaften und Wirtschaftssysteme hilft mir, die Evolution der menschlichen Gesellschaft und Kultur zu verstehen.",
+      "description3": "Diese Interessen sind eigentlich die treibenden Kräfte hinter meinen Motorrad-Reisen und Radabenteuer. Sie ermöglichen es mir, historische Stätten direkt zu erleben, diverse architektonische Stile zu würdigen und wirtschaftliche Unterschiede zwischen Regionen zu beobachten — was eine tiefere Verbindung mit den Orten schafft, die ich besuche."
+    },
+    "financial": {
+      "heading": "Finanzmärkte",
+      "description1": "Meine Reise in Finanzmärkte reflektiert einen durchdachten, langfristigen Investitionsansatz anstatt kurzfristigen Trading.",
+      "description2": "Vor ein paar Jahren habe ich ein Fundament mit konservativen Instrumenten wie Inflationsanleihen und ETFs aufgebaut, das sich allmählich in dividendenbringenden polnischen Aktien ausweitete.",
+      "description3": "Aktuell unterhalte ich ein diversifiziertes Portfolio über sowohl polnische als auch US-Märkte, die eine systematische Investitionsstrategie anwenden, die zufriedenstellende Ergebnisse erzielt hat.",
+      "description4": "Diese praktische Erfahrung hat wertvolle Einblicke in Marktdynamik und Investitionsprinzipien geliefert.",
+      "description5": "Für diejenigen, die ihre Investitionswissen aufbauen möchten, insbesondere Polnisch sprechende, empfehle ich",
+      "recommendation": "inwestomat.eu",
+      "recommendationDesc": "— eine außergewöhnliche Ressource, die universitätsniveau finanzielle Bildung in einem zugänglichen Format bietet."
+    }
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "description": "Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Vision zu sein.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "required": "Dieses Feld ist erforderlich",
+    "success": "Nachricht erfolgreich gesendet!",
+    "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.",
+    "labels": {
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "message": "Ihre Nachricht",
+      "phone": "Telefon",
+      "location": "Standort",
+      "connect": "Mit mir verbinden"
+    }
+  },
+  "notFound": {
+    "title": "404 Seite nicht gefunden",
+    "message": "Haben Sie vergessen, die Seite zum Router hinzuzufügen?"
+  },
+  "footer": {
+    "logo": "Konrad Borowiec",
+    "description": "Datenanalyse & Data Engineering",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Alle Rechte vorbehalten.",
+    "tagline": "Professionelle Datenlösungen"
+  },
+  "ui": {
+    "darkMode": "Dunkler Modus",
+    "lightMode": "Heller Modus",
+    "toggle": "Thema umschalten",
+    "menu": "Menü",
+    "closeMenu": "Menü schließen",
+    "backToTop": "Nach oben zurück"
+  },
+  "toast": {
+    "success": "Erfolg",
+    "error": "Fehler",
+    "sent": "Nachricht erfolgreich gesendet!",
+    "failed": "Fehler beim Senden der Nachricht"
+  }
+}

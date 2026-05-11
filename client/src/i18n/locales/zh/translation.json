@@ -1,0 +1,228 @@
+{
+  "common": {
+    "home": "主页",
+    "about": "关于",
+    "projects": "项目",
+    "books": "书籍",
+    "interests": "兴趣",
+    "contact": "联系",
+    "contactMe": "联系我",
+    "portfolio": "作品集",
+    "blog": "博客",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "credly": "Credly",
+    "demo": "在线演示",
+    "readMore": "了解更多",
+    "viewCode": "查看代码",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec。版权所有。",
+    "professional": "专业数据解决方案"
+  },
+  "menu": {
+    "home": "主页",
+    "about": "关于",
+    "projects": "项目",
+    "books": "书籍",
+    "interests": "兴趣",
+    "contact": "联系"
+  },
+  "hero": {
+    "intro": "你好，我是",
+    "title": "Konrad Borowiec",
+    "subtitle": "数据不仅仅是数字——它是做出更明智决策的关键。",
+    "description": "作为一名数据工程、分析和机器学习专家，我设计数据管道并从原始数据中提取见解。将您的数据转化为进步的催化剂！",
+    "ctaProjects": "查看我的副项目",
+    "ctaContact": "联系我"
+  },
+  "about": {
+    "headingPrefix": "关于",
+    "title": "我",
+    "timelineTitle": "经历与教育",
+    "description": "我是一名对数据充满热情的专业人士，专注于构建稳健的数据管道和分析解决方案。",
+    "experience": "经历",
+    "skills": "技能",
+    "education": "教育",
+    "bio1": "我是 Data Guy，在金融服务行业拥有扎实的背景。我最喜欢的工作时刻是我开发的工具和解决方案被其他人或企业实际使用时。凭借在 SQL、Python 和各种数据处理技术方面的专业知识，我专注于构建高效的数据管道并提取有价值的见解。",
+    "bio2": "我的职业生涯始于金融和分析领域，随后发展为专注于数据工程、大数据处理和机器学习的更具技术性的角色。我喜欢解决复杂的数据问题并构建稳健可靠的解决方案。",
+    "showTimeline": "显示完整时间线 ▼",
+    "hideTimeline": "隐藏时间线 ▲"
+  },
+  "timeline": {
+    "title": "我的历程",
+    "item": {
+      "year": "{year}",
+      "title": "{title}",
+      "description": "{description}"
+    },
+    "items.0": "维护为电子商务客户分析提供数据的生产数据基础设施，处理来自多个平台的数据到由 Apache Airflow 编排的统一 BigQuery 数据仓库。Apache Superset 用作 BI 解决方案。\n\n• 为 Magento 2 开发自定义 Apache Airflow 连接器，支持 OAuth 1.0a (HMAC-SHA256) 认证、基于生成器的分页以及针对多个 REST API 端点的指数退避重试逻辑。将记录以 NDJSON 格式提取到 GCS 并每日加载到 BigQuery。\n\n• 设计 Google Ads ETL 管道，通过 GCS 存储层将 Google Ads API 与 BigQuery 集成。设计分析表将 Google Ads 支出映射到电子商务客户的实际库存，以便在 Apache Superset 中可视化。使用 Jinja2 动态日期模板化和智能回溯窗口正确处理延迟到达和去重。\n\n• 将电子商务客户引导至配置驱动的数据平台。使用 YAML-to-DAG 生成框架从客户声明式配置动态生成 Airflow DAG。\n\n• 执行 Klaviyo API 修订的零停机迁移，涵盖多年修订差距。设计和执行多个类别（认证、订阅模式、营销字段、事件结构、活动过滤器、流分页、指标类型）的自动验证测试，确认零破坏性更改。\n\n• 开发自定义 dbt 宏以进行 Unicode 文本规范化，解决由电子商务产品 URL 中的特殊字符（波兰语、俄语和其他非 ASCII 字符）引起的产品 ID 映射和去重问题。通过涵盖四个平台（例如 Shopify、Shoper、WooCommerce 和 Magento）的统一 ECOM 实体模式标准化 URL 解析，实现平台间可靠去重。\n\n• 通过 Superset MCP 使用 Superset REST API 查询仪表板和图表配置，进行自动数据血统调查和后续修复。\n\n• 为每个表和管道设计完整的验证套件，维护严格的质量标准。编写 SQL 测试涵盖跨层一致性（从存储层到转换层）、必填字段 NULL 率分析、代理键唯一性、引用完整性和 API 输出 old-vs-new 比较。\n\n• Eurostat GISCO 地理空间数据管道：设计和实施端到端 ETL 管道，将 Eurostat GISCO 地理空间数据集成到公司基于 Airflow 的数据平台。构建自定义 Airflow 插件（操作符 + 钩子）从 GISCO API 下载约 815,000 个欧盟邮政编码和 1,211 个 NUTS3 边界多边形，以 NDJSON 形式暂存到 Google Cloud Storage 并加载到 BigQuery。实现 ijson 流处理以在容器内存限制内处理 350MB 邮政编码 GeoJSON。创建完整的 NUTS 层次结构（国家/NUTS1/NUTS2/NUTS3）的源和转换 dbt 模型。将管道注册到 DAG 生成框架以支持在多个环境中的自动部署。数据为 31 个欧盟/欧洲经济区/欧洲自由贸易联盟国家的地图可视化提供数据。\n\n• 销售渠道回填和模式迁移：领导数据回填计划以将移动应用程序订单历史数据集成到大型电子商务客户的分析管道中。扩展 BigQuery 存储层和 dbt 模型（源层和转换层）以包含新的销售渠道列，允许在所有报告层过滤 Web 和应用程序订单。在 2+ 年的历史 CSV 文件无需新列的情况下保持向后兼容性，同时确保包含两种渠道类型的文件的无缝摄入。协调 GCS 到 BQ 摄入、dbt 增量模型和下游 Superset 仪表板中的模式更改。\n\n• Oracle APEX 应用程序开发支持角色。与业务分析师合作，协助开发 ESRS（欧洲可持续发展报告标准）报告工具。使用 PL/SQL 在 APEX 应用程序中设计和实施 BI 功能。根据需要更改报告模式。使用 PL/SQL 生成显示的报告。在报告任务中应用我的专业知识和知识提供想法和反馈。\n\n• 根据国家分析规模使用 Oracle SQL 或 Oracle PL/SQL 进行国家数据报告。\n\n• 开发 PoC 应用程序以计算和可视化受控实体与最接近的十名监管者（公共部门员工）之间的最短路径。大规模图问题。使用 Python 和 SQL。\n\n• 为 Open Banking 领域开发 ELT 数据管道。包括将 JSON 源数据展平、去重和规范化到 Hive 表。处理半结构化和结构化数据。使用的技术：MongoDB、HDFS、HiveSQL、Python、Airflow 和 GitLab 用于 CICD。对 Open Banking 领域客户活动的任意分析。\n\n• 为波兰最大的银行之一开发批数据处理解决方案。使用 Airflow、Python、PySpark 和 Hive 在 Cloudera Data Platform on-premise 上设计数据湖批处理 ELT 流程。开发和运营化保险公司流失分类器。为评分和监控新数据添加工能。开发和运营化 VR 公司的分类器。使用 SAS Viya 设计和开发 HR 仪表板演示。\n\n• 测试 SAS 开发人员创建的输出表。维护财产保险领域的文档。\n\n• 共同负责将 SAS Visual Analytics 报告迁移到波兰最大保险公司的 SAS Viya 环境。任务包括将仪表板导入 Viya、修复 XML 模式、重新设计仪表板布局以改进 UX、创建全局主题、开发 XML/HTML 表单和使用 Python 处理 JSON 文件。\n\n• 作为波兰大型电信运营商的顾问，参与更新数据集市重新计算流程的项目。开发专注于 4GL 和 SQL 的数据处理 SAS 生产脚本。使用 Python 管理数据收集和细分。为使用 Shiny 和 Tableau 的仪表板开发做出贡献。\n\n• 使用 SAS Guide 和 SAS VA 自动化报告。开发评估银行分支机构绩效的仪表板，促进发放贷款的统计和可视化分析。\n\n• 金融数据处理、财务报表更新和数据库间数据迁移支持。\n\n• 支持开发用于估计估值标准与报告团队 LGD 参数的预测模型。\n\n• 大数据工程硕士。使用 Python 为最终项目开发电影推荐系统。\n\n• 硕士。评估在 SAS Enterprise Miner 中实现的拒绝推断方法，使用在随机生成的消费者金融投资组合数据上构建的信用评分模型。\n\n• 国际金融领域专业。论文：使用逻辑回归模型估计基于波兰支付平衡决定因素的波兰经常账户调整概率。\n\n• 学生交换计划。\n\n• 2006-2010 年国家预算分析。\n\n•",
+    "items.1": "Oracle APEX 应用程序开发支持角色。与业务分析师合作，协助开发 ESRS（欧洲可持续发展报告标准）报告工具。使用 PL/SQL 在 APEX 应用程序中设计和实施 BI 功能。根据需要更改报告模式。使用 PL/SQL 生成显示的报告。在报告任务中应用我的专业知识和知识提供想法和反馈。",
+    "items.2": "根据国家分析规模使用 Oracle SQL 或 Oracle PL/SQL 进行国家数据报告。开发 PoC 应用程序以计算和可视化受控实体与最接近的十名监管者（公共部门员工）之间的最短路径。大规模图问题。使用 Python 和 SQL。",
+    "items.3": "为 Open Banking 领域开发 ELT 数据管道。包括将 JSON 源数据展平、去重和规范化到 Hive 表。处理半结构化和结构化数据。使用的技术：MongoDB、HDFS、HiveSQL、Python、Airflow 和 GitLab 用于 CICD。对 Open Banking 领域客户活动的任意分析。",
+    "items.4": "为波兰最大的银行之一开发批数据处理解决方案。使用 Airflow、Python、PySpark 和 Hive 在 Cloudera Data Platform on-premise 上设计数据湖批处理 ELT 流程。开发和运营化保险公司流失分类器。为评分和监控新数据添加工能。开发和运营化 VR 公司的分类器。使用 SAS Viya 设计和开发 HR 仪表板演示。",
+    "items.5": "测试 SAS 开发人员创建的输出表。维护财产保险领域的文档。",
+    "items.6": "共同负责将 SAS Visual Analytics 报告迁移到波兰最大保险公司的 SAS Viya 环境。任务包括将仪表板导入 Viya、修复 XML 模式、重新设计仪表板布局以改进 UX、创建全局主题、开发 XML/HTML 表单和使用 Python 处理 JSON 文件。",
+    "items.7": "作为波兰大型电信运营商的顾问，参与更新数据集市重新计算流程的项目。开发专注于 4GL 和 SQL 的数据处理 SAS 生产脚本。使用 Python 管理数据收集和细分。为使用 Shiny 和 Tableau 的仪表板开发做出贡献。",
+    "items.8": "使用 SAS Guide 和 SAS VA 自动化报告。开发评估银行分支机构绩效的仪表板，促进发放贷款的统计和可视化分析。",
+    "items.9": "金融数据处理、财务报表更新和数据库间数据迁移支持。",
+    "items.10": "支持开发用于估计估值标准与报告团队 LGD 参数的预测模型。",
+    "items.11": "大数据工程硕士。使用 Python 为最终项目开发电影推荐系统。",
+    "items.12": "硕士。评估在 SAS Enterprise Miner 中实现的拒绝推断方法，使用在随机生成的消费者金融投资组合数据上构建的信用评分模型。",
+    "items.13": "国际金融领域专业。论文：使用逻辑回归模型估计基于波兰支付平衡决定因素的波兰经常账户调整概率。",
+    "items.14": "学生交换计划。",
+    "items.15": "2006-2010 年国家预算分析。",
+    "items.16": "",
+    "items.17": "",
+    "items.18": ""
+  },
+  "projects": {
+    "title": "项目",
+    "headingPrefix": "我的",
+    "description": "这里是一些突出我在数据工程、机器学习和 Web 开发方面技能的最新项目。",
+    "noProjects": "暂无项目。稍后回来！",
+    "technologies": "技术",
+    "items": {
+      "1": {
+        "description": "使用 NYC 出租车数据的 SQL 游乐场。容器化的 PostgreSQL、pgAdmin 和 Superset。数据库初始化、数据回填和摄入已预配置并准备就绪。快速开始分析。"
+      },
+      "2": {
+        "description": "使用 Docker、PostgreSQL、Airflow 和 XGBoost 在预选股上的日常 ETL 和 ML。最终，React 作为 Web 应用程序。全部使用 Claude Code 完成。"
+      },
+      "3": {
+        "description": "5 分钟微批数据管道容器化。Spark Structured Streaming：从 Kafka 读取到 PostgreSQL 作为 DB 下沉。Airflow、Kafka、PySpark、PostgreSQL、Streamlit。"
+      },
+      "4": {
+        "description": "基于 Steam 商店 PC 游戏评论的容器化 RAG 应用程序。在 Elasticsearch 向量数据库上运行的 Flask 服务。PostgreSQL 日志记录和 Grafana 监控。"
+      },
+      "5": {
+        "description": "GCP 上的 MLOps e2e — PySpark、Pandas、Scikit-learn、XGBoost、Prefect、MLflow、FastAPI、Flask、Evidently AI。"
+      },
+      "6": {
+        "description": "容器化 Flask 服务 — 客户违约概率评分。Pandas、Scikit-learn、XGBoost、Flask、Docker。"
+      },
+      "7": {
+        "description": "TensorFlow、图像分类器、迁移学习、模型服务、Docker、Kubernetes、Kind 集群。"
+      },
+      "8": {
+        "description": "使用 React 和 TypeScript 构建的个人作品集网站，具有现代设计和响应式布局。"
+      }
+    }
+  },
+  "books": {
+    "headingPrefix": "我的",
+    "title": "阅读清单",
+    "description": "我在数据工程和机器学习领域阅读和计划阅读的书籍。",
+    "genre": "类型",
+    "status": "状态",
+    "rating": "评分",
+    "review": "评论",
+    "noBooks": "暂无书籍。稍后回来！",
+    "read": "已读",
+    "toRead": "待读",
+    "toReadMessage": "这本书在我的阅读清单中！我迫不及待地想要探索它。",
+    "fallbackReview": "我喜欢这本书，认为它对我的职业发展很有价值。",
+    "genres": {
+      "Data Engineering": "数据工程"
+    },
+    "items": {
+      "1": {
+        "review": "数据工程现代最佳实践和架构的必备指南。"
+      },
+      "2": {
+        "review": "关于使用 dbt 进行数据转换和建模的完整指南。"
+      },
+      "3": {
+        "review": "使用 Databricks 构建数据管道的实用食谱。"
+      }
+    }
+  },
+  "interests": {
+    "headingPrefix": "我的",
+    "title": "兴趣",
+    "description": "工作之余，我喜欢探索各种爱好和兴趣。",
+    "categories": {
+      "title": "类别",
+      "motorcycling": "摩托车",
+      "cycling": "骑行",
+      "photography": "数据分析 & 技术",
+      "history": "历史、建筑 & 经济",
+      "financial": "金融市场"
+    },
+    "motorcycling": {
+      "heading": "摩托车",
+      "description1": "我热衷于两轮探索世界。摩托车公路旅行提供了冒险、自由和与自然连接的完美组合。",
+      "description2": "从蜿蜒的山路到沿海公路，每次旅行都带来新的视角和难忘的经历。",
+      "description3": "浏览我最近的摩托车旅行照片画廊，穿越壮丽的风景、山路和沿海公路！"
+    },
+    "cycling": {
+      "heading": "骑行",
+      "description1": "自行车是另一种让我在探索壮丽风景时保持活跃的爱好。",
+      "description2": "无论是当地小径的短途骑行还是乡村一日游，自行车都提供身体锻炼和精神放松。"
+    },
+    "photography": {
+      "heading": "数据分析 & 技术",
+      "description1": "除了我的专业活动外，我对数据工程和数据分析工程的进步有浓厚兴趣。",
+      "description2": "我喜欢与现代数据平台工作，探索数据建模和转换的新工具，优化数据管道，并尝试使数据更可靠、可扩展和可操作的途径。",
+      "description3": "我也了解云数据基础设施、ELT/ETL 流程和可视化技术的最新趋势，以保持领域内的更新。",
+      "description4": "我的技术阅读清单反映了这种热情，因为我不断寻求扩展我在这些快速发展的领域的知识和技能。"
+    },
+    "history": {
+      "heading": "历史、建筑 & 经济",
+      "description1": "我对历史、建筑和经济学有浓厚兴趣，这极大地影响了我探索世界的方式。",
+      "description2": "了解不同的文明、其建筑成就和经济系统有助于我理解社会和人类文化的发展。",
+      "description3": "这些兴趣实际上是我摩托车公路旅行和自行车冒险背后的驱动力。它们让我直接体验历史遗迹、欣赏不同的建筑风格并观察地区间的经济差异——与我所访问的地方建立更深的联系。"
+    },
+    "financial": {
+      "heading": "金融市场",
+      "description1": "我在金融市场的历程反映了谨慎和长期的方法，而不是短期交易。",
+      "description2": "几年前，我使用抗通胀债券和 ETF 等保守工具建立了基础，逐渐扩展到产生股息波动的波兰股票。",
+      "description3": "目前，我在波兰和美国市场都持有多元化投资组合，应用系统性投资策略，取得了令人满意的结果。",
+      "description4": "这种实践经验提供了关于市场动态和投资原则的宝贵见解。",
+      "description5": "对于有兴趣建立投资知识的人，特别是波兰语使用者，我推荐",
+      "recommendation": "investomat.eu",
+      "recommendationDesc": "——一个提供大学级别金融教育的卓越资源，格式易于访问。"
+    }
+  },
+  "contact": {
+    "title": "联系",
+    "description": "我总是乐意讨论新项目、创意想法或成为您愿景一部分的机会。",
+    "name": "姓名",
+    "email": "电子邮件",
+    "message": "消息",
+    "send": "发送消息",
+    "required": "此字段为必填",
+    "success": "消息发送成功！",
+    "error": "消息发送失败。请重试。",
+    "labels": {
+      "name": "您的姓名",
+      "email": "您的电子邮件",
+      "message": "您的消息",
+      "phone": "电话",
+      "location": "位置",
+      "connect": "与我连接"
+    }
+  },
+  "notFound": {
+    "title": "404 页面未找到",
+    "message": "您忘记在路由器中添加页面了吗？"
+  },
+  "footer": {
+    "logo": "Konrad Borowiec",
+    "description": "数据分析 & 数据工程",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec。版权所有。",
+    "tagline": "专业数据解决方案"
+  },
+  "ui": {
+    "darkMode": "暗色模式",
+    "lightMode": "亮色模式",
+    "toggle": "切换主题",
+    "menu": "菜单",
+    "closeMenu": "关闭菜单",
+    "backToTop": "返回顶部"
+  },
+  "toast": {
+    "success": "成功",
+    "error": "错误",
+    "sent": "消息发送成功！",
+    "failed": "消息发送失败"
+  }
+}

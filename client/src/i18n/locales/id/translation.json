@@ -1,0 +1,228 @@
+{
+  "common": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "books": "Buku",
+    "interests": "Minat",
+    "contact": "Kontak",
+    "contactMe": "Hubungi Saya",
+    "portfolio": "Portofolio",
+    "blog": "Blog",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "credly": "Credly",
+    "demo": "Lihat Demo",
+    "readMore": "Baca Selengkapnya",
+    "viewCode": "Lihat Kode",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Hak Cipta Dilindungi.",
+    "professional": "Solusi Data Profesional"
+  },
+  "menu": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "projects": "Proyek",
+    "books": "Buku",
+    "interests": "Minat",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "intro": "Halo, saya",
+    "title": "Konrad Borowiec",
+    "subtitle": "Data bukan hanya angka — data adalah kunci untuk pengambilan keputusan yang lebih cerdas.",
+    "description": "Sebagai ahli data engineering, analisis, dan machine learning, saya merancang pipeline data yang mengubah data mentah menjadi pendorong pertumbuhan bisnis Anda!",
+    "ctaProjects": "Lihat Proyek Saya",
+    "ctaContact": "Hubungi Saya"
+  },
+  "about": {
+    "headingPrefix": "Tentang",
+    "title": "Saya",
+    "timelineTitle": "Pengalaman dan Pendidikan",
+    "description": "Saya adalah profesional yang berdedikasi pada data dan memiliki pengalaman dalam membangun pipeline dan solusi data yang kuat.",
+    "experience": "Pengalaman",
+    "skills": "Keahlian",
+    "education": "Pendidikan",
+    "bio1": "Saya adalah 'Data Guy' dengan latar belakang kuat di sektor keuangan. Moment paling menyenangkan dalam pekerjaan saya adalah ketika alat dan solusi yang saya kembangkan digunakan secara aktif oleh orang lain atau perusahaan. Dengan keahlian dalam SQL, Python, dan berbagai teknik pemrosesan data, saya berfokus pada pembangunan pipeline data yang kuat dan menarik wawasan berharga dari data.",
+    "bio2": "Karir saya dimulai di bidang keuangan dan analisis, kemudian berkembang ke peran yang lebih teknis di bidang data engineering, big data processing, dan machine learning. Saya menikmati memecahkan masalah data yang kompleks dan membangun solusi yang kuat dan dapat dipercaya.",
+    "showTimeline": "Lihat Garis Waktu Lengkap ▼",
+    "hideTimeline": "Sembunyikan Garis Waktu ▲"
+  },
+  "timeline": {
+    "title": "Karir Saya",
+    "item": {
+      "year": "{year}",
+      "title": "{title}",
+      "description": "{description}"
+    },
+    "items.0": "Menjaga infrastruktur data produk yang mendukung analisis pelanggan e-commerce, memproses data dari berbagai platform ke warehouse data tunggal BigQuery yang diorchestrate oleh Apache Airflow. Apache Superset digunakan sebagai solusi BI.\n\n• Mengembangkan custom Apache Airflow connector untuk Magento 2 yang mendukung autentikasi OAuth 1.0a (HMAC-SHA256), pagination berbasis generator, dan logika retry yang efektif untuk banyak endpoint REST API. Records diekspor ke GCS dalam format NDJSON dan dimuat ke BigQuery setiap hari.\n\n• Merancang pipeline ETL Google Ads yang mengintegrasikan Google Ads API ke BigQuery melalui layer staging GCS. Analisis visualisasi di Apache Superset memetakan biaya Google Ads ke inventori produk e-commerce yang sebenarnya dengan tabel analisis yang dirancang.\n\n• Menyelaraskan pelanggan e-commerce ke platform data yang dikonfigurasi. Menggunakan framework YAML-to-DAG untuk menghasilkan DAG secara dinamis dari konfigurasi pelanggan.\n\n• Review Klaviyo API dengan zero downtime movement yang mencakup gap review beberapa tahun. Validasi otomatis yang dirancang dan diimplementasikan untuk berbagai kategori seperti autentikasi, model berlangganan, bidang pemasaran, struktur acara, filter kampanye, pagination stream, metrik, dan banyak kategori lainnya, memastikan validitas tanpa perubahan yang merusak.\n\n• Mengembangkan custom macro dbt untuk normalisasi teks Unicode yang menangani pemetaan ID produk yang dipicu oleh karakter khusus (huruf Polandia, Rusia, dan non-ASCII lainnya) dalam URL produk e-commerce serta masalah duplikasi.\n\n• Menggunakan MCP Superset untuk menginterogasi konfigurasi dashboard dan chart dengan REST API Superset. Melakukan survei data lineage dan perbaikan selanjutnya.\n\n• Merancang kit validasi lengkap untuk setiap tabel dan pipeline dengan standar kualitas yang ketat. Menulis tes SQL yang mencakup konsistensi antar-layer (staging ke transformed), analisis persentase NULL wajib field, keunikan key alamat, integritas referensi, dan perbandingan old-vs-new untuk output API.\n\n• Pipeline data geografis Eurostat GISCO: Merancang dan mengimplementasikan pipeline ETL end-to-end untuk mengintegrasikan data geografis Eurostat GISCO ke platform data Airflow-based perusahaan. Plugin custom Airflow (operator + hook) dibuat untuk mengunduh ~815.000 kode pos UE dan 1.211 batas NUTS3 multi-polin dalam format NDJSON ke GCS. ijson digunakan untuk menangani 350MB GeoJSON pos. Model dbt lengkap dibuat untuk setiap hierarki NUTS (negara/NUTS1/NUTS2/NUTS3) untuk visualisasi peta berbagai lingkungan data. Pipeline yang diregister dalam framework generator DAG untuk deploy yang dapat diotomatisasi di berbagai lingkungan.\n\n• Backup channel penjualan dan migrasi skema: Inisiatif backup data telah dipimpin untuk mengintegrasikan data riwayat pesanan aplikasi mobile ke pipeline analisis e-commerce besar. Skema BigQuery staging dan model dbt (layer sumber dan transformed) diperluas untuk mencakup channel penjualan baru yang memungkinkan filter pesanan web dan aplikasi di semua layer pelaporan. Menyelaraskan skema dari kedua channel dengan penyesuaian struktural file baru yang mempertahankan konsistensi dengan file CSV tua 2+ tahun tanpa kolom baru. Sinkronisasi GCS ke BQ, model dbt yang berkembang, dan perubahan skema di dashboard Supetur downstream.\n\n• Peran pendukung pengembangan aplikasi Oracle APEX. Membantu mengembangkan tool pelaporan ESRS (standar pelaporan keberlanjutan Eropa) bersama dengan analis bisnis. Mendesain dan mengimplementasikan fitur BI dalam aplikasi APEX menggunakan PL/SQL. Menerapkan perubahan yang diperlukan dalam skema pelaporan. Menghasilkan laporan yang ditampilkan menggunakan PL/SQL. Memberikan pendapat dan respons berdasarkan keahlian dan pengetahuan dalam pekerjaan pelaporan.\n\n• Pengembangan pelaporan data nasional sesuai skala analisis lokal. Pengembangan solusi pelaporan data nasional menggunakan Oracle SQL atau Oracle PL/SQL sesuai skala analisis lokal.\n\n• Pengembangan aplikasi PoC untuk menghitung dan memvisualisasikan jarak terdekat antara entitas terkontrol dan 10 pemegang saham terdekat (pemerintah publik) menggunakan Python dan SQL untuk grafik skala besar.\n\n• Pengembangan pipeline ELT untuk sektor Open Banking. Mendukung data sumber JSON, normalisasi dan tabel Hive. Pemrosesan data semi-struktur dan terstruktur. Teknologi yang digunakan: MongoDB, HDFS, HiveSQL, Python, Airflow, dan GitLab untuk CICD. Tidak ada analisis apa pun terhadap regulasi pelanggan sektor Open Banking.\n\n• Pengembangan solusi pemrosesan data batch untuk salah satu bank terbesar di Polandia. Mendesain workflow batch ELT data lake menggunakan Airflow, Python, PySpark, dan Hive di Cloudera Data Platform on-premise. Pengembangan classifier churn perusahaan asuransi dan operasionalisasi. Menambahkan fitur scoring dan monitoring untuk data baru. Pengembangan classifier untuk perusahaan VR dan operasionalisasi. Mendesain dan mengembangkan demo dashboard HR menggunakan SAS Viya.\n\n• Menguji tabel output yang dibuat oleh pengembang SAS. Perlengkapan dokumentasi di sektor properti asuransi.\n\n• Bertanggung jawab dalam migrasi laporan SAS Visual Analytics di lingkungan SAS Viya bank asuransi terbesar di Polandia. Pekerjaan meliputi ekspor dashboard di Viya, perbaikan skema XML, redesain layout dashboard untuk perbaikan UX, pembuatan tema global, pengembangan form XML/HTML, dan pemrosesan file JSON menggunakan Python.\n\n• Bertindak sebagai konsultan dalam proses pembaruan data mart pembaruan proyek untuk operator telekomunikasi besar Polandia. Pengembangan script produk SAS yang berfokus pada 4GL dan SQL. Mengelola pengumpulan data dan segmentasi menggunakan Python. Berkontribusi dalam pengembangan dashboard menggunakan Shiny dan Tableau.\n\n• Mengotomatisasi laporan menggunakan SAS Guide dan SAS VA. Pengembangan dashboard penilaian kinerja cabang bank untuk membantu analisis statistik kredit dan visualisasi.\n\n• Membantu dalam pemrosesan data keuangan, pembaruan laporan keuangan, dan transfer data antar database.\n\n• Membantu dalam pengembangan model peramalan untuk evaluasi parameter LGD tim pelaporan dan penilaian.\n\n• Master Data Engineering. Mengembangkan sistem rekomendasi film untuk proyek akhir menggunakan Python.\n\n• Master. Menguji metode reject inference yang diterapkan di SAS Enterprise Miner. Menggunakan model kredit yang dibuat secara stokastik pada data portofolio keuangan konsumen.\n\n• Spesialis keuangan internasional. Evaluasi model logistik regresi untuk memperkirakan penyesuaian akun Polandia berdasarkan penentu saldo pembayaran Polandia.\n\n• Program pertukaran pelajar.\n\n• Analisis anggaran nasional 2006-2010.",
+    "items.1": "Peran pendukung pengembangan aplikasi Oracle APEX. Membantu mengembangkan tool pelaporan ESRS (standar pelaporan keberlanjutan Eropa) bersama dengan analis bisnis. Mendesain dan mengimplementasikan fitur BI dalam aplikasi APEX menggunakan PL/SQL. Menerapkan perubahan yang diperlukan dalam skema pelaporan. Menghasilkan laporan yang ditampilkan menggunakan PL/SQL. Memberikan pendapat dan respons berdasarkan keahlian dan pengetahuan dalam pekerjaan pelaporan.",
+    "items.2": "Pengembangan solusi pelaporan data nasional menggunakan Oracle SQL atau Oracle PL/SQL sesuai skala analisis lokal. Pengembangan aplikasi PoC untuk menghitung dan memvisualisasikan jarak terdekat antara entitas terkontrol dan 10 pemegang saham terdekat (pemerintah publik) menggunakan Python dan SQL untuk grafik skala besar.",
+    "items.3": "Pengembangan pipeline ELT untuk sektor Open Banking. Mendukung data sumber JSON, normalisasi dan tabel Hive. Pemrosesan data semi-struktur dan terstruktur. Teknologi yang digunakan: MongoDB, HDFS, HiveSQL, Python, Airflow, dan GitLab untuk CICD. Tidak ada analisis apa pun terhadap regulasi pelanggan sektor Open Banking.",
+    "items.4": "Pengembangan solusi pemrosesan data batch untuk salah satu bank terbesar di Polandia. Mendesain workflow batch ELT data lake menggunakan Airflow, Python, PySpark, dan Hive di Cloudera Data Platform on-premise. Pengembangan classifier churn perusahaan asuransi dan operasionalisasi. Menambahkan fitur scoring dan monitoring untuk data baru. Pengembangan classifier untuk perusahaan VR dan operasionalisasi. Mendesain dan mengembangkan demo dashboard HR menggunakan SAS Viya.",
+    "items.5": "Menguji tabel output yang dibuat oleh pengembang SAS. Perlengkapan dokumentasi di sektor properti asuransi.",
+    "items.6": "Bertanggung jawab dalam migrasi laporan SAS Visual Analytics di lingkungan SAS Viya bank asuransi terbesar di Polandia. Pekerjaan meliputi ekspor dashboard di Viya, perbaikan skema XML, redesain layout dashboard untuk perbaikan UX, pembuatan tema global, pengembangan form XML/HTML, dan pemrosesan file JSON menggunakan Python.",
+    "items.7": "Bertindak sebagai konsultan dalam proses pembaruan data mart pembaruan proyek untuk operator telekomunikasi besar Polandia. Pengembangan script produk SAS yang berfokus pada 4GL dan SQL. Mengelola pengumpulan data dan segmentasi menggunakan Python. Berkontribusi dalam pengembangan dashboard menggunakan Shiny dan Tableau.",
+    "items.8": "Mengotomatisasi laporan menggunakan SAS Guide dan SAS VA. Pengembangan dashboard penilaian kinerja cabang bank untuk membantu analisis statistik kredit dan visualisasi.",
+    "items.9": "Membantu dalam pemrosesan data keuangan, pembaruan laporan keuangan, dan transfer data antar database.",
+    "items.10": "Membantu dalam pengembangan model peramalan untuk evaluasi parameter LGD tim pelaporan dan penilaian.",
+    "items.11": "Master Data Engineering. Mengembangkan sistem rekomendasi film untuk proyek akhir menggunakan Python.",
+    "items.12": "Master. Menguji metode reject inference yang diterapkan di SAS Enterprise Miner. Menggunakan model kredit yang dibuat secara stokastik pada data portofolio keuangan konsumen.",
+    "items.13": "Spesialis keuangan internasional. Evaluasi model logistik regresi untuk memperkirakan penyesuaian akun Polandia berdasarkan penentu saldo pembayaran Polandia.",
+    "items.14": "Program pertukaran pelajar.",
+    "items.15": "Analisis anggaran nasional 2006-2010.",
+    "items.16": "",
+    "items.17": "",
+    "items.18": ""
+  },
+  "projects": {
+    "title": "Proyek",
+    "headingPrefix": "Proyek",
+    "description": "Berikut adalah beberapa proyek terbaru saya yang menyoroti keahlian saya dalam data engineering, machine learning, dan pengembangan web.",
+    "noProjects": "Belum ada proyek. Kunjngi lagi nanti!",
+    "technologies": "Teknologi",
+    "items": {
+      "1": {
+        "description": "SQL playground dengan data NYC Taxi. Termasuk PostgreSQL, pgAdmin, dan Superset. Database siap digunakan dengan inisialisasi, backup, dan sinkronisasi. Mulailah analisis Anda."
+      },
+      "2": {
+        "description": "ETL harian dan ML yang sudah dipilih di Docker, PostgreSQL, Airflow, dan XGBoost. Aplikasi web React sebagai hasilnya. Dibuat sepenuhnya menggunakan Claude Code."
+      },
+      "3": {
+        "description": "Pipeline data mini-batch 5 menit yang dikontainerisasi. Spark Structured Streaming: membaca dari Kafka ke PostgreSQL sebagai sink DB."
+      },
+      "4": {
+        "description": "Aplikasi RAG yang dikontainerisasi dari ulasan game PC Steam. Layanan Flask yang berjalan di database vektor Elasticsearch. Logging di PostgreSQL dan monitoring dengan Grafana."
+      },
+      "5": {
+        "description": "MLOps end-to-end di GCP — PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
+      },
+      "6": {
+        "description": "Layanan Flask yang dikontainerisasi — scoring probabilitas default pelanggan. Pandas, Scikit-learn, XGBoost, Flask, Docker."
+      },
+      "7": {
+        "description": "TensorFlow, classifier gambar, transfer learning model, model as a service, Docker, Kubernetes, cluster Kind."
+      },
+      "8": {
+        "description": "Website portofolio web yang dibuat dengan React dan TypeScript, dengan desain modern dan layout responsif."
+      }
+    }
+  },
+  "books": {
+    "headingPrefix": "Buku",
+    "title": "Daftar Bacaan",
+    "description": "Buku yang telah saya baca atau direncanakan untuk dibaca dalam bidang data engineering dan machine learning.",
+    "genre": "Genre",
+    "status": "Status",
+    "rating": "Peringkat",
+    "review": "Ulasan",
+    "noBooks": "Belum ada buku. Kunjngi lagi nanti!",
+    "read": "Sudah dibaca",
+    "toRead": "Daftar bacaan",
+    "toReadMessage": "Buku ini ada dalam daftar bacaan saya! Saya sangat ingin membacanya segera.",
+    "fallbackReview": "Saya menyukai buku ini dan menganggapnya berharga untuk perkembangan karir saya.",
+    "genres": {
+      "Data Engineering": "Data Engineering"
+    },
+    "items": {
+      "1": {
+        "review": "Panduan komprehensif untuk praktik dan arsitektur data engineering modern."
+      },
+      "2": {
+        "review": "Panduan komprehensif untuk transformasi data dan modeling menggunakan dbt."
+      },
+      "3": {
+        "review": "Resep praktis untuk membangun pipeline data dengan Databricks."
+      }
+    }
+  },
+  "interests": {
+    "headingPrefix": "Minat",
+    "title": "Minat",
+    "description": "Di luar pekerjaan, saya sangat antusias mengeksplorasi berbagai hobi dan minat.",
+    "categories": {
+      "title": "Kategori",
+      "motorcycling": "Motor",
+      "cycling": "Bersepeda",
+      "photography": "Analisis Data & Teknologi",
+      "history": "Sejarah, Arsitektur & Ekonomi",
+      "financial": "Pasar Keuangan"
+    },
+    "motorcycling": {
+      "heading": "Motor",
+      "description1": "Saya sangat bersemangat untuk mengeksplorasi dunia di atas dua roda. Berkendara motor adalah kombinasi sempurna dari petualangan, kebebasan, dan koneksi dengan alam.",
+      "description2": "Dari jalan pegunungan hingga jalan pantai, setiap perjalanan membawa perspektif baru dan pengalaman yang menakjubkan.",
+      "description3": "Jelajahi galeri foto perjalanan motor terbaru saya melalui pemandangan luas, jalan pegunungan, dan jalan pantai!"
+    },
+    "cycling": {
+      "heading": "Bersepeda",
+      "description1": "Bersepeda adalah hobi alternatif saya untuk tetap aktif sambil menjelajahi pemandangan yang luas.",
+      "description2": "Apakah perjalanan lokal pendek atau perjalanan pedesaan sehari-hari, bersepeda menawarkan aktivitas fisik dan relaksasi mental."
+    },
+    "photography": {
+      "heading": "Analisis Data & Teknologi",
+      "description1": "Selain profesi saya, saya sangat antusias dengan pengembangan data engineering dan data engineering analyst.",
+      "description2": "Saya menikmati bekerja dengan platform data modern, mengeksplorasi alat baru untuk modeling dan transformasi data, menyesuaikan pipeline data, dan membuat data lebih dapat diandalkan, skalabel, dan efisien.",
+      "description3": "Saya juga familiar dengan tren terbaru dalam infrastruktur data cloud, proses ELT/ETL, dan teknik visualisasi untuk tetap update di industri.",
+      "description4": "Daftar belajar teknologi ini mencerminkan antusiasme saya karena saya terus berusaha memperluas pengetahuan dan keahlian saya di bidang-bidang yang berkembang pesat ini."
+    },
+    "history": {
+      "heading": "Sejarah, Arsitektur & Ekonomi",
+      "description1": "Saya memiliki minat mendalam pada sejarah, arsitektur, dan ekonomi yang sangat mempengaruhi cara kita memahami dunia.",
+      "description2": "Memahami berbagai budaya, warisan arsitektur, dan sistem ekonomi membantu dalam memahami perkembangan masyarakat dan peradaban manusia.",
+      "description3": "Minat ini sebenarnya terinspirasi oleh perjalanan motor dan bersepeda saya. Mereka memungkinkan saya untuk mengalami situs bersejarah, mengagumi gaya arsitektur yang berbeda, dan melihat perbedaan ekonomi antar wilayah — tempat-tempat yang saya lewati dengan hubungan mendalam."
+    },
+    "financial": {
+      "heading": "Pasar Keuangan",
+      "description1": "Karir saya di pasar keuangan mencerminkan perspektif jangka pendek dan panjang, bukan spekulasi jangka pendek.",
+      "description2": "Beberapa tahun yang lalu, saya membangun portofolio aman dengan obligasi dan ETF, kemudian secara bertahap beralih ke saham Polandia.",
+      "description3": "Saat ini, saya memiliki portofolio beragam di pasar Polandia dan Amerika dengan strategi investasi yang terencana untuk hasil yang konsisten.",
+      "description4": "Pengalaman praktis ini memberikan wawasan berharga tentang volatilitas pasar dan prinsip investasi.",
+      "description5": "Saya merekomendasikan untuk mereka yang ingin belajar tentang investasi, terutama mereka yang berbicara bahasa Polandia",
+      "recommendation": "investomat.eu",
+      "recommendationDesc": "— sumber daya luar biasa yang menyediakan pendidikan keuangan tingkat universitas dan mudah diakses."
+    }
+  },
+  "contact": {
+    "title": "Kontak",
+    "description": "Saya selalu terbuka untuk berdiskusi tentang peluang kolaborasi pada proyek baru, ide kreatif, atau berbagi perspektif Anda.",
+    "name": "Nama",
+    "email": "Email",
+    "message": "Pesan",
+    "send": "Kirim Pesan",
+    "required": "Diperlukan",
+    "success": "Pesan berhasil dikirim!",
+    "error": "Gagal mengirim pesan. Silakan coba lagi.",
+    "labels": {
+      "name": "Nama Anda",
+      "email": "Email Anda",
+      "message": "Pesan Anda",
+      "phone": "Telepon",
+      "location": "Lokasi",
+      "connect": "Hubungi Saya"
+    }
+  },
+  "notFound": {
+    "title": "404 Halaman Tidak Ditemukan",
+    "message": "Apakah Anda lupa menambahkan halaman di router Anda?"
+  },
+  "footer": {
+    "logo": "Konrad Borowiec",
+    "description": "Analisis Data & Data Engineering",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Hak Cipta Dilindungi.",
+    "tagline": "Solusi Data Profesional"
+  },
+  "ui": {
+    "darkMode": "Mode Gelap",
+    "lightMode": "Mode Terang",
+    "toggle": "Ganti Tema",
+    "menu": "Menu",
+    "closeMenu": "Tutup Menu",
+    "backToTop": "Kembali ke Atas"
+  },
+  "toast": {
+    "success": "Berhasil",
+    "error": "Gagal",
+    "sent": "Pesan berhasil dikirim!",
+    "failed": "Gagal mengirim pesan"
+  }
+}

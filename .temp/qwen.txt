@@ -2,3 +2,6 @@ qwen --auth-type openai --model qwen3.5:9b
 sudo tcpdump -i lo port 11434 -A -s 0
 
 Bash(ss -ltnp 2>/dev/null | grep ':5173' || echo "5173 free")
+
+kill 21945 2>/dev/null || true (Kill current dev server process)
+cd /mnt/c/Users/borow/VSC/projects/konrad-borowiec/client && npm run dev

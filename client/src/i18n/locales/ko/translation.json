@@ -1,0 +1,228 @@
+{
+  "common": {
+    "home": "홈",
+    "about": "소개",
+    "projects": "프로젝트",
+    "books": "도서",
+    "interests": "관심사",
+    "contact": "연락처",
+    "contactMe": "연락하기",
+    "portfolio": "포트폴리오",
+    "blog": "블로그",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "credly": "Credly",
+    "demo": "데모 보기",
+    "readMore": "더 읽기",
+    "viewCode": "코드 보기",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. 모든 권리 보유.",
+    "professional": "전문 데이터 솔루션"
+  },
+  "menu": {
+    "home": "홈",
+    "about": "소개",
+    "projects": "프로젝트",
+    "books": "도서",
+    "interests": "관심사",
+    "contact": "연락처"
+  },
+  "hero": {
+    "intro": "안녕하세요, 저는",
+    "title": "Konrad Borowiec",
+    "subtitle": "데이터는 단순한 숫자가 아닙니다 — 더 현명한 결정을 내리기 위한 열쇠입니다.",
+    "description": "데이터 엔지니어링, 분석 및 머신러닝 전문가로서, 원시 데이터에서 통찰력을 추출하는 데이터 파이프라인을 설계합니다. 데이터를 진전의 촉매제로 전환하세요!",
+    "ctaProjects": "사이드 프로젝트 보기",
+    "ctaContact": "연락하기"
+  },
+  "about": {
+    "headingPrefix": "소개",
+    "title": "저",
+    "timelineTitle": "경력 및 교육",
+    "description": "데이터에 열정을 가진 전문가이며, 견고한 데이터 파이프라인과 분석 솔루션 구축에 경험이 있습니다.",
+    "experience": "경력",
+    "skills": "기술",
+    "education": "교육",
+    "bio1": "저는 Data Guy로, 금융 분야에서 탄탄한 경력을 가지고 있습니다. 가장 좋아하는 순간은 제가 개발한 도구와 솔루션이 다른 사람이나 기업에 의해 활발히 사용될 때입니다. SQL, Python 및 다양한 데이터 처리 기술에 대한 전문 지식을 바탕으로, 효율적인 데이터 파이프라인을 구축하고 가치 있는 통찰력을 추출하는 데 중점을 둡니다.",
+    "bio2": "제 경로는 금융과 분석 분야에서 시작하여 더 기술적인 역할로 발전했습니다. 복잡한 데이터 문제를 해결하고 견고하고 신뢰할 수 있는 솔루션을 구축하는 것을 좋아합니다.",
+    "showTimeline": "전체 타임라인 보기 ▼",
+    "hideTimeline": "타임라인 숨기기 ▲"
+  },
+  "timeline": {
+    "title": "경력",
+    "item": {
+      "year": "{year}",
+      "title": "{title}",
+      "description": "{description}"
+    },
+    "items.0": "여러 플랫폼에서 온 데이터를 Apache Airflow 로 오케스트레이션 된 단일 BigQuery 데이터 웨어하우스로 처리하는 생산 데이터 인프라를 유지 관리하여 e-Commerce 고객의 분석을 지원합니다. Apache Superset 은 BI 솔루션으로 사용됩니다.\n\n• Magento 2 를 위한 맞춤형 Apache Airflow 연결기를 개발했습니다. OAuth 1.0a (HMAC-SHA256) 인증, 생성자 기반 페이지네이션 및 여러 REST API 엔드포인트를 위한 지수적 백오프 재시도 논리를 지원합니다. NDJSON 형식으로 GCS 에 기록을 추출하고 매일 BigQuery 로 로드합니다.\n\n• Google Ads ETL 파이프라인을 설계하여 Google Ads API 를 GCS 스테이징 계층과 BigQuery 로 통합합니다. Apache Superset 에서 시각화할 수 있도록 Google Ads 지출을 e-Commerce 고객의 실제 재고에 매핑하는 분석 테이블을 설계합니다. 지연 도착 및 중복 처리를 올바르게 처리하기 위해 Jinja2 동적 날짜 템플릿화와 지능형 lookback 윈도우를 사용합니다.\n\n• e-Commerce 고객을 구성 가능한 데이터 플랫폼으로 온보딩합니다. 고객 명시적 구성에서 DAG 를 동적으로 생성하는 YAML-to-DAG 프레임워크를 사용합니다.\n\n• Klaviyo API 검토의 제로 다운타임 이식을 실행했습니다. 여러 카테고리의 인증, 구독 패턴, 마케팅 필드, 이벤트 구조, 캠페인 필터, 스트림 페이지네이션, 지표 유형을 포함하여 자동화된 검증 테스트를 설계하고 실행하여 파괴적 변경 없이 제로 변경을 확인합니다.\n\n• Unicode 텍스트 정규화를 위한 맞춤형 dbt 매크로를 개발하여 e-Commerce 제품 URL 의 특수 문자 (폴란드어, 러시아어 및 기타 비 ASCII 문자) 로 인한 제품 ID 매핑 및 중복 제거 문제를 해결합니다. Shopify, Shoper, WooCommerce 및 Magento 와 같은 네 가지 플랫폼을 포괄하는 통합 ECOM 엔티티 패턴으로 URL 분석을 표준화하여 플랫폼 간 신뢰성 있는 중복 제거를 가능하게 합니다.\n\n• Superset MCP 를 사용하여 Superset REST API 를 통해 대시보드 및 차트 구성을 쿼리하여 자동 데이터 계보 조사와 후속 수정을 수행합니다.\n\n• 각 테이블 및 파이프라인에 대한 완전한 검증 키트를 설계하여 엄격한 품질 기준을 유지합니다. SQL 테스트를 작성하여 레이어 간 일관성 (스테이징에서 변환까지), 필수 필드 NULL 비율 분석, 대체 키 고유성, 참조 무결성 및 API 출력 old-vs-new 비교를 포함합니다.\n\n• Eurostat GISCO 지리 공간 데이터 파이프라인: Eurostat GISCO 지리 공간 데이터를 회사의 Airflow 기반 데이터 플랫폼에 통합하는 엔드 투 엔드 ETL 파이프라인을 설계하고 구현합니다. GCS 에서 NDJSON 형식으로 약 815,000 개 EU 우편번호 및 1,211 개 NUTS3 경계 다각형을 다운로드하는 맞춤형 Airflow 플러그인 (오퍼레이터 + 후크) 을 생성합니다. 350MB 우편번호 GeoJSON 을 컨테이너 메모리 제한 내에서 처리하기 위해 ijson 스트리밍을 구현합니다. 31 개 EU/EEA/EFTA 국가에 대한 지도 시각화를 위한 데이터로 완전한 NUTS 계층 구조 (국가/NUTS1/NUTS2/NUTS3) 의 소스 및 변환 dbt 모델을 생성합니다. 여러 환경에서 자동 배포를 지원하는 DAG 생성 프레임워크에 파이프라인을 등록합니다.\n\n• 판매 채널 백필 및 스키마 마이그레이션: 모바일 애플리케이션 주문 이력 데이터를 대규모 e-Commerce 고객의 분석 파이프라인에 통합하기 위한 데이터 백필 이니셔티브를 주도합니다. 새로운 판매 채널 열을 포함하여 BigQuery 스테이징 스키마 및 dbt 모델 (소스 및 변환 레이어) 을 확장하여 모든 보고 레이어에서 웹 및 앱 주문을 필터링할 수 있습니다. 2+ 년 간의 기존 CSV 파일에 새로운 열 없이 후방 호환성을 유지하면서 두 채널 유형을 모두 포함하는 새 파일의 원활한 수용을 보장합니다. GCS 에서 BQ 로의 수용, dbt 증가 모델 및 downstream Superset 대시보드에서의 스키마 변경을 조정합니다.\n\n• Oracle APEX 애플리케이션 개발 지원 역할. ESRS (유럽 지속 가능성 보고 표준) 보고 도구 개발에 비즈니스 분석가와 협력하여 기여합니다. PL/SQL 을 사용하여 APEX 애플리케이션에서 BI 기능을 설계하고 구현합니다. 보고 스키마 변경이 필요한 경우 PL/SQL 을 사용하여 표시된 보고서를 생성합니다. 보고 작업에서 전문 지식과 지식을 적용하여 아이디어와 피드백을 제공합니다.\n\n• 분석 규모에 따라 Oracle SQL 또는 Oracle PL/SQL 을 사용하여 국가 데이터 보고서를 개발합니다.\n\n• Python 과 SQL 을 사용하여 제어된 엔티티와 가장 가까운 10 명 규제자 (공공 부문 직원) 사이의 최단 경로를 계산하고 시각화하는 PoC 애플리케이션을 개발합니다. 대규모 그래프 문제.\n\n• Open Banking 도메인을 위한 ELT 데이터 파이프라인 개발. JSON 소스 데이터를 평평하게 하고, 중복을 제거하며, Hive 테이블로 정규화하는 것을 포함합니다. 반구조화 및 구조화 데이터 처리. 사용된 기술: MongoDB, HDFS, HiveSQL, Python, Airflow 및 CICD 를 위한 GitLab. Open Banking 도메인 고객 활동의 임의 분석.\n\n• 폴란드의 가장 큰 은행 중 하나를 위한 배치 데이터 처리 솔루션 개발. Cloudera Data Platform on-premise 에서 Airflow, Python, PySpark 및 Hive 를 사용하여 데이터 호수 배치 ELT 워크플로우 설계. 보험사 이탈 분류기 개발 및 운영화. 새로운 데이터에 대한 점수화 및 모니터링 기능 추가. VR 회사의 분류기 개발 및 운영화. SAS Viya 를 사용하여 HR 대시보드 데모 설계 및 개발.\n\n• SAS 개발자가 생성한 출력 테이블 테스트. 부동산 보험 분야 문서 유지.\n\n• 폴란드의 가장 큰 보험 회사의 SAS Viya 환경으로 SAS Visual Analytics 보고서 마이그레이션 공동 책임. Viya 에 대시보드 가져오기, XML 스키마 수정, UX 개선을 위한 대시보드 레이아웃 재디자인, 글로벌 테마 생성, XML/HTML 양식 개발 및 Python 을 사용하여 JSON 파일 처리를 포함하는 작업.\n\n• 폴란드의 대형 통신사 자문으로서 데이터 마트 재계산 프로세스 업데이트 프로젝트에 참여합니다. 4GL 과 SQL 에 초점을 맞춘 데이터 처리 SAS 생산 스크립트 개발. Python 을 사용하여 데이터 수집 및 세그먼테이션 관리. Shiny 및 Tableau 를 사용하는 대시보드 개발에 기여.\n\n• SAS Guide 와 SAS VA 를 사용하여 보고서를 자동화합니다. 대출 통계 및 시각적 분석을 촉진하는 은행 지점 성능을 평가하는 대시보드 개발.\n\n• 금융 데이터 처리, 재무 보고서 업데이트 및 데이터베이스 간 데이터 이동 지원.\n\n• 평가 표준 및 보고 팀 LGD 매개변수를 추정하는 데 사용되는 예측 모델 개발 지원.\n\n• 빅데이터 엔지니어링 석사. 파이썬을 사용하여 최종 프로젝트인 영화 추천 시스템 개발.\n\n• 석사. SAS Enterprise Miner 에서 구현된 거부 추론 방법을 평가합니다. 무작위 생성된 소비자 금융 포트폴리오 데이터에서 구축된 신용 스코어 모델을 사용합니다.\n\n• 국제 금융 전문 분야. 논문: 폴란드 지급 균형을 결정하는 요소에 기반한 폴란드 경상 계정 조정 확률을 추정하는 로지스틱 회귀 모델 사용.\n\n• 학생 교환 프로그램.\n\n• 2006-2010 년 국가 예산 분석.\n\n•",
+    "items.1": "Oracle APEX 애플리케이션 개발 지원 역할. ESRS (유럽 지속 가능성 보고 표준) 보고 도구 개발에 비즈니스 분석가와 협력하여 기여합니다. PL/SQL 을 사용하여 APEX 애플리케이션에서 BI 기능을 설계하고 구현합니다. 보고 스키마 변경이 필요한 경우 PL/SQL 을 사용하여 표시된 보고서를 생성합니다. 보고 작업에서 전문 지식과 지식을 적용하여 아이디어와 피드백을 제공합니다.",
+    "items.2": "분석 규모에 따라 Oracle SQL 또는 Oracle PL/SQL 을 사용하여 국가 데이터 보고서를 개발합니다. Python 과 SQL 을 사용하여 제어된 엔티티와 가장 가까운 10 명 규제자 (공공 부문 직원) 사이의 최단 경로를 계산하고 시각화하는 PoC 애플리케이션을 개발합니다. 대규모 그래프 문제.",
+    "items.3": "Open Banking 도메인을 위한 ELT 데이터 파이프라인 개발. JSON 소스 데이터를 평평하게 하고, 중복을 제거하며, Hive 테이블로 정규화하는 것을 포함합니다. 반구조화 및 구조화 데이터 처리. 사용된 기술: MongoDB, HDFS, HiveSQL, Python, Airflow 및 CICD 를 위한 GitLab. Open Banking 도메인 고객 활동의 임의 분석.",
+    "items.4": "폴란드의 가장 큰 은행 중 하나를 위한 배치 데이터 처리 솔루션 개발. Cloudera Data Platform on-premise 에서 Airflow, Python, PySpark 및 Hive 를 사용하여 데이터 호수 배치 ELT 워크플로우 설계. 보험사 이탈 분류기 개발 및 운영화. 새로운 데이터에 대한 점수화 및 모니터링 기능 추가. VR 회사의 분류기 개발 및 운영화. SAS Viya 를 사용하여 HR 대시보드 데모 설계 및 개발.",
+    "items.5": "SAS 개발자가 생성한 출력 테이블 테스트. 부동산 보험 분야 문서 유지.",
+    "items.6": "폴란드의 가장 큰 보험 회사의 SAS Viya 환경으로 SAS Visual Analytics 보고서 마이그레이션 공동 책임. Viya 에 대시보드 가져오기, XML 스키마 수정, UX 개선을 위한 대시보드 레이아웃 재디자인, 글로벌 테마 생성, XML/HTML 양식 개발 및 Python 을 사용하여 JSON 파일 처리를 포함하는 작업.",
+    "items.7": "폴란드의 대형 통신사 자문으로서 데이터 마트 재계산 프로세스 업데이트 프로젝트에 참여합니다. 4GL 과 SQL 에 초점을 맞춘 데이터 처리 SAS 생산 스크립트 개발. Python 을 사용하여 데이터 수집 및 세그먼테이션 관리. Shiny 및 Tableau 를 사용하는 대시보드 개발에 기여.",
+    "items.8": "SAS Guide 와 SAS VA 를 사용하여 보고서를 자동화합니다. 대출 통계 및 시각적 분석을 촉진하는 은행 지점 성능을 평가하는 대시보드 개발.",
+    "items.9": "금융 데이터 처리, 재무 보고서 업데이트 및 데이터베이스 간 데이터 이동 지원.",
+    "items.10": "평가 표준 및 보고 팀 LGD 매개변수를 추정하는 데 사용되는 예측 모델 개발 지원.",
+    "items.11": "빅데이터 엔지니어링 석사. 파이썬을 사용하여 최종 프로젝트인 영화 추천 시스템 개발.",
+    "items.12": "석사. SAS Enterprise Miner 에서 구현된 거부 추론 방법을 평가합니다. 무작위 생성된 소비자 금융 포트폴리오 데이터에서 구축된 신용 스코어 모델을 사용합니다.",
+    "items.13": "국제 금융 전문 분야. 논문: 폴란드 지급 균형을 결정하는 요소에 기반한 폴란드 경상 계정 조정 확률을 추정하는 로지스틱 회귀 모델 사용.",
+    "items.14": "학생 교환 프로그램.",
+    "items.15": "2006-2010 년 국가 예산 분석.",
+    "items.16": "",
+    "items.17": "",
+    "items.18": ""
+  },
+  "projects": {
+    "title": "프로젝트",
+    "headingPrefix": "프로젝트",
+    "description": "데이터 엔지니어링, 머신러닝 및 웹 개발 기술을 강조하는 최신 프로젝트 중 일부입니다.",
+    "noProjects": "프로젝트가 없습니다. 나중에 다시 오세요!",
+    "technologies": "기술",
+    "items": {
+      "1": {
+        "description": "NYC 택시 데이터를 사용한 SQL 플레이그라운드. PostgreSQL, pgAdmin 및 Superset 포함. 데이터베이스 초기화, 데이터 백필 및 수용이 사전 구성되어 사용 준비 완료. 분석을 빠르게 시작하세요."
+      },
+      "2": {
+        "description": "Docker, PostgreSQL, Airflow 및 XGBoost 를 사용한 사전 선택 주식에 대한 일일 ETL 및 ML. 마지막으로, React 웹 애플리케이션. 모두 Claude Code 로 완료."
+      },
+      "3": {
+        "description": "5 분 미니 배치 데이터 파이프라인 포함. Spark Structured Streaming: Kafka 에서 PostgreSQL 로 DB sink 로 읽기. Airflow, Kafka, PySpark, PostgreSQL, Streamlit."
+      },
+      "4": {
+        "description": "Steam 스토어 PC 게임 리뷰에서 파생된 포함 RAG 애플리케이션. Elasticsearch 벡터 데이터베이스에서 실행되는 Flask 서비스. PostgreSQL 로깅 및 Grafana 모니터링."
+      },
+      "5": {
+        "description": "GCP 에서 MLOps e2e — PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
+      },
+      "6": {
+        "description": "포함 Flask 서비스 — 고객 기본 확률 점수. Pandas, Scikit-learn, XGBoost, Flask, Docker."
+      },
+      "7": {
+        "description": "TensorFlow, 이미지 분류기, 모델 전송 학습, 모델 서비스, Docker, Kubernetes, Kind 클러스터."
+      },
+      "8": {
+        "description": "React 와 TypeScript 로 구축된 개인 포트폴리오 웹사이트, 현대적인 디자인 및 반응형 레이아웃."
+      }
+    }
+  },
+  "books": {
+    "headingPrefix": "프로젝트",
+    "title": "독서 목록",
+    "description": "데이터 엔지니어링 및 머신러닝 분야에서 읽었거나 읽을 계획인 책.",
+    "genre": "장르",
+    "status": "상태",
+    "rating": "평가",
+    "review": "리뷰",
+    "noBooks": "책이 없습니다. 나중에 다시 오세요!",
+    "read": "읽음",
+    "toRead": "읽을 예정",
+    "toReadMessage": "이 책은 독서 목록에 있습니다! 곧 탐험하고 싶습니다.",
+    "fallbackReview": "이 책을 좋아하며 직업 발전에 가치가 있다고 생각합니다.",
+    "genres": {
+      "Data Engineering": "데이터 엔지니어링"
+    },
+    "items": {
+      "1": {
+        "review": "데이터 엔지니어링 현대 모범 사례 및 아키텍처에 대한 필수 가이드."
+      },
+      "2": {
+        "review": "dbt 를 사용한 데이터 변환 및 모델링에 대한 포괄적인 가이드."
+      },
+      "3": {
+        "review": "Databricks 를 사용한 데이터 파이프라인 구축을 위한 실용 레시피."
+      }
+    }
+  },
+  "interests": {
+    "headingPrefix": "관심사",
+    "title": "관심사",
+    "description": "직장 밖에서 다양한 취미와 관심사를 탐험하는 것을 좋아합니다.",
+    "categories": {
+      "title": "카테고리",
+      "motorcycling": "오토바이",
+      "cycling": "자전거",
+      "photography": "데이터 분석 & 기술",
+      "history": "역사, 건축 & 경제",
+      "financial": "금융 시장"
+    },
+    "motorcycling": {
+      "heading": "오토바이",
+      "description1": "두 바퀴로 세상을 탐험하는 것을 열망합니다. 오토바이 여행은 모험, 자유 및 자연과의 연결의 완벽한 조합을 제공합니다.",
+      "description2": "굽은 산길에서 해안 도로까지, 각 여행은 새로운 관점과 잊을 수 없는 경험을 가져옵니다.",
+      "description3": "장엄한 풍경, 산길 및 해안 도로를 가로지르는 최근 오토바이 여행 사진 갤러리를 확인하세요!"
+    },
+    "cycling": {
+      "heading": "자전거",
+      "description1": "장엄한 풍경을 탐험하는 동안 동시에 활동적으로 유지할 수 있게 하는 또 다른 취미인 자전거입니다.",
+      "description2": "지역 산책길 짧은 라이드나 시골 일일 라이드든, 자전거는 신체 운동과 정신적 이완을 제공합니다."
+    },
+    "photography": {
+      "heading": "데이터 분석 & 기술",
+      "description1": "전문 활동 외에도 데이터 엔지니어링 및 데이터 분석 엔지니어링의 발전에 큰 관심을 가지고 있습니다.",
+      "description2": "현대 데이터 플랫폼에서 작업하고, 데이터 모델링 및 변환을 위한 새 도구를 탐구하며, 데이터 파이프라인을 최적화하고, 더 신뢰할 수 있고, 확장 가능하며, 실행 가능한 데이터로 만드는 방법을 시도하는 것을 좋아합니다.",
+      "description3": "클라우드 데이터 인프라, ELT/ETL 프로세스 및 시각화 기술의 최신 트렌드에 익숙하여 분야에서 최신 정보를 유지합니다.",
+      "description4": "이 열정을 반영하는 기술 독서 목록이 있으며, 이러한 빠르게 발전하는 분야에서 지식과 기술을 지속적으로 확장하기 위해 노력합니다."
+    },
+    "history": {
+      "heading": "역사, 건축 & 경제",
+      "description1": "역사, 건축 및 경제에 깊은 관심을 가지고 있으며, 세상을 탐험하는 방식에 큰 영향을 미칩니다.",
+      "description2": "다른 문명, 그들의 건축 업적 및 경제 시스템에 대해 배우는 것은 사회와 인간 문화의 발전에 대한 이해를 돕습니다.",
+      "description3": "이 관심사는 실제로 오토바이 여행과 자전거 모험 뒤에 있는 동기입니다. 역사적 유적을 직접 경험하고, 다른 건축 양식을 감상하며, 지역 간 경제적 차이를 관찰하여 방문한 장소와 더 깊은 연결을 만듭니다."
+    },
+    "financial": {
+      "heading": "금융 시장",
+      "description1": "금융 시장에서의 경력은 단기 거래가 아닌 신중하고 장기적인 접근 방식을 반영합니다.",
+      "description2": "몇 년 전에 인플레이션에 맞서기 위한 채권과 ETF 와 같은 보수적인 도구로 기반을 구축하고, 서서히 배당 변동이 있는 폴란드 주식으로 확장했습니다.",
+      "description3": "현재 폴란드 및 미국 시장에서 모두 다양화된 포트폴리오를 보유하고 있으며, 만족스러운 결과를 얻은 체계적인 투자 전략을 적용합니다.",
+      "description4": "이 실용적 경험은 시장 역학 및 투자 원칙에 대한 귀중한 통찰력을 제공합니다.",
+      "description5": "투자 지식을 구축하려는 분들을 위한, 특히 폴란드어를 사용하는 분들을 위해 추천합니다.",
+      "recommendation": "investomat.eu",
+      "recommendationDesc": "— 대학 수준의 금융 교육을 제공하는 탁월한 자원입니다."
+    }
+  },
+  "contact": {
+    "title": "연락처",
+    "description": "항상 새 프로젝트, 창의적 아이디어 또는 비전의 일부가 되는 기회에 대해 논의하는 것을 기꺼이 합니다.",
+    "name": "이름",
+    "email": "이메일",
+    "message": "메시지",
+    "send": "메시지 보내기",
+    "required": "이 필드는 필수입니다",
+    "success": "메시지가 성공적으로 전송되었습니다!",
+    "error": "메시지 전송 실패. 다시 시도하세요.",
+    "labels": {
+      "name": "이름",
+      "email": "이메일",
+      "message": "메시지",
+      "phone": "전화",
+      "location": "위치",
+      "connect": "연결"
+    }
+  },
+  "notFound": {
+    "title": "404 페이지를 찾을 수 없음",
+    "message": "라우터에 페이지를 추가하는 것을 잊으셨나요?"
+  },
+  "footer": {
+    "logo": "Konrad Borowiec",
+    "description": "데이터 분석 & 데이터 엔지니어링",
+    "copyright": "© {{year}} Konu-Tec Konrad Borowiec. 모든 권리 보유.",
+    "tagline": "전문 데이터 솔루션"
+  },
+  "ui": {
+    "darkMode": "다크 모드",
+    "lightMode": "라이트 모드",
+    "toggle": "테마 전환",
+    "menu": "메뉴",
+    "closeMenu": "메뉴 닫기",
+    "backToTop": "맨 위로 이동"
+  },
+  "toast": {
+    "success": "성공",
+    "error": "오류",
+    "sent": "메시지가 성공적으로 전송되었습니다!",
+    "failed": "메시지 전송 실패"
+  }
+}
