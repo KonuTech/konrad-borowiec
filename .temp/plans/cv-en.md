@@ -1,0 +1,152 @@
+# Konrad Borowiec - Portfolio CV
+
+## 🌐 Connect With Me
+
+- **[GitHub](https://github.com/konutech)**
+- **[LinkedIn](https://linkedin.com/in/32167)**
+- **[Credly](https://credly.com/users/konrad-borowiec/badges)**
+
+- **Email:** borowiec.k@gmail.com
+- **Phone:** +48 570 223 108
+- **Location:** Warsaw, Poland
+
+---
+
+## 👨‍💻 About Me
+
+I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.
+
+My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.
+
+---
+
+## 📜 Experience & Education
+
+### Education
+
+- Postgraduate studies in Large Data Sets Engineering. Developed a movie recommender system using Python for the end project.
+- Postgraduate studies. Assessment of Reject Inference methods implemented in SAS Enterprise Miner with a use of credit scorecard models built on randomly generated consumer finance portfolio data.
+- Specialized in International Financial Markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account basing on determinants of Polish balance of payments.
+- Student exchange program.
+- The analysis of state budget in 2006-2010.
+
+### Experience
+
+Maintained production data infrastructure powering analytics for e-commerce clients, processing data from multiple platforms into a unified BigQuery warehouse orchestrated by Apache Airflow. Used Apache Superset as the BI solution.
+
+• Developed a custom Apache Airflow connector for Magento 2 with OAuth 1.0a (HMAC-SHA256) authentication, generator-based pagination, and exponential-backoff retry logic across multiple REST API endpoints. Extracted records into GCS as NDJSON with daily loading into BigQuery.
+
+• Engineered a Google Ads ETL pipeline integrating the Google Ads API with BigQuery via GCS staging. Designed analytical tables mapping Google Ads spend to actual e-commerce client stock for rendering in Apache Superset. Leveraged dynamic Jinja2 date templating with intelligent lookback windows to properly handle late arrivals and deduplication.
+
+• Onboarded e-commerce clients onto a config-driven data platform. Leveraged a YAML-to-DAG generation framework to dynamically produce Airflow DAGs from declarative client configurations.
+
+• Executed a zero-downtime Klaviyo API revision migration spanning a multi-year revision gap. Designed and ran automated validation tests across multiple categories (authentication, subscription schemas, marketing fields, event structures, campaign filters, flow pagination, metric types), confirming zero breaking changes.
+
+• Developed a custom dbt macro for Unicode text normalization to resolve product ID mapping and deduplication failures caused by special characters (Polish, Russian, and other non-ASCII glyphs) in e-commerce product URLs. Standardized URL parsing across the unified ECOM entity schema spanning four platforms (e.g., Shopify, Shoper, WooCommerce, and Magento), enabling reliable cross-platform deduplication.
+
+• Used the Superset REST API via Superset MCP to programmatically query dashboard and chart configurations for automated data lineage investigations and subsequent fixes.
+
+• Maintained rigorous quality standards by designing comprehensive validation suites for every table and pipeline. Authored SQL tests covering cross-layer consistency (staging through transformed), NULL-rate analysis on mandatory fields, surrogate-key uniqueness, referential integrity, and old-vs-new API output comparison.
+
+• Eurostat GISCO Geospatial Data Pipeline: Designed and implemented an end-to-end ETL pipeline integrating Eurostat GISCO geospatial data into the company's Airflow-based data platform. Built a custom Airflow plugin (operator + hook) that downloads ~815,000 EU postal codes and 1,211 NUTS3 boundary polygons from the GISCO API, stages them as NDJSON in Google Cloud Storage, and loads into BigQuery. Implemented ijson streaming to handle the 350MB postal codes GeoJSON within container memory limits. Created dbt source and transformed models with full NUTS hierarchy (country/NUTS1/NUTS2/NUTS3). Registered the pipeline in the DAG generator framework to enable automated deployment across environments. Data serves Superset map visualizations for 31 EU/EEA/EFTA countries.
+
+• Sales Channel Backfill & Schema Migration: Led a data backfill initiative to integrate historical mobile app order data into a major e-commerce client's analytics pipeline. Extended the BigQuery staging schema and dbt models (source and transformed layers) to accommodate a new sales channel column, enabling filtering between web and app orders across all reporting layers. Managed backward compatibility for 2+ years of historical CSV files lacking the new column while ensuring seamless ingestion of new files containing both channel types. Coordinated schema changes across GCS-to-BQ ingestion, dbt incremental models, and downstream Superset dashboards.
+
+---
+
+## 📦 Projects
+
+### SQL Playground using NYC Taxi Data
+
+**Technologies:** Python, PostgreSQL, Superset, Docker, Claude Code
+**Description:** SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset. Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast.
+**[View Code](https://github.com/KonuTech/sql-playgrounds)**
+
+---
+
+### Classify stock growth for trading
+
+**Technologies:** Python, Docker, PostgreSQL, Apache Airflow, XGBoost, React, TypeScript, JavaScript, Jinja, Claude Code
+**Description:** Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code
+**[View Code](https://github.com/KonuTech/classify-stock-growth-for-trading)**
+
+---
+
+### Data Engineering Zoomcamp Capstone
+
+**Technologies:** Python, Docker, Apache Airflow, Kafka, PySpark, PostgreSQL, Streamlit
+**Description:** A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit
+**[View Code](https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01)**
+
+---
+
+### LLM Zoomcamp Capstone
+
+**Technologies:** Python, Elasticsearch, PostgreSQL, Flask, Docker, Grafana
+**Description:** A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring
+**[View Code](https://github.com/KonuTech/llm-zoomcamp-capstone-01)**
+
+---
+
+### MLOps Zoomcamp Capstone
+
+**Technologies:** GCP, Python, PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
+**Description:** e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
+**[View Code](https://github.com/KonuTech/mlops-zoomcamp-project)**
+
+---
+
+### Machine Learning Zoomcamp Capstone (Default Scoring)
+
+**Technologies:** Python, scikit-learn, XGBoost, Flask, Docker
+**Description:** Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker
+**[View Code](https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01)**
+
+---
+
+### Machine Learning Zoomcamp Capstone (Image Classifier)
+
+**Technologies:** Python, TensorFlow, Kubernetes, Docker, Kind cluster
+**Description:** TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster
+**[View Code](https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02)**
+
+---
+
+### Portfolio Website
+
+**Technologies:** React, TypeScript, Tailwind CSS, Node.js
+**Description:** Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout.
+**[View Code](https://github.com/KonuTech/konrad-borowiec)**
+
+---
+
+## 🎯 Interests
+
+### Outside of work, I enjoy exploring various hobbies and interests.
+
+#### Motorcycling 🏍️
+
+I'm passionate about exploring the world on two wheels. Motorcycle road trips offer me the perfect blend of adventure, freedom, and connection with nature. From winding mountain roads to coastal highways, each journey brings new perspectives and unforgettable experiences. Browse through my photo gallery from recent motorcycle journeys across beautiful landscapes, mountain roads, and coastal routes!
+
+#### Cycling 🚴
+
+Cycling is another passion of mine that allows me to stay active while exploring beautiful landscapes. Whether it's a quick ride through local trails or a day-long excursion in the countryside, cycling provides both physical exercise and mental refreshment.
+
+#### Analytics Engineering & Technology 📊
+
+Beyond my professional work, I'm deeply interested in the advancements in data engineering and analytics engineering. I enjoy working with modern data platforms, exploring new tools for data modeling and transformation, optimizing data pipelines, and experimenting with ways to make data more reliable, scalable, and actionable. I also keep up with the latest trends in cloud data infrastructure, ELT/ETL processes, and visualization techniques to stay current in the field. My technical reading list reflects this passion, as I constantly seek to expand my knowledge and skills in these rapidly evolving areas.
+
+#### History, Architecture & Economics 🏛️
+
+I have a profound interest in history, architecture, and economics, which greatly influences how I explore the world. Learning about different civilizations, their architectural achievements, and economic systems helps me understand the evolution of human society and culture. These interests are actually the driving forces behind my motorcycle road trips and cycling adventures. They allow me to directly experience historical sites, appreciate diverse architectural styles, and observe economic differences across regions—creating a deeper connection with the places I visit.
+
+#### Financial Markets 💰
+
+My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading. Starting a few years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities. Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results. This hands-on experience has provided valuable insights into market dynamics and investment principles.
+
+**For those interested in building their investment knowledge, particularly Polish speakers, I recommend [inwestomat.eu](https://inwestomat.eu) — an exceptional resource that offers university-caliber financial education in an accessible format.**
+
+---
+
+_Generated on: 2026-05-11_
+_© 2026 Konu-Tec Konrad Borowiec. All rights reserved._
