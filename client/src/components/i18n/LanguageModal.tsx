@@ -42,11 +42,11 @@ const LanguageModal: React.FC<Props> = ({ open, onClose, languages, current, onS
 
       <div
         ref={panelRef}
-        className="relative z-10 max-h-[85vh] w-[94%] max-w-md overflow-auto rounded-lg bg-white p-4 shadow-lg dark:bg-portfolio-dark"
+        className="relative z-10 max-h-[80vh] w-[92%] max-w-sm overflow-auto rounded-lg bg-white p-3 shadow-lg dark:bg-portfolio-dark"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="mb-2 text-sm font-semibold">Select language</h3>
-        <div className="max-h-[60vh] overflow-auto">
+        <h3 className="mb-2 text-xs font-medium">Select language</h3>
+        <div className="max-h-[55vh] overflow-auto">
           {languages.map((lang) => {
             const active = current === lang.code;
             return (
@@ -54,7 +54,7 @@ const LanguageModal: React.FC<Props> = ({ open, onClose, languages, current, onS
                 key={lang.code}
                 type="button"
                 onClick={() => onSelect(lang.code)}
-                className={`w-full px-2 py-2 text-left text-sm transition-colors duration-150 ${
+                className={`w-full px-2 py-1.5 text-left text-sm transition-colors duration-150 ${
                   active
                     ? 'bg-portfolio-primary text-white'
                     : 'hover:bg-portfolio-lighter dark:hover:bg-portfolio-darker'
@@ -62,7 +62,7 @@ const LanguageModal: React.FC<Props> = ({ open, onClose, languages, current, onS
                 aria-pressed={active}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-medium">{lang.fullName}</span>
+                  <span className="text-sm font-medium">{lang.fullName}</span>
                   <span className="ml-2 font-mono text-xs">{lang.label}</span>
                 </div>
               </button>
@@ -70,7 +70,7 @@ const LanguageModal: React.FC<Props> = ({ open, onClose, languages, current, onS
           })}
         </div>
         <div className="mt-3 flex justify-end">
-          <button type="button" onClick={onClose} className="px-3 py-1 text-sm">
+          <button type="button" onClick={onClose} className="px-2 py-1 text-sm">
             Close
           </button>
         </div>
