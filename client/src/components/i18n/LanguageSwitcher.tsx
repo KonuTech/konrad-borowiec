@@ -54,7 +54,7 @@ const LanguageSwitcher = () => {
     <div
       role="group"
       aria-label="Select language"
-      className="inline-flex overflow-hidden rounded-full border border-portfolio-primary/30 bg-portfolio-lightest text-xs font-semibold shadow-sm dark:border-portfolio-lighter/30 dark:bg-portfolio-dark"
+      className="inline-flex overflow-hidden rounded-full border border-portfolio-primary/30 bg-portfolio-lightest text-[11px] font-semibold shadow-sm dark:border-portfolio-lighter/30 dark:bg-portfolio-dark"
     >
       {languages.map((lang) => {
         const active = current === lang.code;
@@ -66,7 +66,7 @@ const LanguageSwitcher = () => {
             aria-pressed={active}
             aria-label={lang.fullName}
             title={lang.fullName}
-            className={`px-3 py-1.5 transition-colors duration-200 ${
+            className={`px-2 py-1 leading-none tracking-tight transition-colors duration-200 ${
               active
                 ? 'bg-portfolio-primary text-white'
                 : 'text-portfolio-primary hover:bg-portfolio-lighter dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
