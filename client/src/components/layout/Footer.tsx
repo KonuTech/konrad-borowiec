@@ -16,6 +16,7 @@ const Footer = () => {
             <Link
               href="/"
               className="font-nunito text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <span className="text-2xl">👨‍💻</span> {t('footer.logo')}
             </Link>

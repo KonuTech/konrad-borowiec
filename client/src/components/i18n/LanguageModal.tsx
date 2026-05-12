@@ -36,15 +36,10 @@ const LanguageModal: React.FC<Props> = ({ open, onClose, languages, current, onS
       role="dialog"
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-start justify-center pt-6 sm:items-center sm:pt-0"
-      onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/40" />
+      <div ref={panelRef} className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div
-        ref={panelRef}
-        className="relative z-10 max-h-[80vh] w-[92%] max-w-sm overflow-auto rounded-lg bg-white p-3 shadow-lg dark:bg-portfolio-dark"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="relative z-10 max-h-[80vh] w-[92%] max-w-sm overflow-auto rounded-lg bg-white p-3 shadow-lg dark:bg-portfolio-dark">
         <h3 className="mb-2 text-xs font-medium">Select language</h3>
         <div className="max-h-[55vh] overflow-auto">
           {languages.map((lang) => {
@@ -68,11 +63,6 @@ const LanguageModal: React.FC<Props> = ({ open, onClose, languages, current, onS
               </button>
             );
           })}
-        </div>
-        <div className="mt-3 flex justify-end">
-          <button type="button" onClick={onClose} className="px-2 py-1 text-sm">
-            Close
-          </button>
         </div>
       </div>
     </div>

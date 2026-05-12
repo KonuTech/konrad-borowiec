@@ -61,40 +61,47 @@ const ContactInfo: FC = () => {
           {t('contact.labels.connect')}
         </h3>
 
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex justify-center gap-4">
-            <a
-              href="https://github.com/konutech"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
-              aria-label="GitHub"
-            >
-              <i className="fab fa-github text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/32167"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
-              aria-label="LinkedIn"
-            >
-              <i className="fab fa-linkedin text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
-            </a>
-            <a
-              href="https://credly.com/users/konrad-borowiec/badges"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
-              aria-label="Credly"
-            >
-              <i className="fas fa-certificate text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
-            </a>
+        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
+          <div className="flex flex-col items-start gap-4">
+            <div className="flex justify-center gap-4">
+              <a
+                href="https://github.com/konutech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
+                aria-label="GitHub"
+              >
+                <i className="fab fa-github text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/32167"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
+                aria-label="LinkedIn"
+              >
+                <i className="fab fa-linkedin text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
+              </a>
+              <a
+                href="https://credly.com/users/konrad-borowiec/badges"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-lighter dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
+                aria-label="Credly"
+              >
+                <i className="fas fa-certificate text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
+              </a>
+            </div>
+            <div className="group flex items-start gap-2">
+              <h3 className="font-nunito mb-4 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
+                {t('about.contact.pdf.download')}
+              </h3>
+              <span className="text-xs text-portfolio-muted dark:text-portfolio-lighter/70">
+                In development
+              </span>
+            </div>
+            <PdfButtons language={language} />
           </div>
-          <h3 className="font-nunito mb-4 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-            {t('about.contact.pdf.download')}
-          </h3>
-          <PdfButtons language={language} />
         </div>
       </div>
     </div>

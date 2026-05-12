@@ -1,6 +1,5 @@
-import { FC, useContext } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from '@/context/ThemeContext';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -8,8 +7,22 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   const { t } = useTranslation();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen, onClose]);
 
   const handleLinkClick = (_e: React.MouseEvent<HTMLAnchorElement>) => {
     onClose();
@@ -102,26 +115,6 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           >
             <i className="fas fa-certificate"></i>
           </a>
-        </li>
-
-        {/* Dark Mode Toggle for Mobile */}
-        <li className="mt-4 border-t border-portfolio-lightest pt-4 dark:border-portfolio-dark">
-          <button
-            className="flex w-full items-center justify-between rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest dark:hover:bg-portfolio-dark"
-            onClick={(e) => {
-              e.preventDefault();
-              toggleDarkMode();
-            }}
-          >
-            <span>{darkMode ? t('ui.lightMode') : t('ui.darkMode')}</span>
-            <span className="ml-2">
-              {darkMode ? (
-                <i className="fas fa-sun text-yellow-500"></i>
-              ) : (
-                <i className="fas fa-moon text-portfolio-primary"></i>
-              )}
-            </span>
-          </button>
         </li>
       </ul>
     </div>

@@ -54,6 +54,7 @@ const LanguageSwitcher = () => {
 
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (open) {
@@ -72,10 +73,22 @@ const LanguageSwitcher = () => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    if (open) {
+      const handler = (e: MouseEvent) => {
+        const target = e.target as Node;
+        if (!containerRef.current || containerRef.current.contains(target)) return;
+        setOpen(false);
+      };
+      document.addEventListener('click', handler);
+      return () => document.removeEventListener('click', handler);
+    }
+  }, [open]);
+
   const currentLabel = languages.find((l) => l.code === current)?.label ?? 'EN';
 
   return (
-    <>
+    <div ref={containerRef} className="relative inline-flex">
       {/* Mobile: compact button */}
       <button
         ref={triggerRef}
@@ -90,7 +103,7 @@ const LanguageSwitcher = () => {
         {currentLabel}
       </button>
 
-      {/* Desktop / tablet: full inline list */}
+      {/* Desktop / tablet: full inline list - no outside click handler needed for inline buttons */}
       <div
         role="group"
         aria-label="Select language"
@@ -102,7 +115,10 @@ const LanguageSwitcher = () => {
             <button
               key={lang.code}
               type="button"
-              onClick={() => i18n.changeLanguage(lang.code)}
+              onClick={() => {
+                i18n.changeLanguage(lang.code);
+                setOpen(false);
+              }}
               aria-pressed={active}
               aria-label={lang.fullName}
               title={lang.fullName}
@@ -125,7 +141,7 @@ const LanguageSwitcher = () => {
         current={current}
         onSelect={handleSelect}
       />
-    </>
+    </div>
   );
 };
 

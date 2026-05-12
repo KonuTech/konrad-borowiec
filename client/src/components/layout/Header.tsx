@@ -24,6 +24,18 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const header = document.querySelector('header');
+      if (!header || header.contains(event.target as Node)) return;
+      setIsMobileMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 z-50 w-full bg-white/95 py-4 shadow-sm backdrop-blur-md transition-colors duration-300 dark:bg-portfolio-darker/95 ${
@@ -36,6 +48,7 @@ const Header = () => {
           <Link
             href="/"
             className="font-nunita text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <span className="text-2xl">👨‍💻</span> {t('footer.logo')}
           </Link>
