@@ -10,6 +10,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ activeSection }) => {
   const { t, i18n } = useTranslation();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
