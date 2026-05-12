@@ -2,46 +2,67 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import DarkModeToggle from './DarkModeToggle';
-import MobileMenu from './MobileMenu';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 
 const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
 
   // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      // Detect which section is in view
+      const sections = ['home', 'about', 'projects', 'books', 'interests', 'contact'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScrollThrottled = throttle(handleScroll, 100);
+    window.addEventListener('scroll', handleScrollThrottled);
+    return () => window.removeEventListener('scroll', handleScrollThrottled);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  // Throttle function to prevent excessive scroll events
+  function throttle<T>(func: T, limit: number): T {
+    let inThrottle: boolean;
+    return function (this: any, ...args: any[]) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    } as T;
+  }
+
+  const sectionTitles = [
+    { id: 'home', title: t('common.home') },
+    { id: 'about', title: t('about.title') },
+    { id: 'projects', title: t('projects.title') },
+    { id: 'books', title: t('books.title') },
+    { id: 'interests', title: t('interests.title') },
+    { id: 'contact', title: t('common.contact') },
+  ];
+
+  const handleSectionClick = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const header = document.querySelector('header');
-      if (!header || header.contains(event.target as Node)) return;
-      setIsMobileMenuOpen(false);
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isMobileMenuOpen]);
-
   return (
-    <header
-      className={`fixed top-0 z-50 w-full bg-white/95 py-4 shadow-sm backdrop-blur-md transition-colors duration-300 dark:bg-portfolio-darker/95 ${
-        isScrolled ? 'shadow-md' : ''
-      }`}
-    >
+    <header className="sticky-section-header sticky top-0 z-50 w-full">
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -147,20 +168,28 @@ const Header = () => {
 
           {/* Dark Mode Toggle */}
           <DarkModeToggle />
-
-          {/* Mobile Menu Button */}
-          <button
-            className="rounded-full p-2 text-portfolio-text transition-colors duration-300 hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-dark md:hidden"
-            aria-label="Menu"
-            onClick={toggleMobileMenu}
-          >
-            <i className="fas fa-bars"></i>
-          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      {/* Sticky Section Navigation - Always visible under header */}
+      <div className="border-t border-portfolio-lightest dark:border-portfolio-dark">
+        <div className="no-scrollbar flex min-w-max gap-2 overflow-x-auto px-4 py-3">
+          {sectionTitles.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => handleSectionClick(section.id)}
+              className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                activeSection === section.id
+                  ? 'bg-portfolio-primary text-white shadow-md'
+                  : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
+              }`}
+              aria-current={activeSection === section.id ? 'page' : undefined}
+            >
+              {section.title}
+            </button>
+          ))}
+        </div>
+      </div>
     </header>
   );
 };

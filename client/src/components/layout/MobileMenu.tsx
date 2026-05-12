@@ -28,66 +28,42 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const sectionTitles = [
+    { id: 'home', title: t('common.home') },
+    { id: 'about', title: t('about.title') },
+    { id: 'projects', title: t('projects.title') },
+    { id: 'books', title: t('books.title') },
+    { id: 'interests', title: t('interests.title') },
+    { id: 'contact', title: t('common.contact') },
+  ];
+
+  const handleSectionClick = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div
-      className={`animate-slide-down absolute left-0 top-full w-full bg-white py-4 shadow-md dark:bg-portfolio-darker md:hidden ${isOpen ? 'block' : 'hidden'}`}
+      className={`animate-slide-down absolute left-0 top-full w-full border-b border-portfolio-lightest bg-white py-3 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
-      <ul className="font-nunito flex flex-col space-y-4 px-4 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
-        <li>
-          <a
-            href="#home"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
+      <div className="no-scrollbar flex min-w-max gap-2 overflow-x-auto px-4">
+        {sectionTitles.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => handleSectionClick(section.id)}
+            className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              activeSection === section.id
+                ? 'bg-portfolio-primary text-white shadow-sm'
+                : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
+            }`}
+            aria-current={activeSection === section.id ? 'page' : undefined}
           >
-            {t('menu.home')}
-          </a>
-        </li>
-        <li>
-          <a
-            href="#about"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
-          >
-            {t('menu.about')}
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contact"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
-          >
-            {t('menu.contact')}
-          </a>
-        </li>
-        <li>
-          <a
-            href="#projects"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
-          >
-            {t('menu.projects')}
-          </a>
-        </li>
-        <li>
-          <a
-            href="#books"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
-          >
-            {t('menu.books')}
-          </a>
-        </li>
-        <li>
-          <a
-            href="#interests"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
-          >
-            {t('menu.interests')}
-          </a>
-        </li>
-      </ul>
+            {section.title}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

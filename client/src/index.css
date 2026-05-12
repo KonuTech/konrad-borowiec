@@ -123,6 +123,26 @@ html {
   @apply py-16 md:py-24;
 }
 
+/* Sticky header section - for the sticky nav bar under header */
+.sticky-section-header {
+  @apply bg-white/95 backdrop-blur-md transition-all duration-300 dark:bg-portfolio-darker/95;
+}
+
+/* Hide horizontal scroll on sticky section nav */
+.sticky-section-nav {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sticky-section-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.sticky-section-nav .nav-item {
+  @apply whitespace-nowrap;
+}
+
 /* Gradient text */
 .gradient-text {
   @apply bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent;
