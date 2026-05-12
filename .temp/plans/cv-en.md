@@ -2,13 +2,11 @@
 
 ## 🌐 Connect With Me
 
-- **GitHub:** konutech
-- **LinkedIn:** linkedin.com/in/32167
-- **Credly:** credly.com/users/konrad-borowiec/badges
-
-- **Email:** borowiec.k@gmail.com
-- **Phone:** +48 570 223 108
-- **Location:** Warsaw, Poland
+|                                 |                                                     |
+| ------------------------------- | --------------------------------------------------- |
+| **Email:** borowiec.k@gmail.com | **GitHub:** konutech                                |
+| **Phone:** +48 570 223 108      | **LinkedIn:** linkedin.com/in/32167                 |
+| **Location:** Warsaw, Poland    | **Credly:** credly.com/users/konrad-borowiec/badges |
 
 ---
 
