@@ -1,31 +1,21 @@
-import { useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import DarkModeToggle from './DarkModeToggle';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 
-const Header = () => {
+interface HeaderProps {
+  activeSection: string;
+}
+
+const Header: FC<HeaderProps> = ({ activeSection }) => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('home');
 
   // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
-
-      // Detect which section is in view
-      const sections = ['home', 'about', 'projects', 'books', 'interests', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     const handleScrollThrottled = throttle(handleScroll, 100);
