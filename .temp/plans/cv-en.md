@@ -22,11 +22,20 @@ My journey began in finance and analytics, evolving into a more technical role s
 
 ### Education
 
-- Postgraduate studies in Large Data Sets Engineering. Developed a movie recommender system using Python for the end project.
-- Postgraduate studies. Assessment of Reject Inference methods implemented in SAS Enterprise Miner with a use of credit scorecard models built on randomly generated consumer finance portfolio data.
-- Specialized in International Financial Markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account basing on determinants of Polish balance of payments.
-- ERASMUS student exchange program.
-- The analysis of state budget in 2006-2010.
+- **Big Data Engineering** | Polish-Japanese Academy of Information Technology | 03.2018 - 02.2019
+  - Postgraduate studies in Large Data Sets Engineering. Developed a movie recommender system using Python for the end project.
+
+- **Statistical Analysis and Data Mining** | Warsaw School of Economics | 10.2013 - 06.2015
+  - Postgraduate studies. Assessment of Reject Inference methods implemented in SAS Enterprise Miner with a use of credit scorecard models built on randomly generated consumer finance portfolio data.
+
+- **MSc Finance and Accounting** | Warsaw School of Economics | 02.2012 - 11.2014
+  - Specialized in International Financial Markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account basing on determinants of Polish balance of payments.
+
+- **ERASMUS student exchange program** | European University Viadrina Frankfurt (Oder) | 04.2011 - 07.2011
+  - Student exchange program.
+
+- **Faculty of Administration and Social Sciences** | Warsaw University of Technology | 10.2008 - 01.2012
+  - The analysis of state budget in 2006-2010.
 
 ### Experience
 
