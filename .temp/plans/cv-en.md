@@ -25,7 +25,7 @@ My journey began in finance and analytics, evolving into a more technical role s
 - Postgraduate studies in Large Data Sets Engineering. Developed a movie recommender system using Python for the end project.
 - Postgraduate studies. Assessment of Reject Inference methods implemented in SAS Enterprise Miner with a use of credit scorecard models built on randomly generated consumer finance portfolio data.
 - Specialized in International Financial Markets. Thesis: The use of logistic regression model to estimate probability of a correction of Polish current account basing on determinants of Polish balance of payments.
-- Student exchange program.
+- ERASMUS student exchange program.
 - The analysis of state budget in 2006-2010.
 
 ### Experience
