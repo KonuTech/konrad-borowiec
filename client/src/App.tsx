@@ -21,12 +21,12 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'books', 'interests', 'contact'];
+      const sections = ['home', 'about', 'contact', 'projects', 'books', 'interests'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          if (rect.top <= 100 && rect.bottom >= 0) {
             setActiveSection(section);
             break;
           }
