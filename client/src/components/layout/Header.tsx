@@ -10,43 +10,6 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ activeSection }) => {
   const { t, i18n } = useTranslation();
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle scroll event
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-
-      // Detect which section is in view
-      const sections = ['home', 'about', 'contact', 'projects', 'books', 'interests'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    const handleScrollThrottled = throttle(handleScroll, 100);
-    window.addEventListener('scroll', handleScrollThrottled);
-    return () => window.removeEventListener('scroll', handleScrollThrottled);
-  }, []);
-
-  // Throttle function to prevent excessive scroll events
-  function throttle<T>(func: T, limit: number): T {
-    let inThrottle: boolean;
-    return function (this: any, ...args: any[]) {
-      if (!inThrottle) {
-        func.apply(this, args);
-        inThrottle = true;
-        setTimeout(() => (inThrottle = false), limit);
-      }
-    } as T;
-  }
 
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
@@ -84,7 +47,9 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
             <li>
               <a
                 href="#home"
-                className="transition-colors duration-300 hover:text-portfolio-primary"
+                className={`transition-colors duration-300 hover:text-portfolio-primary ${
+                  activeSection === 'home' ? 'font-bold text-portfolio-primary' : ''
+                }`}
               >
                 {t('common.home')}
               </a>
@@ -92,7 +57,9 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
             <li>
               <a
                 href="#about"
-                className="transition-colors duration-300 hover:text-portfolio-primary"
+                className={`transition-colors duration-300 hover:text-portfolio-primary ${
+                  activeSection === 'about' ? 'font-bold text-portfolio-primary' : ''
+                }`}
               >
                 {t('common.about')}
               </a>
@@ -100,7 +67,9 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
             <li>
               <a
                 href="#contact"
-                className="transition-colors duration-300 hover:text-portfolio-primary"
+                className={`transition-colors duration-300 hover:text-portfolio-primary ${
+                  activeSection === 'contact' ? 'font-bold text-portfolio-primary' : ''
+                }`}
               >
                 {t('common.contact')}
               </a>
@@ -108,7 +77,9 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
             <li>
               <a
                 href="#projects"
-                className="transition-colors duration-300 hover:text-portfolio-primary"
+                className={`transition-colors duration-300 hover:text-portfolio-primary ${
+                  activeSection === 'projects' ? 'font-bold text-portfolio-primary' : ''
+                }`}
               >
                 {t('common.projects')}
               </a>
@@ -116,7 +87,9 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
             <li>
               <a
                 href="#books"
-                className="transition-colors duration-300 hover:text-portfolio-primary"
+                className={`transition-colors duration-300 hover:text-portfolio-primary ${
+                  activeSection === 'books' ? 'font-bold text-portfolio-primary' : ''
+                }`}
               >
                 {t('common.books')}
               </a>
@@ -124,7 +97,9 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
             <li>
               <a
                 href="#interests"
-                className="transition-colors duration-300 hover:text-portfolio-primary"
+                className={`transition-colors duration-300 hover:text-portfolio-primary ${
+                  activeSection === 'interests' ? 'font-bold text-portfolio-primary' : ''
+                }`}
               >
                 {t('common.interests')}
               </a>
