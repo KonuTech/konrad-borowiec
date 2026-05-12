@@ -55,7 +55,15 @@
       "Bash(kill *)",
       "Bash(true)",
       "Bash(git checkout *)",
-      "Bash(sed *)"
+      "Bash(sed *)",
+      "Bash(npm *)",
+      "Bash(do)",
+      "Bash(then)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(node *)",
+      "Bash(echo *)",
+      "Bash(else)"
     ]
   },
   "$version": 4
