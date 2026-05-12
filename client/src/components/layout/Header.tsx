@@ -6,9 +6,10 @@ import LanguageSwitcher from '../i18n/LanguageSwitcher';
 
 interface HeaderProps {
   activeSection: string;
+  setActiveSection: (section: string) => void;
 }
 
-const Header: FC<HeaderProps> = ({ activeSection }) => {
+const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
   const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
 
