@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import SectionTitle from '@/components/ui/SectionTitle';
 import ContactInfo from './ContactInfo';
 
 const ContactSection = () => {
@@ -9,8 +8,6 @@ const ContactSection = () => {
   return (
     <section id="contact" className="bg-white py-20 dark:bg-portfolio-dark">
       <div className="container mx-auto px-4">
-        <SectionTitle>{t('contact.title')}</SectionTitle>
-
         <div className="flex justify-center">
           {/* Contact Info */}
           <motion.div
