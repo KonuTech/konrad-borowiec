@@ -11,10 +11,10 @@ const Home: FC = () => {
     <>
       <Hero />
       <AboutSection />
+      <ContactSection />
       <ProjectsSection />
       <BooksSection />
       <InterestsSection />
-      <ContactSection />
     </>
   );
 };
