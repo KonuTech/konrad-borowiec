@@ -185,8 +185,6 @@ I have a profound interest in history, architecture, and economics, which greatl
 
 My journey in financial markets reflects a thoughtful, long-term investment approach rather than short-term trading. Starting a few years ago, I built a foundation with conservative instruments like anti-inflation bonds and ETFs, gradually expanding into dividend-generating Polish equities. Currently, I maintain a diversified portfolio across both Polish and U.S. markets, applying a systematic investment strategy that has yielded satisfactory results. This hands-on experience has provided valuable insights into market dynamics and investment principles.
 
-**For those interested in building their investment knowledge, particularly Polish speakers, I recommend [inwestomat.eu](https://inwestomat.eu) — an exceptional resource that offers university-caliber financial education in an accessible format.**
-
 ---
 
 _Generated on: 2026-05-11_
