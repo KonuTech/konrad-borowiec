@@ -30,10 +30,10 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
     { id: 'about', title: t('about.title') },
+    { id: 'contact', title: t('common.contact') },
     { id: 'projects', title: t('projects.title') },
     { id: 'books', title: t('books.title') },
     { id: 'interests', title: t('interests.title') },
-    { id: 'contact', title: t('common.contact') },
   ];
 
   const handleSectionClick = (sectionId: string) => {
