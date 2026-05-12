@@ -523,12 +523,30 @@ const PdfButtons: FC<PdfButtonsProps> = ({ language }) => {
 </html>`;
   };
 
+  const generateHTMLDownload = () => {
+    const cvContent = language === 'en' ? getCVContent('en') : getCVContent('pl');
+
+    const link = document.createElement('a');
+    link.href = 'data:text/html;charset=utf-8,' + encodeURIComponent(cvContent);
+    link.download = `cv-konrad-borowiec-${language}-${currentDate}.html`;
+    link.click();
+  };
+
   return (
     <div className="flex justify-center gap-4">
+      <button
+        onClick={generateHTMLDownload}
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-primary/10 dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
+        aria-label="Download as HTML"
+        title="Download HTML version"
+      >
+        <i className="fas fa-file-code text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
+      </button>
       <button
         onClick={generateDownload}
         className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-colors duration-300 hover:bg-portfolio-primary/10 dark:bg-portfolio-dark dark:hover:bg-portfolio-primary/30"
         aria-label="Download as PDF"
+        title="Download PDF version"
       >
         <i className="fas fa-file-pdf text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
       </button>
