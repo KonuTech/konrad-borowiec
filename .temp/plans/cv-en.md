@@ -101,7 +101,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** Python, PostgreSQL, Superset, Docker, Claude Code
 **Description:** SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset. Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast.
-**[View Code](https://github.com/KonuTech/sql-playgrounds)**
 
 ---
 
@@ -109,7 +108,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** Python, Docker, PostgreSQL, Apache Airflow, XGBoost, React, TypeScript, JavaScript, Jinja, Claude Code
 **Description:** Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code
-**[View Code](https://github.com/KonuTech/classify-stock-growth-for-trading)**
 
 ---
 
@@ -117,7 +115,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** Python, Docker, Apache Airflow, Kafka, PySpark, PostgreSQL, Streamlit
 **Description:** A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit
-**[View Code](https://github.com/KonuTech/data-engineering-zoomcamp-capstone-01)**
 
 ---
 
@@ -125,7 +122,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** Python, Elasticsearch, PostgreSQL, Flask, Docker, Grafana
 **Description:** A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring
-**[View Code](https://github.com/KonuTech/llm-zoomcamp-capstone-01)**
 
 ---
 
@@ -133,7 +129,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** GCP, Python, PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
 **Description:** e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
-**[View Code](https://github.com/KonuTech/mlops-zoomcamp-project)**
 
 ---
 
@@ -141,7 +136,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** Python, scikit-learn, XGBoost, Flask, Docker
 **Description:** Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker
-**[View Code](https://github.com/KonuTech/machine-learning-zoomcamp-capstone-01)**
 
 ---
 
@@ -149,7 +143,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** Python, TensorFlow, Kubernetes, Docker, Kind cluster
 **Description:** TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster
-**[View Code](https://github.com/KonuTech/machine-learning-zoomcamp-capstone-02)**
 
 ---
 
@@ -157,7 +150,6 @@ Supported the development of a predictive model used for estimation of LGD param
 
 **Technologies:** React, TypeScript, Tailwind CSS, Node.js
 **Description:** Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout.
-**[View Code](https://github.com/KonuTech/konrad-borowiec)**
 
 ---
 
