@@ -53,6 +53,15 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         </li>
         <li>
           <a
+            href="#contact"
+            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
+            onClick={handleLinkClick}
+          >
+            {t('menu.contact')}
+          </a>
+        </li>
+        <li>
+          <a
             href="#projects"
             className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
             onClick={handleLinkClick}
@@ -76,44 +85,6 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             onClick={handleLinkClick}
           >
             {t('menu.interests')}
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contact"
-            className="block rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-portfolio-lightest hover:text-portfolio-primary dark:hover:bg-portfolio-dark dark:hover:text-white"
-            onClick={handleLinkClick}
-          >
-            {t('menu.contact')}
-          </a>
-        </li>
-        <li className="flex space-x-4 px-4 pt-2">
-          <a
-            href="https://github.com/konutech"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg transition-colors duration-300 hover:text-portfolio-primary"
-            aria-label="GitHub"
-          >
-            <i className="fab fa-github"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/32167"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg transition-colors duration-300 hover:text-portfolio-primary"
-            aria-label="LinkedIn"
-          >
-            <i className="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://credly.com/users/konrad-borowiec/badges"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg transition-colors duration-300 hover:text-portfolio-primary"
-            aria-label="Credly"
-          >
-            <i className="fas fa-certificate"></i>
           </a>
         </li>
       </ul>
