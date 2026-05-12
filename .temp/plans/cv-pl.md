@@ -100,6 +100,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### SQL Playground using NYC Taxi Data
 
 **Technologie:** Python, PostgreSQL, Superset, Docker, Claude Code
+
 **Opis:** Środowisko do nauki SQL na danych z nowojorskich taksówek (NYC Taxi). Skonteneryzowane PostgreSQL, pgAdmin i Superset. Inicjalizacja bazy, backfill oraz ładowanie danych są wstępnie skonfigurowane i gotowe do użycia. Szybki start z analityką.
 
 ---
@@ -107,6 +108,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### Classify stock growth for trading
 
 **Technologie:** Python, Docker, PostgreSQL, Apache Airflow, XGBoost, React, TypeScript, JavaScript, Jinja, Claude Code
+
 **Opis:** Codzienny ETL i ML z wykorzystaniem Dockera, PostgreSQL, Airflow oraz XGBoost na wybranych spółkach giełdowych. Na koniec aplikacja webowa w React. Całość zbudowana z użyciem Claude Code.
 
 ---
@@ -114,6 +116,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### Data Engineering Zoomcamp Capstone
 
 **Technologie:** Python, Docker, Apache Airflow, Kafka, PySpark, PostgreSQL, Streamlit
+
 **Opis:** Skonteneryzowany potok danych w trybie mini-batch w cyklu 5-minutowym. Spark Structured Streaming: odczyt z Kafki do PostgreSQL jako bazy docelowej. Airflow, Kafka, PySpark, PostgreSQL, Streamlit.
 
 ---
@@ -121,6 +124,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### LLM Zoomcamp Capstone
 
 **Technologie:** Python, Elasticsearch, PostgreSQL, Flask, Docker, Grafana
+
 **Opis:** Skonteneryzowana aplikacja RAG oparta na recenzjach gier PC pobranych ze sklepu Steam. Aplikacja Flask wykorzystująca wektorową bazę danych Elasticsearch. Dodatkowo PostgreSQL do logowania zdarzeń oraz Grafana do monitoringu.
 
 ---
@@ -128,6 +132,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### MLOps Zoomcamp Capstone
 
 **Technologie:** GCP, Python, PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
+
 **Opis:** Kompleksowy MLOps na GCP — PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI.
 
 ---
@@ -135,6 +140,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### Machine Learning Zoomcamp Capstone (Scoring klienta)
 
 **Technologie:** Python, Pandas, scikit-learn, XGBoost, Flask, Docker
+
 **Opis:** Skonteneryzowana usługa Flask — ocena prawdopodobieństwa, że klient nie spłaci zobowiązania. Pandas, scikit-learn, XGBoost, Flask, Docker.
 
 ---
@@ -142,6 +148,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### Machine Learning Zoomcamp Capstone (Klasyfikator obrazów)
 
 **Technologie:** Python, TensorFlow, Kubernetes, Docker, Kind cluster
+
 **Opis:** TensorFlow, klasyfikator obrazów, transfer learning, serwowanie modelu, Docker, Kubernetes, klaster Kind.
 
 ---
@@ -149,6 +156,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 ### Portfolio Website
 
 **Technologie:** React, TypeScript, Tailwind CSS, Node.js
+
 **Opis:** Osobista strona portfolio zbudowana w React i TypeScript, z nowoczesnym designem i responsywnym układem.
 
 ---

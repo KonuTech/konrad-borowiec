@@ -100,6 +100,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### SQL Playground using NYC Taxi Data
 
 **Technologies:** Python, PostgreSQL, Superset, Docker, Claude Code
+
 **Description:** SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset. Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast.
 
 ---
@@ -107,6 +108,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### Classify stock growth for trading
 
 **Technologies:** Python, Docker, PostgreSQL, Apache Airflow, XGBoost, React, TypeScript, JavaScript, Jinja, Claude Code
+
 **Description:** Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code
 
 ---
@@ -114,6 +116,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### Data Engineering Zoomcamp Capstone
 
 **Technologies:** Python, Docker, Apache Airflow, Kafka, PySpark, PostgreSQL, Streamlit
+
 **Description:** A dockerized 5 min. mini-batch data pipeline. Spark Structured Streaming: reading from Kafka to PostgreSQL as a sink DB. Airflow, Kafka, PySpark, PostgreSQL, Streamlit
 
 ---
@@ -121,6 +124,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### LLM Zoomcamp Capstone
 
 **Technologies:** Python, Elasticsearch, PostgreSQL, Flask, Docker, Grafana
+
 **Description:** A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring
 
 ---
@@ -128,6 +132,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### MLOps Zoomcamp Capstone
 
 **Technologies:** GCP, Python, PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
+
 **Description:** e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI
 
 ---
@@ -135,6 +140,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### Machine Learning Zoomcamp Capstone (Default Scoring)
 
 **Technologies:** Python, scikit-learn, XGBoost, Flask, Docker
+
 **Description:** Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker
 
 ---
@@ -142,6 +148,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### Machine Learning Zoomcamp Capstone (Image Classifier)
 
 **Technologies:** Python, TensorFlow, Kubernetes, Docker, Kind cluster
+
 **Description:** TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster
 
 ---
@@ -149,6 +156,7 @@ Supported the development of a predictive model used for estimation of LGD param
 ### Portfolio Website
 
 **Technologies:** React, TypeScript, Tailwind CSS, Node.js
+
 **Description:** Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout.
 
 ---
