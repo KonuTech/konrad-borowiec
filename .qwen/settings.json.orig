@@ -52,7 +52,9 @@
       "mcp__playwright__browser_navigate_back",
       "Bash(npx *)",
       "Bash(lsof *)",
-      "Bash(kill *)"
+      "Bash(kill *)",
+      "Bash(true)",
+      "Bash(git checkout *)"
     ]
   },
   "$version": 4

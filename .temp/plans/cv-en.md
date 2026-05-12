@@ -41,6 +41,8 @@ My journey began in finance and analytics, evolving into a more technical role s
 
 #### Data Engineer | Marketing Engineers Group sp. z o.o. | 10.2025 - 03.2026
 
+**Technologies:** Python, SQL, Apache Airflow, BigQuery, Google Cloud Storage, Apache Superset, dbt, Jinja2, YAML
+
 Maintained production data infrastructure powering analytics for e-commerce clients, processing data from multiple platforms into a unified BigQuery warehouse orchestrated by Apache Airflow. Used Apache Superset as the BI solution.
 
 - Developed a custom Apache Airflow connector for Magento 2 with OAuth 1.0a (HMAC-SHA256) authentication, generator-based pagination, and exponential-backoff retry logic across multiple REST API endpoints. Extracted records into GCS as NDJSON with daily loading into BigQuery.
@@ -55,41 +57,61 @@ Maintained production data infrastructure powering analytics for e-commerce clie
 
 #### B2B Consultant | Crestt sp. z o.o. (Santander Bank Polska S.A.) | 04.2025 - 08.2025
 
+**Technologies:** Oracle APEX, PL/SQL, SQL
+
 Supporting role in Oracle APEX application development. Collaborated with business analysts to assist in the development of a reporting tool for ESRS (European Sustainability Reporting Standards). Designed and implemented BI functionalities into APEX application using PL/SQL. Performed modifications to the reporting model when needed. Utilized PL/SQL to generate displayed reports. Contributed ideas and provided feedback by applying my expertise and knowledge in reporting tasks.
 
 #### Data Analytics & Engineering Consultant | Public Sector | 08.2024 - 02.2025
+
+**Technologies:** Python, SQL, Oracle SQL, Oracle PL/SQL
 
 Depending on the scale of analysis, reporting of national data using either Oracle SQL or Oracle PL/SQL. Development of a PoC application to calculate and visualize the closest routes between a controlled entity and ten closest controllers (public sector employees). A graph problem on a big data scale. Used Python and SQL.
 
 #### B2B Consultant | B2B.NET S.A. (BNP Paribas Bank Polska S.A.) | 07.2023 - 03.2024
 
+**Technologies:** MongoDB, HDFS, HiveSQL, Python, Airflow, GitLab
+
 Development of ELT data pipelines for the Open Banking area. Including flattening, deduplication, and normalization of JSON data source into Hive tables. Processing both semi-structured and structured data. Technologies used: MongoDB, HDFS, HiveSQL, Python, Airflow, and GitLab for CICD. Ad-hoc analysis of customers activity within Open Banking area.
 
 #### Big Data Developer | Crestt sp. z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.) | 02.2021 - 06.2022
+
+**Technologies:** Airflow, Python, PySpark, HiveSQL, HDFS, Cloudera, SAS Viya
 
 Development of batch data processing solutions for one of the largest banks in Poland. The ELT processes for Data Lake were designed using Airflow, Python, PySpark, and Hive within the on-premise Cloudera Data Platform. Development and operationalization of churn related classifier for insurance company. Added functionalities for scoring and monitoring of new data. Development and operationalization of classifiers for VR training company. Design and development of HR demo dashboard with a use SAS Viya.
 
 #### Business Intelligence Analyst | PZU S.A. | 10.2020 - 01.2021
 
+**Technologies:** SAS Guide, SAS Data Integration Studio
+
 Tester of output tables created by SAS Developers. Maintenance of documentation in the Area of Property Insurances.
 
 #### SAS Analyst | ITFS Sp. z o. o. (PZU S.A.) | 05.2020 - 09.2020
+
+**Technologies:** SAS Viya, Python
 
 Co-responsible for migrating SAS Visual Analytics reports to the SAS Viya environment for Poland's largest insurance company. Tasks included importing dashboards to Viya, repairing XML schemas, redesigning dashboard layouts for improved UX, creating global Themes, developing XML/HTML forms, and processing JSON files using Python.
 
 #### Junior Data Scientist | Crestt sp. z o. o. (Polkomtel sp. z o. o., TVP S.A.) | 03.2019 - 04.2020
 
+**Technologies:** SAS, Python, SQL, Shiny, Tableau
+
 As a consultant at a major Polish telecom, participated in projects to upgrade data mart recalculation processes. Developed production-ready SAS scripts focusing on 4GL and SQL for data processing. Handled data collection and segmentation using Python. Contributed to dashboard development using Shiny and Tableau.
 
 #### Data Analyst | Bank Pocztowy S.A. | 11.2015 - 11.2016
+
+**Technologies:** SAS Guide, SAS VA, Oracle SQL
 
 Automated reporting using SAS Guide and SAS VA. Developed dashboards for evaluating bank branch performance, facilitating statistical and visual analysis of issued loans.
 
 #### Junior Reporting Specialist | ASB Poland Sp. z o. o. | 07.2015 - 09.2015
 
+**Technologies:** MS Excel
+
 Processed financial data, actualized financial statements, and supported data migration between databases.
 
 #### Intern, Credit Portfolio Analysis | Bank BPH S.A., GE Capital | 03.2014 - 02.2015
+
+**Technologies:** SAS Guide, SAS Miner, SQL
 
 Supported the development of a predictive model used for estimation of LGD parameter in the Valuation Standards and Reporting Team.
 

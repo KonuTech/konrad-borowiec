@@ -53,7 +53,9 @@
       "Bash(npx *)",
       "Bash(lsof *)",
       "Bash(kill *)",
-      "Bash(true)"
+      "Bash(true)",
+      "Bash(git checkout *)",
+      "Bash(sed *)"
     ]
   },
   "$version": 4

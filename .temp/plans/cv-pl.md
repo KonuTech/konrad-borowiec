@@ -41,6 +41,8 @@ Moja droga zawodowa zaczęła się w finansach i analityce, by ewoluować w stro
 
 #### Data Engineer | Marketing Engineers Group sp. z o.o. | 10.2025 - 03.2026
 
+**Technologie:** Python, SQL, Apache Airflow, BigQuery, Google Cloud Storage, Apache Superset, dbt, Jinja2, YAML
+
 Prowadzenie infrastruktury danych produkcyjnych wspierającej analizę dla klientów e-commerce, przetwarzanie danych z wielu platform do jednolitego magazynu BigQuery koordynowanego przez Apache Airflow. Użycie Apache Superset jako rozwiązania BI.
 
 - Opracowanie niestandardowego połączenia Apache Airflow z Magento 2 z uwierzytelnianiem OAuth 1.0a (HMAC-SHA256), paginacją generatorową i logiką ponownych prób z wykładniczym opóźnieniem na wielu punktach końcowych REST API. Wyeksportowanie rekordów do GCS jako NDJSON z codziowym ładowaniem do BigQuery.
@@ -55,21 +57,31 @@ Prowadzenie infrastruktury danych produkcyjnych wspierającej analizę dla klien
 
 #### B2B Consultant | Crestt sp. z o.o. (Santander Bank Polska S.A.) | 04.2025 - 08.2025
 
+**Technologie:** Oracle APEX, PL/SQL, SQL
+
 Wsparcie w rozwoju aplikacji Oracle APEX. Współpraca z analitykami biznesowymi w asystowaniu przy rozwoju narzędzia raportowania dla ESRS (Europejskie Standardy Raportowania Zrównoważonego Rozwoju). Projektowanie i wdrożenie funkcjonalności BI do aplikacji APEX używając PL/SQL. Wykonywanie modyfikacji do modelu raportowania gdy było to potrzebne. Wykorzystanie PL/SQL do generowania wyświetlanych raportów. Wnoszenie pomysłów i dostarczanie opinii stosując moją ekspertyzę i wiedzę w zadaniach raportowania.
 
 #### Data Analytics & Engineering Consultant | Public Sector | 08.2024 - 02.2025
+
+**Technologie:** Python, SQL, Oracle SQL, Oracle PL/SQL
 
 Zależnie od skali analizy, raportowanie danych krajowych używając albo Oracle SQL albo Oracle PL/SQL. Rozwój aplikacji PoC do obliczania i wizualizacji najbliższych tras między kontrolowaną jednostką a dziesięcioma najbliższymi kontrolerami (pracownicy sektora publicznego). Problem graficzny na dużą skalę danych. Użycie Pythona i SQL.
 
 #### B2B Consultant | B2B.NET S.A. (BNP Paribas Bank Polska S.A.) | 07.2023 - 03.2024
 
+**Technologie:** MongoDB, HDFS, HiveSQL, Python, Airflow, GitLab
+
 Rozwój pipeline'ów ELT danych dla obszaru Open Banking. W tym spłaszczenie, deduplikacja i normalizacja źródła danych JSON do tabel Hive. Przetwarzanie danych półstrukturyzowanych i strukturyzowanych. Technologie użyte: MongoDB, HDFS, HiveSQL, Python, Airflow i GitLab dla CICD. Ad-hoc analiza aktywności klientów w obszarze Open Banking.
 
 #### Big Data Developer | Crestt sp. z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.) | 02.2021 - 06.2022
 
+**Technologie:** Airflow, Python, PySpark, HiveSQL, HDFS, Cloudera, SAS Viya
+
 Rozwój rozwiązań przetwarzania partii danych dla jednej z największych banków w Polsce. Procesy ELT dla Data Lake były projektowane używając Airflow, Python, PySpark i Hive w on-premise Cloudera Data Platform. Rozwój i operacjonalizacja klasyfikatora churnu dla firmy ubezpieczeniowej. Dodanie funkcjonalności do oceny i monitorowania nowych danych. Rozwój i operacjonalizacja klasyfikatorów dla firmy VR training. Projektowanie i rozwój demo dashboardu HR z użyciem SAS Viya.
 
 #### Business Intelligence Analyst | PZU S.A. | 10.2020 - 01.2021
+
+**Technologie:** SAS Guide, SAS Data Integration Studio
 
 Tester tabel outputu stworzonych przez Deweloperów SAS. Prowadzenie dokumentacji w Obszarze Ubezpieczeń Mienia.
 
@@ -83,13 +95,19 @@ Jako konsultant w dużym polskim telekomie, uczestniczenie w projektach do moder
 
 #### Data Analyst | Bank Pocztowy S.A. | 11.2015 - 11.2016
 
+**Technologie:** SAS Guide, SAS VA, Oracle SQL
+
 Automatyzacja raportowania używając SAS Guide i SAS VA. Rozwój dashboardów do oceny wydajności oddziałów bankowych, ułatwiając statystyczną i wizualną analizę wydanych pożyczek.
 
 #### Junior Reporting Specialist | ASB Poland Sp. z o. o. | 07.2015 - 09.2015
 
+**Technologie:** MS Excel
+
 Przetwarzanie danych finansowych, aktualizacja sprawozdań finansowych i wsparcie migracji danych między bazami danych.
 
 #### Intern, Credit Portfolio Analysis | Bank BPH S.A., GE Capital | 03.2014 - 02.2015
+
+**Technologie:** SAS Guide, SAS Miner, SQL
 
 Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Zespole Standardów i Raportowania Walurowego.
 
