@@ -45,7 +45,14 @@
     "bio1": "Soy especialista en datos con un sólido background en el sector de servicios financieros. Disfruto más mi trabajo cuando las herramientas y soluciones que desarrollo son activamente utilizadas por otras personas o empresas. Con experiencia en SQL, Python y diversas tecnologías de procesamiento de datos, me enfoco en diseñar pipelines de datos eficientes y extraer insights valiosos.",
     "bio2": "Mi carrera comenzó en finanzas y análisis, evolucionando hacia un rol más técnico especializado en ingeniería de datos, procesamiento de big data y aprendizaje automático. Disfruto resolviendo desafíos complejos de datos y construyendo soluciones robustas y confiables.",
     "showTimeline": "Mostrar cronología completa ▼",
-    "hideTimeline": "Ocultar cronología ▲"
+    "hideTimeline": "Ocultar cronología ▲",
+    "contact": {
+      "pdf": {
+        "title": "Descargar CV",
+        "description": "Especialista en soluciones de datos con sede en Varsovia, Polonia.",
+        "download": "Descargar CV"
+      }
+    }
   },
   "timeline": {
     "title": "Mi trayectoria",

@@ -45,7 +45,14 @@
     "bio1": "I'm a Data Guy with a strong background in the financial services sector. I enjoy my work the most when the tools and solutions I develop are actively used by other people or businesses. With expertise in SQL, Python, and various data processing technologies, I focus on designing efficient data pipelines and extracting valuable insights.",
     "bio2": "My journey began in finance and analytics, evolving into a more technical role specializing in data engineering, big data processing, and machine learning. I enjoy solving complex data challenges and building robust, reliable solutions.",
     "showTimeline": "Show Full Timeline ▼",
-    "hideTimeline": "Hide Timeline ▲"
+    "hideTimeline": "Hide Timeline ▲",
+    "contact": {
+      "pdf": {
+        "title": "Download CV",
+        "description": "Professional data solutions specialist based in Warsaw, Poland.",
+        "download": "Download CV"
+      }
+    }
   },
   "timeline": {
     "title": "My Journey",

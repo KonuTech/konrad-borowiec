@@ -45,7 +45,14 @@
     "bio1": "Ben Data Guy, finans sektöründe sağlam bir geçmişe sahibim. En sevdiğim iş anıma, geliştirdiğim araçların ve çözümlerin diğer kişiler veya şirketler tarafından aktif olarak kullanıldığında. SQL, Python ve çeşitli veri işleme teknolojilerindeki uzmanlığım ile, verimli veri boru hatları tasarlayıp değerli çıkarımlar çıkarmaya odaklanıyorum.",
     "bio2": "Kariyerime finans ve analiz alanında başladım, daha sonra veri mühendisliği, büyük veri işleme ve makine öğrenimine odaklanan daha teknik bir rolde geliştim. Karmaşık veri sorunlarını çözme ve sağlam, güvenilir çözümler oluşturmaktan keyif alıyorum.",
     "showTimeline": "Tam zaman çizelgesini göster ▼",
-    "hideTimeline": "Zaman çizelgesini gizle ▲"
+    "hideTimeline": "Zaman çizelgesini gizle ▲",
+    "contact": {
+      "pdf": {
+        "title": "CV İndir",
+        "description": "Polonya, Varşova'ya dayanan profesyonel veri çözüm uzmanı.",
+        "download": "CV İndir"
+      }
+    }
   },
   "timeline": {
     "title": "Kariyerim",

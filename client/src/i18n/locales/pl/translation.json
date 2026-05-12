@@ -45,7 +45,14 @@
     "bio1": "Jestem specjalistą od danych z mocnym zapleczem w sektorze usług finansowych. Największą satysfakcję czerpię z pracy wtedy, gdy narzędzia i rozwiązania, które tworzę, są aktywnie wykorzystywane przez ludzi i firmy. Dzięki biegłości w SQL, Pythonie oraz różnych technologiach przetwarzania danych skupiam się na projektowaniu wydajnych potoków danych i wyciąganiu z nich wartościowych wniosków.",
     "bio2": "Moja droga zawodowa zaczęła się w finansach i analityce, by ewoluować w stronę bardziej technicznej roli — specjalizuję się w inżynierii danych, przetwarzaniu big data i uczeniu maszynowym. Lubię mierzyć się ze złożonymi wyzwaniami związanymi z danymi i budować solidne, niezawodne rozwiązania.",
     "showTimeline": "Pokaż pełną oś czasu ▼",
-    "hideTimeline": "Ukryj oś czasu ▲"
+    "hideTimeline": "Ukryj oś czasu ▲",
+    "contact": {
+      "pdf": {
+        "title": "Pobierz CV",
+        "description": "Specjalista od rozwiązań danych z siedzibą w Warszawie, Polska.",
+        "download": "Pobierz CV"
+      }
+    }
   },
   "timeline": {
     "title": "Moja droga",

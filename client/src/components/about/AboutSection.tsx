@@ -55,7 +55,7 @@ const AboutSection = () => {
     <section id="about" className="bg-portfolio-lightest py-20 dark:bg-portfolio-darker md:py-14">
       <div className="container mx-auto px-4">
         <SectionTitle>
-          {t('about.headingPrefix')}{' '}
+          <span>{t('about.headingPrefix')}</span>{' '}
           <span className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
             {t('about.title')}
           </span>

@@ -45,7 +45,14 @@
     "bio1": "Saya adalah 'Data Guy' dengan latar belakang kuat di sektor keuangan. Moment paling menyenangkan dalam pekerjaan saya adalah ketika alat dan solusi yang saya kembangkan digunakan secara aktif oleh orang lain atau perusahaan. Dengan keahlian dalam SQL, Python, dan berbagai teknik pemrosesan data, saya berfokus pada pembangunan pipeline data yang kuat dan menarik wawasan berharga dari data.",
     "bio2": "Karir saya dimulai di bidang keuangan dan analisis, kemudian berkembang ke peran yang lebih teknis di bidang data engineering, big data processing, dan machine learning. Saya menikmati memecahkan masalah data yang kompleks dan membangun solusi yang kuat dan dapat dipercaya.",
     "showTimeline": "Lihat Garis Waktu Lengkap ▼",
-    "hideTimeline": "Sembunyikan Garis Waktu ▲"
+    "hideTimeline": "Sembunyikan Garis Waktu ▲",
+    "contact": {
+      "pdf": {
+        "title": "Unduh CV",
+        "description": "Spesialis solusi data yang berbasis di Warsawa, Polandia.",
+        "download": "Unduh CV"
+      }
+    }
   },
   "timeline": {
     "title": "Karir Saya",
