@@ -95,7 +95,7 @@ Supported the development of a predictive model used for estimation of LGD param
 
 ---
 
-## 📦 Projects
+## 🧪 Side Projects
 
 ### SQL Playground using NYC Taxi Data
 

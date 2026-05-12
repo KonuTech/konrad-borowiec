@@ -95,7 +95,7 @@ Wsparcie rozwoju modelu predykcyjnego używanego do szacowania parametru LGD w Z
 
 ---
 
-## 📦 Projekty
+## 🧪 Projekty poboczne
 
 ### SQL Playground using NYC Taxi Data
 
