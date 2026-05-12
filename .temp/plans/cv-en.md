@@ -2,9 +2,9 @@
 
 ## 🌐 Connect With Me
 
-- **[GitHub](https://github.com/konutech)**
-- **[LinkedIn](https://linkedin.com/in/32167)**
-- **[Credly](https://credly.com/users/konrad-borowiec/badges)**
+- **GitHub:** konutech
+- **LinkedIn:** linkedin.com/in/32167
+- **Credly:** credly.com/users/konrad-borowiec/badges
 
 - **Email:** borowiec.k@gmail.com
 - **Phone:** +48 570 223 108
