@@ -39,7 +39,7 @@ My journey began in finance and analytics, evolving into a more technical role s
 
 ### Experience
 
-#### Data Engineer | Marketing Engineers Group sp. z o.o. | 10.2025 - Present
+#### Data Engineer | Marketing Engineers Group sp. z o.o. | 10.2025 - 03.2026
 
 Maintained production data infrastructure powering analytics for e-commerce clients, processing data from multiple platforms into a unified BigQuery warehouse orchestrated by Apache Airflow. Used Apache Superset as the BI solution.
 

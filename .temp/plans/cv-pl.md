@@ -39,7 +39,7 @@ Moja droga zawodowa zaczęła się w finansach i analityce, by ewoluować w stro
 
 ### Doświadczenie
 
-#### Data Engineer | Marketing Engineers Group sp. z o.o. | 10.2025 - Present
+#### Data Engineer | Marketing Engineers Group sp. z o.o. | 10.2025 - 03.2026
 
 Prowadzenie infrastruktury danych produkcyjnych wspierającej analizę dla klientów e-commerce, przetwarzanie danych z wielu platform do jednolitego magazynu BigQuery koordynowanego przez Apache Airflow. Użycie Apache Superset jako rozwiązania BI.
 
