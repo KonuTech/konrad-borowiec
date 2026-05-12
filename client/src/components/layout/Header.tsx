@@ -36,6 +36,18 @@ const Header: FC<HeaderProps> = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScrollThrottled);
   }, []);
 
+  // Throttle function to prevent excessive scroll events
+  function throttle<T>(func: T, limit: number): T {
+    let inThrottle: boolean;
+    return function (this: any, ...args: any[]) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    } as T;
+  }
+
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
     { id: 'about', title: t('about.title') },
