@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  activeSection: string;
 }
 
-const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => {
   const { t } = useTranslation();
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,14 +47,14 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`animate-slide-down absolute left-0 top-full w-full border-b border-portfolio-lightest bg-white py-3 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
+      className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
       <div className="no-scrollbar flex min-w-max gap-2 overflow-x-auto px-4">
         {sectionTitles.map((section) => (
           <button
             key={section.id}
             onClick={() => handleSectionClick(section.id)}
-            className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+            className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
               activeSection === section.id
                 ? 'bg-portfolio-primary text-white shadow-sm'
                 : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'

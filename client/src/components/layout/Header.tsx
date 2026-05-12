@@ -170,26 +170,6 @@ const Header = () => {
           <DarkModeToggle />
         </div>
       </div>
-
-      {/* Sticky Section Navigation - Always visible under header */}
-      <div className="border-t border-portfolio-lightest dark:border-portfolio-dark">
-        <div className="no-scrollbar flex min-w-max gap-2 overflow-x-auto px-4 py-3">
-          {sectionTitles.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => handleSectionClick(section.id)}
-              className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                activeSection === section.id
-                  ? 'bg-portfolio-primary text-white shadow-md'
-                  : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
-              }`}
-              aria-current={activeSection === section.id ? 'page' : undefined}
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
-      </div>
     </header>
   );
 };
