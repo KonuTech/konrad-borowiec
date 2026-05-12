@@ -1,4 +1,4 @@
-# Konrad Borowiec - Portfolio CV
+# Konrad Borowiec - CV
 
 ## 🌐 Connect With Me
 
