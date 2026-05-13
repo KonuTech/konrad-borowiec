@@ -89,7 +89,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
     >
       <div className="no-scrollbar flex w-full items-center">
         {/* Left: Section navigation buttons */}
-        <div className="flex min-w-0 flex-1">
+        <div className="flex min-w-0 flex-1 pr-3">
           {sectionTitles.map((section) => (
             <button
               key={section.id}
@@ -107,7 +107,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
         </div>
 
         {/* Right: Toggle buttons */}
-        <div className="flex flex-shrink-0 items-center gap-2 px-2">
+        <div className="flex flex-shrink-0 items-center gap-2 pl-3">
           <LanguageSwitcher />
           <DarkModeToggle />
         </div>
