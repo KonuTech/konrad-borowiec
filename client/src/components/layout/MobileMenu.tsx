@@ -1,71 +1,19 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import DarkModeToggle from './DarkModeToggle';
 
 interface MobileMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
   activeSection: string;
 }
 
-const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => {
-  const { t, i18n } = useTranslation();
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const [fontSize, setFontSize] = useState<'xs' | 'sm' | 'base' | 'lg'>('sm');
-
-  // Adjust font size based on available width
-  useEffect(() => {
-    const updateFontSize = () => {
-      if (menuRef.current) {
-        const width = menuRef.current.offsetWidth;
-        // Approximate widths: section buttons (~160px) + toggles (~80px)
-        const contentWidth = 240;
-        const available = width - contentWidth;
-
-        if (available < 80) {
-          setFontSize('xs'); // 10px
-        } else if (available < 120) {
-          setFontSize('sm'); // 11px
-        } else if (available < 160) {
-          setFontSize('base'); // 12px
-        } else {
-          setFontSize('lg'); // 13px
-        }
-      }
-    };
-
-    updateFontSize();
-    window.addEventListener('resize', updateFontSize);
-    return () => window.removeEventListener('resize', updateFontSize);
-  }, []);
+const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
+  const { t } = useTranslation();
 
   const getFontSizeClass = () => {
-    switch (fontSize) {
-      case 'xs':
-        return 'text-[10px]';
-      case 'sm':
-        return 'text-[11px]';
-      case 'base':
-        return 'text-[12px]';
-      case 'lg':
-        return 'text-[13px]';
-    }
+    // Use fixed font size for consistency
+    return 'text-[11px]';
   };
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen, onClose]);
 
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
@@ -87,7 +35,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
     <div
       className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
-      <div className="no-scrollbar flex w-full flex-col items-center">
+      <div className="no-scrollbar flex w-full flex-col">
         {/* Left: Section navigation buttons */}
         <div className="flex min-w-0 flex-1 px-2">
           {sectionTitles.map((section) => (
@@ -106,10 +54,41 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
           ))}
         </div>
 
-        {/* Right: Toggle buttons - Second line */}
-        <div className="flex flex-shrink-0 items-center gap-2">
-          <LanguageSwitcher />
-          <DarkModeToggle />
+        {/* Right: Toggle buttons and social icons - Second line */}
+        <div className="flex flex-shrink-0 items-center justify-between px-2">
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <DarkModeToggle />
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/konutech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-portfolio-primary"
+              aria-label="GitHub"
+            >
+              <i className="fab fa-github text-lg"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/32167"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-portfolio-primary"
+              aria-label="LinkedIn"
+            >
+              <i className="fab fa-linkedin text-lg"></i>
+            </a>
+            <a
+              href="https://credly.com/users/konrad-borowiec/badges"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-portfolio-primary"
+              aria-label="Credly"
+            >
+              <i className="fas fa-certificate text-lg"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
