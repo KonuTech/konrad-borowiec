@@ -19,8 +19,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
     const updateFontSize = () => {
       if (menuRef.current) {
         const width = menuRef.current.offsetWidth;
-        // Count approximate character width needed for all buttons + toggles
-        const contentWidth = 180; // Approximate width of all buttons + toggles at base size
+        // Approximate widths: section buttons (~160px) + toggles (~80px)
+        const contentWidth = 240;
         const available = width - contentWidth;
 
         if (available < 50) {
@@ -87,23 +87,30 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
     <div
       className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
-      <div className="no-scrollbar flex min-w-max gap-0 overflow-x-auto px-1">
-        {sectionTitles.map((section) => (
-          <button
-            key={section.id}
-            onClick={() => handleSectionClick(section.id)}
-            className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
-              activeSection === section.id
-                ? 'bg-portfolio-primary text-white shadow-sm'
-                : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
-            } ${getFontSizeClass()}`}
-            aria-current={activeSection === section.id ? 'page' : undefined}
-          >
-            {section.title}
-          </button>
-        ))}
-        <LanguageSwitcher />
-        <DarkModeToggle />
+      <div className="no-scrollbar flex w-full items-center">
+        {/* Left: Section navigation buttons */}
+        <div className="flex min-w-0 flex-1">
+          {sectionTitles.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => handleSectionClick(section.id)}
+              className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
+                activeSection === section.id
+                  ? 'bg-portfolio-primary text-white shadow-sm'
+                  : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
+              } ${getFontSizeClass()}`}
+              aria-current={activeSection === section.id ? 'page' : undefined}
+            >
+              {section.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Right: Toggle buttons */}
+        <div className="flex flex-shrink-0 items-center gap-2 px-2">
+          <LanguageSwitcher />
+          <DarkModeToggle />
+        </div>
       </div>
     </div>
   );
