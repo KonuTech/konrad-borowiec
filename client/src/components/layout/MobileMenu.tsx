@@ -36,28 +36,30 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
       className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
       <div className="no-scrollbar flex w-full flex-col">
-        {/* Left: Section navigation buttons */}
-        <div className="flex min-w-0 flex-1 px-2">
-          {sectionTitles.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => handleSectionClick(section.id)}
-              className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
-                activeSection === section.id
-                  ? 'bg-portfolio-primary text-white shadow-sm'
-                  : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
-              } ${getFontSizeClass()}`}
-              aria-current={activeSection === section.id ? 'page' : undefined}
-            >
-              {section.title}
-            </button>
-          ))}
+        {/* Line 1: Section navigation buttons - Centered, scrollable */}
+        <div className="flex min-w-0 flex-1">
+          <div className="no-scrollbar flex min-w-0 flex-1 justify-center overflow-x-auto px-2">
+            {sectionTitles.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => handleSectionClick(section.id)}
+                className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
+                  activeSection === section.id
+                    ? 'bg-portfolio-primary text-white shadow-sm'
+                    : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
+                } ${getFontSizeClass()}`}
+                aria-current={activeSection === section.id ? 'page' : undefined}
+              >
+                {section.title}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Right: Toggle buttons and social icons - Second line */}
-        <div className="flex flex-shrink-0 items-center px-3">
-          {/* Social icons in the middle */}
-          <div className="flex flex-grow items-center gap-3">
+        {/* Line 2: Toggle buttons and social icons - Social in middle, toggles on right */}
+        <div className="flex flex-shrink-0 items-center">
+          {/* Social icons - centered, take available space */}
+          <div className="flex flex-grow items-center justify-center gap-3">
             <a
               href="https://github.com/konutech"
               target="_blank"
@@ -86,8 +88,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
               <i className="fas fa-certificate text-lg"></i>
             </a>
           </div>
-          {/* Toggle buttons on the right */}
-          <div className="flex items-center gap-2">
+          {/* Toggle buttons - fixed position on the right */}
+          <div className="flex flex-shrink-0 items-center gap-2">
             <LanguageSwitcher />
             <DarkModeToggle />
           </div>
