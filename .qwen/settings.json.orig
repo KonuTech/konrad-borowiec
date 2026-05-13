@@ -64,7 +64,8 @@
       "Bash(node *)",
       "Bash(echo *)",
       "Bash(else)",
-      "mcp__playwright__browser_resize"
+      "mcp__playwright__browser_resize",
+      "Bash(git restore *)"
     ]
   },
   "$version": 4
