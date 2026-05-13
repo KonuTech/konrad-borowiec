@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import DarkModeToggle from './DarkModeToggle';
@@ -9,40 +9,6 @@ interface MobileMenuProps {
 
 const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
   const { t } = useTranslation();
-  const [activeSectionId, setActiveSectionId] = useState<string>('home');
-
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0.15,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSectionId(entry.target.id as string);
-        }
-      });
-    }, observerOptions);
-
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    setActiveSectionId(activeSection);
-  }, [activeSection]);
-
-  const getLine1FontSizeClass = () => {
-    return 'text-[13px]';
-  };
-
-  const getLine2FontSizeClass = () => {
-    return 'text-[11px]';
-  };
 
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
@@ -72,12 +38,12 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
               <button
                 key={section.id}
                 onClick={() => handleSectionClick(section.id)}
-                className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-all ${
-                  activeSectionId === section.id
-                    ? 'bg-gradient-to-r from-portfolio-primary to-portfolio-accent text-white shadow-md ring-2 ring-portfolio-primary'
+                className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
+                  activeSection === section.id
+                    ? 'bg-portfolio-primary text-white'
                     : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
-                } ${getLine1FontSizeClass()}`}
-                aria-current={activeSectionId === section.id ? 'page' : undefined}
+                } text-[13px]`}
+                aria-current={activeSection === section.id ? 'page' : undefined}
               >
                 {section.title}
               </button>
