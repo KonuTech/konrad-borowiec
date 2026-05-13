@@ -52,7 +52,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
           <button
             key={section.id}
             onClick={() => handleSectionClick(section.id)}
-            className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 text-sm font-semibold transition-colors ${
+            className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 text-sm font-semibold tracking-tight transition-colors ${
               activeSection === section.id
                 ? 'bg-portfolio-primary text-white shadow-sm'
                 : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
@@ -62,8 +62,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
             {section.title}
           </button>
         ))}
-        <DarkModeToggle />
         <LanguageSwitcher />
+        <DarkModeToggle />
       </div>
     </div>
   );
