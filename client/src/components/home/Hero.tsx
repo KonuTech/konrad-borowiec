@@ -70,7 +70,7 @@ const Hero = () => {
                 {t('hero.ctaProjects')}
               </a>
               <a
-                href="#contact"
+                href="#contact-info"
                 className="font-nunito flex transform items-center justify-center rounded-md bg-portfolio-primary px-6 py-3 text-center font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-portfolio-dark hover:shadow-lg md:flex-1"
               >
                 {t('hero.ctaContact')}
