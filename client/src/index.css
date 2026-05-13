@@ -6,13 +6,6 @@ html {
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  /* Add top margin to first section to prevent sticky header overlap */
-  #home {
-    margin-top: 4rem !important;
-  }
-}
-
 @layer base {
   * {
     @apply border-border;
@@ -133,10 +126,6 @@ html {
 /* Sticky header section - for the sticky nav bar under header */
 .sticky-section-header {
   @apply bg-white/95 backdrop-blur-md transition-all duration-300 dark:bg-portfolio-darker/95;
-  height: 4rem;
-  min-height: 4rem;
-  max-height: 4rem;
-  flex-shrink: 0;
 }
 
 /* Hide horizontal scroll on sticky section nav */
