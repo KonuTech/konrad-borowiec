@@ -10,8 +10,13 @@ interface MobileMenuProps {
 const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
   const { t } = useTranslation();
 
-  const getFontSizeClass = () => {
-    // Use fixed font size for consistency
+  const getLine1FontSizeClass = () => {
+    // Use larger font size for Line 1 (section navigation) to match desktop
+    return 'text-[13px]';
+  };
+
+  const getLine2FontSizeClass = () => {
+    // Use smaller font size for Line 2 (social icons and toggles)
     return 'text-[11px]';
   };
 
@@ -47,7 +52,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
                   activeSection === section.id
                     ? 'bg-portfolio-primary text-white shadow-sm'
                     : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
-                } ${getFontSizeClass()}`}
+                } ${getLine1FontSizeClass()}`}
                 aria-current={activeSection === section.id ? 'page' : undefined}
               >
                 {section.title}
