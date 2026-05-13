@@ -125,7 +125,7 @@ html {
 
 /* Sticky header section - for the sticky nav bar under header */
 .sticky-section-header {
-  @apply bg-white/95 py-4 backdrop-blur-md transition-all duration-300 dark:bg-portfolio-darker/95;
+  @apply bg-white/95 py-4 shadow-sm backdrop-blur-md transition-all duration-300 dark:bg-portfolio-darker/95;
 }
 
 /* Hide horizontal scroll on sticky section nav */
