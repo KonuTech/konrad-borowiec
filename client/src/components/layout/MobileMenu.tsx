@@ -55,9 +55,9 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
         </div>
 
         {/* Right: Toggle buttons and social icons - Second line */}
-        <div className="flex flex-shrink-0 items-center justify-between px-3">
+        <div className="flex flex-shrink-0 items-center px-3">
           {/* Social icons in the middle */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-grow items-center gap-3">
             <a
               href="https://github.com/konutech"
               target="_blank"
