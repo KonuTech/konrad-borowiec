@@ -63,7 +63,8 @@
       "Bash(done)",
       "Bash(node *)",
       "Bash(echo *)",
-      "Bash(else)"
+      "Bash(else)",
+      "mcp__playwright__browser_resize"
     ]
   },
   "$version": 4

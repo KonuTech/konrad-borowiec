@@ -96,7 +96,7 @@ const LanguageSwitcher = () => {
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className="inline-flex items-center justify-center rounded-full border border-portfolio-primary/30 bg-portfolio-lightest px-2 py-1 text-[11px] font-semibold text-portfolio-primary shadow-sm dark:border-portfolio-lighter/30 dark:bg-portfolio-dark md:hidden"
+        className="inline-flex items-center justify-center rounded-full px-3 py-1 text-[13px] font-semibold text-portfolio-primary transition-colors duration-200 hover:text-portfolio-primary md:hidden"
         aria-label="Open language selector"
         title="Select language"
       >

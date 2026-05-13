@@ -14,15 +14,15 @@ const DarkModeToggle = () => {
 
   return (
     <button
-      className="rounded-full p-2 text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-dark"
+      className="transition-colors duration-300 hover:text-portfolio-primary dark:hover:text-portfolio-darker"
       aria-label="Toggle dark mode"
       onClick={toggleDarkMode}
       title={darkMode ? t('ui.lightMode') : t('ui.darkMode')}
     >
       {darkMode ? (
-        <i className="fas fa-sun text-yellow-500"></i>
+        <i className="fas fa-sun text-lg text-yellow-500"></i>
       ) : (
-        <i className="fas fa-moon text-portfolio-primary"></i>
+        <i className="fas fa-moon text-lg text-portfolio-primary"></i>
       )}
     </button>
   );

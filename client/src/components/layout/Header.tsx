@@ -80,8 +80,8 @@ const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex">
-          <ul className="font-nunita flex items-center space-x-8 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
+        <nav className="hidden justify-self-center md:flex">
+          <ul className="font-nunita flex items-center justify-center space-x-8 text-sm font-semibold text-portfolio-text dark:text-portfolio-lighter">
             <li>
               <a
                 href="#home"

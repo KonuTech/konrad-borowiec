@@ -61,10 +61,10 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
           </div>
         </div>
 
-        {/* Line 2: Toggle buttons and social icons - Social in middle, toggles on right */}
-        <div className="flex flex-shrink-0 items-center">
-          {/* Social icons - centered, take available space */}
-          <div className="flex flex-grow items-center justify-center gap-3">
+        {/* Line 2: Social icons centered with overlay for toggle buttons */}
+        <div className="relative flex w-full items-center justify-center">
+          {/* Social icons - centered */}
+          <div className="z-10 flex items-center gap-3">
             <a
               href="https://github.com/konutech"
               target="_blank"
@@ -93,8 +93,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
               <i className="fas fa-certificate text-lg"></i>
             </a>
           </div>
-          {/* Toggle buttons - fixed position on the right */}
-          <div className="flex flex-shrink-0 items-center gap-2">
+          {/* Toggle buttons overlay - positioned on the right */}
+          <div className="absolute right-4 z-20 flex items-center gap-2">
             <LanguageSwitcher />
             <DarkModeToggle />
           </div>
