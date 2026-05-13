@@ -87,7 +87,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
     <div
       className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
-      <div className="no-scrollbar flex w-full items-center">
+      <div className="no-scrollbar flex w-full items-center px-2">
         {/* Left: Section navigation buttons */}
         <div className="flex min-w-0 flex-1 pr-3">
           {sectionTitles.map((section) => (
