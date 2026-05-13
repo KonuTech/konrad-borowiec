@@ -8,7 +8,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="home" className="overflow-hidden pb-20 pt-16 md:pb-14 md:pt-24">
+    <section id="home" className="pt-13 overflow-hidden pb-20 md:pb-14 md:pt-20">
       <div className="relative">
         <div className="cloud-bg h-60 opacity-20 dark:opacity-10 md:h-64"></div>
         <div className="cloud-mask absolute bottom-0 h-40 w-full"></div>
