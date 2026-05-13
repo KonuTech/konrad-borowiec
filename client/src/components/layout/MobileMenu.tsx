@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import DarkModeToggle from './DarkModeToggle';
@@ -9,14 +9,38 @@ interface MobileMenuProps {
 
 const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
   const { t } = useTranslation();
+  const [activeSectionId, setActiveSectionId] = useState<string>('home');
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0.15,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSectionId(entry.target.id as string);
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    setActiveSectionId(activeSection);
+  }, [activeSection]);
 
   const getLine1FontSizeClass = () => {
-    // Use larger font size for Line 1 (section navigation) to match desktop
     return 'text-[13px]';
   };
 
   const getLine2FontSizeClass = () => {
-    // Use smaller font size for Line 2 (social icons and toggles)
     return 'text-[11px]';
   };
 
@@ -41,19 +65,19 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
       className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
       <div className="no-scrollbar flex w-full flex-col">
-        {/* Line 1: Section navigation buttons - Centered, scrollable */}
+        {/* Line 1: Section navigation buttons - Centered, scrollable with active highlighting */}
         <div className="flex min-w-0 flex-1">
           <div className="no-scrollbar flex min-w-0 flex-1 justify-center overflow-x-auto px-2">
             {sectionTitles.map((section) => (
               <button
                 key={section.id}
                 onClick={() => handleSectionClick(section.id)}
-                className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
-                  activeSection === section.id
-                    ? 'bg-portfolio-primary text-white shadow-sm'
+                className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-all ${
+                  activeSectionId === section.id
+                    ? 'bg-gradient-to-r from-portfolio-primary to-portfolio-accent text-white shadow-md ring-2 ring-portfolio-primary'
                     : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
                 } ${getLine1FontSizeClass()}`}
-                aria-current={activeSection === section.id ? 'page' : undefined}
+                aria-current={activeSectionId === section.id ? 'page' : undefined}
               >
                 {section.title}
               </button>
