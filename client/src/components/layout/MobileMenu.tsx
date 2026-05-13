@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import DarkModeToggle from './DarkModeToggle';
@@ -12,6 +12,46 @@ interface MobileMenuProps {
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => {
   const { t, i18n } = useTranslation();
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const [fontSize, setFontSize] = useState<'xs' | 'sm' | 'base' | 'lg'>('sm');
+
+  // Adjust font size based on available width
+  useEffect(() => {
+    const updateFontSize = () => {
+      if (menuRef.current) {
+        const width = menuRef.current.offsetWidth;
+        // Count approximate character width needed for all buttons + toggles
+        const contentWidth = 180; // Approximate width of all buttons + toggles at base size
+        const available = width - contentWidth;
+
+        if (available < 50) {
+          setFontSize('xs'); // 8px
+        } else if (available < 100) {
+          setFontSize('sm'); // 9px
+        } else if (available < 150) {
+          setFontSize('base'); // 10px
+        } else {
+          setFontSize('lg'); // 11px
+        }
+      }
+    };
+
+    updateFontSize();
+    window.addEventListener('resize', updateFontSize);
+    return () => window.removeEventListener('resize', updateFontSize);
+  }, []);
+
+  const getFontSizeClass = () => {
+    switch (fontSize) {
+      case 'xs':
+        return 'text-[8px]';
+      case 'sm':
+        return 'text-[9px]';
+      case 'base':
+        return 'text-[10px]';
+      case 'lg':
+        return 'text-[11px]';
+    }
+  };
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -52,11 +92,11 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
           <button
             key={section.id}
             onClick={() => handleSectionClick(section.id)}
-            className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 text-sm font-semibold tracking-tight transition-colors ${
+            className={`font-nunita whitespace-nowrap rounded-full px-2 py-0.5 font-semibold tracking-tight transition-colors ${
               activeSection === section.id
                 ? 'bg-portfolio-primary text-white shadow-sm'
                 : 'text-portfolio-text hover:bg-portfolio-lightest dark:text-portfolio-lighter dark:hover:bg-portfolio-darker'
-            }`}
+            } ${getFontSizeClass()}`}
             aria-current={activeSection === section.id ? 'page' : undefined}
           >
             {section.title}
