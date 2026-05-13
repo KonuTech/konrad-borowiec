@@ -22,7 +22,11 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      <MobileMenu isOpen={activeSection !== 'home'} onClose={() => setActiveSection('home')} />
+      <MobileMenu
+        isOpen={activeSection !== 'home'}
+        activeSection={activeSection}
+        onClose={() => setActiveSection('home')}
+      />
       <main className="flex-grow">
         <Router />
       </main>

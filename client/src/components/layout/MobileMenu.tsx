@@ -4,10 +4,12 @@ import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import DarkModeToggle from './DarkModeToggle';
 
 interface MobileMenuProps {
+  isOpen: boolean;
   activeSection: string;
+  onClose?: () => void;
 }
 
-const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
+const MobileMenu: FC<MobileMenuProps> = ({ isOpen, activeSection, onClose }) => {
   const { t } = useTranslation();
 
   const sectionTitles = [
@@ -25,6 +27,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  if (!isOpen) return null;
 
   return (
     <div
