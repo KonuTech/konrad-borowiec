@@ -32,7 +32,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
       <div className="no-scrollbar flex w-full flex-col">
         {/* Line 1: Section navigation buttons - Centered, scrollable with active highlighting */}
         <div className="flex min-w-0 flex-1">
-          <div className="no-scrollbar flex min-w-0 flex-1 justify-center overflow-x-auto px-2">
+          <div className="no-scrollbar flex min-w-0 flex-1 justify-center gap-1 overflow-x-auto px-2">
             {sectionTitles.map((section) => (
               <button
                 key={section.id}
@@ -53,7 +53,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
         {/* Line 2: Social icons centered with overlay for toggle buttons */}
         <div className="relative flex w-full items-center justify-center">
           {/* Social icons - centered */}
-          <div className="z-10 flex items-center gap-3">
+          <div className="z-10 flex items-center gap-5">
             <a
               href="https://github.com/konutech"
               target="_blank"
