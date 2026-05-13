@@ -90,9 +90,11 @@ const AboutSection = () => {
               <TechStack />
             </div>
 
+            {/* Back to About Section */}
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
-              <div id="contact" className="scroll-mt-24"></div>
-              <ContactInfo />
+              <p className="text-center text-portfolio-muted dark:text-portfolio-lighter/70">
+                {t('about.contact.backToSection')}
+              </p>
             </div>
           </motion.div>
 

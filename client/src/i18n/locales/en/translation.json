@@ -51,7 +51,8 @@
         "title": "Download CV",
         "description": "Professional data solutions specialist based in Warsaw, Poland.",
         "download": "Download CV"
-      }
+      },
+      "backToSection": "Back to About Section"
     }
   },
   "timeline": {
