@@ -64,8 +64,7 @@
       "Bash(node *)",
       "Bash(echo *)",
       "Bash(else)",
-      "Bash(file *)",
-      "Bash(hexdump *)"
+      "mcp__playwright__browser_resize"
     ]
   },
   "$version": 4

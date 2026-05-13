@@ -67,7 +67,7 @@ const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
 
   return (
     <header className="sticky-section-header sticky top-0 z-50 w-full">
-      <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="container mx-auto flex h-full items-center justify-between px-4">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <Link
