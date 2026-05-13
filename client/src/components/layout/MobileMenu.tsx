@@ -27,7 +27,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
 
   return (
     <div
-      className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
+      className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-3 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
       <div className="no-scrollbar flex w-full flex-col">
         {/* Line 1: Section navigation buttons - Centered, scrollable with active highlighting */}
@@ -51,7 +51,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
         </div>
 
         {/* Line 2: Social icons centered with overlay for toggle buttons */}
-        <div className="relative flex w-full items-center justify-center">
+        <div className="relative mt-4 flex w-full items-center justify-center">
           {/* Social icons - centered */}
           <div className="z-10 flex items-center gap-5">
             <a
