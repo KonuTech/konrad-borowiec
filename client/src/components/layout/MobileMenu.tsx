@@ -87,9 +87,9 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
     <div
       className={`animate-slide-down fixed left-0 top-0 z-50 flex w-full border-b border-portfolio-lightest bg-white py-2 shadow-sm dark:border-portfolio-dark dark:bg-portfolio-darker md:hidden`}
     >
-      <div className="no-scrollbar flex w-full items-center px-2">
+      <div className="no-scrollbar flex w-full flex-col items-center">
         {/* Left: Section navigation buttons */}
-        <div className="flex min-w-0 flex-1 pr-3">
+        <div className="flex min-w-0 flex-1 px-2">
           {sectionTitles.map((section) => (
             <button
               key={section.id}
@@ -106,8 +106,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
           ))}
         </div>
 
-        {/* Right: Toggle buttons */}
-        <div className="flex flex-shrink-0 items-center gap-2 pl-3">
+        {/* Right: Toggle buttons - Second line */}
+        <div className="flex flex-shrink-0 items-center gap-2">
           <LanguageSwitcher />
           <DarkModeToggle />
         </div>
