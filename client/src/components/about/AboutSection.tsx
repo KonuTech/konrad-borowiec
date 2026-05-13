@@ -88,6 +88,8 @@ const AboutSection = () => {
                 {t('about.skills')}
               </h3>
               <TechStack />
+              {/* Invisible anchor for "Contact Me" button navigation */}
+              <div id="contact-anchor" aria-hidden="true"></div>
             </div>
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
