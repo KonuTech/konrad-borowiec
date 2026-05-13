@@ -91,7 +91,7 @@ const AboutSection = () => {
             </div>
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
-              <div id="contact" className="scroll-mt-24"></div>
+              <div className="scroll-mt-24"></div>
               <ContactInfo />
             </div>
           </motion.div>

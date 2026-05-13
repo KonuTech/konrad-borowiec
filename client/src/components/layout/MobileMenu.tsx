@@ -13,7 +13,6 @@ const MobileMenu: FC<MobileMenuProps> = ({ activeSection }) => {
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
     { id: 'about', title: t('common.about') },
-    { id: 'contact', title: t('common.contact') },
     { id: 'projects', title: t('common.projects') },
     { id: 'books', title: t('common.books') },
     { id: 'interests', title: t('common.interests') },

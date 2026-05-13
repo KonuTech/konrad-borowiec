@@ -16,7 +16,6 @@ const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
   const sectionTitles = [
     { id: 'home', title: t('common.home') },
     { id: 'about', title: t('common.about') },
-    { id: 'contact', title: t('common.contact') },
     { id: 'projects', title: t('common.projects') },
     { id: 'books', title: t('common.books') },
     { id: 'interests', title: t('common.interests') },
@@ -29,41 +28,36 @@ const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     }
   };
 
-  // Handle scroll event to update active section
+  // Handle scroll event to update active section using IntersectionObserver
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-
-      // Detect which section is in view
-      const sections = ['home', 'about', 'contact', 'projects', 'books', 'interests'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 0) {
-            setActiveSection(section);
-            break;
-          }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the section that is most centered in viewport
+        const centeredEntries = entries.filter((entry) => entry.isIntersecting);
+        if (centeredEntries.length > 0) {
+          // Sort by how centered the section is (closest to 0.5 = most centered)
+          centeredEntries.sort((a, b) => {
+            const aCentered = Math.abs(a.intersectionRatio - 0.5);
+            const bCentered = Math.abs(b.intersectionRatio - 0.5);
+            return aCentered - bCentered;
+          });
+          const mostCentered = centeredEntries[0];
+          setActiveSection(mostCentered.target.id);
         }
-      }
-    };
+      },
+      { rootMargin: '-50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
 
-    const handleScrollThrottled = throttle(handleScroll, 100);
-    window.addEventListener('scroll', handleScrollThrottled);
-    return () => window.removeEventListener('scroll', handleScrollThrottled);
+    // Observe all sections
+    const sections = ['home', 'about', 'projects', 'books', 'interests'];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    // Clean up on unmount
+    return () => observer.disconnect();
   }, [setActiveSection]);
-
-  // Throttle function to prevent excessive scroll events
-  function throttle<T>(func: T, limit: number): T {
-    let inThrottle: boolean;
-    return function (this: any, ...args: any[]) {
-      if (!inThrottle) {
-        func.apply(this, args);
-        inThrottle = true;
-        setTimeout(() => (inThrottle = false), limit);
-      }
-    } as T;
-  }
 
   return (
     <header className="sticky-section-header sticky top-0 z-50 w-full">
@@ -100,16 +94,6 @@ const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
                 }`}
               >
                 {t('common.about')}
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className={`transition-colors duration-300 hover:text-portfolio-primary ${
-                  activeSection === 'contact' ? 'font-bold text-portfolio-primary' : ''
-                }`}
-              >
-                {t('common.contact')}
               </a>
             </li>
             <li>

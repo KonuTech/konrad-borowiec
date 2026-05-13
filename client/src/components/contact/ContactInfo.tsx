@@ -7,7 +7,7 @@ const ContactInfo: FC = () => {
   const language = i18n.language === 'pl' ? 'pl' : 'en';
 
   return (
-    <div className="flex h-full flex-col lg:flex-row lg:items-start lg:gap-16">
+    <div id="contact-info" className="flex h-full flex-col lg:flex-row lg:items-start lg:gap-16">
       <div>
         <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
           {t('contact.title')}
