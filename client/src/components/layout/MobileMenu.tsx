@@ -23,14 +23,14 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
         const contentWidth = 240;
         const available = width - contentWidth;
 
-        if (available < 50) {
-          setFontSize('xs'); // 8px
-        } else if (available < 100) {
-          setFontSize('sm'); // 9px
-        } else if (available < 150) {
-          setFontSize('base'); // 10px
+        if (available < 80) {
+          setFontSize('xs'); // 10px
+        } else if (available < 120) {
+          setFontSize('sm'); // 11px
+        } else if (available < 160) {
+          setFontSize('base'); // 12px
         } else {
-          setFontSize('lg'); // 11px
+          setFontSize('lg'); // 13px
         }
       }
     };
@@ -43,13 +43,13 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose, activeSection }) => 
   const getFontSizeClass = () => {
     switch (fontSize) {
       case 'xs':
-        return 'text-[8px]';
-      case 'sm':
-        return 'text-[9px]';
-      case 'base':
         return 'text-[10px]';
-      case 'lg':
+      case 'sm':
         return 'text-[11px]';
+      case 'base':
+        return 'text-[12px]';
+      case 'lg':
+        return 'text-[13px]';
     }
   };
 
