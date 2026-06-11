@@ -9,6 +9,17 @@ import ContactInfo from '../contact/ContactInfo';
 const AboutSection = () => {
   const { t } = useTranslation();
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
+  const [selectedTechIds, setSelectedTechIds] = useState<string[]>([]);
+  const isFiltering = selectedTechIds.length > 0;
+  // While filtering, show every matching role (no clamp / gradient / toggle).
+  const showAllRoles = isTimelineExpanded || isFiltering;
+
+  const toggleTech = (id: string) => {
+    setSelectedTechIds((prev) =>
+      prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id],
+    );
+  };
+  const clearFilters = () => setSelectedTechIds([]);
   const [timelineMaxHeight, setTimelineMaxHeight] = useState<number | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
@@ -84,10 +95,24 @@ const AboutSection = () => {
             </div>
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
-              <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
-                {t('about.skills')}
-              </h3>
-              <TechStack />
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-2 md:mb-4">
+                <h3 className="font-nunito text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
+                  {t('about.skills')}
+                </h3>
+                {isFiltering && (
+                  <button
+                    type="button"
+                    onClick={clearFilters}
+                    className="rounded-full bg-portfolio-primary/10 px-3 py-1 text-xs font-medium text-portfolio-primary transition-colors hover:bg-portfolio-primary/20 dark:text-portfolio-lighter"
+                  >
+                    {t('about.clearFilters')} ({selectedTechIds.length})
+                  </button>
+                )}
+              </div>
+              <p className="mb-4 text-sm text-portfolio-muted dark:text-portfolio-lighter/70">
+                {t('about.filterByTech')}
+              </p>
+              <TechStack selected={selectedTechIds} onToggle={toggleTech} />
               {/* Invisible anchor for "Contact Me" button navigation */}
               <div id="contact-anchor" aria-hidden="true"></div>
             </div>
@@ -117,39 +142,41 @@ const AboutSection = () => {
                 <div
                   ref={timelineContainerRef}
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    isTimelineExpanded ? 'max-h-[10000px]' : 'max-h-[400px] md:max-h-[1050px]'
+                    showAllRoles ? 'max-h-[10000px]' : 'max-h-[400px] md:max-h-[1050px]'
                   }`}
                   style={
-                    !isTimelineExpanded && timelineMaxHeight !== null
+                    !showAllRoles && timelineMaxHeight !== null
                       ? { maxHeight: `${timelineMaxHeight}px` }
                       : undefined
                   }
                 >
-                  <Timeline />
+                  <Timeline selected={selectedTechIds} onToggleTech={toggleTech} />
                 </div>
-                {!isTimelineExpanded && (
+                {!showAllRoles && (
                   <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent dark:from-portfolio-dark" />
                 )}
               </div>
-              <button
-                onClick={() => {
-                  if (isTimelineExpanded) {
-                    timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Keep guard active during collapse animation, then recompute
-                    setIsTimelineExpanded(false);
-                    setTimeout(() => {
-                      expandedRef.current = false;
-                      requestAnimationFrame(() => computeHeightRef.current());
-                    }, 600);
-                  } else {
-                    expandedRef.current = true;
-                    setIsTimelineExpanded(true);
-                  }
-                }}
-                className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
-              >
-                {isTimelineExpanded ? t('about.hideTimeline') : t('about.showTimeline')}
-              </button>
+              {!isFiltering && (
+                <button
+                  onClick={() => {
+                    if (isTimelineExpanded) {
+                      timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      // Keep guard active during collapse animation, then recompute
+                      setIsTimelineExpanded(false);
+                      setTimeout(() => {
+                        expandedRef.current = false;
+                        requestAnimationFrame(() => computeHeightRef.current());
+                      }, 600);
+                    } else {
+                      expandedRef.current = true;
+                      setIsTimelineExpanded(true);
+                    }
+                  }}
+                  className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
+                >
+                  {isTimelineExpanded ? t('about.hideTimeline') : t('about.showTimeline')}
+                </button>
+              )}
             </div>
           </motion.div>
         </div>

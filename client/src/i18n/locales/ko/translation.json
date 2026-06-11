@@ -52,7 +52,10 @@
         "description": "폴란드 바르샤바를 기반으로 활동하는 전문 데이터 솔루션 전문가입니다.",
         "download": "이력서 다운로드"
       }
-    }
+    },
+    "filterByTech": "팁: 기술을 클릭하면 경력을 필터링할 수 있습니다.",
+    "clearFilters": "필터 지우기",
+    "noRolesMatch": "선택한 기술과 일치하는 경력이 없습니다."
   },
   "timeline": {
     "title": "저의 여정",

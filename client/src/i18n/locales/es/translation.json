@@ -52,7 +52,10 @@
         "description": "Especialista en soluciones de datos con sede en Varsovia, Polonia.",
         "download": "Descargar CV"
       }
-    }
+    },
+    "filterByTech": "Consejo: haz clic en una tecnología para filtrar la experiencia.",
+    "clearFilters": "Borrar filtros",
+    "noRolesMatch": "Ningún puesto coincide con las tecnologías seleccionadas."
   },
   "timeline": {
     "title": "Mi trayectoria",

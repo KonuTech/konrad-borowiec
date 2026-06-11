@@ -52,7 +52,10 @@
         "description": "常驻波兰华沙的专业数据解决方案专家。",
         "download": "下载简历"
       }
-    }
+    },
+    "filterByTech": "提示：点击某项技术即可筛选经历。",
+    "clearFilters": "清除筛选",
+    "noRolesMatch": "没有与所选技术匹配的职位。"
   },
   "timeline": {
     "title": "我的历程",

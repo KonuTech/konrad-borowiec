@@ -52,7 +52,10 @@
         "description": "Polonya, Varşova merkezli profesyonel veri çözümleri uzmanı.",
         "download": "CV İndir"
       }
-    }
+    },
+    "filterByTech": "İpucu: deneyimi filtrelemek için bir teknolojiye tıklayın.",
+    "clearFilters": "Filtreleri temizle",
+    "noRolesMatch": "Seçilen teknolojilerle eşleşen pozisyon yok."
   },
   "timeline": {
     "title": "Yolculuğum",

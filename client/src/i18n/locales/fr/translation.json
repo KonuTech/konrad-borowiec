@@ -52,7 +52,10 @@
         "description": "Spécialiste des solutions de données professionnelles, basé à Varsovie, en Pologne.",
         "download": "Télécharger le CV"
       }
-    }
+    },
+    "filterByTech": "Astuce : cliquez sur une technologie pour filtrer l’expérience.",
+    "clearFilters": "Effacer les filtres",
+    "noRolesMatch": "Aucun poste ne correspond aux technologies sélectionnées."
   },
   "timeline": {
     "title": "Mon parcours",

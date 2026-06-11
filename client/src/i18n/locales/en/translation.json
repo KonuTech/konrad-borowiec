@@ -52,7 +52,10 @@
         "description": "Professional data solutions specialist based in Warsaw, Poland.",
         "download": "Download CV"
       }
-    }
+    },
+    "filterByTech": "Tip: click a technology to filter the experience timeline.",
+    "clearFilters": "Clear filters",
+    "noRolesMatch": "No roles match the selected technologies."
   },
   "timeline": {
     "title": "My Journey",

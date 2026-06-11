@@ -52,7 +52,10 @@
         "description": "Spesialis solusi data profesional yang berbasis di Warsawa, Polandia.",
         "download": "Unduh CV"
       }
-    }
+    },
+    "filterByTech": "Tip: klik teknologi untuk memfilter pengalaman.",
+    "clearFilters": "Hapus filter",
+    "noRolesMatch": "Tidak ada peran yang cocok dengan teknologi yang dipilih."
   },
   "timeline": {
     "title": "Perjalanan Saya",

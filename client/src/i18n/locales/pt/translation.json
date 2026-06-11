@@ -52,7 +52,10 @@
         "description": "Especialista em soluções de dados profissionais, sediado em Varsóvia, Polônia.",
         "download": "Baixar CV"
       }
-    }
+    },
+    "filterByTech": "Dica: clique numa tecnologia para filtrar a experiência.",
+    "clearFilters": "Limpar filtros",
+    "noRolesMatch": "Nenhuma função corresponde às tecnologias selecionadas."
   },
   "timeline": {
     "title": "Minha jornada",

@@ -52,7 +52,10 @@
         "description": "Specjalista od profesjonalnych rozwiązań w obszarze danych, mieszkający w Warszawie.",
         "download": "Pobierz CV"
       }
-    }
+    },
+    "filterByTech": "Wskazówka: kliknij technologię, aby filtrować doświadczenie.",
+    "clearFilters": "Wyczyść filtry",
+    "noRolesMatch": "Żadne stanowisko nie pasuje do wybranych technologii."
   },
   "timeline": {
     "title": "Moja droga",

@@ -52,7 +52,10 @@
         "description": "Spezialist für professionelle Datenlösungen mit Sitz in Warschau, Polen.",
         "download": "Lebenslauf herunterladen"
       }
-    }
+    },
+    "filterByTech": "Tipp: Klicke auf eine Technologie, um die Erfahrung zu filtern.",
+    "clearFilters": "Filter zurücksetzen",
+    "noRolesMatch": "Keine Position passt zu den ausgewählten Technologien."
   },
   "timeline": {
     "title": "Mein Werdegang",
