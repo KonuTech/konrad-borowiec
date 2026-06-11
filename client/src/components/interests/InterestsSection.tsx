@@ -4,6 +4,19 @@ import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { api } from '@/lib/staticApi';
 
+// Auto-rotate the gallery to a new random photo on this cadence.
+const GALLERY_ROTATE_MS = 5000;
+
+// Random index in [0, length), avoiding `exclude` so the photo visibly changes.
+const pickRandomIndex = (length: number, exclude: number): number => {
+  if (length <= 1) return 0;
+  let index = exclude;
+  while (index === exclude) {
+    index = Math.floor(Math.random() * length);
+  }
+  return index;
+};
+
 const InterestsSection: FC = () => {
   const { t, i18n } = useTranslation();
   const [activeMotorcycleIndex, setActiveMotorcycleIndex] = useState(0);
@@ -11,6 +24,7 @@ const InterestsSection: FC = () => {
   const [motorcycleImages, setMotorcycleImages] = useState<string[]>([]);
   const [cyclingImages, setCyclingImages] = useState<string[]>([]);
   const [activeGallery, setActiveGallery] = useState<'motorcycle' | 'cycling'>('motorcycle');
+  const [isGalleryPaused, setIsGalleryPaused] = useState(false);
 
   // Load images from static data
   useEffect(() => {
@@ -30,6 +44,29 @@ const InterestsSection: FC = () => {
 
     loadImages();
   }, []);
+
+  // Auto-rotate the right-hand gallery every few seconds: pick a random gallery
+  // (Motorcycling / Cycling) and a random photo within it. Pauses on hover.
+  useEffect(() => {
+    if (isGalleryPaused) return;
+
+    const galleries: ('motorcycle' | 'cycling')[] = [];
+    if (motorcycleImages.length > 0) galleries.push('motorcycle');
+    if (cyclingImages.length > 0) galleries.push('cycling');
+    if (galleries.length === 0) return;
+
+    const timer = setInterval(() => {
+      const gallery = galleries[Math.floor(Math.random() * galleries.length)];
+      setActiveGallery(gallery);
+      if (gallery === 'motorcycle') {
+        setActiveMotorcycleIndex((prev) => pickRandomIndex(motorcycleImages.length, prev));
+      } else {
+        setActiveCyclingIndex((prev) => pickRandomIndex(cyclingImages.length, prev));
+      }
+    }, GALLERY_ROTATE_MS);
+
+    return () => clearInterval(timer);
+  }, [isGalleryPaused, motorcycleImages.length, cyclingImages.length]);
 
   return (
     <section
@@ -161,8 +198,12 @@ const InterestsSection: FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-8 md:space-y-4"
           >
-            {/* Combined Gallery with Tabs */}
-            <div className="rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark">
+            {/* Combined Gallery with Tabs (auto-rotates; pauses on hover) */}
+            <div
+              className="rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark"
+              onMouseEnter={() => setIsGalleryPaused(true)}
+              onMouseLeave={() => setIsGalleryPaused(false)}
+            >
               <div className="mb-4 flex border-b border-portfolio-lightest dark:border-portfolio-dark">
                 <button
                   className={`font-nunito px-4 py-2 font-medium transition-all ${
