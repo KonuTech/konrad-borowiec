@@ -79,11 +79,30 @@ i18n.use(initReactI18next).init({
   },
 });
 
-// persist language selection to localStorage (graceful fallback if unavailable)
-try {
-  i18n.on('languageChanged', (lng) => localStorage.setItem('selectedLanguage', lng));
-} catch (e) {
-  /* localStorage may be unavailable in some environments; ignore */
-}
+// Languages written right-to-left. Used to set the document direction so RTL
+// locales (e.g. Arabic) render with correct text flow and alignment.
+const RTL_LANGS = ['ar'];
+
+// Sync <html lang> and <html dir> with the active language. Keeping this in one
+// place means both the initial load and every in-app language switch stay correct.
+const applyDocumentLanguage = (lng: string | undefined) => {
+  if (typeof document === 'undefined') return;
+  const base = (lng || 'en').toLowerCase().split('-')[0];
+  document.documentElement.lang = base;
+  document.documentElement.dir = RTL_LANGS.includes(base) ? 'rtl' : 'ltr';
+};
+
+// Apply once for the initial language (saved selection or English fallback).
+applyDocumentLanguage(saved || 'en');
+
+i18n.on('languageChanged', (lng) => {
+  applyDocumentLanguage(lng);
+  // persist language selection to localStorage (graceful fallback if unavailable)
+  try {
+    localStorage.setItem('selectedLanguage', lng);
+  } catch {
+    /* localStorage may be unavailable in some environments; ignore */
+  }
+});
 
 export default i18n;

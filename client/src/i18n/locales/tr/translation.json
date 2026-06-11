@@ -1,211 +1,211 @@
 {
   "common": {
     "home": "Ana Sayfa",
-    "about": "Hakkında",
+    "about": "Hakkımda",
     "projects": "Projeler",
     "books": "Kitaplar",
-    "interests": "Hobiler",
+    "interests": "İlgi Alanları",
     "contact": "İletişim",
-    "contactMe": "Benimle İletişime Geç",
+    "contactMe": "Benimle İletişime Geçin",
     "portfolio": "Portföy",
     "blog": "Blog",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "credly": "Credly",
     "demo": "Canlı Demo",
-    "readMore": "Daha Fazla Oku",
+    "readMore": "Devamını Oku",
     "viewCode": "Kodu Görüntüle",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Tüm hakları saklıdır.",
-    "professional": "Profesyonel Veri Çözümleri"
+    "professional": "Profesyonel veri çözümleri"
   },
   "menu": {
     "home": "Ana Sayfa",
-    "about": "Hakkında",
+    "about": "Hakkımda",
     "projects": "Projeler",
     "books": "Kitaplar",
-    "interests": "Hobiler",
+    "interests": "İlgi Alanları",
     "contact": "İletişim"
   },
   "hero": {
     "intro": "Merhaba, ben",
     "title": "Konrad Borowiec",
-    "subtitle": "Veri sadece rakamlar değil — daha akıllı kararlar almak için anahtardır.",
-    "description": "Veri mühendisliği, analiz ve makine öğrenimi uzmanı olarak, ham veriden çıkarımlar çıkaran veri boru hatları tasarlıyorum. Verilerinizi ilerlemenin katalizörüne dönüştürün!",
-    "ctaProjects": "Yan Projelerimi Keşfet",
-    "ctaContact": "Benimle İletişime Geç"
+    "subtitle": "Veri yalnızca rakamlardan ibaret değildir; daha akıllı kararların anahtarıdır.",
+    "description": "Veri mühendisliği, analitik ve makine öğrenmesi alanındaki uzmanınız olarak veri hatları kuruyor ve ham veriden değerli içgörüler çıkarıyorum. Verilerinizi birlikte ilerlemenin itici gücüne dönüştürelim!",
+    "ctaProjects": "Yan projelerime göz atın",
+    "ctaContact": "Benimle İletişime Geçin"
   },
   "about": {
-    "headingPrefix": "Hakkında",
-    "title": "Y",
+    "headingPrefix": "Hakkımda",
+    "title": "Kısaca",
     "timelineTitle": "Deneyim ve Eğitim",
-    "description": "Veriye tutkulu bir profesyonelim ve sağlam veri boru hatları ile analiz çözümleri oluşturma konusunda deneyime sahibim.",
+    "description": "Sağlam veri hatları ve analitik çözümler oluşturma konusunda uzmanlığa sahip, işine tutkuyla bağlı bir veri profesyoneliyim.",
     "experience": "Deneyim",
-    "skills": "Yetenekler",
+    "skills": "Yetkinlikler",
     "education": "Eğitim",
-    "bio1": "Ben Data Guy, finans sektöründe sağlam bir geçmişe sahibim. En sevdiğim iş anıma, geliştirdiğim araçların ve çözümlerin diğer kişiler veya şirketler tarafından aktif olarak kullanıldığında. SQL, Python ve çeşitli veri işleme teknolojilerindeki uzmanlığım ile, verimli veri boru hatları tasarlayıp değerli çıkarımlar çıkarmaya odaklanıyorum.",
-    "bio2": "Kariyerime finans ve analiz alanında başladım, daha sonra veri mühendisliği, büyük veri işleme ve makine öğrenimine odaklanan daha teknik bir rolde geliştim. Karmaşık veri sorunlarını çözme ve sağlam, güvenilir çözümler oluşturmaktan keyif alıyorum.",
-    "showTimeline": "Tam zaman çizelgesini göster ▼",
-    "hideTimeline": "Zaman çizelgesini gizle ▲",
+    "bio1": "Finansal hizmetler sektöründe güçlü bir geçmişe sahip bir veri uzmanıyım. İşimden en çok, geliştirdiğim araç ve çözümlerin başka kişiler ya da işletmeler tarafından aktif olarak kullanıldığını gördüğümde keyif alıyorum. SQL, Python ve çeşitli veri işleme teknolojilerindeki uzmanlığımla verimli veri hatları tasarlamaya ve değerli içgörüler elde etmeye odaklanıyorum.",
+    "bio2": "Kariyer yolculuğum finans ve analitik alanında başladı; zamanla veri mühendisliği, büyük veri işleme ve makine öğrenmesinde uzmanlaşan daha teknik bir role evrildi. Karmaşık veri problemlerini çözmekten ve sağlam, güvenilir çözümler kurmaktan keyif alıyorum.",
+    "showTimeline": "Tüm Zaman Çizelgesini Göster ▼",
+    "hideTimeline": "Zaman Çizelgesini Gizle ▲",
     "contact": {
       "pdf": {
         "title": "CV İndir",
-        "description": "Polonya, Varşova'ya dayanan profesyonel veri çözüm uzmanı.",
+        "description": "Polonya, Varşova merkezli profesyonel veri çözümleri uzmanı.",
         "download": "CV İndir"
       }
     }
   },
   "timeline": {
-    "title": "Kariyerim",
+    "title": "Yolculuğum",
     "item": {
       "year": "{year}",
       "title": "{title}",
       "description": "{description}"
     },
-    "items.0": "E-ticaret müşterilerinin analizini besleyen üretim veri altyapısını bakım altına alıyorum. Birden fazla platformdan gelen verileri Apache Airflow ile orkestr edilen tek bir BigQuery veri depolarına işliyorum. Apache Superset BI çözümü olarak kullanılıyor.\n\n• Magento 2 için özel Apache Airflow bağlantısı geliştiriyorum. OAuth 1.0a (HMAC-SHA256) kimlik doğrulama, jeneratöre dayalı sayfalama ve birden fazla REST API uç noktası için üstel geri çekme tekrar mantığı destekleniyor. Kayıtlar NDJSON formatında GCS'a çıkarılıyor ve BigQuery'ye günlük olarak yükleniyor.\n\n• Google Ads ETL boru hattı tasarladım. Google Ads API'yi BigQuery ile GCS staging katmanı üzerinden entegre ediyorum. Apache Superset'te görselleştirilebilmek için Google Ads harcamalarını e-ticaret müşterilerinin gerçek stokuna eşleştiren analiz tabloları tasarladım. Gecikmeli varış ve tekrar gideriyle doğru çalışmak için Jinja2 ile dinamik tarih şablonlaması ve akıllı geriye bakma penceresi kullanıyorum.\n\n• E-ticaret müşterilerini yapılandırılabilir veri platformuna onboarding ediyorum. Müşteri beyan yapılandırmasından DAG'leri dinamik olarak oluşturan YAML-to-DAG çerçevesi kullanıyorum.\n\n• Klaviyo API gözden geçirmesinin sıfır zaman kaybı geçişini uyguladım. Yıllarca süren gözden geçirme boşluklarını kapsayan kimlik doğrulama, abonelik modelleri, pazarlama alanları, olay yapıları, kampanya filtreleme, akış sayfalama, metrik türleri gibi birden fazla kategori için otomatik doğrulama testleri tasarladım ve uyguladım. Bozulucu değişiklik olmadan sıfır bozulma değişikliklerini onayladım.\n\n• Özel dbt makroları geliştirerek Unicode metin normalizasyonu gerçekleştirdim. E-ticaret ürün URL'lerindeki özel karakterler (Lehçe, Rusça ve diğer non-ASCII karakterler) tarafından tetiklenen ürün ID eşleştirmesi ve tekrar giderme sorunlarını çözüyorum. Shopify, Shoper, WooCommerce ve Magento gibi dört platformu kapsayan tek bir ECOM varlık şablonu ile URL analizi yaparak platformlar arası güvenilir tekrar giderme sağlıyorum.\n\n• Superset MCP ile Superset REST API kullanarak panolar ve grafik yapılandırmasını sorguluyorum. Otomatik veri kökeni araştırmaları ve sonraki düzeltmeler için kullanıyorum.\n\n• Her tablo ve boru hattı için tam doğrulama takımları tasarlayarak katı kalite standartlarını sürdürüyorum. SQL testleri yazarak katmanlar arası tutarlılığı (staging'den transformed'a), zorunlu alan NULL oran analizi, alternatif anahtar benzersizliği, referans bütünlüğü ve API çıktısı eski-vs-yeni karşılaştırması gibi konuları kapsıyorum.\n\n• Eurostat GISCO coğrafi veri boru hattı: Eurostat GISCO coğrafi verilerini şirketin Airflow tabanlı veri platformuna entegre eden uçtan uca ETL boru hattı tasarladım ve uyguladım. GCS'te NDJSON formatında aralanan yaklaşık 815.000 AB posta kodu ve 1.211 NUTS3 sınır poligonunu GISCO API'den indiren özel Airflow eklentisi (operatör + hook) oluşturdum. 350MB posta kodu GeoJSON'ü kaps içinde işlemek için ijson akış işleme uyguladım. 31 AB/Avrupa Ekonomik Alanı/Avrupa Serbest Ticaret Birliği ülkesi için harita görselleştirmelerine veri sağlayan tam NUTS hiyerarşisi (ülke/NUTS1/NUTS2/NUTS3) için kaynak ve transformed dbt modelleri oluşturdum. Birden fazla ortamda otomatik dağıtıma olanak tanıyan DAG oluşturma çerçevesine boru hattını kaydettim.\n\n• Satış kanalı geri yükleme ve şema göçü: Büyük e-ticaret müşterisinin analiz boru hattına mobil uygulama sipariş geçmişi verilerini entegre etmek için veri geri yükleme girişimini yönetiyorum. Yeni satış kanalı kolonu içerecek şekilde BigQuery staging şemasını ve dbt modellerini (kaynak ve transformed katmanları) genişletiyorum. Web ve uygulama siparişlerini tüm raporlama katmanlarında filtrelemeye izin veriyorum. 2+ yıl boyunca yeni kolon olmadan eski CSV dosyalarının geriye uyumluluğunu korurken, her iki kanal türünü de içeren yeni dosyaların sorunsuz kabulünü sağlıyorum. GCS'ten BQ'ya kabul, dbt artan modeller ve downstream Superset panolarındaki şema değişikliklerini koordine ediyorum.\n\n• Oracle APEX uygulama geliştirme destek rolü. İş analizistleriyle çalışarak ESRS (Avrupa Sürdürülebilirlik Raporlama Standartları) raporlama aracının geliştirilmesine yardımcı oluyorum. PL/SQL kullanarak APEX uygulamalarında BI özellikleri tasarlıyor ve uyguluyorum. Rapor şemalarında gerektiğinde değişiklik yapıyorum. PL/SQL kullanarak gösterilen raporları oluşturuyorum. Rapor görevlerinde uzmanlığımı ve bilgimi uygulayarak fikir ve geri bildirim sağlıyorum.\n\n• Analiz ölçeğine göre Oracle SQL veya Oracle PL/SQL kullanarak ulusal veri raporlama geliştiriyorum.\n\n• Python ve SQL kullanarak kontrol edilen varlık ile en yakın on regülatör (kamuya çalışan) arasındaki en kısa yolu hesaplayan ve görselleştiren PoC uygulama geliştiriyorum. Büyük ölçekli grafik problemi.\n\n• Open Banking alanı için ELT veri boru hatları geliştiriyorum. JSON kaynak verilerini düzleştirme, tekrar giderme ve Hive tablolarına normalize etme dahil. Yarı yapılandırılmış ve yapılandırılmış veri işleme. Kullanılan teknolojiler: MongoDB, HDFS, HiveSQL, Python, Airflow ve CICD için GitLab. Open Banking alanı müşteri aktivitesinin istirahat analizi.\n\n• Polonya'nın en büyük bankalarından biri için batch veri işleme çözümleri geliştiriyorum. Cloudera Data Platform on-premise üzerinde Airflow, Python, PySpark ve Hive kullanarak veri gölü batch ELT iş akışları tasarlıyorum. Sigorta şirketi churn sınıflandırıcısını geliştirip operasyonelleştiriyorum. Puanlama ve yeni verilerin izleme için özellikler ekliyorum. VR şirketinin sınıflandırıcısını geliştirip operasyonelleştiriyorum. SAS Viya kullanarak HR panel demo tasarlıyor ve geliştiriyorum.\n\n• SAS geliştiricileri tarafından oluşturulan çıktı tablolarını test ediyorum. Emlak sigortası alanındaki dokümantasyonu sürdürüyorum.\n\n• Polonya'nın en büyük sigorta şirketinin SAS Viya ortamına SAS Visual Analytics raporlarının göçünden ortak sorumluyum. Görevler arasında panoları Viya'ya aktarma, XML şemalarını düzeltme, UX'i iyileştirmek için panel düzenini yeniden tasarım, küresel temalar oluşturma, XML/HTML formları geliştirme ve Python kullanarak JSON dosyaları işleme dahil.\n\n• Polonya'nın büyük bir telekom operatörü olarak danışman olarak, veri marts yeniden hesaplama süreçlerini güncelleme projelerine katılıyorum. 4GL ve SQL'a odaklanan veri işleme SAS üretim senaryoları geliştiriyorum. Python kullanarak veri toplama ve segmentasyon yönetiyorum. Shiny ve Tableau kullanarak panolar için geliştirme katkısı sağlıyorum.\n\n• SAS Guide ve SAS VA kullanarak raporları otomatize ediyorum. Verilen kredi istatistiksel ve görsel analizini kolaylaştıran bank şube performansını değerlendiren panolar geliştiriyorum.\n\n• Finansal veri işleme, finansal rapor güncellemeleri ve veritabanı arası veri taşıma desteği.\n\n• Tahmin Değerleme Standartları ve Raporlama Takımı LGD parametrelerini tahmin etmek için kullanılan bir tahmin modelinin geliştirilmesine destek sağlıyorum.\n\n• Büyük Veri Mühendisliği Yüksek Lisans. Python kullanarak son proje için film önerme sistemi geliştiriyorum.\n\n• Yüksek Lisans. Rastgele oluşturulan tüketici finansal portföy veri üzerinde kullanan SAS Enterprise Miner'da uygulanan reddetme çıkarım yöntemlerini değerlendiriyorum.\n\n• Uluslararası Finans Alanı Uzmanlığı. Tez: Lehçe ödeme dengesini belirleyen faktörlere dayalı olarak Lehçe cari hesap düzeltme olasılığını tahmin eden lojistik regresyon modeli kullanımı.\n\n• Öğrenci değişim programı.\n\n• 2006-2010 Ulusal Bütçe Analizi.\n\n•",
-    "items.1": "Oracle APEX uygulama geliştirme destek rolü. İş analizistleriyle çalışarak ESRS (Avrupa Sürdürülebilirlik Raporlama Standartları) raporlama aracının geliştirilmesine yardımcı oluyorum. PL/SQL kullanarak APEX uygulamalarında BI özellikleri tasarlıyor ve uyguluyorum. Rapor şemalarında gerektiğinde değişiklik yapıyorum. PL/SQL kullanarak gösterilen raporları oluşturuyorum. Rapor görevlerinde uzmanlığımı ve bilgimi uygulayarak fikir ve geri bildirim sağlıyorum.",
-    "items.2": "Analiz ölçeğine göre Oracle SQL veya Oracle PL/SQL kullanarak ulusal veri raporlama geliştiriyorum. Python ve SQL kullanarak kontrol edilen varlık ile en yakın on regülatör (kamuya çalışan) arasındaki en kısa yolu hesaplayan ve görselleştiren PoC uygulama geliştiriyorum. Büyük ölçekli grafik problemi.",
-    "items.3": "Open Banking alanı için ELT veri boru hatları geliştiriyorum. JSON kaynak verilerini düzleştirme, tekrar giderme ve Hive tablolarına normalize etme dahil. Yarı yapılandırılmış ve yapılandırılmış veri işleme. Kullanılan teknolojiler: MongoDB, HDFS, HiveSQL, Python, Airflow ve CICD için GitLab. Open Banking alanı müşteri aktivitesinin istirahat analizi.",
-    "items.4": "Polonya'nın en büyük bankalarından biri için batch veri işleme çözümleri geliştiriyorum. Cloudera Data Platform on-premise üzerinde Airflow, Python, PySpark ve Hive kullanarak veri gölü batch ELT iş akışları tasarlıyorum. Sigorta şirketi churn sınıflandırıcısını geliştirip operasyonelleştiriyorum. Puanlama ve yeni verilerin izleme için özellikler ekliyorum. VR şirketinin sınıflandırıcısını geliştirip operasyonelleştiriyorum. SAS Viya kullanarak HR panel demo tasarlıyor ve geliştiriyorum.",
-    "items.5": "SAS geliştiricileri tarafından oluşturulan çıktı tablolarını test ediyorum. Emlak sigortası alanındaki dokümantasyonu sürdürüyorum.",
-    "items.6": "Polonya'nın en büyük sigorta şirketinin SAS Viya ortamına SAS Visual Analytics raporlarının göçünden ortak sorumluyum. Görevler arasında panoları Viya'ya aktarma, XML şemalarını düzeltme, UX'i iyileştirmek için panel düzenini yeniden tasarım, küresel temalar oluşturma, XML/HTML formları geliştirme ve Python kullanarak JSON dosyaları işleme dahil.",
-    "items.7": "Polonya'nın büyük bir telekom operatörü olarak danışman olarak, veri marts yeniden hesaplama süreçlerini güncelleme projelerine katılıyorum. 4GL ve SQL'a odaklanan veri işleme SAS üretim senaryoları geliştiriyorum. Python kullanarak veri toplama ve segmentasyon yönetiyorum. Shiny ve Tableau kullanarak panolar için geliştirme katkısı sağlıyorum.",
-    "items.8": "SAS Guide ve SAS VA kullanarak raporları otomatize ediyorum. Verilen kredi istatistiksel ve görsel analizini kolaylaştıran bank şube performansını değerlendiren panolar geliştiriyorum.",
-    "items.9": "Finansal veri işleme, finansal rapor güncellemeleri ve veritabanı arası veri taşıma desteği.",
-    "items.10": "Tahmin Değerleme Standartları ve Raporlama Takımı LGD parametrelerini tahmin etmek için kullanılan bir tahmin modelinin geliştirilmesine destek sağlıyorum.",
-    "items.11": "Büyük Veri Mühendisliği Yüksek Lisans. Python kullanarak son proje için film önerme sistemi geliştiriyorum.",
-    "items.12": "Yüksek Lisans. Rastgele oluşturulan tüketici finansal portföy veri üzerinde kullanan SAS Enterprise Miner'da uygulanan reddetme çıkarım yöntemlerini değerlendiriyorum.",
-    "items.13": "Uluslararası Finans Alanı Uzmanlığı. Tez: Lehçe ödeme dengesini belirleyen faktörlere dayalı olarak Lehçe cari hesap düzeltme olasılığını tahmin eden lojistik regresyon modeli kullanımı.",
-    "items.14": "Öğrenci değişim programı.",
-    "items.15": "2006-2010 Ulusal Bütçe Analizi.",
-    "items.16": "",
+    "items.0": "E-ticaret müşterileri için analitiği besleyen üretim veri altyapısının bakımını üstlendim; birden fazla platformdan gelen verileri, Apache Airflow ile orkestre edilen birleşik bir BigQuery veri ambarında işledim. BI çözümü olarak Apache Superset kullandım.\n\n• Magento 2 için OAuth 1.0a (HMAC-SHA256) kimlik doğrulaması, üreteç tabanlı sayfalandırma ve birden fazla REST API uç noktasında üstel geri çekilmeli yeniden deneme mantığı içeren özel bir Apache Airflow bağlayıcısı geliştirdim. Kayıtları NDJSON olarak GCS'ye çıkardım ve günlük olarak BigQuery'ye yükledim.\n\n• Google Ads API'sini GCS hazırlama katmanı üzerinden BigQuery ile bütünleştiren bir Google Ads ETL veri hattı kurdum. Google Ads harcamalarını e-ticaret müşterilerinin gerçek stoğuyla eşleştiren ve Apache Superset'te görüntülenmek üzere tasarlanmış analitik tablolar oluşturdum. Geç gelen kayıtları ve yinelenenlerin temizlenmesini doğru biçimde ele almak için akıllı geriye bakış pencereleriyle dinamik Jinja2 tarih şablonlamasından yararlandım.\n\n• E-ticaret müşterilerini yapılandırma odaklı bir veri platformuna dahil ettim. Bildirimsel müşteri yapılandırmalarından dinamik olarak Airflow DAG'leri üreten bir YAML'den DAG'a oluşturma çerçevesinden yararlandım.\n\n• Yıllar süren bir revizyon farkını kapsayan, kesintisiz bir Klaviyo API revizyon geçişini hayata geçirdim. Birden çok kategoride (kimlik doğrulama, abonelik şemaları, pazarlama alanları, olay yapıları, kampanya filtreleri, akış sayfalandırması, metrik türleri) otomatik doğrulama testleri tasarlayıp çalıştırdım ve hiçbir kırıcı değişiklik olmadığını teyit ettim.\n\n• E-ticaret ürün URL'lerindeki özel karakterlerin (Lehçe, Rusça ve diğer ASCII dışı simgeler) yol açtığı ürün kimliği eşleştirme ve yinelenen temizleme hatalarını gidermek için Unicode metin normalleştirmesi yapan özel bir dbt makrosu geliştirdim. Dört platformu (örneğin Shopify, Shoper, WooCommerce ve Magento) kapsayan birleşik ECOM varlık şemasında URL ayrıştırmasını standartlaştırarak platformlar arası güvenilir yinelenen temizleme sağladım.\n\n• Otomatik veri kökeni incelemeleri ve sonrasındaki düzeltmeler için pano ve grafik yapılandırmalarını programatik olarak sorgulamak amacıyla Superset MCP üzerinden Superset REST API'sini kullandım.\n\n• Her tablo ve veri hattı için kapsamlı doğrulama paketleri tasarlayarak titiz kalite standartlarını korudum. Katmanlar arası tutarlılığı (hazırlamadan dönüştürülmüş katmana), zorunlu alanlarda NULL oranı analizini, vekil anahtar benzersizliğini, bütünsel referans tutarlılığını ve eski ile yeni API çıktısının karşılaştırmasını kapsayan SQL testleri yazdım.\n\n• Eurostat GISCO Coğrafi Veri Hattı: Eurostat GISCO coğrafi verilerini şirketin Airflow tabanlı veri platformuna bütünleştiren uçtan uca bir ETL veri hattı tasarlayıp uyguladım. GISCO API'sinden yaklaşık 815.000 AB posta kodunu ve 1.211 NUTS3 sınır poligonunu indiren, bunları Google Cloud Storage'da NDJSON olarak hazırlayan ve BigQuery'ye yükleyen özel bir Airflow eklentisi (operatör + hook) geliştirdim. 350MB'lık posta kodu GeoJSON'ünü konteyner bellek sınırları içinde işleyebilmek için ijson akış işlemeyi uyguladım. Tam NUTS hiyerarşisiyle (ülke/NUTS1/NUTS2/NUTS3) dbt kaynak ve dönüştürülmüş modelleri oluşturdum. Ortamlar arası otomatik dağıtımı mümkün kılmak için veri hattını DAG üreteç çerçevesine kaydettim. Veri, 31 AB/AEA/EFTA ülkesi için Superset harita görselleştirmelerine hizmet ediyor.\n\n• Satış Kanalı Geri Dolumu ve Şema Geçişi: Geçmiş mobil uygulama sipariş verilerini büyük bir e-ticaret müşterisinin analitik veri hattına bütünleştirmek için bir veri geri dolumu girişimini yönettim. Yeni bir satış kanalı sütununu barındırmak üzere BigQuery hazırlama şemasını ve dbt modellerini (kaynak ve dönüştürülmüş katmanlar) genişlettim; böylece tüm raporlama katmanlarında web ve uygulama siparişleri arasında filtreleme yapılabilmesini sağladım. Yeni sütundan yoksun, 2 yılı aşkın geçmiş CSV dosyalarının geriye dönük uyumluluğunu yönetirken, her iki kanal türünü de içeren yeni dosyaların sorunsuz alımını güvence altına aldım. GCS'den BQ'ya alımda, dbt artımlı modellerinde ve alt akıştaki Superset panolarında şema değişikliklerini koordine ettim.",
+    "items.1": "Oracle APEX uygulama geliştirmede destek rolü. İş analistleriyle iş birliği yaparak ESRS (Avrupa Sürdürülebilirlik Raporlama Standartları) için bir raporlama aracının geliştirilmesine katkı sundum. PL/SQL kullanarak APEX uygulamasına BI işlevleri tasarlayıp uyguladım. Gerektiğinde raporlama modelinde değişiklikler yaptım. Görüntülenen raporları üretmek için PL/SQL'den yararlandım. Raporlama görevlerinde uzmanlığımı ve bilgimi kullanarak fikir paylaştım ve geri bildirim verdim.",
+    "items.2": "Analizin ölçeğine bağlı olarak ulusal verileri Oracle SQL veya Oracle PL/SQL kullanarak raporladım. Denetlenen bir kuruluş ile en yakın on denetçi (kamu sektörü çalışanları) arasındaki en yakın güzergahları hesaplayıp görselleştiren bir PoC uygulaması geliştirdim. Büyük veri ölçeğinde bir çizge problemi. Python ve SQL kullandım.",
+    "items.3": "Open Banking alanı için ELT veri hatları geliştirdim. Bu çalışma, JSON veri kaynağının düzleştirilmesini, yinelenenlerin temizlenmesini ve Hive tablolarına normalleştirilmesini kapsadı. Hem yarı yapılandırılmış hem de yapılandırılmış verileri işledim. Kullanılan teknolojiler: MongoDB, HDFS, HiveSQL, Python, Airflow ve CI/CD için GitLab. Open Banking alanında müşteri etkinliğine yönelik ihtiyaç anında analizler yaptım.",
+    "items.4": "Polonya'nın en büyük bankalarından biri için toplu veri işleme çözümleri geliştirdim. Veri Gölü için ELT süreçleri, şirket içi Cloudera Data Platform üzerinde Airflow, Python, PySpark ve Hive kullanılarak tasarlandı. Bir sigorta şirketi için müşteri kaybı (churn) sınıflandırıcısını geliştirip işler hale getirdim. Yeni verilerin skorlanması ve izlenmesi için işlevler ekledim. Bir VR eğitim şirketi için sınıflandırıcılar geliştirip işler hale getirdim. SAS Viya kullanarak bir İK demo panosu tasarlayıp geliştirdim.",
+    "items.5": "SAS Geliştiricileri tarafından oluşturulan çıktı tablolarının test edilmesi. Mülk Sigortaları alanında dokümantasyonun sürdürülmesi.",
+    "items.6": "Polonya'nın en büyük sigorta şirketi için SAS Visual Analytics raporlarının SAS Viya ortamına taşınmasından ortak sorumluydum. Görevler arasında panoların Viya'ya aktarılması, XML şemalarının onarılması, daha iyi bir kullanıcı deneyimi için pano düzenlerinin yeniden tasarlanması, global temaların oluşturulması, XML/HTML formlarının geliştirilmesi ve Python kullanarak JSON dosyalarının işlenmesi yer aldı.",
+    "items.7": "Büyük bir Polonya telekom şirketinde danışman olarak, veri pazarı (data mart) yeniden hesaplama süreçlerinin iyileştirilmesine yönelik projelerde yer aldım. Veri işleme için 4GL ve SQL'e odaklanan, üretime hazır SAS betikleri geliştirdim. Python kullanarak veri toplama ve segmentasyon işlerini yürüttüm. Shiny ve Tableau kullanarak pano geliştirme çalışmalarına katkı sağladım.",
+    "items.8": "Finansal düzenleyici raporlamayı SAS 4GL ve SQL kullanarak konsolide edip basitleştirdim. SAP BO, SAS EG ve SAS VA kullanarak raporlar geliştirdim. Kullanıcı self-servisi için Stored Process'lerden yararlandım. En iyi pano geliştiricilerinden biri olarak takdir edildim ve müşteri verileriyle optimum ikili sınıflandırıcılar tasarlanan bir kurum içi yarışmada ilk ona girdim.",
+    "items.9": "SAS Guide ve SAS VA kullanarak raporlamayı otomatikleştirdim. Banka şubelerinin performansını değerlendirmeye yönelik, verilen kredilerin istatistiksel ve görsel analizini kolaylaştıran panolar geliştirdim.",
+    "items.10": "Finansal verileri işledim, finansal tabloları güncelledim ve veritabanları arasında veri taşımayı destekledim.",
+    "items.11": "Değerleme Standartları ve Raporlama Ekibi'nde, LGD parametresinin tahmininde kullanılan bir öngörü modelinin geliştirilmesine destek verdim.",
+    "items.12": "Büyük Veri Kümeleri Mühendisliği alanında yüksek lisans. Bitirme projesi için Python kullanarak bir film öneri sistemi geliştirdim.",
+    "items.13": "Yüksek lisans. Rastgele üretilmiş tüketici finansmanı portföy verileri üzerine kurulu kredi skor kartı modelleriyle, SAS Enterprise Miner'da uygulanan Reject Inference yöntemlerinin değerlendirilmesi.",
+    "items.14": "Uluslararası Finansal Piyasalar alanında uzmanlaşma. Tez: Polonya ödemeler dengesi belirleyicilerine dayanarak Polonya cari hesabında bir düzeltme olasılığını tahmin etmek için lojistik regresyon modelinin kullanımı.",
+    "items.15": "Öğrenci değişim programı.",
+    "items.16": "2006-2010 yıllarında devlet bütçesinin analizi.",
     "items.17": "",
     "items.18": ""
   },
   "projects": {
-    "title": "Projeler",
-    "headingPrefix": "Projelerim",
-    "description": "Veri mühendisliği, makine öğrenimi ve web geliştirme yeteneklerimi öne çıkaran en son projelerimin bazıları burada.",
-    "noProjects": "Henüz proje yok. Sonra tekrar gel!",
+    "title": "Projelerim",
+    "headingPrefix": "Yan",
+    "description": "Veri mühendisliği, makine öğrenmesi ve web geliştirme alanlarındaki yetkinliklerimi sergileyen güncel projelerimden bazıları aşağıda yer alıyor.",
+    "noProjects": "Henüz proje yok. Yakında tekrar göz atın!",
     "technologies": "Teknolojiler",
     "items": {
       "1": {
-        "description": "NYC taksi verisi ile SQL playground. PostgreSQL, pgAdmin ve Superset kapsanmış. Veritabanı başlatma, veri geri yükleme ve kabul önceden yapılandırılmış ve kullanıma hazır. Analizi hızlıca başlatın."
+        "description": "NYC Taksi Verisi'ni kullanan bir SQL oyun alanı. Docker üzerinde PostgreSQL, pgAdmin ve Superset. Veritabanı başlatma, geri dolum ve veri alımı önceden yapılandırılmış ve kullanıma hazır. Analize hızlıca başlayın"
       },
       "2": {
-        "description": "Docker, PostgreSQL, Airflow ve XGBoost ile önceden seçilmiş hisse başına günlük ETL ve ML. Son olarak, React olarak web uygulaması. Her şey Claude Code ile tamamlandı."
+        "description": "Önceden seçilmiş hisse senetleri üzerinde Docker, PostgreSQL, Airflow ve XGBoost ile günlük ETL ve ML. Son olarak web uygulaması için React. Hepsi Claude Code ile yapıldı"
       },
       "3": {
-        "description": "5 dakika mini-batch veri boru hattı kapsanmış. Spark Structured Streaming: Kafka'dan PostgreSQL'e DB sink olarak okuma. Airflow, Kafka, PySpark, PostgreSQL, Streamlit."
+        "description": "Docker üzerinde çalışan, 5 dakikalık mini-batch bir veri hattı. Spark Structured Streaming: Kafka'dan okuyup hedef veritabanı olarak PostgreSQL'e yazma. Airflow, Kafka, PySpark, PostgreSQL, Streamlit"
       },
       "4": {
-        "description": "Steam mağaza PC oyunu yorumlarından türetilen kapsanmış RAG uygulaması. Elasticsearch vektör veritabanında çalışan Flask servisi. PostgreSQL kayıt ve Grafana izleme için."
+        "description": "Steam mağazasından çekilen PC oyunu yorumlarına dayalı, Docker üzerinde çalışan bir RAG uygulaması. Elasticsearch vektör veritabanı üzerinde çalışan bir Flask uygulaması içerir. Ek olarak günlük kaydı için PostgreSQL ve izleme için Grafana"
       },
       "5": {
-        "description": "GCP'de MLOps e2e — PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
+        "description": "GCP üzerinde uçtan uca MLOps - PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI"
       },
       "6": {
-        "description": "Kapsanmış Flask servisi — müşteri varsayılan olasılık puanlama. Pandas, Scikit-learn, XGBoost, Flask, Docker."
+        "description": "Docker üzerinde çalışan bir Flask servisi - bir müşterinin temerrüde düşüp düşmeyeceğini skorlar. Pandas, Scikit-learn, XGBoost, Flask, Docker"
       },
       "7": {
-        "description": "TensorFlow, görüntü sınıflandırıcısı, model taşıma öğrenme, model servisi, Docker, Kubernetes, Kind kümesi."
+        "description": "TensorFlow, görüntü sınıflandırıcı, transfer öğrenme, model sunumu, Docker, Kubernetes, Kind kümesi"
       },
       "8": {
-        "description": "React ve TypeScript ile oluşturulan kişisel portföy web sitesi, modern tasarım ve duyarlı düzen ile."
+        "description": "React ve TypeScript ile geliştirilmiş, modern tasarım ve duyarlı düzene sahip kişisel portföy web sitesi."
       }
     }
   },
   "books": {
-    "headingPrefix": "Projelerim",
-    "title": "Okuma Listesi",
-    "description": "Veri mühendisliği ve makine öğrenimi alanında okuduğum ve okumayı planladığım kitaplar.",
+    "headingPrefix": "Okuma",
+    "title": "Listem",
+    "description": "Veri mühendisliği ve makine öğrenmesi alanında okuduğum ve okumayı planladığım kitaplar.",
     "genre": "Tür",
     "status": "Durum",
     "rating": "Puan",
-    "review": "Gözden Geçirme",
-    "noBooks": "Henüz kitap yok. Sonra tekrar gel!",
+    "review": "Değerlendirme",
+    "noBooks": "Henüz kitap yok. Yakında tekrar göz atın!",
     "read": "Okundu",
     "toRead": "Okunacak",
-    "toReadMessage": "Bu kitap okuma listemde! Yakında keşfetmek için sabırsızım.",
-    "fallbackReview": "Bu kitabı sevdim ve kariyer gelişimime değer buldum.",
+    "toReadMessage": "Bu kitap okuma listemde! Yakında keşfetmeyi sabırsızlıkla bekliyorum.",
+    "fallbackReview": "Bu kitaptan keyif aldım ve mesleki gelişimim için değerli buldum.",
     "genres": {
       "Data Engineering": "Veri Mühendisliği"
     },
     "items": {
       "1": {
-        "review": "Veri mühendisliği modern en iyi uygulamaları ve mimarisinin zorunlu rehberi."
+        "review": "Modern veri mühendisliği uygulamaları ve mimarileri için temel bir başvuru kaynağı."
       },
       "2": {
-        "review": "dbt kullanarak veri dönüşümü ve modelleme hakkında kapsamlı bir rehber."
+        "review": "Veri dönüşümü ve modellemesi için dbt kullanımına dair kapsamlı bir rehber."
       },
       "3": {
-        "review": "Databricks ile veri boru hatları oluşturma için pratik tarifler."
+        "review": "Databricks ile veri hatları kurmaya yönelik pratik tarifler."
       }
     }
   },
   "interests": {
-    "headingPrefix": "Hobilerim",
-    "title": "Hobiler",
-    "description": "İş dışında, çeşitli hobiler ve ilgi alanlarını keşfetmeyi seviyorum.",
+    "headingPrefix": "İlgi",
+    "title": "Alanlarım",
+    "description": "İş dışında çeşitli hobileri ve ilgi alanlarını keşfetmekten keyif alıyorum.",
     "categories": {
       "title": "Kategoriler",
-      "motorcycling": "Motorlu Bisiklet",
+      "motorcycling": "Motosiklet",
       "cycling": "Bisiklet",
-      "photography": "Veri Analizi & Teknoloji",
-      "history": "Tarih, Mimari & Ekonomi",
+      "photography": "Analitik Mühendisliği ve Teknoloji",
+      "history": "Tarih, Mimarlık ve Ekonomi",
       "financial": "Finansal Piyasalar"
     },
     "motorcycling": {
-      "heading": "Motorlu Bisiklet",
-      "description1": "İki tekerlek üzerinde dünyayı keşfetmekten tutkudurum. Motorlu bisiklet yolculukları macera, özgürlük ve doğayla bağlantının mükemmel bir kombinasyonunu sağlar.",
-      "description2": "Dalgalı dağ yollarından kıyı yollarına kadar, her yolculuk yeni perspektifler ve unutulmaz deneyimler getirir.",
-      "description3": "Muhteşem manzaralar, dağ yolları ve kıyı yolları boyunca son motorlu bisiklet yolculuklarımın fotoğraf galerisini keşfedin!"
+      "heading": "Motosiklet",
+      "description1": "Dünyayı iki teker üzerinde keşfetmeye tutkuyla bağlıyım. Motosiklet gezileri bana macera, özgürlük ve doğayla bağ kurmanın mükemmel bir bileşimini sunuyor.",
+      "description2": "Kıvrımlı dağ yollarından kıyı şeritlerine kadar her yolculuk yeni bakış açıları ve unutulmaz deneyimler getiriyor.",
+      "description3": "Eşsiz manzaralar, dağ yolları ve kıyı güzergahları boyunca yaptığım son motosiklet gezilerimin fotoğraf galerisine göz atın!"
     },
     "cycling": {
       "heading": "Bisiklet",
-      "description1": "Bisiklet, muhteşem manzaraları keşfederken aynı zamanda aktif kalma konusunda bana izin veren başka bir hobi.",
-      "description2": "Yerel izler kısa sürüşler veya kırsal bir günlük tur olsun, bisiklet hem fiziksel egzersiz hem de zihinsel rahatlama sağlar."
+      "description1": "Bisiklet, güzel manzaraları keşfederken aktif kalmamı sağlayan bir başka tutkum.",
+      "description2": "İster yerel parkurlarda kısa bir tur olsun ister kırsalda gün boyu süren bir gezi, bisiklet hem fiziksel egzersiz hem de zihinsel tazelenme sunuyor."
     },
     "photography": {
-      "heading": "Veri Analizi & Teknoloji",
-      "description1": "Profesyonel faaliyetlerim dışında, veri mühendisliği ve veri analiz mühendisliğindeki gelişmelerle ilgilim.",
-      "description2": "Modern veri platformlarıyla çalışmayı, veri modelleme ve dönüştürme için yeni araçları keşfetmeyi, veri boru hatlarını optimize etmeyi ve verilerin daha güvenilir, ölçeklenebilir ve kullanılabilir hale getirilmesi yollarını denemeyi seviyorum.",
-      "description3": "Veri altyapısı bulut teknolojisi, ELT/ETL süreçleri ve görselleştirme teknolojilerindeki en son eğilimler hakkında da bilgilidir, böylece alanda güncel kalırım.",
-      "description4": "Bu tutkumu yansıtan teknik okuma listem var, çünkü bu hızla gelişen alanlarda bilgimi ve yeteneğimi sürekli genişletmeye çalışıyorum."
+      "heading": "Analitik Mühendisliği ve Teknoloji",
+      "description1": "Mesleki çalışmalarımın ötesinde, veri mühendisliği ve analitik mühendisliği alanındaki gelişmelere derin bir ilgi duyuyorum.",
+      "description2": "Modern veri platformlarıyla çalışmaktan, veri modelleme ve dönüşümü için yeni araçlar keşfetmekten, veri hatlarını optimize etmekten ve verileri daha güvenilir, ölçeklenebilir ve eyleme dönüştürülebilir kılmanın yollarını denemekten keyif alıyorum.",
+      "description3": "Alanında güncel kalmak için bulut veri altyapısı, ELT/ETL süreçleri ve görselleştirme teknikleri konusundaki en yeni eğilimleri de yakından takip ediyorum.",
+      "description4": "Bu hızla gelişen alanlardaki bilgimi ve becerilerimi sürekli genişletmeye çalıştığımdan, teknik okuma listem de bu tutkuyu yansıtıyor."
     },
     "history": {
-      "heading": "Tarih, Mimari & Ekonomi",
-      "description1": "Tarihe, mimariye ve ekonomiye derin bir ilgim var ve dünyayı keşfetme biçimimi büyük ölçüde etkiliyor.",
-      "description2": "Farklı medeniyetler, mimari başarıları ve ekonomi sistemleri hakkında öğrenmek, toplum ve insan kültürünün gelişimini anlamamı kolaylaştırıyor.",
-      "description3": "Bu ilgi alanları, aslında motorlu bisiklet yolculuklarım ve bisiklet maceralarımın arkasındaki itki güçleridir. Tarihi kalıntıları doğrudan deneyim etmemi, farklı mimari stilleri takdir etmemi ve bölgeler arası ekonomik farklılıkları gözlemlememi sağlıyor — ziyaret ettiğim yerlerle daha derin bir bağ kuruyor."
+      "heading": "Tarih, Mimarlık ve Ekonomi",
+      "description1": "Tarihe, mimarlığa ve ekonomiye derin bir ilgi duyuyorum; bu da dünyayı keşfetme biçimimi büyük ölçüde etkiliyor.",
+      "description2": "Farklı uygarlıkları, onların mimari başarılarını ve ekonomik sistemlerini öğrenmek, insan toplumunun ve kültürünün evrimini anlamama yardımcı oluyor.",
+      "description3": "Bu ilgi alanları aslında motosiklet gezilerimin ve bisiklet maceralarımın da itici gücü. Tarihi mekanları doğrudan deneyimlememe, farklı mimari tarzları takdir etmeme ve bölgeler arasındaki ekonomik farklılıkları gözlemlememe olanak tanıyarak ziyaret ettiğim yerlerle daha derin bir bağ kurmamı sağlıyor."
     },
     "financial": {
       "heading": "Finansal Piyasalar",
-      "description1": "Finansal piyasalarda kariyerim, kısa vadeli ticaret yerine dikkatli ve uzun vadeli bir yaklaşımı yansıtıyor.",
-      "description2": "Birkaç yıl önce, enflasyonla mücadele tahvilleri ve ETF'ler gibi muhafazakar araçlarla bir temel kurdum ve yavaş yavaş Polonya hisselerine, dividend dalgalanmaları üretenlere genişletiyorum.",
-      "description3": "Şu anda, hem Polonya hem de Amerika piyasalarında çeşitlendirilmiş bir portföy tutuyorum ve tatmin edici sonuçlar veren sistemsel bir yatırım stratejisi uyguluyorum.",
-      "description4": "Bu pratik deneyim, piyasa dinamikleri ve yatırım prensipleri hakkında değerli bakışlar sağladı.",
-      "description5": "Yatırım bilgisini geliştirmek isteyenler için, özellikle Lehçe konuşanlar için öneriyorum",
-      "recommendation": "investomat.eu",
-      "recommendationDesc": "— üniversite düzeyinde finansal eğitim sunan, erişilebilir bir formatta sunan olağanüstü bir kaynak."
+      "description1": "Finansal piyasalardaki yolculuğum, kısa vadeli alım satımdan ziyade düşünceli ve uzun vadeli bir yatırım yaklaşımını yansıtıyor.",
+      "description2": "Birkaç yıl önce, enflasyona karşı koruyan tahviller ve ETF'ler gibi temkinli araçlarla bir temel oluşturdum; zamanla bunu temettü getiren Polonya hisse senetlerine doğru genişlettim.",
+      "description3": "Şu anda hem Polonya hem de ABD piyasalarında çeşitlendirilmiş bir portföy tutuyor ve tatmin edici sonuçlar veren sistematik bir yatırım stratejisi uyguluyorum.",
+      "description4": "Bu uygulamalı deneyim, piyasa dinamikleri ve yatırım ilkeleri konusunda değerli içgörüler kazandırdı.",
+      "description5": "Yatırım bilgisini geliştirmek isteyenlere, özellikle de Lehçe bilenlere şunu öneriyorum:",
+      "recommendation": "inwestomat.eu",
+      "recommendationDesc": "- üniversite düzeyinde finansal eğitimi erişilebilir bir biçimde sunan, son derece değerli bir kaynak."
     }
   },
   "contact": {
-    "title": "İletişim",
-    "description": "Her zaman yeni projeler, yaratıcı fikirler veya vizyonunuzun bir parçası olma fırsatları hakkında konuşmaktan memnuniyet duyuyorum.",
+    "title": "İletişime Geçin",
+    "description": "Yeni projeleri, yaratıcı fikirleri veya vizyonunuzun bir parçası olma fırsatlarını konuşmaya her zaman açığım.",
     "name": "İsim",
     "email": "E-posta",
     "message": "Mesaj",
     "send": "Mesaj Gönder",
-    "required": "Bu alan gereklidir",
+    "required": "Bu alan zorunludur",
     "success": "Mesaj başarıyla gönderildi!",
-    "error": "Mesaj gönderme başarısız. Lütfen tekrar deneyin.",
+    "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
     "labels": {
       "name": "Adınız",
-      "email": "E-posta adresiniz",
+      "email": "E-posta Adresiniz",
       "message": "Mesajınız",
       "phone": "Telefon",
       "location": "Konum",
-      "connect": "Benimle Bağlan"
+      "connect": "Benimle Bağlantı Kurun"
     }
   },
   "notFound": {
@@ -214,14 +214,14 @@
   },
   "footer": {
     "logo": "Konrad Borowiec",
-    "description": "Veri Analizi & Veri Mühendisliği",
+    "description": "Veri Analizi ve Veri Mühendisliği",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Tüm hakları saklıdır.",
-    "tagline": "Profesyonel Veri Çözümleri"
+    "tagline": "Profesyonel veri çözümleri"
   },
   "ui": {
     "darkMode": "Koyu Mod",
     "lightMode": "Açık Mod",
-    "toggle": "Tema Değiştir",
+    "toggle": "Temayı Değiştir",
     "menu": "Menü",
     "closeMenu": "Menüyü Kapat",
     "backToTop": "Yukarı Dön"
@@ -230,6 +230,6 @@
     "success": "Başarılı",
     "error": "Hata",
     "sent": "Mesaj başarıyla gönderildi!",
-    "failed": "Mesaj gönderme başarısız"
+    "failed": "Mesaj gönderilemedi"
   }
 }

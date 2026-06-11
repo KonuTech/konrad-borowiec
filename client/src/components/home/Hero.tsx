@@ -46,7 +46,7 @@ const Hero = () => {
 
           {/* Introduction Text - Second on mobile */}
           <motion.div
-            className="order-last text-center md:order-first md:w-1/2 md:text-left"
+            className="order-last text-center md:order-first md:w-1/2 md:text-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

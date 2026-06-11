@@ -89,7 +89,7 @@
     "technologies": "Technologies",
     "items": {
       "1": {
-        "description": "SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset . Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast"
+        "description": "SQL playground using NYC Taxi Data. Dockerized PostgreSQL, pgAdmin, and Superset. Database initialization, backfill, and data ingestion are preconfigured and ready to go. Start analytics fast"
       },
       "2": {
         "description": "Daily ETL and ML with Docker, PostgreSQL, Airflow, and XGBoost on pre-selected stocks. Finally, React as web-app. All done with Claude Code"
@@ -101,10 +101,10 @@
         "description": "A dockerized RAG application based on PC game reviews pulled from the Steam store. Featuring a Flask app running on Elasticsearch vector database. As an addition PostgreSQL for logging and Grafana for monitoring"
       },
       "5": {
-        "description": "e2e MLOps on GCP - PySpark, Pandas, Sciki-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI"
+        "description": "e2e MLOps on GCP - PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI"
       },
       "6": {
-        "description": "Dockerized Flask service - scoring if a customer will default. Pandas, Sciki-learn, XGBoost, Flask, Docker"
+        "description": "Dockerized Flask service - scoring if a customer will default. Pandas, Scikit-learn, XGBoost, Flask, Docker"
       },
       "7": {
         "description": "TensorFlow, image classifier, transfer-learning, model serving, Docker, Kubernetes, Kind cluster"

@@ -49,14 +49,13 @@
     "contact": {
       "pdf": {
         "title": "Pobierz CV",
-        "description": "Specjalista od rozwiązań danych z siedzibą w Warszawie, Polska.",
+        "description": "Specjalista od profesjonalnych rozwiązań w obszarze danych, mieszkający w Warszawie.",
         "download": "Pobierz CV"
       }
     }
   },
   "timeline": {
     "title": "Moja droga",
-    "sectionTitle": "Doświadczenie i edukacja",
     "item": {
       "year": "{year}",
       "title": "{title}",
@@ -102,10 +101,10 @@
         "description": "Skonteneryzowana aplikacja RAG oparta na recenzjach gier PC pobranych ze sklepu Steam. Aplikacja Flask wykorzystująca wektorową bazę danych Elasticsearch. Dodatkowo PostgreSQL do logowania zdarzeń oraz Grafana do monitoringu."
       },
       "5": {
-        "description": "Kompleksowy MLOps na GCP — PySpark, Pandas, scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
+        "description": "Kompleksowy MLOps na GCP — PySpark, Pandas, Scikit-learn, XGBoost, Prefect, MLflow, FastAPI, Flask, Evidently AI."
       },
       "6": {
-        "description": "Skonteneryzowana usługa Flask — ocena prawdopodobieństwa, że klient nie spłaci zobowiązania. Pandas, scikit-learn, XGBoost, Flask, Docker."
+        "description": "Skonteneryzowana usługa Flask — ocena prawdopodobieństwa, że klient nie spłaci zobowiązania. Pandas, Scikit-learn, XGBoost, Flask, Docker."
       },
       "7": {
         "description": "TensorFlow, klasyfikator obrazów, transfer learning, serwowanie modelu, Docker, Kubernetes, klaster Kind."
@@ -117,7 +116,7 @@
   },
   "books": {
     "headingPrefix": "Moja",
-    "title": "lista lektur",
+    "title": "Lista lektur",
     "description": "Książki, które przeczytałem oraz te, które planuję przeczytać — z obszaru inżynierii danych i uczenia maszynowego.",
     "genre": "Kategoria",
     "status": "Status",
