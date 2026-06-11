@@ -81,7 +81,8 @@ i18n.use(initReactI18next).init({
 
 // Languages written right-to-left. Used to set the document direction so RTL
 // locales (e.g. Arabic) render with correct text flow and alignment.
-const RTL_LANGS = ['ar'];
+// Exported so other consumers (e.g. the CV generator) share the same list.
+export const RTL_LANGS = ['ar'];
 
 // Sync <html lang> and <html dir> with the active language. Keeping this in one
 // place means both the initial load and every in-app language switch stay correct.

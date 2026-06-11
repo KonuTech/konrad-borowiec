@@ -215,6 +215,17 @@
       "connect": "与我联系"
     }
   },
+  "cv": {
+    "summary": "个人简介",
+    "sideProjects": "业余项目",
+    "skillsCore": "核心技能",
+    "skillsOther": "其他技术",
+    "generatedOn": "生成日期：{{date}}",
+    "downloadFailed": "无法生成文件，请重试。",
+    "labels": {
+      "email": "电子邮箱"
+    }
+  },
   "notFound": {
     "title": "404 页面未找到",
     "message": "您是不是忘了把这个页面添加到路由中？"

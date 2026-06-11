@@ -215,6 +215,17 @@
       "connect": "私とつながる"
     }
   },
+  "cv": {
+    "summary": "概要",
+    "sideProjects": "サイドプロジェクト",
+    "skillsCore": "主要スキル",
+    "skillsOther": "その他の技術",
+    "generatedOn": "{{date}} に作成",
+    "downloadFailed": "ファイルを生成できませんでした。もう一度お試しください。",
+    "labels": {
+      "email": "メール"
+    }
+  },
   "notFound": {
     "title": "404 ページが見つかりません",
     "message": "ルーターにこのページを追加し忘れていませんか？"

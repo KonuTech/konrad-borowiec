@@ -215,6 +215,17 @@
       "connect": "Conéctate conmigo"
     }
   },
+  "cv": {
+    "summary": "Resumen",
+    "sideProjects": "Proyectos personales",
+    "skillsCore": "Competencias principales",
+    "skillsOther": "Tecnologías adicionales",
+    "generatedOn": "Generado el {{date}}",
+    "downloadFailed": "No se pudo generar el archivo. Inténtalo de nuevo.",
+    "labels": {
+      "email": "Correo electrónico"
+    }
+  },
   "notFound": {
     "title": "404 Página no encontrada",
     "message": "¿Olvidaste agregar la página al router?"

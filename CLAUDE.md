@@ -56,10 +56,13 @@ Note: `tsconfig.json` still lists `server/**/*` in `include` — leftover and ha
 - Selected language persists to `localStorage` under `selectedLanguage`.
 - When adding user-facing strings, add the key to **all** locale `translation.json` files (`client/update_locales.sh` helps scaffold).
 
-### CV / PDF generation
+### CV downloads (PDF / HTML / Markdown)
 
-- `components/contact/PdfButtons.tsx` generates downloadable CV (PDF + HTML) client-side via `html2pdf.js`. Shared options live in `client/src/lib/pdfConfig.ts`.
-- The CV content is **hardcoded inline in `PdfButtons.tsx`** and supports only `en` and `pl` (separate from the 13-locale i18n system). Editing CV text means editing that component, not the locale JSON.
+- `components/contact/PdfButtons.tsx` is UI-only; all CV logic lives in `client/src/lib/cv/` (`buildCvModel.ts` assembles a `CvModel`, `markdown.ts` / `html.ts` / `pdfDocument.tsx` render it, `download.ts` is the entry point).
+- The CV is **data-driven, not hardcoded**: content comes from `data/roles.ts`, `data/technologies.ts`, `data/data.ts` plus the i18n keys `timeline.items.<n>`, `projects.items.<n>.description`, `about.bio1/2`, and `cv.*` — so it follows the selected language in all 13 locales. Editing CV text means editing those sources, never a template.
+- Job titles, organization names, and tech labels intentionally stay in English in every language (matches the site).
+- PDF is hybrid: Latin-script locales (en, pl, es, de, fr, pt, tr, id) get a real-text PDF via `@react-pdf/renderer` + Noto Sans from `assets/fonts/cv/`; ja/zh/ko/ar/hi fall back to a rasterized capture via `html2pdf.js`. Both libraries load lazily on click — keep them out of the main bundle. The split is the `TEXT_PDF_LANGS` set in `lib/cv/pdf.tsx`.
+- E2E coverage: `e2e/cv-download.spec.ts` (en/pl/ja/ar, all three formats).
 
 ### Other conventions
 

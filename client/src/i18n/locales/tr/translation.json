@@ -215,6 +215,17 @@
       "connect": "Benimle Bağlantı Kurun"
     }
   },
+  "cv": {
+    "summary": "Özet",
+    "sideProjects": "Yan Projeler",
+    "skillsCore": "Temel Beceriler",
+    "skillsOther": "Ek Teknolojiler",
+    "generatedOn": "{{date}} tarihinde oluşturuldu",
+    "downloadFailed": "Dosya oluşturulamadı. Lütfen tekrar deneyin.",
+    "labels": {
+      "email": "E-posta"
+    }
+  },
   "notFound": {
     "title": "404 Sayfa Bulunamadı",
     "message": "Sayfayı yönlendiriciye eklemeyi mi unuttunuz?"

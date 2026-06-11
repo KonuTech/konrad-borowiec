@@ -1,0 +1,8 @@
+Noto Sans (NotoSans-Regular.ttf, NotoSans-Bold.ttf)
+Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+
+These fonts are licensed under the SIL Open Font License, Version 1.1.
+License text: https://openfontlicense.org
+
+They are used solely for client-side CV PDF generation (fetched on demand,
+not bundled into the application JavaScript).

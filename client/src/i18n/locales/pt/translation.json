@@ -215,6 +215,17 @@
       "connect": "Conecte-se comigo"
     }
   },
+  "cv": {
+    "summary": "Resumo",
+    "sideProjects": "Projetos paralelos",
+    "skillsCore": "Competências principais",
+    "skillsOther": "Tecnologias adicionais",
+    "generatedOn": "Gerado em {{date}}",
+    "downloadFailed": "Não foi possível gerar o arquivo. Tente novamente.",
+    "labels": {
+      "email": "E-mail"
+    }
+  },
   "notFound": {
     "title": "404 Página não encontrada",
     "message": "Você esqueceu de adicionar a página ao roteador?"

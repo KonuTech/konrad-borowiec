@@ -215,6 +215,17 @@
       "connect": "Terhubung Dengan Saya"
     }
   },
+  "cv": {
+    "summary": "Ringkasan",
+    "sideProjects": "Proyek Sampingan",
+    "skillsCore": "Keahlian Inti",
+    "skillsOther": "Teknologi Lainnya",
+    "generatedOn": "Dibuat pada {{date}}",
+    "downloadFailed": "Gagal membuat file. Silakan coba lagi.",
+    "labels": {
+      "email": "Email"
+    }
+  },
   "notFound": {
     "title": "404 Halaman Tidak Ditemukan",
     "message": "Apakah Anda lupa menambahkan halaman ini ke router?"

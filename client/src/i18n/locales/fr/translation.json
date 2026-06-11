@@ -215,6 +215,17 @@
       "connect": "Me suivre"
     }
   },
+  "cv": {
+    "summary": "Profil",
+    "sideProjects": "Projets personnels",
+    "skillsCore": "Compétences clés",
+    "skillsOther": "Technologies complémentaires",
+    "generatedOn": "Généré le {{date}}",
+    "downloadFailed": "Impossible de générer le fichier. Veuillez réessayer.",
+    "labels": {
+      "email": "E-mail"
+    }
+  },
   "notFound": {
     "title": "404 Page introuvable",
     "message": "Avez-vous oublié d'ajouter la page au routeur ?"

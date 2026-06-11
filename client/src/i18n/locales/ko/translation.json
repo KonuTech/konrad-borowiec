@@ -215,6 +215,17 @@
       "connect": "함께 연결하기"
     }
   },
+  "cv": {
+    "summary": "요약",
+    "sideProjects": "사이드 프로젝트",
+    "skillsCore": "핵심 기술",
+    "skillsOther": "기타 기술",
+    "generatedOn": "{{date}}에 생성됨",
+    "downloadFailed": "파일을 생성하지 못했습니다. 다시 시도해 주세요.",
+    "labels": {
+      "email": "이메일"
+    }
+  },
   "notFound": {
     "title": "404 페이지를 찾을 수 없습니다",
     "message": "라우터에 페이지를 추가하는 것을 잊으셨나요?"

@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import PdfButtons from './PdfButtons';
 
 const ContactInfo: FC = () => {
-  const { t, i18n } = useTranslation();
-  const language = i18n.language === 'pl' ? 'pl' : 'en';
+  const { t } = useTranslation();
 
   return (
     <div id="contact-info" className="flex h-full flex-col lg:flex-row lg:items-start lg:gap-16">
@@ -92,15 +91,10 @@ const ContactInfo: FC = () => {
                 <i className="fas fa-certificate text-xl text-portfolio-primary dark:text-portfolio-lighter"></i>
               </a>
             </div>
-            <div className="group flex items-start gap-2">
-              <h3 className="font-nunito mb-4 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
-                {t('about.contact.pdf.download')}
-              </h3>
-              <span className="text-xs text-portfolio-muted dark:text-portfolio-lighter/70">
-                In development
-              </span>
-            </div>
-            <PdfButtons language={language} />
+            <h3 className="font-nunito mb-4 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter">
+              {t('about.contact.pdf.download')}
+            </h3>
+            <PdfButtons />
           </div>
         </div>
       </div>

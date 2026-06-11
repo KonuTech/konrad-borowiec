@@ -215,6 +215,17 @@
       "connect": "Połącz się ze mną"
     }
   },
+  "cv": {
+    "summary": "Podsumowanie",
+    "sideProjects": "Projekty poboczne",
+    "skillsCore": "Kluczowe umiejętności",
+    "skillsOther": "Pozostałe technologie",
+    "generatedOn": "Wygenerowano {{date}}",
+    "downloadFailed": "Nie udało się wygenerować pliku. Spróbuj ponownie.",
+    "labels": {
+      "email": "E-mail"
+    }
+  },
   "notFound": {
     "title": "404 — strona nie została znaleziona",
     "message": "Czy aby na pewno strona została dodana do routera?"

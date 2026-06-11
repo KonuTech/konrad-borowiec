@@ -78,7 +78,7 @@ export const projects: Project[] = [
       'Python',
       'PySpark',
       'Pandas',
-      'sciki-learn',
+      'scikit-learn',
       'MLflow',
       'XGBoost',
       'Prefect',

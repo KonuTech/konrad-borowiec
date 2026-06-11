@@ -215,6 +215,17 @@
       "connect": "Vernetzen Sie sich mit mir"
     }
   },
+  "cv": {
+    "summary": "Profil",
+    "sideProjects": "Nebenprojekte",
+    "skillsCore": "Kernkompetenzen",
+    "skillsOther": "Weitere Technologien",
+    "generatedOn": "Erstellt am {{date}}",
+    "downloadFailed": "Die Datei konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
+    "labels": {
+      "email": "E-Mail"
+    }
+  },
   "notFound": {
     "title": "404 – Seite nicht gefunden",
     "message": "Haben Sie vergessen, die Seite zum Router hinzuzufügen?"
