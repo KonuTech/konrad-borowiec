@@ -4,195 +4,92 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Konrad Borowiec's personal portfolio website built as a frontend-only static web application. Originally a full-stack TypeScript application with Express.js backend, it has been refactored to be a pure React frontend that uses static data services for deployment to static hosting platforms like Azure Static Web Apps.
+Konrad Borowiec's personal portfolio: a **frontend-only static web app** (React 18 + TypeScript + Vite + Tailwind + shadcn/ui). It was migrated from a full-stack Express app — the backend is gone and must not be reintroduced. Anything API-shaped lives in `client/src/lib/staticApi.ts` wrapping in-memory data in `client/src/data/data.ts`. Deploys to Azure Static Web Apps.
 
-## Development Commands
+> Companion docs `AGENTS.md` and `.github/copilot-instructions.md` cover the same conventions and a list of "do not" rules — keep all three in sync when changing process/architecture.
 
-### Static App Development
+## Commands
 
-- `npm run dev` - Start Vite development server on host 0.0.0.0 (accessible externally)
-- `npm run build` - Build static application for production to `build/` directory
-- `npm run preview` - Preview production build locally
-- `npm run check` - Run TypeScript type checking
-- `npm run analyze` - Build and analyze bundle size (Note: script references `dist` but actual output is `build/`)
+| Task           | Command                                   | Notes                                          |
+| -------------- | ----------------------------------------- | ---------------------------------------------- |
+| Dev server     | `npm run dev`                             | Vite, binds `0.0.0.0`, port 5173               |
+| Typecheck      | `npm run check`                           | bare `tsc` (no emit)                           |
+| Lint / fix     | `npm run lint` / `npm run lint:fix`       | ESLint v9 flat config                          |
+| Format / check | `npm run format` / `npm run format:check` | Prettier                                       |
+| Prod build     | `npm run build`                           | outputs to `build/` (emptied each build)       |
+| Preview build  | `npm run preview`                         |                                                |
+| E2E tests      | `npm run test:e2e`                        | Playwright; `:headed` and `:ci` variants exist |
 
-### Testing Static Build
+**Pre-handoff verification:** `npm run lint && npm run check && npm run build`. CI only runs the Azure build — local verification is the only real gate.
 
-- `docker run --rm -v $(pwd):/app -w /app node:18-alpine npm run build` - Build with Docker
-- `docker run --rm -d -p 8080:80 -v $(pwd)/build:/usr/share/nginx/html --name portfolio-preview nginx:alpine` - Serve static build with nginx for testing
+- Run a single Playwright test: `npx playwright test e2e/i18n.spec.ts` (or add `-g "<test name>"`).
+- `npm run analyze` is **known-broken** — it references `dist` but the build writes to `build/`. Use `npx vite-bundle-analyzer build` instead.
 
-### Environment Setup
+## Architecture
 
-- No external dependencies or backend services required
-- Development server runs on port specified by Vite (default 5173)
-- Production build outputs to `build/` directory
-- All assets are served statically from the build output
+### Vite layout (easy to get wrong — see `vite.config.ts`)
 
-## Architecture Overview
+- `root` is `client/`, **not** the repo root. `index.html` is `client/index.html`.
+- `publicDir` is `assets/` (repo root), so everything under `assets/` is served from `/`. Reference images as `/pictures/...` and `/documents/...` — **never** `/assets/pictures/...`.
+- Build output is `build/`, not `dist/`. Don't change this — the Azure SWA workflow depends on it.
+- `import.meta.env.VITE_BUILD_ID` is injected at build time from the git short SHA.
+- Replit plugins (`cartographer`) only load when `REPL_ID` is set; ignore locally. Git-ignored `vite.config.ts.timestamp-*.mjs` files are generated at the repo root — leave them alone.
 
-### Project Structure
+### Path aliases (defined in both `vite.config.ts` and `tsconfig.json`)
 
-- `client/` - React frontend application (Vite + TypeScript + Tailwind CSS)
-- `shared/` - Shared TypeScript types and Zod validation schemas
-- `assets/` - Static assets (images, documents) copied to build output
-- `build/` - Production build output directory
+- `@/*` → `client/src/*`
+- `@shared/*` → `shared/*`
+- `@assets/*` → `assets/*`
 
-### Key Architectural Patterns
+Note: `tsconfig.json` still lists `server/**/*` in `include` — leftover and harmless. Don't create a `server/` dir to "fix" it.
 
-**Frontend-Only Static App**: No backend server required. All data is provided through static data services that simulate API responses using in-memory data.
+### Static data layer
 
-**Component Architecture**: React components organized by feature areas:
+- `client/src/data/data.ts` — central in-memory source for projects, books, and gallery image arrays (`motorcycleImages`, `cyclingImages`).
+- `client/src/lib/staticApi.ts` — async wrapper preserving the original API shape (`api.projects.getAll()`, etc.). Components fetch via plain `useState` + `useEffect` against this. **No React Query / Redux / SWR** — do not add them.
+- Contact form (`components/contact/ContactForm.tsx`) persists submissions to `localStorage` only.
+- Image paths in `data.ts` are runtime URLs, not imports — a typo won't fail the build. Add files under `assets/pictures/...` and reference `/pictures/...`.
 
-- `components/about/` - About section components (Timeline, TechStack)
-- `components/books/` - Book-related components with reading list functionality
-- `components/contact/` - Contact form (saves to localStorage for demo purposes)
-- `components/projects/` - Project showcase components
-- `components/layout/` - Header, Footer, mobile menu, dark mode toggle
-- `components/ui/` - Reusable UI components (shadcn/ui based)
+### Internationalization
 
-**Static Data Layer**: Replaces backend API with static data services:
+- i18next + react-i18next. `client/src/i18n/index.ts` registers **13 locales** under `client/src/i18n/locales/<lng>/translation.json` (en, pl, es, de, fr, ja, pt, zh, ar, tr, ko, hi, id). en is the fallback.
+- Selected language persists to `localStorage` under `selectedLanguage`.
+- When adding user-facing strings, add the key to **all** locale `translation.json` files (`client/update_locales.sh` helps scaffold).
 
-- `client/src/data/data.ts` - Central data source with projects, books, and images
-- `client/src/lib/staticApi.ts` - API compatibility layer that maps old API calls to static data
-- All data operations return Promises to maintain async API compatibility
+### CV / PDF generation
 
-**Styling System**:
+- `components/contact/PdfButtons.tsx` generates downloadable CV (PDF + HTML) client-side via `html2pdf.js`. Shared options live in `client/src/lib/pdfConfig.ts`.
+- The CV content is **hardcoded inline in `PdfButtons.tsx`** and supports only `en` and `pl` (separate from the 13-locale i18n system). Editing CV text means editing that component, not the locale JSON.
 
-- Tailwind CSS for utility-first styling
-- shadcn/ui component library for consistent UI components
-- Dark mode support via ThemeContext
-- Custom theme configuration via `theme.json`
+### Other conventions
 
-### Important Technical Details
+- Routing: **Wouter**, not React Router.
+- Theme: `context/ThemeContext.tsx` manages dark/light mode, persisted to `localStorage`.
+- Icons: prefer `lucide-react` (already a dependency).
+- UI primitives follow shadcn/ui patterns in `components/ui/` over Radix.
+- Shared types/Zod schemas live in `shared/types.ts`.
 
-**Build System**: Vite for frontend bundling with React plugin. Static assets from `assets/` directory are copied to build output and served from root paths (e.g., `/pictures/projects/image.png`).
+## Code Style & Git Hooks
 
-**State Management**: Standard React state with useState/useEffect patterns. React Context for theme state. No external state management libraries required.
+- Prettier: single quotes, semicolons, `printWidth: 100`, `trailingComma: 'all'`, with `prettier-plugin-tailwindcss` sorting class names. Run `npm run format` rather than hand-sorting Tailwind classes.
+- ESLint v9 flat config (`eslint.config.js`): `no-explicit-any` and unused vars are **warnings**, not errors; `_`-prefixed args are intentionally ignored.
+- Husky `.husky/pre-commit` and `.husky/pre-push` both run `npx lint-staged` — staged `*.{js,jsx,ts,tsx}` get `eslint --fix` + Prettier, other files get Prettier only. **Neither typecheck nor build runs on commit** — run those manually.
 
-**Routing**: Wouter for client-side routing (lightweight React router alternative).
+## Testing
 
-**Form Handling**: React Hook Form with Zod validation. Contact form submissions are stored in localStorage for demonstration purposes.
+- Playwright e2e tests live in `e2e/` (`home.spec.ts`, `i18n.spec.ts`); config in `playwright.config.ts` (testDir `e2e`, projects: chromium/webkit/firefox).
+- `webServer` runs `npm run dev` locally; in CI it builds and serves the preview. Local runs reuse an existing server on port 5173.
+- Some `*.spec.ts` files exist under `client/` (e.g. `client/tests/`, `client/playwright-mobile-nav.spec.ts`) but the configured `testDir` is `e2e/` only — those are not picked up by `npm run test:e2e`.
 
-**Data Layer**: Uses static data services that simulate API responses with no external dependencies or persistent storage.
+## Deployment
 
-## Key Dependencies to Know
+- Azure Static Web Apps via `.github/workflows/azure-static-web-apps-gentle-bush-092d4010f.yml`. Build command `npm run build`, output `build/`, no API/backend config. Routing is client-side (Wouter).
+- Alternative static hosts (Netlify, Vercel, GitHub Pages) work from the same `build/` output.
 
-**Frontend Stack**:
+## Do Not
 
-- React 18 + TypeScript
-- Vite for bundling and development
-- Tailwind CSS + shadcn/ui for styling
-- Wouter for routing
-- Framer Motion for animations
-- React Hook Form + Zod for form validation
-
-**Development Tools**:
-
-- Vite for bundling and hot reloading
-- TypeScript for type checking
-- PostCSS + Autoprefixer for CSS processing
-
-## Development Notes
-
-- Application is completely frontend-only with no backend dependencies
-- Static images are served from build output at `/pictures/`, `/documents/` paths
-- All data is static/in-memory - perfect for static hosting and demonstration purposes
-- Contact form submissions are stored in localStorage (client-side only)
-- Component library uses shadcn/ui patterns with Radix UI primitives
-- Asset paths in code reference `/pictures/` instead of `/assets/pictures/` for static build compatibility
-- Mock data includes actual file references that exist in the `assets/` directory
-
-## Static Data Architecture
-
-### Data Sources
-
-- **Projects**: Defined in `projects` array with project details and cover images
-- **Books**: Reading list with covers, status (read/to-read), and reviews in `books` array
-- **Images**: Static arrays of image paths for motorcycle and cycling galleries (`motorcycleImages`, `cyclingImages`)
-- **Contacts**: Stored in localStorage via `dataService.createContact()`
-
-### API Compatibility Layer
-
-The `staticApi.ts` provides backward compatibility with the original API structure:
-
-```typescript
-// Original API calls still work
-await api.projects.getAll();
-await api.books.getAll();
-await api.contact.create(contactData);
-```
-
-### Asset Management
-
-- Source assets in `assets/` directory are copied to build output
-- Image paths in mock data use `/pictures/` prefix for static serving
-- All asset references are validated against actual files in `assets/` directory
-
-## Deployment for Static Hosting
-
-### Build Output Structure
-
-```
-build/
-├── index.html          # Main HTML file
-├── assets/             # Bundled JS/CSS with hashed filenames
-├── pictures/           # Static images from assets/pictures/
-├── documents/          # Static documents from assets/documents/
-└── vite.svg           # Other static assets
-```
-
-### Deployment Platforms
-
-- **Azure Static Web Apps**: Primary deployment target
-- **Netlify**: Alternative static hosting
-- **Vercel**: Alternative static hosting
-- **GitHub Pages**: Alternative static hosting
-
-### Azure Static Web Apps Configuration
-
-- Build command: `npm run build`
-- Build output directory: `build`
-- No API or backend configuration required
-- All routing handled client-side by Wouter
-- GitHub Actions workflow: `azure-static-web-apps-gentle-bush-092d4010f.yml`
-
-## Migration Notes
-
-This application was migrated from a full-stack Express.js + React application to a frontend-only static app:
-
-### Changes Made
-
-1. **Removed Express.js backend** and all server-side dependencies
-2. **Created static data services** to replace API calls
-3. **Updated package.json** to remove server scripts and dependencies
-4. **Modified Vite configuration** for static build output
-5. **Fixed asset paths** to work with static serving
-6. **Updated contact form** to use localStorage instead of backend storage
-
-### Backward Compatibility
-
-- Component interfaces remain unchanged
-- Async patterns preserved with Promise-based static data services
-- Type definitions maintained via shared types
-
-## Important File Locations
-
-### Core Static Architecture
-
-- `client/src/data/data.ts` - Central static data source and service layer
-- `client/src/lib/staticApi.ts` - API compatibility layer for static data
-- `client/src/components/contact/ContactForm.tsx` - Updated to use localStorage
-- `vite.config.ts` - Static build configuration
-
-### Component Updates
-
-- `client/src/components/projects/ProjectsSection.tsx` - Uses useState/useEffect instead of React Query
-- `client/src/components/books/BooksSection.tsx` - Uses useState/useEffect instead of React Query
-- `client/src/components/interests/InterestsSection.tsx` - Uses static image arrays
-- `client/src/App.tsx` - Removed QueryClientProvider wrapper
-
-### Build Configuration
-
-- `package.json` - Updated scripts for static development
-- `vite.config.ts` - Configured for static build output to `build/` directory
-- `tsconfig.json` - TypeScript configuration for client-only build
+- Don't add a backend, Express, or any `server/` code.
+- Don't change the build output away from `build/`.
+- Don't rewrite asset URLs to include `/assets/` — they're served from root.
+- Don't add React Query / Redux or swap the router without being asked.
+- Don't commit `build/`, `.temp/`, `.playwright-mcp/`, `test-results/`, or `vite.config.ts.timestamp-*.mjs`.
