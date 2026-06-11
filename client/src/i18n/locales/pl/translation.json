@@ -55,7 +55,11 @@
     },
     "filterByTech": "Wskazówka: kliknij technologię, aby filtrować doświadczenie.",
     "clearFilters": "Wyczyść filtry",
-    "noRolesMatch": "Żadne stanowisko nie pasuje do wybranych technologii."
+    "noRolesMatch": "Żadne stanowisko nie pasuje do wybranych technologii.",
+    "experienceTitle": "Lata doświadczenia",
+    "yearsShort": "lat",
+    "viewDots": "Kropki",
+    "viewBars": "Słupki"
   },
   "timeline": {
     "title": "Moja droga",

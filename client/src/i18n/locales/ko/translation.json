@@ -55,7 +55,11 @@
     },
     "filterByTech": "팁: 기술을 클릭하면 경력을 필터링할 수 있습니다.",
     "clearFilters": "필터 지우기",
-    "noRolesMatch": "선택한 기술과 일치하는 경력이 없습니다."
+    "noRolesMatch": "선택한 기술과 일치하는 경력이 없습니다.",
+    "experienceTitle": "경력 연수",
+    "yearsShort": "년",
+    "viewDots": "점",
+    "viewBars": "막대"
   },
   "timeline": {
     "title": "저의 여정",

@@ -55,7 +55,11 @@
     },
     "filterByTech": "Consejo: haz clic en una tecnología para filtrar la experiencia.",
     "clearFilters": "Borrar filtros",
-    "noRolesMatch": "Ningún puesto coincide con las tecnologías seleccionadas."
+    "noRolesMatch": "Ningún puesto coincide con las tecnologías seleccionadas.",
+    "experienceTitle": "Años de experiencia",
+    "yearsShort": "años",
+    "viewDots": "Puntos",
+    "viewBars": "Barras"
   },
   "timeline": {
     "title": "Mi trayectoria",

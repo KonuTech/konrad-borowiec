@@ -55,7 +55,11 @@
     },
     "filterByTech": "ヒント：技術をクリックすると経歴を絞り込めます。",
     "clearFilters": "フィルターをクリア",
-    "noRolesMatch": "選択した技術に一致する職務はありません。"
+    "noRolesMatch": "選択した技術に一致する職務はありません。",
+    "experienceTitle": "経験年数",
+    "yearsShort": "年",
+    "viewDots": "ドット",
+    "viewBars": "バー"
   },
   "timeline": {
     "title": "私の歩み",

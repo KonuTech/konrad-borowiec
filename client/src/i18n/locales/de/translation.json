@@ -55,7 +55,11 @@
     },
     "filterByTech": "Tipp: Klicke auf eine Technologie, um die Erfahrung zu filtern.",
     "clearFilters": "Filter zurücksetzen",
-    "noRolesMatch": "Keine Position passt zu den ausgewählten Technologien."
+    "noRolesMatch": "Keine Position passt zu den ausgewählten Technologien.",
+    "experienceTitle": "Jahre Erfahrung",
+    "yearsShort": "J.",
+    "viewDots": "Punkte",
+    "viewBars": "Balken"
   },
   "timeline": {
     "title": "Mein Werdegang",

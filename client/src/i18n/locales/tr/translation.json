@@ -55,7 +55,11 @@
     },
     "filterByTech": "İpucu: deneyimi filtrelemek için bir teknolojiye tıklayın.",
     "clearFilters": "Filtreleri temizle",
-    "noRolesMatch": "Seçilen teknolojilerle eşleşen pozisyon yok."
+    "noRolesMatch": "Seçilen teknolojilerle eşleşen pozisyon yok.",
+    "experienceTitle": "Deneyim yılı",
+    "yearsShort": "yıl",
+    "viewDots": "Nokta",
+    "viewBars": "Çubuk"
   },
   "timeline": {
     "title": "Yolculuğum",

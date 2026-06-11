@@ -55,7 +55,11 @@
     },
     "filterByTech": "Dica: clique numa tecnologia para filtrar a experiência.",
     "clearFilters": "Limpar filtros",
-    "noRolesMatch": "Nenhuma função corresponde às tecnologias selecionadas."
+    "noRolesMatch": "Nenhuma função corresponde às tecnologias selecionadas.",
+    "experienceTitle": "Anos de experiência",
+    "yearsShort": "anos",
+    "viewDots": "Pontos",
+    "viewBars": "Barras"
   },
   "timeline": {
     "title": "Minha jornada",

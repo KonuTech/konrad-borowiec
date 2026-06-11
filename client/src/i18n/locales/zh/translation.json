@@ -55,7 +55,11 @@
     },
     "filterByTech": "提示：点击某项技术即可筛选经历。",
     "clearFilters": "清除筛选",
-    "noRolesMatch": "没有与所选技术匹配的职位。"
+    "noRolesMatch": "没有与所选技术匹配的职位。",
+    "experienceTitle": "经验年数",
+    "yearsShort": "年",
+    "viewDots": "圆点",
+    "viewBars": "条形"
   },
   "timeline": {
     "title": "我的历程",

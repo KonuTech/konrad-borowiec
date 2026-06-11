@@ -14,6 +14,8 @@ export default defineConfig({
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:5173',
     headless: true,
+    // Disable CSS smooth-scrolling so auto-scroll-to-click is instant and stable.
+    reducedMotion: 'reduce',
     viewport: { width: 1280, height: 720 },
     actionTimeout: 0,
     ignoreHTTPSErrors: true,

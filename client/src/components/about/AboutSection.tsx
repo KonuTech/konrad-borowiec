@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Timeline from './Timeline';
 import TechStack from './TechStack';
+import ExperienceChart from './ExperienceChart';
 import ContactInfo from '../contact/ContactInfo';
 
 const AboutSection = () => {
@@ -11,8 +12,9 @@ const AboutSection = () => {
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
   const [selectedTechIds, setSelectedTechIds] = useState<string[]>([]);
   const isFiltering = selectedTechIds.length > 0;
-  // While filtering, show every matching role (no clamp / gradient / toggle).
-  const showAllRoles = isTimelineExpanded || isFiltering;
+  // The Show/Hide toggle controls expansion independently of filtering, so the
+  // timeline can still be collapsed while a filter is active.
+  const showAllRoles = isTimelineExpanded;
 
   const toggleTech = (id: string) => {
     setSelectedTechIds((prev) =>
@@ -118,6 +120,10 @@ const AboutSection = () => {
             </div>
 
             <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
+              <ExperienceChart selected={selectedTechIds} onToggle={toggleTech} />
+            </div>
+
+            <div className="mt-6 rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark md:mt-4">
               <div className="scroll-mt-24"></div>
               <ContactInfo />
             </div>
@@ -156,27 +162,25 @@ const AboutSection = () => {
                   <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent dark:from-portfolio-dark" />
                 )}
               </div>
-              {!isFiltering && (
-                <button
-                  onClick={() => {
-                    if (isTimelineExpanded) {
-                      timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      // Keep guard active during collapse animation, then recompute
-                      setIsTimelineExpanded(false);
-                      setTimeout(() => {
-                        expandedRef.current = false;
-                        requestAnimationFrame(() => computeHeightRef.current());
-                      }, 600);
-                    } else {
-                      expandedRef.current = true;
-                      setIsTimelineExpanded(true);
-                    }
-                  }}
-                  className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
-                >
-                  {isTimelineExpanded ? t('about.hideTimeline') : t('about.showTimeline')}
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  if (isTimelineExpanded) {
+                    timelineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Keep guard active during collapse animation, then recompute
+                    setIsTimelineExpanded(false);
+                    setTimeout(() => {
+                      expandedRef.current = false;
+                      requestAnimationFrame(() => computeHeightRef.current());
+                    }, 600);
+                  } else {
+                    expandedRef.current = true;
+                    setIsTimelineExpanded(true);
+                  }
+                }}
+                className="font-nunito mt-4 w-full rounded-full px-4 py-2 text-center font-medium text-portfolio-primary transition-colors duration-300 hover:bg-portfolio-primary/10 dark:text-portfolio-lighter dark:hover:bg-portfolio-lighter/10"
+              >
+                {isTimelineExpanded ? t('about.hideTimeline') : t('about.showTimeline')}
+              </button>
             </div>
           </motion.div>
         </div>

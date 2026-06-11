@@ -55,7 +55,11 @@
     },
     "filterByTech": "Tip: klik teknologi untuk memfilter pengalaman.",
     "clearFilters": "Hapus filter",
-    "noRolesMatch": "Tidak ada peran yang cocok dengan teknologi yang dipilih."
+    "noRolesMatch": "Tidak ada peran yang cocok dengan teknologi yang dipilih.",
+    "experienceTitle": "Tahun pengalaman",
+    "yearsShort": "thn",
+    "viewDots": "Titik",
+    "viewBars": "Batang"
   },
   "timeline": {
     "title": "Perjalanan Saya",

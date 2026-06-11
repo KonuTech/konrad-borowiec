@@ -55,7 +55,11 @@
     },
     "filterByTech": "Tip: click a technology to filter the experience timeline.",
     "clearFilters": "Clear filters",
-    "noRolesMatch": "No roles match the selected technologies."
+    "noRolesMatch": "No roles match the selected technologies.",
+    "experienceTitle": "Years of Experience",
+    "yearsShort": "yr",
+    "viewDots": "Dots",
+    "viewBars": "Bars"
   },
   "timeline": {
     "title": "My Journey",

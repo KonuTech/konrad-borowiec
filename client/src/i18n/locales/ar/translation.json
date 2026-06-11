@@ -55,7 +55,11 @@
     },
     "filterByTech": "نصيحة: انقر على تقنية لتصفية الخبرات.",
     "clearFilters": "مسح عوامل التصفية",
-    "noRolesMatch": "لا توجد وظائف تطابق التقنيات المحددة."
+    "noRolesMatch": "لا توجد وظائف تطابق التقنيات المحددة.",
+    "experienceTitle": "سنوات الخبرة",
+    "yearsShort": "سنة",
+    "viewDots": "نقاط",
+    "viewBars": "أشرطة"
   },
   "timeline": {
     "title": "مسيرتي المهنية",

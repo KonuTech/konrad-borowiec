@@ -4,6 +4,9 @@ test('timeline: multiple entries can be expanded independently', async ({ page }
   await page.goto('/');
   await page.locator('#about').scrollIntoViewIfNeeded();
 
+  // Expand the timeline so no entries are clipped by the collapsed-view height cap.
+  await page.getByRole('button', { name: /Show Full Timeline/i }).click();
+
   const descriptions = page.locator('#about [class*="timeline-description-id-"]');
 
   // The first entry is expanded by default.
