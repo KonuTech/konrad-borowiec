@@ -139,7 +139,7 @@ const AboutSection = () => {
           >
             <div
               ref={timelineRef}
-              className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark"
+              className="rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-dark sm:p-6"
             >
               <h3 className="font-nunito mb-6 text-2xl font-bold text-portfolio-primary dark:text-portfolio-lighter md:mb-4">
                 {t('about.timelineTitle')}

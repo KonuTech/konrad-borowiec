@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "React ve TypeScript ile geliştirilmiş, modern tasarım ve duyarlı düzene sahip kişisel portföy web sitesi."
+      },
+      "9": {
+        "description": "Çok para birimli bir yatırım portföyünü izlemek için tam yığın (full-stack) ve çok kullanıcılı bir platform. Baştan sona TypeScript ile geliştirildi — React 19, PostgreSQL ve Redis tabanlı bir veri alım kuyruğu — ve Prometheus ile Grafana'dan oluşan eksiksiz bir gözlemlenebilirlik katmanıyla 16 servisli bir Docker yığını olarak çalışır."
       }
     }
   },

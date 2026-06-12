@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "React와 TypeScript로 구축한 개인 포트폴리오 웹사이트로, 현대적인 디자인과 반응형 레이아웃을 갖추었습니다."
+      },
+      "9": {
+        "description": "다중 통화 투자 포트폴리오를 모니터링하기 위한 풀스택·멀티유저 플랫폼입니다. 처음부터 끝까지 TypeScript로 구축되었으며(React 19, PostgreSQL, Redis 기반 수집 큐), 16개 서비스로 구성된 Docker 스택으로 실행되고 Prometheus와 Grafana로 구성된 완전한 가시성(observability) 계층을 갖추고 있습니다."
       }
     }
   },

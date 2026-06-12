@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "Personal portfolio website built with React and TypeScript, featuring modern design and responsive layout."
+      },
+      "9": {
+        "description": "A full-stack, multi-user platform for monitoring a multi-currency investment portfolio. Built TypeScript end-to-end — React 19, PostgreSQL, and a Redis-backed ingestion queue — run as a 16-service Docker stack with a full Prometheus and Grafana observability plane."
       }
     }
   },

@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "React と TypeScript で構築した個人ポートフォリオサイト。モダンなデザインとレスポンシブなレイアウトが特徴です。"
+      },
+      "9": {
+        "description": "複数通貨の投資ポートフォリオを監視するための、フルスタックかつマルチユーザーのプラットフォーム。TypeScript で一貫して構築され（React 19、PostgreSQL、Redis ベースの取り込みキュー）、16 サービスの Docker スタックとして稼働し、Prometheus と Grafana による完全な可観測性基盤を備えています。"
       }
     }
   },

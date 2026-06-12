@@ -22,12 +22,17 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
           <span className="sr-only">{project.title}</span>
         </a>
       )}
-      <img
-        src={project.imageUrl || ''}
-        alt={project.title}
-        className="h-48 w-full object-cover"
-        loading="lazy"
-      />
+      <picture>
+        {project.imageUrlMobile && (
+          <source media="(max-width: 767px)" srcSet={project.imageUrlMobile} />
+        )}
+        <img
+          src={project.imageUrl || ''}
+          alt={project.title}
+          className={project.wide ? 'h-auto w-full' : 'h-48 w-full object-cover'}
+          loading="lazy"
+        />
+      </picture>
       <div className="flex flex-grow flex-col p-6">
         <div className="mb-3 flex items-start justify-between">
           <h3 className="font-nunito text-xl font-bold text-portfolio-dark dark:text-portfolio-lighter">

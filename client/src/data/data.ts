@@ -3,6 +3,18 @@ import type { Project, Book, Contact } from '../../../shared/types';
 // Portfolio projects data
 export const projects: Project[] = [
   {
+    id: 9,
+    title: 'Investment Portfolio Monitoring Platform',
+    description:
+      'A full-stack, multi-user platform for monitoring a multi-currency investment portfolio. Built TypeScript end-to-end — React 19, PostgreSQL, and a Redis-backed ingestion queue — run as a 16-service Docker stack with a full Prometheus and Grafana observability plane.',
+    imageUrl: '/pictures/projects/Gemini_Generated_Image_5izpjl5izpjl5izp.png',
+    imageUrlMobile: '/pictures/projects/Gemini_Generated_Image_txvqi4txvqi4txvq.png',
+    githubUrl: 'https://github.com/KonuTech/app-portfolio-monitoring',
+    technologies: ['TypeScript', 'React', 'PostgreSQL', 'Redis', 'Docker', 'Prometheus', 'Grafana'],
+    featured: true,
+    wide: true,
+  },
+  {
     id: 1,
     title: 'SQL Playground using NYC Taxi Data',
     description:

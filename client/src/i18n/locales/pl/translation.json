@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "Osobista strona portfolio zbudowana w React i TypeScript, z nowoczesnym designem i responsywnym układem."
+      },
+      "9": {
+        "description": "Pełnostosowa, wieloużytkownikowa platforma do monitorowania wielowalutowego portfela inwestycyjnego. W całości napisana w TypeScript — React 19, PostgreSQL i kolejka ingestii oparta na Redis — uruchamiana jako 16-usługowy stos Docker z pełną warstwą obserwowalności złożoną z Prometheus i Grafana."
       }
     }
   },

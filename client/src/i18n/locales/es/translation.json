@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "Sitio web de portafolio personal construido con React y TypeScript, con un diseño moderno y una disposición responsiva."
+      },
+      "9": {
+        "description": "Plataforma full-stack y multiusuario para monitorizar una cartera de inversión multidivisa. Desarrollada íntegramente en TypeScript — React 19, PostgreSQL y una cola de ingesta basada en Redis — y ejecutada como una pila Docker de 16 servicios con un completo plano de observabilidad con Prometheus y Grafana."
       }
     }
   },

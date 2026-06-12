@@ -21,10 +21,14 @@ export const insertProjectSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
   imageUrl: z.string().optional(),
+  // Optional narrower image shown on small screens (<768px); falls back to imageUrl.
+  imageUrlMobile: z.string().optional(),
   liveUrl: z.string().optional(),
   githubUrl: z.string().optional(),
   technologies: z.array(z.string()),
   featured: z.boolean().default(false),
+  // When true, the card spans the full grid width (its own row).
+  wide: z.boolean().optional(),
 });
 
 // Inferred types

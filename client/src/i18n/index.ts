@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import enTranslation from './locales/en/translation.json';
 import plTranslation from './locales/pl/translation.json';
@@ -56,28 +57,28 @@ const resources = {
   },
 };
 
-const saved =
-  typeof window !== 'undefined'
-    ? (() => {
-        try {
-          return localStorage.getItem('selectedLanguage');
-        } catch {
-          return null;
-        }
-      })()
-    : null;
-
-i18n.use(initReactI18next).init({
-  resources,
-  fallbackLng: 'en',
-  lng: saved || undefined,
-  interpolation: {
-    escapeValue: false,
-  },
-  react: {
-    useSuspense: false,
-  },
-});
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'en',
+    supportedLngs: Object.keys(resources),
+    // Region variants (pl-PL, pt-BR, de-AT, ...) resolve to the base locale we ship.
+    load: 'languageOnly',
+    detection: {
+      // A manual choice (persisted to localStorage) always wins over browser detection.
+      order: ['localStorage', 'navigator'],
+      lookupLocalStorage: 'selectedLanguage',
+      caches: ['localStorage'],
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+    react: {
+      useSuspense: false,
+    },
+  });
 
 // Languages written right-to-left. Used to set the document direction so RTL
 // locales (e.g. Arabic) render with correct text flow and alignment.
@@ -93,17 +94,15 @@ const applyDocumentLanguage = (lng: string | undefined) => {
   document.documentElement.dir = RTL_LANGS.includes(base) ? 'rtl' : 'ltr';
 };
 
-// Apply once for the initial language (saved selection or English fallback).
-applyDocumentLanguage(saved || 'en');
+// Apply once for the initial language (saved selection, detected browser
+// language, or English fallback) — init() is synchronous since all resources
+// are bundled, so i18n.language is already resolved here.
+applyDocumentLanguage(i18n.language);
 
+// Persistence is handled by the language detector's localStorage cache; this
+// handler only keeps the document attributes in sync on in-app switches.
 i18n.on('languageChanged', (lng) => {
   applyDocumentLanguage(lng);
-  // persist language selection to localStorage (graceful fallback if unavailable)
-  try {
-    localStorage.setItem('selectedLanguage', lng);
-  } catch {
-    /* localStorage may be unavailable in some environments; ignore */
-  }
 });
 
 export default i18n;

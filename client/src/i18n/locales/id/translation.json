@@ -118,6 +118,9 @@
       },
       "8": {
         "description": "Website portofolio pribadi yang dibangun dengan React dan TypeScript, menampilkan desain modern dan tata letak responsif."
+      },
+      "9": {
+        "description": "Platform full-stack dan multi-user untuk memantau portofolio investasi multimata uang. Dibangun sepenuhnya dengan TypeScript — React 19, PostgreSQL, dan antrean ingestion berbasis Redis — serta dijalankan sebagai stack Docker dengan 16 layanan dan bidang observability lengkap menggunakan Prometheus dan Grafana."
       }
     }
   },

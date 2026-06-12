@@ -103,6 +103,13 @@ export const TECHNOLOGIES: Technology[] = [
   { id: 'tableau', label: 'Tableau', aliases: ['Tableau'], isSkill: false },
 
   // --- Side-project technologies ---
+  {
+    id: 'agentic-programming',
+    label: 'Agentic Programming',
+    aliases: ['Agentic Programming'],
+    isSkill: false,
+  },
+  { id: 'github', label: 'GitHub', aliases: ['GitHub'], isSkill: false },
   { id: 'postgresql', label: 'PostgreSQL', aliases: ['PostgreSQL'], isSkill: false },
   { id: 'pgadmin', label: 'pgAdmin', aliases: ['pgAdmin'], isSkill: false },
   {

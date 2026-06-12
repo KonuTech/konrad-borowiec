@@ -28,6 +28,29 @@ test('i18n: switch to Polish and check key UI texts', async ({ page }) => {
   await expect(page.locator('#books').getByText('Lista lektur').first()).toBeVisible();
 });
 
+test.describe('i18n: browser language detection', () => {
+  test.use({ locale: 'pl-PL' });
+
+  test('first visit with a Polish browser starts in Polish', async ({ page }) => {
+    await page.goto('/');
+
+    await expect(page.locator('html')).toHaveAttribute('lang', 'pl');
+    await expect(page.locator('text=Zobacz moje projekty')).toBeVisible();
+  });
+
+  test('a saved manual choice wins over browser detection', async ({ page }) => {
+    await page.goto('/');
+
+    // Pick English explicitly, then hard-reload: the stored choice must win
+    // even though the browser still reports pl-PL.
+    await page.locator('button[aria-label="English"]').first().click();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  });
+});
+
 test('i18n: switching to Arabic sets RTL document direction', async ({ page }) => {
   await page.goto('/');
 

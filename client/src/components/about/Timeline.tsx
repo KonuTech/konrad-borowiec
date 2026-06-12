@@ -42,10 +42,10 @@ const TimelineItem: FC<{
       transition={{ duration: 0.4 }}
     >
       <div className="flex items-stretch">
-        <div className="relative mr-6 flex flex-col items-center self-stretch">
+        <div className="relative mr-3 flex flex-col items-center self-stretch sm:mr-6">
           {/* Icon container */}
           <div
-            className={`relative z-10 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full ${
+            className={`relative z-10 flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full sm:h-12 sm:w-12 ${
               item.type === 'work'
                 ? 'bg-portfolio-primary text-white'
                 : 'bg-portfolio-accent text-white dark:bg-portfolio-darker'
@@ -71,7 +71,7 @@ const TimelineItem: FC<{
           {/* Title and organization card */}
           <div
             onClick={onClick}
-            className={`flex w-full cursor-pointer flex-col rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-darker ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
+            className={`flex w-full cursor-pointer flex-col rounded-lg bg-white p-4 shadow-md transition-shadow hover:shadow-lg dark:bg-portfolio-darker sm:p-6 ${isActive ? 'border-l-4 border-portfolio-primary dark:border-portfolio-primary' : ''}`}
           >
             <div className="flex-grow">
               {/* Responsive layout for title, organization, and date */}
@@ -146,7 +146,7 @@ const TimelineItem: FC<{
                 className="overflow-hidden"
               >
                 <div
-                  className={`mt-1 rounded-b-lg bg-white pb-2 pl-4 pr-4 pt-4 shadow-md dark:bg-portfolio-darker timeline-description-id-${index}`}
+                  className={`mt-1 rounded-b-lg bg-white px-2 pb-2 pt-4 shadow-md dark:bg-portfolio-darker sm:px-4 timeline-description-id-${index}`}
                 >
                   <p className="whitespace-pre-line text-justify text-sm text-portfolio-text dark:text-portfolio-lighter/90">
                     {highlightTechnologies(item.description)}
@@ -216,7 +216,7 @@ const Timeline: FC<TimelineProps> = ({ selected = [], onToggleTech = () => {} })
   }
 
   return (
-    <div className="pl-4 pr-4">
+    <div className="px-0 sm:px-4">
       <AnimatePresence>
         {visibleItems.map(({ item, index }, visiblePos) => (
           <TimelineItem

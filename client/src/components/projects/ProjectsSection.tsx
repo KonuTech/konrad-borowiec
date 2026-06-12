@@ -49,6 +49,7 @@ const ProjectsSection = () => {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
+                  className={project.wide ? 'md:col-span-2 lg:col-span-4' : ''}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

@@ -71,7 +71,17 @@ export const timelineItems: TimelineItem[] = [
     title: 'Big Data Developer',
     organization: 'Crestt sp. z o.o. (Bank Pekao S.A., Nationale-Nederlanden S.A.)',
     period: '02.2021 - 06.2022',
-    technologies: ['apache-airflow', 'python', 'pyspark', 'hive', 'cloudera', 'sas', 'sas-viya'],
+    technologies: [
+      'apache-airflow',
+      'python',
+      'pyspark',
+      'hive',
+      'cloudera',
+      'hadoop',
+      'linux',
+      'sas',
+      'sas-viya',
+    ],
     description:
       'Development of batch data processing solutions for one of the largest banks in Poland. The ELT processes for Data Lake were designed using Airflow, Python, PySpark, and Hive within the on-premise Cloudera Data Platform. Development and operationalization of churn related classifier for insurance company. Added functionalities for scoring and monitoring of new data. Development and operationalization of classifiers for VR training company. Design and development of HR demo dashboard with a use SAS Viya.',
     type: 'work',

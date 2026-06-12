@@ -1,6 +1,6 @@
 # Konrad Borowiec - Welcome to my About Me web page
 
-A modern, responsive portfolio website built as a frontend-only static web application using React, TypeScript, and Tailwind CSS. The site showcases professional skills, projects, books, and personal interests with a clean, interactive design.
+A modern, responsive, multilingual portfolio website built as a frontend-only static web application with React, TypeScript, Vite, and Tailwind CSS. It showcases professional experience, skills, side projects, a reading list, and personal interests through a clean, interactive, animated interface — including a technology-filterable Experience & Education timeline, a years-of-experience chart, and a data-driven CV downloadable as PDF, HTML, or Markdown in any of 13 languages.
 
 ## ✨ Features
 
@@ -9,6 +9,9 @@ A modern, responsive portfolio website built as a frontend-only static web appli
 - **⚡ Fast Performance**: Static site generation with optimized assets
 - **🎭 Interactive Animations**: Smooth transitions using Framer Motion
 - **📖 Dynamic Content**: Projects showcase, reading list, and photo galleries
+- **🌍 Multilingual**: Full internationalization across 13 languages (i18next), persisted to localStorage
+- **🗂️ Interactive Timeline**: Experience & Education filterable by technology, with a years-of-experience chart
+- **📄 Downloadable CV**: Data-driven résumé exported as PDF, HTML, or Markdown — localized to the selected language
 - **📧 Contact Form**: Functional contact form with localStorage persistence
 - **🌙 Dark Mode**: System-aware theme switching
 - **♿ Accessible**: Built with semantic HTML and ARIA standards
