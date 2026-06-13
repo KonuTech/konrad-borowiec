@@ -31,6 +31,9 @@ const Footer = () => {
               {t('footer.tagline')}
               <span className="ml-2 opacity-70">{`· build: ${buildId}`}</span>
             </p>
+            <p className="mt-1 text-[11px] text-portfolio-muted opacity-80">
+              {t('footer.privacy')}
+            </p>
           </div>
         </div>
       </div>

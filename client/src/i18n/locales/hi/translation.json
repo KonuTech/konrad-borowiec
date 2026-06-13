@@ -237,7 +237,8 @@
     "logo": "Konrad Borowiec",
     "description": "डेटा विश्लेषण और डेटा इंजीनियरिंग",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec. सर्वाधिकार सुरक्षित।",
-    "tagline": "पेशेवर डेटा समाधान"
+    "tagline": "पेशेवर डेटा समाधान",
+    "privacy": "गोपनीयता: यह साइट गुमनाम उपयोग विश्लेषण के लिए Microsoft Clarity का उपयोग करती है।"
   },
   "ui": {
     "darkMode": "डार्क मोड",

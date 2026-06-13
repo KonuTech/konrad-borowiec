@@ -64,6 +64,13 @@ Note: `tsconfig.json` still lists `server/**/*` in `include` — leftover and ha
 - PDF is hybrid: Latin-script locales (en, pl, es, de, fr, pt, tr, id) get a real-text PDF via `@react-pdf/renderer` + Noto Sans from `assets/fonts/cv/`; ja/zh/ko/ar/hi fall back to a rasterized capture via `html2pdf.js`. Both libraries load lazily on click — keep them out of the main bundle. The split is the `TEXT_PDF_LANGS` set in `lib/cv/pdf.tsx`.
 - E2E coverage: `e2e/cv-download.spec.ts` (en/pl/ja/ar, all three formats).
 
+### Analytics
+
+- **Microsoft Clarity**, behind a provider-agnostic wrapper in `client/src/lib/analytics.ts` (`initAnalytics` / `trackEvent` / `trackPageview`) — the only file that knows the provider. Init happens in `main.tsx`.
+- **Disabled by default**: a total no-op (no network) unless `VITE_CLARITY_ID` is set at build time, and always off in dev (`import.meta.env.DEV`) and under Do-Not-Track. The id is a GitHub Actions secret injected by the Azure workflow.
+- Section engagement reuses the IntersectionObserver already in `Header.tsx` via `client/src/lib/useSectionTracking.ts` — **don't add a second observer**. Events carry **no PII** (contact-form contents are never sent).
+- LinkedIn-vs-direct attribution depends on a redirect fix + UTM tags in the **separate** `KonuTech/konutech.github.io` repo. Full setup, event list, and the redirect snippet live in `docs/ANALYTICS.md`.
+
 ### Other conventions
 
 - Routing: **Wouter**, not React Router.

@@ -6,6 +6,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import MobileMenu from '@/components/layout/MobileMenu';
 import { useState, useEffect } from 'react';
+import { trackPageview } from '@/lib/analytics';
+import { useSectionTracking } from '@/lib/useSectionTracking';
 
 function Router() {
   return (
@@ -18,6 +20,12 @@ function Router() {
 
 function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
+
+  useEffect(() => {
+    trackPageview();
+  }, []);
+
+  useSectionTracking(activeSection);
 
   return (
     <div className="flex min-h-screen flex-col">

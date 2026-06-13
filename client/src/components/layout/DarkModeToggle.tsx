@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '@/context/ThemeContext';
+import { trackEvent } from '@/lib/analytics';
 
 const DarkModeToggle = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
@@ -16,7 +17,10 @@ const DarkModeToggle = () => {
     <button
       className="transition-colors duration-300 hover:text-portfolio-primary dark:hover:text-portfolio-darker"
       aria-label="Toggle dark mode"
-      onClick={toggleDarkMode}
+      onClick={() => {
+        trackEvent('theme_toggled', { theme: darkMode ? 'light' : 'dark' });
+        toggleDarkMode();
+      }}
       title={darkMode ? t('ui.lightMode') : t('ui.darkMode')}
     >
       {darkMode ? (

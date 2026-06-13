@@ -237,7 +237,8 @@
     "logo": "Konrad Borowiec",
     "description": "Analisis Data & Rekayasa Data",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Semua hak cipta dilindungi.",
-    "tagline": "Solusi data profesional"
+    "tagline": "Solusi data profesional",
+    "privacy": "Privasi: situs ini menggunakan Microsoft Clarity untuk analitik penggunaan anonim."
   },
   "ui": {
     "darkMode": "Mode Gelap",

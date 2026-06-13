@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useToast } from '@/hooks/use-toast';
 import { insertContactSchema } from '@shared/types';
 import { api } from '@/lib/staticApi';
+import { trackEvent } from '@/lib/analytics';
 
 // Extend the base schema with more validations
 const contactFormSchema = insertContactSchema.extend({
@@ -39,6 +40,8 @@ const ContactForm = () => {
     setIsSubmitting(true);
     try {
       await api.contact.create(data);
+      // No PII: event records that a submission happened, not its contents.
+      trackEvent('contact_submitted');
       toast({
         title: t('toast.sent'),
         description: t('toast.success'),

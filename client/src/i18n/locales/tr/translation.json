@@ -237,7 +237,8 @@
     "logo": "Konrad Borowiec",
     "description": "Veri Analizi ve Veri Mühendisliği",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Tüm hakları saklıdır.",
-    "tagline": "Profesyonel veri çözümleri"
+    "tagline": "Profesyonel veri çözümleri",
+    "privacy": "Gizlilik: bu site anonim kullanım analizi için Microsoft Clarity kullanır."
   },
   "ui": {
     "darkMode": "Koyu Mod",

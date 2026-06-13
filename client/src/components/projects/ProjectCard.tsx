@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Project } from '@shared/types';
+import { trackEvent } from '@/lib/analytics';
 
 interface ProjectCardProps {
   project: Project;
@@ -16,6 +17,9 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent('project_link_clicked', { project_id: project.id, kind: 'github' })
+          }
           aria-label={`${project.title} on GitHub`}
           className="absolute inset-0 z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-primary"
         >
@@ -59,6 +63,9 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent('project_link_clicked', { project_id: project.id, kind: 'demo' })
+              }
               className="font-nunito text-sm font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
             >
               <i className="fas fa-external-link-alt mr-1"></i> {t('common.demo')}
@@ -69,6 +76,9 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent('project_link_clicked', { project_id: project.id, kind: 'github' })
+              }
               className="font-nunito text-sm font-bold text-portfolio-primary transition-colors duration-300 hover:text-portfolio-dark dark:text-portfolio-lighter dark:hover:text-white"
             >
               <i className="fab fa-github mr-1"></i> {t('common.github')}

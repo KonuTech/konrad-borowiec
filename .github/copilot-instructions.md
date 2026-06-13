@@ -56,6 +56,10 @@ Known repository notes (important to surface)
 - `npm run analyze` references `dist` in some docs; actual build goes to `build/`.
 - Static data often uses async wrappers for compatibility; when changing data flows, preserve API-compatible signatures unless migrating deliberately.
 
+Analytics
+
+- Microsoft Clarity behind a provider-agnostic wrapper (client/src/lib/analytics.ts), initialised in main.tsx. No-op unless VITE_CLARITY_ID is set at build time (GitHub Actions secret) and always off in dev/test. Section tracking reuses the existing Header.tsx IntersectionObserver via client/src/lib/useSectionTracking.ts — do not add another. Events carry no PII. Traffic-source attribution and the konutech.github.io redirect snippet are documented in docs/ANALYTICS.md.
+
 Where to look for more context
 
 - README.md, CLAUDE.md and AGENTS.md contain further repository context and developer notes. AGENTS.md contains several "do not" rules that must be respected by automation.

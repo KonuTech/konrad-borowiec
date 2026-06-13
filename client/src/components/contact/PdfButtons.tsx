@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useToast } from '@/hooks/use-toast';
 import { downloadCv } from '@/lib/cv/download';
 import type { CvFormat } from '@/lib/cv/types';
+import { trackEvent } from '@/lib/analytics';
 
 // CV download buttons. All content assembly and rendering lives in
 // client/src/lib/cv/ — the CV follows the currently selected language.
@@ -23,6 +24,7 @@ const PdfButtons: FC = () => {
     setGenerating(format);
     try {
       await downloadCv(format, i18n.language);
+      trackEvent('cv_downloaded', { format, lang: i18n.language });
     } catch (error) {
       console.error('CV download failed', error);
       toast({

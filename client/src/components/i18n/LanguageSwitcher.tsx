@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageModal from './LanguageModal';
+import { trackEvent } from '@/lib/analytics';
 
 interface LanguageOption {
   code: string;
@@ -69,6 +70,7 @@ const LanguageSwitcher = () => {
   }, [open]);
 
   const handleSelect = (code: string) => {
+    trackEvent('language_changed', { lang: code });
     i18n.changeLanguage(code);
     setOpen(false);
   };
@@ -115,10 +117,7 @@ const LanguageSwitcher = () => {
             <button
               key={lang.code}
               type="button"
-              onClick={() => {
-                i18n.changeLanguage(lang.code);
-                setOpen(false);
-              }}
+              onClick={() => handleSelect(lang.code)}
               aria-pressed={active}
               aria-label={lang.fullName}
               title={lang.fullName}

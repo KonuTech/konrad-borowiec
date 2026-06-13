@@ -55,6 +55,10 @@ Defined in both `vite.config.ts` and `tsconfig.json`. Use them instead of relati
 
 Projects, books, and gallery image lists all live in `client/src/data/data.ts`. Image files must also exist under `assets/pictures/...` — the paths in `data.ts` are runtime URLs, not imports, so a typo won't fail the build.
 
+## Analytics
+
+Microsoft Clarity behind a provider-agnostic wrapper (`client/src/lib/analytics.ts`), initialised in `main.tsx`. It's a no-op unless `VITE_CLARITY_ID` is set at build time and is always off in dev — so it never runs in local/test. Section tracking reuses the existing `Header.tsx` observer via `client/src/lib/useSectionTracking.ts` (don't add another). Events carry no PII. Traffic-source attribution + the GitHub Pages redirect snippet are documented in `docs/ANALYTICS.md`.
+
 ## Husky / lint-staged
 
 `.husky/pre-commit` and `.husky/pre-push` both just run `npx lint-staged`. Only staged `*.{js,jsx,ts,tsx}` get `eslint --fix` + Prettier; other file types get Prettier only. Nothing runs typecheck or build on commit — run those manually.

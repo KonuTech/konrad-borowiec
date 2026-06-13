@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { trackEvent } from '@/lib/analytics';
 
 // Profile photo served via Express static middleware
 const profilePhoto = '/pictures/photos/konrad.jpg';
@@ -65,6 +66,7 @@ const Hero = () => {
             <div className="flex flex-col flex-wrap justify-center gap-4 md:max-w-lg md:flex-row md:justify-start">
               <a
                 href="#projects"
+                onClick={() => trackEvent('cta_clicked', { cta: 'projects' })}
                 className="font-nunito flex transform items-center justify-center rounded-md border border-portfolio-primary bg-white px-6 py-3 text-center font-bold text-portfolio-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-portfolio-lighter dark:bg-portfolio-darker dark:text-portfolio-lighter md:flex-1"
               >
                 {t('hero.ctaProjects')}
@@ -73,6 +75,7 @@ const Hero = () => {
                 href="#contact-anchor"
                 onClick={(e) => {
                   e.preventDefault();
+                  trackEvent('cta_clicked', { cta: 'contact' });
                   const anchor = document.getElementById('contact-anchor');
                   if (anchor) {
                     const element = anchor.nextElementSibling;

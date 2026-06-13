@@ -237,7 +237,8 @@
     "logo": "Konrad Borowiec",
     "description": "Análisis de datos e ingeniería de datos",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec. Todos los derechos reservados.",
-    "tagline": "Soluciones de datos profesionales"
+    "tagline": "Soluciones de datos profesionales",
+    "privacy": "Privacidad: este sitio usa Microsoft Clarity para análisis de uso anonimizado."
   },
   "ui": {
     "darkMode": "Modo oscuro",

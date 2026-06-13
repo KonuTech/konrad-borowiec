@@ -48,8 +48,8 @@ const Header: FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       { rootMargin: '-50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
 
-    // Observe all sections
-    const sections = ['home', 'about', 'projects', 'books', 'interests'];
+    // Observe all sections ('contact' is tracked for analytics but not shown in nav)
+    const sections = ['home', 'about', 'projects', 'books', 'interests', 'contact'];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);

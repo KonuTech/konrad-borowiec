@@ -237,7 +237,8 @@
     "logo": "Konrad Borowiec",
     "description": "数据分析与数据工程",
     "copyright": "© {{year}} Konu-Tec Konrad Borowiec。保留所有权利。",
-    "tagline": "专业数据解决方案"
+    "tagline": "专业数据解决方案",
+    "privacy": "隐私：本网站使用 Microsoft Clarity 进行匿名使用分析。"
   },
   "ui": {
     "darkMode": "深色模式",
